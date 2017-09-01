@@ -1,0 +1,29 @@
+ | key        | interface    |  method  |db  |table  |
+| --------   | :-----:   | :----: |:----: |:----: |
+|getProjectName|mapperGasProjects|getProjectById|gas_new|gas_projects|
+|getProjectName|mapperGasProjects|getProjectById|gas_new|project_detail_type_dim|
+|getProjectsByProjectId|mapperGasProjects|getProjectById|gas_new|gas_projects|
+|getProjectsByProjectId|mapperGasProjects|getProjectById|gas_new|project_detail_type_dim|
+|getGasProjectsList|mapperGasProjects|getAll|gas_new|gas_projects|
+|getGasProjectsList|mapperGasProjects|getAll|gas_new|project_detail_type_dim|
+|getAllProjectTagList|mapperProjectTagDim|getAll|gas_new|project_tag_dim|
+|getGasSourceDimList|mapperGasSourceDim|getAll|gas_new|gas_source_dim|
+|getArticleSourceDimList|mapperArticleSourceDim|getArticleSourceDimList|gas_new|article_source_dim|
+|getLtCommonTypeSet|mapperAdminLtCotype|getLtCommonTypeList|gas_new|admin_lt_cotype|
+|getProjectByAppId|mapperGasProjects|getProjectByAppId|gas_new|gas_apps|
+|getTagListByProjectId|mapperGasProjectTag|getProjectTagListByProject|gas_new|gas_project_tag|
+|getAppIdByProjectId|mapperGasApps|getAppIdByProjectId|gas_new|gas_apps|
+|getValidInfoidList|gasCrawlerInfoList|getInfoidListByProjectId|gas_new|gas_crawler_info|
+|getGasCrawlerInfoByInfoId|mapperGasCrawlerInfo|getGasCrawlerInfoByInfoId|gas_new|gas_crawler_info|
+|getGasCrawlerInfoByInfoId|mapperGasCrawlerInfo|getGasCrawlerInfoByInfoId|gas_new|gas_projects|
+|getLatestProjectOpinionRankDate|mapperProjectOpinionRankDistri|getLatestProjectOpinionRank|gas_new|project_opinion_rank_distri|
+|getLatestProjChannelRatingDistriNewDate|mapperProjChannelRatingDistriNew|getLatestProjChannelRatingDistriNew|gas_new|proj_channel_rating_distri_new|
+|getLatestAppstoreRankDate|mapperGasRatingInfo|getGasRatingInfoLatestDate|gas_new|gas_rating_info|
+|getProjectOpinionRank|mapperProjectOpinionRankDistri|getProjectOpinionRankByProjectIdAndDate|gas_new|project_opinion_rank_distri|
+|getProjChannelRatingDistriNewCycle|mapperProjChannelRatingDistriNew|getTotalProjChannelRatingDistriNew|gas_new|proj_channel_rating_distri_new|
+|getProjChannelRatingDistriNew|mapperProjChannelRatingDistriNew|getTotalProjChannelRatingDistriNewByDate|gas_new|proj_channel_rating_distri_new|
+|getGasRatingInfoByDateAndAppId|mapperGasRatingInfo|getGasRatingInfoByKeywordByDateAndAppId|gas_new|gas_rating_info|
+|getGasRatingInfoByDateAndAppId|mapperGasRatingInfo|getGasRatingInfoByKeywordByDateAndAppId|gas_new|gas_apps_info|
+|getProjForumAttitudeLatestDate|mapperProjForumAttitudeDistri|getProjForumAttitudeLatestDate|gas_new|proj_forum_attitude_distri|
+|getProjForumAttitude|mapperProjForumAttitudeDistri|getDetailDistributeByDate|gas_new|proj_forum_attitude_distri|
+|getProjForumAttitudeByProjectId|mapperProjForumAttitudeDistri|getDetailDistributeByProjectIdAndDate|gas_new|proj_forum_attitude_distri|

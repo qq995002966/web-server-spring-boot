@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>登录</title>
+<link rel="stylesheet" type="text/css" href="css/root.min.css" />
+<style>
+
+body
+{
+    background-color:#566782;
+}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <script type="text/javascript" src="js/layer/layer.js" ></script>
+    <script type="text/javascript" src="js/store.min.js" ></script>
+    <script type="text/javascript" src="js/func.js" ></script>
+<script>
+
+
+function onLoad()
+{
+	if(window.location.host.indexOf("thinkingdata.cn")>=0 || window.location.host.indexOf("thinkingame.cn")>=0)
+	{
+
+        $("[name=tips]").show();
+
+        $("[name=other]").hide();
+
+        setInterval(function(){
+            JumpUrl("http://www.thinkinggame.cn");
+        }, 10000);
+
+
+        setInterval(function(){var count_down=parseInt($("[name=count_down]").html()); if(count_down>1){count_down--; $("[name=count_down]").html(count_down)}},1000);
+
+
+        return;
+	}
+    else
+    {
+        $("[name=tips]").hide();
+
+        $("[name=other]").show();
+
+        var wh = $(window).height();
+
+        var h = $("[name=other]").outerHeight();
+
+        var m = ( wh - h ) / 2 - 40;
+
+        $("[name=other]").css({
+            "margin-top":m+'px'
+        });
+
+    }
+
+    $(".footer").css({
+        position:'fixed',
+        bottom:0
+    });
+
+    InitCheckbox();
+
+    $('[name=password]').keyup(function(event){
+        var key_code = (event.keyCode ? event.keyCode : event.which);
+
+        if(key_code == '13')
+        {
+            _submit();
+        }
+    });
+
+    G_LOGIN.CheckLoginServlet(function(){
+        ShowLoading();
+        setInterval(function(){
+            JumpUrl("lt.html");
+        },1100);
+
+    }, null);
+}
+
+function _submit()
+{
+    var login_name=$("[name=login_name]").val();
+
+    var password=$("[name=password]").val();
+
+    var maxInactiveInterval=($("input[maxinactiveinterval]").prop('checked') ? $("input[maxinactiveinterval]").attr('maxInactiveInterval') : 0);
+
+    G_LOGIN.LoginServlet(login_name, password, maxInactiveInterval, null, function(data,msg,code){
+        alert(msg);
+    });
+}
+
+
+$(onLoad);
+</script>
+</head>
+<body>
+
+<div name="tips" style="line-height:3em;padding:2em;margin:auto;width:50%;color:#ffffff;padding-top:5em">
+
+    尊敬的用户，您好：<br/>
+    ThinkingData平台的新版本已上线，我们将启用新域名&nbsp;<a style="color:#ffffff" href="http://www.thinkinggame.cn">www.thinkinggame.cn</a>&nbsp;，原www.thinkingdata.cn
+    内容转移至新域名；www.thinkingdata.cn域名仍将保留，以后提供其他服务，敬请关注（<span name="count_down">10</span>秒后自动跳转）。
+
+</div>
+
+<div name="other">
+
+    <img src="http://image.thinkinggame.cn/img/llogo2.png" style="display:block;margin-bottom:40px;" class="ma"/>
+
+    <div class="login-w" style="background-color:#ffffff;margin:auto;border-radius:3px">
+        <div class="_pop_box-body">
+            <div style="padding-top:20px;padding-bottom:20px">
+                <div class="login-input-div" style="margin-bottom:25px">
+                    <div class="logo"></div>
+                    <input placeholder="用户名" name="login_name" type="text"/>
+                </div>
+                <div class="login-input-div">
+                    <div class="logo password"></div>
+                    <input placeholder="密码" name="password" type="password"/>
+                </div>
+                <div style="margin-top:31px">
+                    <span class="checkbox" style="font-size:14px" _attr_name=maxInactiveInterval _attr_val=604800 _checked="false">七天免登陆</span><span style="font-size:12px;margin-top:2px" class="fr font-theme cp" onclick="G_PopWnd.reg()">申请体验</span>
+                </div>
+                <button class="login-submit cp" style="margin-top:31px" name="login_submit" onclick="_submit()">登录</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

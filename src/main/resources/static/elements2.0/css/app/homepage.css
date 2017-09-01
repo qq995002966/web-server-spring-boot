@@ -1,0 +1,58 @@
+/*color set*/
+/*font-size set*/
+/*button set*/
+/*input set*/
+/*background-dev*/
+div.homepage div.blockpart {
+  height: 265px; }
+  div.homepage div.blockpart div.boxshadow {
+    height: 265px; }
+    div.homepage div.blockpart div.boxshadow > div {
+      border-bottom: 1px solid #cccccc; }
+    div.homepage div.blockpart div.boxshadow ul.report-list {
+      height: 200px;
+      overflow: auto; }
+      div.homepage div.blockpart div.boxshadow ul.report-list li img {
+        position: absolute;
+        width: 93px;
+        height: 134px; }
+      div.homepage div.blockpart div.boxshadow ul.report-list li div.des {
+        margin-left: 109px; }
+        div.homepage div.blockpart div.boxshadow ul.report-list li div.des h3 {
+          font-size: 14px;
+          color: #333;
+          font-weight: bold; }
+        div.homepage div.blockpart div.boxshadow ul.report-list li div.des p {
+          font-size: 12px;
+          color: #808080; }
+        div.homepage div.blockpart div.boxshadow ul.report-list li div.des a {
+          width: 100px;
+          height: 30px;
+          display: inline-block;
+          line-height: 30px;
+          text-align: center;
+          border: 1px solid #d6d6d6; }
+    div.homepage div.blockpart div.boxshadow ul.game-list {
+      height: 200px;
+      overflow: auto; }
+      div.homepage div.blockpart div.boxshadow ul.game-list li {
+        float: left;
+        width: 70px;
+        white-space: nowrap;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 15px;
+        cursor: pointer; }
+        div.homepage div.blockpart div.boxshadow ul.game-list li:hover {
+          text-decoration: underline; }
+        div.homepage div.blockpart div.boxshadow ul.game-list li img {
+          width: 50px;
+          height: 50px;
+          display: block;
+          position: relative;
+          left: 50%;
+          margin-left: -25px;
+          margin-bottom: 15px;
+          margin-top: 10px;
+          cursor: pointer; }

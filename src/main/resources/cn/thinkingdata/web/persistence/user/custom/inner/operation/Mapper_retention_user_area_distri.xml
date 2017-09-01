@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.operation.Mapper_retention_user_area_distri">
+
+    <select id="getRetentionUserAreaDistriListByGameId" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_retention_user_area_distri">
+        select game_id,retention_classify,global_classify,area_classify,sum(user_num) user_num  from inner_game.retention_user_area_distri where game_id = #{game_id} and data_date between #{start_date} and #{end_date} group by retention_classify,global_classify,area_classify  order by user_num DESC
+    </select>
+</mapper>

@@ -1,0 +1,377 @@
+@charset "utf-8";
+@import url("center.css");
+/*流失雷达去向*/
+div.lost-part {
+    border: 1px solid #e4e4e4;
+}
+
+div.lost-part h2 {
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: #737373;
+}
+
+div.lost-radar {
+    margin-bottom: 10px;
+}
+
+div.coordinate {
+    background: url(../img/lost-circle.png) no-repeat;
+    height: 444px;
+    width: 942px;
+    margin-left: 11px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+div.coordinate div.circle-img span.center-title {
+
+    text-align: center;
+
+    display: block;
+
+    margin-top: 10px;
+}
+
+div.coordinate div.circle-img img {
+    width: 80px;
+}
+
+div.coordinate ul.img-list li {
+    list-style: none;
+    position: absolute;
+}
+
+div.coordinate ul.img-list li img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.circle-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 80px;
+    height: 80px;
+    margin-left: -35px;
+    margin-top: -40px;
+}
+
+.img-list li span {
+    position: absolute;
+    width: 100px;
+}
+
+li.img_1 {
+    left: 50%;
+    margin-left: -20px;
+    top: 15px;
+}
+
+li.img_2 {
+    left: 47%;
+    top: 50%;
+    margin-left: 200px;
+    margin-top: -20px;
+}
+
+li.img_3 {
+    left: 50%;
+    margin-left: -20px;
+    bottom: 10px;
+}
+
+li.img_4 {
+    left: 49%;
+    top: 50%;
+    margin-top: -20px;
+    margin-left: -240px;
+}
+
+li.img_5 {
+    left: 60%;
+    top: 10%;
+}
+
+li.img_6 {
+    left: 66%;
+    top: 67%;
+}
+li.img_7 {
+    left: 32%;
+    top: 85%;
+}
+
+li.img_8 {
+    top: 25%;
+    left: 26%;
+}
+
+li.img_9 {
+    left: 66%;
+    top: 25%;
+}
+
+li.img_10 {
+    left: 60%;
+    top: 85%;
+}
+
+li.img_11 {
+    top: 67%;
+    left: 25%;
+}
+
+li.img_12 {
+    left: 34%;
+    top: 10%;
+}
+
+li.img_13 {
+    right: 18%;
+    top: 5%;
+}
+
+li.img_14 {
+    right: 12%;
+    top: 50%;
+    margin-top: -20px;
+}
+
+li.img_15 {
+    right: 17%;
+    bottom: 3%;
+}
+
+li.img_16 {
+    bottom: 3%;
+    left: 16%;
+}
+
+li.img_17 {
+    top: 50%;
+    left: 10%;
+    margin-top: -20px;
+}
+
+li.img_18 {
+    top: 5%;
+    left: 15%;
+}
+
+li.img_19 {
+    top: 25%;
+    right: 13%;
+}
+
+li.img_20 {
+    top: 67%;
+    right: 13%;
+}
+
+li.img_21 {
+    top: 67%;
+    left: 11%;
+}
+
+li.img_22 {
+    top: 25%;
+    left: 11%;
+}
+
+/*流失关键因素*/
+
+div.lost-factor div.content-part {
+    border: 1px solid #e4e4e4;
+    margin: 0 20px 20px 20px;
+    min-height: 300px;
+}
+
+div.lost-factor ul.tab-change {
+    overflow: hidden;
+}
+
+div.lost-factor ul.tab-change li:first-child {
+    width: 129px;
+    border-left: none;
+}
+
+div.lost-factor ul.tab-change li {
+    float: left;
+    border-right: 1px solid #e4d4d4;
+    border-bottom: 1px solid #e4e4e4;
+    text-align: center;
+    width: 131px;
+    height: 82px;
+    list-style: none;
+    cursor: pointer;
+}
+
+div.lost-factor ul.tab-change li.selected {
+    border-bottom: none;
+    border-top: 2px solid #237bd0;
+}
+
+div.lost-factor ul.tab-change li p {
+    color: #8e8e8e;
+}
+
+div.lost-factor ul.tab-change li p b {
+    font-weight: normal;
+}
+
+div.lost-factor ul.tab-change li p.blue-text {
+    font-size: 18px;
+    color: #237bd0;
+    font-weight: bold;
+}
+
+div.lost-factor ul.tab-change li h4 {
+    font-size: 15px;
+    color: #717171;
+}
+
+table.lost-table {
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+table.lost-table tr {
+    height: 35px;
+}
+
+table.lost-table tr:first-child:hover {
+    background: #fff;
+    cursor: default;
+}
+
+table.lost-table tr:hover {
+    background: #c1c1c1;
+    cursor: pointer;
+}
+
+table.lost-table tr:hover td {
+    color: #4e4e4e;
+}
+
+table.lost-table tr th:first-child {
+    width: 70%;
+    padding-left: 110px;
+}
+
+table.lost-table tr th {
+    color: #515151;
+}
+
+table.lost-table tr td {
+    color: #bebebe;
+}
+
+table.lost-table tr.problem-list {
+    display: none;
+}
+
+table.lost-table tr td i {
+    color: #999999;
+}
+
+table.lost-table tr td b {
+    color: #858585;
+}
+
+table.lost-table tr:first-child {
+    border-bottom: 1px solid #e4e4e4;
+}
+
+table.lost-table div.percent {
+    width: 108px;
+    height: 15px;
+    border: 1px solid #e4e4e4;
+    border-radius: 20px;
+    margin-left: -25px;
+}
+
+table.lost-table div.percent div.percent-line {
+    height: 14px;
+    width: 90px;
+    border-radius: 20px;
+}
+
+table.lost-table tr.problem-list {
+    background: #f4f4f4;
+}
+
+table.lost-table tr.selected {
+    background: #c1c1c1;
+
+}
+
+table.lost-table tr.selected td {
+    color: #4e4e4e;
+}
+
+table.lost-table tr td:first-child {
+    padding-left: 20px;
+}
+
+table.lost-table tr.problem-list td {
+    padding-left: 20px;
+    color: #4e4e4e;
+}
+
+table.lost-table tr.problem-list td>div {
+    line-height: 25px;
+}
+
+.color-a {
+    background-color: #d85b57;
+    border: 1px solid #d85b57;
+}
+
+.color-b {
+    background-color: #ff6267;
+    border: 1px solid #ff6267;
+}
+
+.color-c {
+    background-color: #fca33f;
+    border: 1px solid #fca33f;
+}
+
+.color-d {
+    background-color: #3cacb7;
+    border: 1px solid #3cacb7;
+}
+
+.color-e {
+    background-color: #2a6e71;
+    border: 1px solid #2a6e71;
+}
+
+.color-f {
+    background-color: #1e4e50;
+    border: 1px solid #1e4e50;
+}
+#Lost h3 {
+   height: 35px;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    display: block;
+    width: 130px;
+}
+#bs_game_choose {color: #555;margin-top: 30px;margin-left: 40px; }
+#bs_game_choose .gameDropCurrent{color: #ffffff}
+#bs_game_choose .gameDropAdd{ color:#0070D2}
+.bs_reason{ width: 130px !important; margin-top: -5px}
+.bs_reason a{ cursor: pointer}
+#bs_game_choose .gameDropCurrent p {
+    background-color: #fff;
+    color: #191919;
+    line-height: 34px;
+}

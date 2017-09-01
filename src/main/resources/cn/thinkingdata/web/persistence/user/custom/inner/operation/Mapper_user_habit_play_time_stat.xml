@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.operation.Mapper_user_habit_play_time_stat">
+
+    <select id="getUserHabitPlayTimeStatDayListByGameIdAndDate" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_user_habit_play_time_stat">
+        select * from inner_game.user_habit_play_time_stat_day where game_id = #{game_id} and data_date between #{start_date} and #{end_date} order by data_date
+    </select>
+    <select id="getUserHabitPlayTimeStatWeekListByGameIdAndDate" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_user_habit_play_time_stat">
+        select * from inner_game.user_habit_play_time_stat_week where game_id = #{game_id} and data_date between #{start_date} and #{end_date} order by data_date
+    </select>
+    <select id="getUserHabitPlayTimeStatMonthListByGameIdAndDate" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_user_habit_play_time_stat">
+        select * from inner_game.user_habit_play_time_stat_month where game_id = #{game_id} and data_date between #{start_date} and #{end_date} order by data_date
+    </select>
+</mapper>

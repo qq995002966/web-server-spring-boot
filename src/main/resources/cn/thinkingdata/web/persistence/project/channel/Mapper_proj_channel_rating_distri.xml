@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.channel.Mapper_proj_channel_rating_distri">
+	<resultMap type="cn.thinkingdata.web.domain.project.channel.Do_proj_channel_rating_distri" id="persistence">
+		<result property="project_id" column="project_id"/>
+		<result property="source_type" column="source_type"/>
+		<result property="source_name" column="source_name"/>
+		<result property="rating_name" column="rating_name"/>
+		<result property="data_date" column="data_date"/>
+		<result property="num" column="num"/>
+		<result property="es_field_name" column="es_field_name"/>
+		<result property="es_field_val" column="es_field_val"/>
+		<result property="rating_names" column="rating_names"/>
+	</resultMap>
+
+	<select id="get" resultMap="persistence">
+		select * from gas_new.proj_channel_rating_distri where project_id=#{project_id} and agg_code=1 and data_date between #{data_date_start} and #{data_date_end}
+	</select>
+
+	<select id="getRatingDistriByProjectDateSpan" resultType="cn.thinkingdata.web.domain.project.channel.Do_proj_channel_rating_distri">
+		select a.source_type,max(a.source_name) source_name,a.rating_name,sum(a.num) num,max(a.es_field_name) es_field_name,max(a.es_field_val) es_field_val,max(a.rating_names) rating_names from gas_new.proj_channel_rating_distri_new a,gas_new.gas_source_dim b
+		where a.project_id=#{project_id} and a.agg_code=1 and a.data_date between #{start_date} and #{end_date} and a.source_type=b.source_type
+		group by a.source_type,a.rating_name
+		order by b.rank
+	</select>
+
+</mapper>

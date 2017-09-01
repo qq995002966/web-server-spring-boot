@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.operation.Mapper_channel_common_stat">
+
+    <select id="getChannelCommonStatByGameId" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_channel_common_stat">
+        select * from inner_game.channel_common_stat where game_id = #{game_id} and data_date between #{start_date} and #{end_date} order by #{order_type} desc
+    </select>
+
+    <select id="getChannelQualityByGameId" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_channel_common_stat">
+        select channel_id,sum(newlogin_num) newlogin_num,avg(retention_rate_1d) retention_rate_1d,avg(retention_rate_7d) retention_rate_7d,avg(retention_rate_30d) retention_rate_30d,avg(login_num) login_num,avg(first_week_pay_rate) first_week_pay_rate from inner_game.channel_common_stat where game_id = #{game_id} and data_date between #{start_date} and #{end_date} group by channel_id
+    </select>
+
+    <select id="getChannelPayByGameId" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_channel_common_stat">
+        select channel_id,avg(newlogin_num) newlogin_num,sum(pay_amount) pay_amount,sum(pay_times) pay_times,avg(pay_num) pay_num,avg(pay_rate) pay_rate,avg(arpu) arpu,avg(arppu) arppu from inner_game.channel_common_stat where game_id = #{game_id} and data_date between #{start_date} and #{end_date} group by channel_id order by pay_rate
+    </select>
+
+    <select id="getChannelCommonStatByGameIdAndDate" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_channel_common_stat">
+        select * from inner_game.channel_common_stat where game_id = #{game_id} and data_date between #{start_date} and #{end_date} order by data_date
+    </select>
+</mapper>

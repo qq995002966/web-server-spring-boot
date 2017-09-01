@@ -1,0 +1,594 @@
+@import url("center.css");
+#bs_game_choose{ color: #555555; margin-top: 30px; margin-left: 40px}
+#bs_game_choose p{     line-height: 34px;
+    color: #191919;
+    background: #fff;
+    z-index: 6;
+}
+div#bs_game_choose div.gameDropPop {
+    top: 32px;
+}
+.insidelost .il_title{ height: 35px; line-height: 35px;font-size: 16px;  font-weight: bold;  color: #636363;}
+.insidelost .il_border{ border: 2px solid #EFEFEF}
+.insidelost .il_banner{}
+.insidelost .il_active{ width: 970px; margin-right: -10px;}
+.insidelost .il_active_area{ width: 475px; margin-right: 10px; float: left; margin-bottom: 10px; height: 320px}
+.il_chart{width: 450px;height: 260px; }
+#bs_chart_pie{width: 370px; height: 240px}
+#bs_chart_line{width: 510px; height: 240px}
+ul#optionSelect {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    width: 300px;
+    padding: 20px 10px;
+    z-index: 10;
+    left: 107px;
+}
+
+ul#optionSelect  li {
+    color: #686868;
+    list-style: none;
+    height:  30px;
+    line-height: 30px;
+    font-size: 14px;
+    position: relative;
+}
+
+ul#optionSelect p {
+    color: #a7a7a7;
+    margin-bottom: 10px;
+}
+
+ul#optionSelect  li input {
+    margin-right: 15px;
+}
+
+ul#optionSelect  li  label:before {
+    /* content: " "; */
+    /* background: url(../img/checked.png) no-repeat; */
+    /* width: 18px; */
+    /* height: 18px; */
+    /* position: absolute; */
+    top: 5px;
+    /* z-index: 2; */
+    /* left: 0; */
+    cursor: pointer;
+}
+
+ul#optionSelect  li input[type="checkbox"]:checked + label:before {
+    background-position: 0px 0;
+}
+
+div.inLost-content {
+    border: 1px solid #e6e6e6;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+tr.empty {
+    height: 30px;
+}
+
+div.inLost-content .chart-part {
+    margin: 20px 15px;
+    height: 275px;
+}
+
+div.inLost-content .chart-part ul {
+    display: inline-block;
+}
+
+div.inLost-content .chart-part ul.cp-l {
+    margin-right: 5%;
+    width: 40%;
+}
+
+div.inLost-content .chart-part ul.cp-r {
+    width: 55%;
+    float: right;
+}
+
+div.inLost-content .chart-part ul li {
+    list-style: none;
+}
+
+div.inLost-content .chart-part ul li.title {
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    color: #636363;
+}
+
+div.choice-part {
+    background: #eaedf4;
+    border-top: 1px solid #e5e5e5;
+}
+
+div.choice-part div.btn-part {
+    clear: both;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+}
+
+div.choice-part div.btn-part button {
+    width: 90px;
+    height: 30px;
+    background: #196bbd;
+    border: none;
+    color: #fff;
+    margin: 10px 0;
+    border-radius: 4px;
+    left: 50%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+div.choice-part div.choice-list {
+    margin: 15px;
+    position: relative;
+    /*overflow: hidden;*/
+        min-height: 55px;
+}
+
+div.choice-part div.choice-list>ul {
+    width: 988px;
+}
+
+div.choice-part div.choice-list>ul>li {
+    list-style: none;
+    /* display: inline-block; */
+    width: 300px;
+    height: 25px;
+    margin-right: 14px;
+    line-height: 25px;
+    float: left;
+    margin-bottom: 5px;
+}
+
+li.text-input {
+    position: relative;
+    /* top: 10px; */
+}
+li.text-input span {
+    position: absolute;
+    /* right: 220px; */
+}
+
+div.choice-part div.choice-list ul li span.zhi {
+    display: inline-block;
+    width: 14px;
+}
+
+div.choice-part div.choice-list ul li span {
+    color: #71747b;
+    font-size: 14px;
+    margin: 0 10px;
+    width: 126px;
+    display: inline-block;
+    white-space: nowrap;
+    text-align: left;
+    height: 25px;
+    line-height: 25px;
+}
+
+div.choice-part div.choice-list ul li .all-input {
+    border: 1px solid #d0d0d0;
+    height: 25px;
+    padding-left: 5px;
+    color: #9e9e9e;
+    font-size: 14px;
+    background: #fff;
+    line-height: 25px;
+        position: relative;
+    z-index: 2;
+}
+
+div.choice-part div.choice-list ul li input.name-input {
+    width: 154px;
+    float: right;
+}
+
+div.choice-part div.choice-list ul li input.area-input {
+    width: 60px;
+}
+
+div.choice-part div.choice-list ul li.select-drop #dropDown ul {
+    width: 154px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    line-height: 28px;
+    /* padding-left: 10px; */
+    background: #F4F4F4;
+    z-index: 3;
+    position: relative;
+    top: -1px;
+    height: 150px;
+    overflow: auto;
+}
+
+div.choice-part div.choice-list ul li.select-drop {
+    position: relative;
+    height: 25px;
+}
+
+div.choice-part div.choice-list ul li.select-drop div#selectWrap {
+    position: absolute;
+    right: 0;
+    /*top: -6px;*/
+}
+li.select-drop span {
+    position: absolute;
+    /* right: 220px; */
+}
+
+div.choice-part div.choice-list ul li.select-drop div#dropDown ul {
+    display: none;
+}
+
+div.choice-part div.choice-list ul li.select-drop div#selectWrap p {
+    width: 154px;
+    cursor: pointer;
+    height: 25px;
+    line-height: 25px;
+}
+
+div.choice-part div.choice-list ul li.select-drop div#selectWrap p:after {
+    content: '▼';
+    font-size: 12px;
+    color: #9e9e9e;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+
+div.choice-part div.choice-list ul li.select-drop div#selectWrap ul li {
+    list-style: none;
+}
+
+div.choice-part div.choice-list ul li.select-drop div#selectWrap ul li a {
+    display: block;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #9e9e9e;
+}
+
+div.choice-part div.choice-list ul li.select-drop div#selectWrap ul li a:hover {
+    background: #1B79D3;
+    color: #fff;
+}
+
+div.download-data {
+    margin: 20px;
+    overflow: hidden;
+}
+
+div.download-data button {
+    width: 90px;
+    height: 25px;
+    background: #196bbd;
+    border-radius: 2px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    right: 40px;
+}
+
+div.download-data button i {
+    color: #fff;
+}
+
+div.table-part table {
+        width: 100%;
+        /*border-bottom: 1px solid #e6e6e6;*/
+        margin-bottom: 20px;
+        /*height: 365px;*/
+        position: relative;
+}
+
+div.table-part thead {
+    border-bottom: 1px solid #e6e6e6;
+}
+div.table-part thead i{ cursor: pointer}
+div.table-part  .c_empty {
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    text-align: center;
+    /* left: 55%; */
+    /*top: 65%;*/
+    margin-left: 450px;
+}
+
+div.table-part .c_loading {
+       position: absolute;
+    width: 43px;
+    height: 43px;
+    top: 50%;
+    margin-left: 450px;
+}
+
+div.table-part tr th {
+    height: 65px;
+    font-size: 14px;
+    color: #9e9e9e;
+    text-align: center;
+    font-weight: normal;
+}
+
+div.table-part tr td {
+    text-align: center;
+    font-size: 12px;
+    color: #9e9e9e;
+    height: 30px;
+    padding: 0;
+    padding: 0 10px;
+}
+
+div.table-part {
+    margin-top: 40px;
+    width: 959px;
+    overflow-x: scroll;
+}
+
+div.table-part tr  th{
+    position: relative;
+    min-width: 95px;
+}
+
+.table-part tbody tr:hover {
+    background: #f1f1f1;
+    cursor: pointer;
+}
+
+div.table-part tr th i {
+position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -7px;
+    margin-left: 35px;
+}
+
+div.table-part tr th.tran-icon:after {
+     content: '▼';
+     font-size: 12px;
+     color: #cdcdcd;
+     position: absolute;
+     top: 25px;
+     margin-left: 2px;
+}
+
+div.table-part  tr td.t-progress {
+    width: 100px;
+}
+
+div.table-part  tr th.operation {
+    width: 100px;
+}
+
+div.table-part  tr td.t-progress  div{
+    width: 100%;
+    background: #eeebf6;
+    border-radius: 20px;
+    height: 15px;
+}
+
+div.table-part  tr td.t-progress  div p.progress-rate {
+    width: 60%;
+    background: #137feb;
+    border-radius: 20px;
+    height: 15px;
+}
+
+div.table-part  tr td.op a {
+    color: #137feb;
+}
+
+ul.page-list  {
+    width: 325px;
+    position: relative;
+    left: 50%;
+    margin-left: -155px;
+    margin-bottom: 20px;
+        margin-top: 30px;
+}
+
+ul.page-list  li {
+    list-style: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+
+ul.page-list  li:first-child {
+    color: #aaaaaa;
+    margin-right: 10px;
+} 
+
+ul.page-list  li input {
+    width: 30px;
+    height: 25px;
+    border-radius: 2px;
+    border: 1px solid #d0d0d0;
+    text-align: center;
+    margin: 0 5px;
+}
+
+ul.page-list  li button {
+        width: 60px;
+    height: 25px;
+    border-radius: 2px;
+    border: 1px solid #d0d0d0;
+    background: #fff;
+    margin-left: 10px;
+}
+
+ ul.page-list li.page-num-total {
+    color: #afafaf;
+    margin-right: 10px;
+    margin-left: 15px;
+}
+
+ .page-list li.page-num-total {
+    color: #afafaf;
+    margin-right: 10px;
+    margin-left: 15px;
+}
+
+ .page-list li.page-num-total span.page-num {
+    margin: 0 10px;
+    line-height: 23px;
+    position: relative;
+    top: -1px;
+}
+
+.page-list li .page-num input {
+    width: 27px;
+    height: 23px;
+    line-height: 23px;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    margin: 0 5px;
+}
+
+.page-list .page-op {
+    display: inline-block;
+    width: 50px;
+    height: 23px;
+    position: relative;
+    top: -1px;
+    cursor: pointer;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 21px;
+}
+
+.page-list span.confirm {
+    margin-right: 10px;
+}
+
+
+div.il_chart table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+div.il_chart table tbody tr:first-child {
+      border-bottom: 1px solid #e6e6e6;
+}
+
+div.il_chart table th {
+    font-size: 14px;
+    color: #747373;
+    text-align: center;
+    font-weight: normal;
+    padding-bottom: 5px;
+    /* margin-bottom: 10px; */
+}
+
+div.il_chart table tr td {
+    text-align: center;
+    font-size: 12px;
+    color: #9e9e9e;
+    height: 25px;
+    padding: 0;
+    min-width: 90px;
+}
+
+.bs_table {
+    width: 100%;
+    overflow: auto;
+    height: 260px;
+}
+
+div#insidepdf {
+    position: fixed;
+    top: 97px;
+    bottom: -80px;
+    width: 1000px;
+}
+
+.inLost-content .choice-tab{
+    height: 35px; border-bottom: 3px solid #EFEFEF;
+}
+.inLost-content .choice-tab ul{margin-top: 10px; margin-left: 10px}
+.inLost-content .choice-tab ul li{ float: left; height: 35px; line-height: 35px; text-align: center; padding: 0 20px; list-style: none; font-size: 14px; font-weight: bold;cursor: pointer}
+.inLost-content .choice-tab ul .liOn{ background-color: #EAEDF4}
+
+
+
+div.insidelog-login-watch {
+    border: 1px solid #e6e6e6;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+    height: 250px;
+}
+
+div.insidelog-login-watch h3, .t-header h3 {
+    height: 35px;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    display: block;
+    width: 130px;
+}
+
+.t-header button {
+       width: 90px;
+    height: 25px;
+    background: #196bbd;
+    border-radius: 2px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    right: 40px;
+    top: 20px;
+}
+
+.t-header {
+    padding: 20px;
+    position: relative;
+    padding-bottom: 0;
+}
+
+#insidelist div.table-part.insidelog {
+    margin-top: 10px;
+}
+.inside_chart{ width: 930px; height: 170px}
+
+#gameDropChoose .gameDropPop.gameInner li img {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    position: absolute;
+    top: 8px;
+    left: 5px;
+}
+
+#gameDropChoose .gameDropPop.gameInner li {
+    height: 45px;
+    line-height: 45px;
+    text-indent: 45px;
+    position: relative;
+}
+
+.table-part td a:hover {
+    color: #71ae28;
+}
+
+.table-part td a {
+    text-decoration: none;
+    color: #237bd0;
+}
+
+.click-color {
+    background-color: #eaedf4;
+}

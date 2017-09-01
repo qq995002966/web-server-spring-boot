@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.channel.Mapper_proj_channel_rating_distri_new">
+
+	<select id="getLatestProjChannelRatingDistriNew" resultType="string">
+		select data_date
+		from gas_new.proj_channel_rating_distri_new where data_date > DATE_SUB(now(),INTERVAL 7 DAY) and agg_code=1 ORDER BY data_date desc limit 1
+	</select>
+
+	<select id="getTotalProjChannelRatingDistriNew" resultType="java.util.HashMap" >
+		select sum(num) channel_total,
+			sum(case when  rating_name='五星' or rating_name='四星'or rating_name='好评'or rating_name='喜欢' then num else 0 end ) as channel_positive,
+			sum(case  when  rating_name='一星' or rating_name='二星' or rating_name='差评' or rating_name='不喜欢' then num else 0 end) as channel_negative
+		from gas_new.proj_channel_rating_distri_new where agg_code=1 and project_id = #{project_id} and data_date between DATE_SUB(#{data_date},INTERVAL 29 DAY) and #{data_date}
+	</select>
+
+	<select id="getTotalProjChannelRatingDistriNewByDate" resultType="java.util.HashMap" >
+		select sum(num) channel_total,
+		sum(case when  rating_name='五星' or rating_name='四星'or rating_name='好评'or rating_name='喜欢' then num else 0 end ) as channel_positive,
+		sum(case  when  rating_name='一星' or rating_name='二星' or rating_name='差评' or rating_name='不喜欢' then num else 0 end) as channel_negative
+		from gas_new.proj_channel_rating_distri_new where agg_code=1 and project_id = #{project_id} and data_date = #{data_date}
+	</select>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.forum.Mapper_proj_forum_common_stat">
+
+	<select id="getForumCommonStatBydateSpan" resultType="cn.thinkingdata.web.domain.project.forum.Do_proj_forum_common_stat">
+		select sum(title_num) title_num,sum(title_avg_num) title_avg_num,sum(title_talent_num) title_talent_num,
+			   sum(title_num*positive_rate) positive_num,avg(positive_rate) positive_rate,avg(positive_avg_rate) positive_avg_rate,avg(positive_talent_rate) positive_talent_rate,
+			   sum(title_num*negative_rate) negative_num,avg(negative_rate) negative_rate,avg(negative_avg_rate) negative_avg_rate,avg(negative_talent_rate) negative_talent_rate,
+			   avg(useless_rate) useless_rate,avg(useless_avg_rate) useless_avg_rate,avg(useless_talent_rate) useless_talent_rate,
+			   sum(hotword_num) hotword_num,sum(hotword_avg_num) hotword_avg_num,sum(hotword_talent_num) hotword_talent_num,
+			   sum(topic_num) topic_num,sum(topic_avg_num) topic_avg_num,sum(topic_talent_num) topic_talent_num,
+			   substring_index(max(concat(data_date,'|',talent_games)),'|',-1) talent_games
+			    from gas_new.proj_forum_common_stat	where project_id=#{project_id} and data_date between #{start_date} and #{end_date}
+	</select>
+
+	<select id="getForumCommonStatListByDate" resultType="cn.thinkingdata.web.domain.project.forum.Do_proj_forum_common_stat">
+		select * from gas_new.proj_forum_common_stat where project_id=#{project_id} and data_date > #{data_date} order by data_date desc
+	</select>
+
+	<select id="getForumCommonStatLatest" resultType="cn.thinkingdata.web.domain.project.forum.Do_proj_forum_common_stat">
+		select * from gas_new.proj_forum_common_stat where project_id=#{project_id} and data_date > DATE_SUB(now(),INTERVAL 30 DAY) order by data_date desc limit 1
+	</select>
+</mapper>

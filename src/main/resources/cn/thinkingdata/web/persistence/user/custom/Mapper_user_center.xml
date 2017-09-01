@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.Mapper_user_center">
+	<resultMap type="cn.thinkingdata.web.domain.user.center.Do_user_center"  id="persistence">
+		<result property="user_id" column="user_id"/>
+		<result property="project_id" column="project_id"/>
+		<result property="email_addr" column="email_addr"/>
+		<result property="email_title" column="email_title"/>
+		<result property="status" column="status"/>
+		<result property="keywords" column="keywords"/>
+		<result property="send_day_of_week" column="send_day_of_week"/>
+		<result property="send_hour_of_day" column="send_hour_of_day"/>
+		<result property="last_send_time" column="last_send_time"/>
+		<result property="keywords_cnt" column="keywords_cnt"/>
+		<result property="ignore_empty" column="ignore_empty"/>
+	</resultMap>
+	<resultMap type="cn.thinkingdata.web.domain.user.center.Do_user_center_follow"  id="mapperFollow">
+		<result property="project_id" column="project_id"/>
+		<result property="user_id" column="user_id"/>
+		<result property="cnt" column="cnt"/>
+		<result property="type" column="type"/>
+	</resultMap>
+
+	
+	<insert id="insert" parameterType="cn.thinkingdata.web.domain.user.center.Do_user_center">
+		insert into user_center (user_id,project_id,email_addr,email_title,status,keywords,send_day_of_week, send_hour_of_day,keywords_cnt, ignore_empty) values (#{user_id},#{project_id},#{email_addr},#{email_title},#{status},#{keywords},#{send_day_of_week},#{send_hour_of_day},#{keywords_cnt},#{ignore_empty})
+	</insert>
+	
+	<update id="delete">
+		update user_center set delete_flag=1,status=0 where id=#{id} and user_id=#{user_id}
+	</update>
+	
+	<update id="update" parameterType="cn.thinkingdata.web.domain.user.center.Do_user_center">
+		update user_center set project_id=#{project_id},email_addr=#{email_addr},email_title=#{email_title},status=#{status},keywords=#{keywords},send_day_of_week=#{send_day_of_week},send_hour_of_day=#{send_hour_of_day},keywords_cnt=#{keywords_cnt},ignore_empty=#{ignore_empty} where id=#{id} and user_id=#{user_id}
+	</update>
+	
+	<select id="get" resultMap="persistence">
+		select a.*,b.project_name from user_center a, gas_new.gas_projects b where a.project_id=b.project_id and a.user_id=#{user_id} and a.delete_flag=0 and b.status=1 order by id desc limit #{index}, #{limit} 
+	</select>
+	
+	<select id="getFollow" resultMap="mapperFollow">
+		select user_id, project_id, count(*) as cnt, "" as type from user_center where user_id=#{user_id} and delete_flag=0 group by project_id,user_id union all select user_id, project_id, count(*) as cnt, "1" as type from user_center where user_id=#{user_id} and delete_flag=0 and status=1  group by project_id,user_id union all select user_id, project_id, count(*) as cnt, "0" as type from user_center where user_id=#{user_id} and delete_flag=0 and status=0  group by project_id,user_id	
+	</select>
+	
+	<select id="getKeywordsCnt" resultType="hashmap">
+		select ifnull(sum(keywords_cnt),0) as keywords_cnt from user_center where user_id=#{user_id}	
+	</select>
+	
+	
+	<select id="getKeywordMonitorNum" resultType="int">
+		select count(1) num from user_center where user_id=#{user_id} and delete_flag=0
+	</select>
+	
+</mapper>

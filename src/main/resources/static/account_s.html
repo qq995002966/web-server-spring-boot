@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"-->
+    <meta name="renderer" content="webkit">
+    <title>订单中心详细-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/account.css">
+</head>
+<body class="c_bgWhite">
+    <div id="invoice_s" class="c_none c_hidden">
+        <div class="c_padding30">
+            <dl>
+                <dt>* 订单号：</dt>
+                <dd id="bs_order_number"></dd>
+            </dl>
+            <dl>
+                <dt>* 发票抬头：</dt>
+                <dd><input type="text" name="title" placeholder="发票抬头" maxlength="50"></dd>
+            </dl>
+            <dl>
+                <dt>* 发票内容：</dt>
+                <dd>
+                    <div class="btn-group">
+                        <button class="btn btn-default dropdown-toggle c_relative" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span data-t="技术服务">技术服务</span>　
+                            <i class="caret"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a data-t="技术服务">技术服务</a></li>
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+            <dl>
+                <dt>* 收件人：</dt>
+                <dd><input type="text" name="receiver" placeholder="收件人" maxlength="50"></dd>
+            </dl>
+            <dl>
+                <dt>* 联系电话：</dt>
+                <dd><input type="text" name="phone" placeholder="收件人联系电话" maxlength="50"></dd>
+            </dl>
+            <dl>
+                <dt>* 收件地址：</dt>
+                <dd><input type="text" name="address" placeholder="省份/城市/街道/门牌号" maxlength="100"></dd>
+            </dl>
+            <dl>
+                <dt>* 邮政编码：</dt>
+                <dd><input type="text" name="postcode" placeholder="邮政编码" maxlength="10"></dd>
+            </dl>
+            <dl>
+                <dt>&nbsp;</dt><dd id="bs_btn"><button type="button" class="btn btn-info">确认提交</button> <button type="button" class="btn btn-default">取消</button></dd>
+            </dl>
+        </div>
+    </div>
+    <div id="detail_s" class="c_none c_hidden">
+        <div class="c_padding30" id="bs_detail"></div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/center.js"></script>
+<script type="text/javascript" src="elements/js/account.js"></script>

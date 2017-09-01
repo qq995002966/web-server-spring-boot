@@ -1,0 +1,1 @@
+require(["frontmain"],function(){require(["jquery","layer","base"],function(){var e=B_Common._getUrl("query");switch(e.t){case"chat":$("#chatNotice").show();break;case"pay":$("#payNotice").show()}})});

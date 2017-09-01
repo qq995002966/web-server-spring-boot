@@ -1,0 +1,62 @@
+<div id="headerTop" class="boxshadow default-flytest-ht">
+    <div class="tg-selected-drop  fr">
+        <div>
+            <i class="tg-icon tg-date-icon"></i>
+            <span>日期</span>
+        </div>
+        <p class="tg-drop-text-part">
+            <i class="tg-graph tg-triangle-gray-bottom"></i>
+            <span class="hot-area" id="dc1"></span>
+            <input id="db1" type="hidden" value="">
+            <input id="de1" type="hidden" value="">
+        </p>
+    </div>
+</div>
+<div class="container-fluid suddenly-part" id="contentPart">
+    <div class="blockpart   col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h3 class="part-title">数据总览</h3>
+        <div class="boxshadow dataoverview"></div>
+    </div>
+    <div class="blockpart   col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h3 class="part-title">玩家总览</h3>
+        <div class="boxshadow" id="tab_user_chart">
+            <ul class="tg-tab-change-block" id="tab_list_li_0" data-i="0">
+                <li class="tg-tab-block-active tip-hover">
+                    <div class="tip-box-show">
+                        <i class="triangle-up"></i>
+                        <div class="tip-box-content">
+                            活跃玩家：当日开启过游戏的玩家人数
+                            <br> 新玩家：活跃玩家中的当日新增玩家
+                            <br> 老玩家：活跃玩家中非当日新增玩家
+                        </div>
+                    </div>活跃玩家
+                </li>
+                <li class=" tip-hover">
+                    <div class="tip-box-show">
+                        <i class="triangle-up"></i>
+                        <div class="tip-box-content">
+                            首次付费玩家：当日第一次付费的玩家
+                            <br> 再次付费玩家：当日之前已经有付费记录的玩家
+                            <br> 潜在付费玩家：之后7日（不含当日）玩家付费的意愿强度>0.5的玩家数。付费意愿的取值范围为0~1，非常强烈的意愿为1
+                        </div>
+                    </div>付费玩家
+                </li>
+                <li class=" tip-hover">
+                    <div class="tip-box-show">
+                        <i class="triangle-up"></i>
+                        <div class="tip-box-content">
+                            实际流失：到当日为止，恰为连续7天（含当日）未登录的玩家记为当日的实际流失玩家
+                            <br> 潜在流失：之前7日（含当日）有登录记录，之后7日（不含今日）不再登录概率大于50%的玩家
+                        </div>
+                    </div>流失玩家
+                </li>
+            </ul>
+            <div class="avg-part" id="bs_avg"></div>
+            <div class="graph-show-part">
+                <div class="b_chart_area" style="height: 350px">
+                    <div class="b_chart" id="bs_chart_summary"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

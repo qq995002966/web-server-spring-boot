@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.baidu.Mapper_baidu_user_profile_stat">
+	<resultMap type="cn.thinkingdata.web.domain.baidu.Do_baidu_user_profile_stat" id="persistence">
+		<result property="project_id"                   column="project_id"/>
+		<result property="active_class"                 column="active_class"/>
+		<result property="influence_level"              column="influence_level"/>
+		<result property="interest_classify"            column="interest_classify"/>
+		<result property="charm_level"                  column="charm_level"/>
+		<result property="province"                     column="province"/>
+		<result property="op_type"                      column="op_type"/>
+		<result property="pay_ability"                  column="pay_ability"/>
+		<result property="complain_level"               column="complain_level"/>
+		<result property="post_quality"                 column="post_quality"/>
+		<result property="game_lifecycle"               column="game_lifecycle"/>
+		<result property="user_num"                     column="user_num"/>
+		<result property="user_rate"                    column="user_rate"/>
+		<result property="attention_forums_distri"      column="attention_forums_distri"/>
+		<result property="attention_game_forums_distri" column="attention_game_forums_distri"/>
+		<result property="interest_classifies_distri"   column="interest_classifies_distri"/>
+		<result property="user_title_num_distri"        column="user_title_num_distri"/>
+		<result property="user_content_num_distri"      column="user_content_num_distri"/>
+		<result property="user_be_replied_num_distri"   column="user_be_replied_num_distri"/>
+		<result property="user_post_hour_distri"        column="user_post_hour_distri"/>
+		<result property="fans_num_distri"              column="fans_num_distri"/>
+		<result property="tieba_age_distri"             column="tieba_age_distri"/>
+		<result property="sex_distri"                   column="sex_distri"/>
+		<result property="hot_value_distri"             column="hot_value_distri"/>
+		<result property="province_distri"              column="province_distri"/>
+	</resultMap>
+
+	<select id="getBaiduUserProfileList" parameterType="cn.thinkingdata.web.domain.baidu.Do_baidu_user_profile_stat" resultMap="persistence">
+		select user_num,user_rate,attention_forums_distri,attention_game_forums_distri,interest_classifies_distri,user_title_num_distri,user_content_num_distri,user_be_replied_num_distri,user_post_hour_distri,fans_num_distri,tieba_age_distri,sex_distri,hot_value_distri,province_distri 
+		from gas_new.baidu_user_profile_stat where project_id=#{project_id}
+		<if test = 'active_class != null'> 
+			and active_class=#{active_class}
+		</if>
+		<if test = 'influence_level != null'> 
+			and influence_level=#{influence_level}
+		</if>
+		<if test = 'interest_classify != null'> 
+			and interest_classify=#{interest_classify}
+		</if>
+		<if test = 'charm_level != null'> 
+			and charm_level=#{charm_level}
+		</if>
+		<if test = 'province != null'> 
+			and province=#{province}
+		</if>
+		<if test = 'op_type != null'> 
+			and op_type=#{op_type}
+		</if>
+		<if test = 'pay_ability != null'> 
+			and pay_ability=#{pay_ability}
+		</if>
+		<if test = 'complain_level != null'> 
+			and complain_level=#{complain_level}
+		</if>
+		<if test = 'post_quality != null'> 
+			and post_quality=#{post_quality}
+		</if>
+		<if test = 'game_lifecycle != null'> 
+			and game_lifecycle=#{game_lifecycle}
+		</if>
+	</select>
+</mapper>

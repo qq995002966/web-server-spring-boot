@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>舆情助手</title>
+<link rel="stylesheet" type="text/css" href="css/root.min.css" />
+<style>
+
+
+    .right-bar textarea
+    {
+        height:96px;
+    }
+
+    [name=ChangePasswordServlet] td
+    {
+        padding-bottom:10px;
+    }
+
+    .cont-title-bar
+    {
+        line-height:50px;
+        height:50px;
+        color:#03a9f5;
+        font-size:14px;
+    }
+
+    .question-mark
+    {
+        width:14px;height:14px;font-size:12px;text-align:center;color:#a0a8af;border:2px solid #a0a8af;border-radius:14px;
+        line-height:14px;
+    }
+
+    .pop_add td
+    {
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+
+    .pop_add td:first-child
+    {
+        vertical-align: top;
+        width:6em;
+        text-align:right;
+        padding-right:10px;
+    }
+
+    table.mid>tbody>tr>td
+    {
+        border:1px solid #dee3eb;
+    }
+
+    table.mid-desc>tbody>tr>td
+    {
+        vertical-align:top;
+    }
+
+    table.mid-desc>tbody>tr>td:first-child
+    {
+        padding-right:20px;
+    }
+
+
+    table.mid-desc button
+    {
+        color:#03a9f5;
+        border:1px solid #dee3eb;
+        background:transparent;
+        font-size:14px;
+        line-height:2.5em;
+    }
+
+    table.mid-desc button:hover
+    {
+        color:#009ee6;
+        font-weight:bold;
+    }
+
+
+    .loading,.failure
+    {
+        height:400px;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <script type="text/javascript" src="js/layer/layer.js" ></script>
+    <script type="text/javascript" src="js/store.min.js" ></script>
+    <script type="text/javascript" src="js/func.js" ></script>
+<script>
+
+function onLoad()
+{
+    G_MENU.AddMenuFooter();
+
+    FitMenuTextCenter('');
+
+    InitDoneLoadingFailure();
+
+    G_LOGIN.CheckLoginServlet(LoginDone,PopLogin,true);
+
+
+}
+
+var g_is_login=false;
+
+function LoginDone()
+{
+    if(IsDemoUser())
+    {
+        PopLogin();
+        return;
+    }
+
+    g_is_login=true;
+
+    UserCenterQueryServlet.init().query(true);
+
+
+    InitCheckbox();
+
+    InitRadiobox();
+
+}
+
+var UserCenterQueryServlet={
+    root:null,
+    init:function(){
+
+        if(UserCenterQueryServlet.root==null)
+        {
+            UserCenterQueryServlet.root=$("div[name=UserCenterQueryServlet]")
+        }
+
+        var add=$("[name=UserCenterAddServlet]");
+
+        g_tiny_choose_game.attach(add.find("[name=choose_project]"), G_LOCAL_STORAGE.LastChosenProjectId(), function(project_id, project_name){
+
+        });
+
+        var html=add.html();
+
+        var upt=$("[name=UserCenterUpdateServlet]");
+
+        upt.html(html);
+
+        add.find("button.confirm").click(function(){
+            UserCenterQueryServlet.UserCenterAddServlet();
+        });
+
+        upt.find(".cont-title-bar>span").html("修改监控任务");
+
+        upt.find("button.cancel").unbind('click').html('取消修改').click(function(){
+            UserCenterQueryServlet.cancelUpdate();
+        });
+
+        upt.find("button.confirm").unbind('click');
+
+        UserCenterQueryServlet.root.find(".checkbox").css({
+            'min-width':'80px',
+            'margin-bottom':'10px'
+        });
+        UserCenterQueryServlet.root.find(".radiobox").css({
+            'min-width':'80px'
+        });
+
+        g_tiny_choose_game.attach(upt.find("[name=choose_project]"), G_LOCAL_STORAGE.LastChosenProjectId(), function(project_id, project_name){
+
+        });
+
+
+        var add_projects=$(".projects[name=example]").clone().attr("name","for_add");
+
+        $("[name=UserCenterAddServlet] [name=choose_project]").append(add_projects.show());
+
+
+        var update_projects=$(".projects[name=example]").clone().attr("name","for_update");
+
+        $("[name=UserCenterUpdateServlet] [name=choose_project]").append(update_projects.show());
+
+        return UserCenterQueryServlet;
+    },
+    explain:function(){
+        var e=UserCenterQueryServlet.root.find("[name=explain]");
+        if(e.width()==0)
+        {
+            e.animate({
+                width:'640px'
+            });
+        }
+        else
+        {
+            e.animate({
+                width:'0'
+            });
+        }
+    },
+    add:function()
+    {
+        if(!g_is_login)
+        {
+            PopLogin();
+            return;
+        }
+
+        G_PopWnd.dialog("添加监控任务", $("[name=UserCenterAddServlet]"), "", 0, 0, 1);
+
+        $("[name=UserCenterAddServlet] [name=status][_attr_val=1]").click();
+    },
+    findInCurList:function(id)
+    {
+        for(var i=0; i<UserCenterQueryServlet.cur_list.length; ++i)
+        {
+            if(UserCenterQueryServlet.cur_list[i].id==id)
+            {
+                return UserCenterQueryServlet.cur_list[i];
+            }
+        }
+
+        return null;
+    },
+    updateStatus:function(id,status)
+    {
+        var father=UserCenterQueryServlet;
+
+        var cur=father.findInCurList(id);
+        if(!cur)
+            return;
+
+        var old_status=cur.status;
+        cur.status=status;
+
+
+        var key="UserCenterUpdateServlet";
+
+        MyPost(G_CGI_URL.usercenter[key],
+                cur,ShowLoading,HideLoading,
+                function()
+                {
+                    G_PopWnd.good("修改成功");
+                    father.query(false);
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+
+        cur.status=old_status;
+    },
+    update:function(id)
+    {
+        var row=UserCenterQueryServlet.findInCurList(id);
+
+        for(var k in row)
+        {
+            var e=$("[name=UserCenterUpdateServlet] [name="+k+"]");
+
+            if(k=='project_id')
+            {
+                $("[name=UserCenterUpdateServlet]").find("[project_id="+row[k]+"]").click();
+            }
+            else if(k=='status')
+            {
+                $("[name=UserCenterUpdateServlet] [name="+k+"][_attr_val="+row[k]+"]").click();
+            }
+            else if(k=='ignore_empty')
+            {
+                if(row[k]==1)
+                {
+                    EnableCheckbox($("[name=UserCenterUpdateServlet] [name="+k+"][_attr_val=1]"));
+                }
+                else
+                {
+                    DisableCheckbox($("[name=UserCenterUpdateServlet] [name="+k+"][_attr_val=1]"));
+                }
+            }
+            else if(k=='send_hour_of_day')
+            {
+                for(var i=0; i<=23; ++i)
+                {
+                    DisableCheckbox($("[name=UserCenterUpdateServlet] [name="+k+"][_attr_val="+i+"]"));
+                }
+
+                var _hours=row[k].split(',');
+                for(var i=0; i<_hours.length; ++i)
+                {
+                    EnableCheckbox($("[name=UserCenterUpdateServlet] [name="+k+"][_attr_val="+_hours[i]+"]"));
+                }
+
+            }
+            else if(k=='send_day_of_week')
+            {
+                for(var i=1; i<=7; ++i)
+                {
+                    DisableCheckbox($("[name=UserCenterUpdateServlet] [name="+k+"][_attr_val="+i+"]"));
+                }
+
+                var _days=row[k].split(',');
+                for(var i=0; i<_days.length; ++i)
+                {
+                    EnableCheckbox($("[name=UserCenterUpdateServlet] [name="+k+"][_attr_val="+_days[i]+"]"));
+                }
+            }
+            else
+            {
+                $(e).val(row[k]);
+            }
+        }
+
+
+        G_PopWnd.dialog("修改任务", $("[name=UserCenterUpdateServlet]"), 0, 0, 0, 3);
+
+        $("[name=UserCenterUpdateServlet] button.confirm").unbind("click").click(function(){
+            UserCenterQueryServlet.UserCenterUpdateServlet(id);
+        });
+
+    },
+    delete:function(id,email_title)
+    {
+        email_title="";
+
+        var cur=UserCenterQueryServlet.findInCurList(id);
+        if(cur)
+            email_title=cur.email_title;
+
+        G_PopWnd.confirm("确实要删除监控任务【"+email_title+"】么？", function(){
+            UserCenterQueryServlet.UserCenterDelServlet(id);
+        })
+    },
+    UserCenterDelServlet:function(id)
+    {
+        var key="UserCenterDelServlet";
+
+        var p={id:id,project_id:0};
+
+        MyPost(G_CGI_URL.usercenter[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    G_PopWnd.good("删除成功！");
+                    UserCenterQueryServlet.query(false);
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+    MakeUserCenterAddUpdateReq:function(key, id)
+    {
+        var father=$("[name=UserCenterAddServlet]");
+
+        if(id)
+        {
+            father=$("[name=UserCenterUpdateServlet]");
+        }
+
+        var p={};
+
+        p.id=id;
+        p.email_addr=ReplaceEnter2Space(father.find("[name=email_addr]").val());
+        p.email_title=father.find("[name=email_title]").val();
+        p.status=father.find("[name=status]:checked").attr('status');
+        p.keywords=ReplaceEnter2Space(father.find("[name=keywords]").val());
+        p.send_day_of_week=father.find("[name=send_day_of_week] input:checked").map(function(){
+            return $(this).attr("send_day_of_week");
+        }).get().join(',');
+
+        p.send_hour_of_day=father.find("[name=send_hour_of_day] input:checked").map(function(){
+            return $(this).attr("send_hour_of_day");
+        }).get().join(',');
+
+        p.ignore_empty=father.find("[name=ignore_empty]").find("input:checked").length ? 1 : 0;
+
+        p.project_id=father.find("[name=choose_project] .main-bar").attr("project_id");
+
+        return p;
+    },
+
+    CheckUserCenterAddUptReqValid:function(p)
+    {
+        if(! p.email_title)
+        {
+            G_PopWnd.error("请填写监控任务名称");
+            return false;
+        }
+        else if(! p.email_addr)
+        {
+            G_PopWnd.error("请填写接收邮箱地址");
+            return false;
+        }
+        else if(! IsValidEmail(p.email_addr))
+        {
+            G_PopWnd.error("请填写合法的接收邮箱地址");
+            return false;
+        }
+        else if(! p.keywords)
+        {
+            G_PopWnd.error("请填写关注词汇");
+            return false;
+        }
+        else if(! p.send_day_of_week)
+        {
+            G_PopWnd.error("请选择推送日期");
+            return false;
+        }
+        else if(! p.send_hour_of_day)
+        {
+            G_PopWnd.error("请选择推送时间");
+            return false;
+        }
+        else if(! p.project_id)
+        {
+            G_PopWnd.error("请选择游戏");
+            return false;
+        }
+
+        return true;
+
+
+    },
+
+    UserCenterUpdateServlet:function(id)
+    {
+        var father=UserCenterQueryServlet;
+
+        var key="UserCenterUpdateServlet";
+
+        var p=father.MakeUserCenterAddUpdateReq(key, id);
+
+        if(!father.CheckUserCenterAddUptReqValid(p))
+        {
+            return;
+        }
+
+        MyPost(G_CGI_URL.usercenter[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    G_PopWnd.good("修改成功");
+                    father.cancelUpdate();
+                    father.query(false);
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+
+    UserCenterAddServlet:function()
+    {
+        var father=UserCenterQueryServlet;
+
+        var key="UserCenterAddServlet";
+
+        var p=father.MakeUserCenterAddUpdateReq(key);
+
+        if(!father.CheckUserCenterAddUptReqValid(p))
+        {
+            return;
+        }
+
+        MyPost(G_CGI_URL.usercenter[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    father.cancelAdd();
+                    father.query(true);
+                    G_PopWnd.good("添加成功");
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+    cancelAdd:function()
+    {
+        layer.closeAll();
+    },
+    cancelUpdate:function()
+    {
+        layer.closeAll();
+    },
+    AllSend_hour_of_dayClick:function(e){
+        if($(e).find(".on").length)
+        {
+            $("[name=send_hour_of_day]").each(function(){
+                DisableCheckbox($(this));
+            });
+        }
+        else
+        {
+            $("[name=send_hour_of_day]").each(function(){
+                EnableCheckbox($(this));
+            });
+        }
+    },
+    query_limit:10,
+    query_page_num:0,
+    query_page:1,
+    cur_list:[],
+    query:function(restart_over){
+
+        var key="UserCenterQueryServlet";
+
+        var father=UserCenterQueryServlet;
+
+        var done=father.root.find(".done");
+        var loading=father.root.find(".loading");
+        var failure=father.root.find(".failure");
+
+        loading.show();
+        done.hide();
+        failure.hide();
+
+        if(restart_over)
+        {
+            father.query_page=1;
+            father.query_page_num=0;
+        }
+
+        MyPost(G_CGI_URL.usercenter[key],
+                {
+                    index : (father.query_page-1)*father.query_limit,
+                    limit : father.query_limit+1
+                },
+                function()
+                {
+                    done.hide();
+                    failure.hide();
+                    loading.show();
+                },
+                function()
+                {
+                    done.show();
+                    failure.hide();
+                    loading.hide();
+                },
+                function(data)
+                {
+                    $("[name=keywords_cnt]").html(data.keywords_cnt);
+                    $("[name=user_center_cnt]").html(data.user_center_cnt);
+
+                    var list=data.get;
+
+                    father.cur_list=list;
+
+                    done.find(".common-table").find("tr:gt(0)").remove();
+
+
+                    var total_page_cnt=0;
+                    var maybe_more=true;
+
+                    if(father.query_page_num)
+                    {
+                        maybe_more=false;
+                        total_page_cnt=father.query_page_num;
+                    }
+                    else
+                    {
+                        if(list.length==0)
+                        {
+                            father.query_page_num=father.query_page;
+                            total_page_cnt=father.query_page_num;
+                            maybe_more=false;
+                        }
+                        else if(list.length<=father.query_limit)
+                        {
+                            father.query_page_num=father.query_page;
+                            total_page_cnt=father.query_page_num;
+                            maybe_more=false;
+                        }
+                        else
+                        {
+                            total_page_cnt=father.query_page+1;
+                            maybe_more=true;
+                        }
+                    }
+
+                    GenPageFooter(father.root.find(".page_footer_holder"), total_page_cnt, father.query_page,function(newpage){
+                        father.query_page=newpage;
+                        father.query(false);
+                    }, maybe_more);
+
+
+                    for(var i=0; i<list.length && i<father.query_limit; ++i) {
+                        var cur = list[i];
+
+                        cur.last_send_time = cur.last_send_time.split(".")[0];
+
+                        if(cur.last_send_time=="")
+                        {
+                            cur.last_send_time="尚未推送";
+                        }
+
+                        var row = $("<tr><td name='_id'></td><td name='project_name'></td><td name='email_title'></td><td name='keywords'></td><td name='last_send_time'></td><td name='status'></td><td></td></tr>")
+
+                        row.find("[name=_id]").html((i+1)+(father.query_page-1)*father.query_limit);
+
+                        row.find("td:last-child").append($("<div class='operate-icon del active' onclick='UserCenterQueryServlet.delete("+cur.id+")'></div>")).append($("<div class='operate-icon edit active' onclick='UserCenterQueryServlet.update("+cur.id+")'></div>"));
+
+                        row.css({
+                            'cursor':'auto'
+                        });
+
+                        // 开启
+                        if(cur.status=='1')
+                        {
+                            row.find("td:last-child").append($("<div class='operate-icon active switch on' onclick='UserCenterQueryServlet.updateStatus("+cur.id+",0)'></div>"));
+                        }
+                        else
+                        {
+                            row.find("td:last-child").append($("<div class='operate-icon active switch off' onclick='UserCenterQueryServlet.updateStatus("+cur.id+",1)'></div>"));
+                        }
+
+
+                        for (var key in cur) {
+                            if (key == 'status') {
+                                if (cur[key] == 1) {
+                                    row.find("[name=" + key + "]").html('<span style="color:#03a9f5">开启</span>');
+                                }
+                                else {
+                                    row.find("[name=" + key + "]").html('<span class="empha">关闭</span>');
+                                }
+                            }
+                            else
+                            {
+                                row.find("[name=" + key + "]").html(cur[key]);
+                            }
+                        }
+
+                        done.find(".common-table tbody").append(row);
+                    }
+
+                },
+                function()
+                {
+                    failure.show();
+                }
+        );
+    }
+};
+
+$(onLoad);
+</script>
+</head>
+<body style="background-color:#f5f5f5;">
+
+<div class="service_banner"><span class="large_text">舆情助手</span><br/><span>精准舆情管理.人气自由监控</span></div>
+
+<div name="UserCenterQueryServlet" class="major-w ma" style="background: #ffffff;border-radius: 3px;min-height:600px;">
+    <div  name="list" style="margin:25px 35px;">
+        <div class="cont-title-bar">
+            <span class="fl font-theme-2" style="font-weight: bold;">舆情监控任务列表</span><span class="font-theme fl cp" onclick="UserCenterQueryServlet.query(true)">&nbsp;&nbsp;[刷新]</span><div class="question-mark fl cp" onclick="UserCenterQueryServlet.explain()" style="margin-top:16px;margin-left:10px;">?</div>
+            <div class="fl" name="explain" style="width:0;overflow:hidden;margin-left:10px;"><div style="width:640px;color:#a0a8af;font-weight:normal">您可以定制推送消息发送到邮箱，图表化数据可以让您快速了解所关注的关键词助您发现问题。</div></div>
+            <span class="fr cp" onclick="UserCenterQueryServlet.add()">+&nbsp;添加新任务</span>
+        </div>
+
+        <div class="done">
+            <table class="w100 common-table">
+                <tr>
+                    <th style="text-align:left;text-indent: 10px;width:50px">编号</th>
+                    <th>所属游戏</th>
+                    <th>任务监控名称</th>
+                    <th>关注词汇</th>
+                    <th>最后推送时间</th>
+                    <th style="width:60px">任务状态</th>
+                    <th style="width:140px">操作</th>
+                </tr>
+            </table>
+            <div class="page_footer_holder"></div>
+
+
+
+        </div>
+        <div class="loading">
+
+        </div>
+        <div class="failure">
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+</div>
+
+
+<div name="UserCenterAddServlet" style="display:none;width:900px;font-size: 14px;">
+    <table class="pop_add bc w100">
+        <tbody>
+        <tr><td><span class="empha">*</span>选择产品：</td><td name="choose_project"></td></tr>
+        <tr><td><span class="empha">*</span>任务名称：</td><td><input name="email_title" class="oc-input" type=text placeholder="如：游戏bug监控" style="width:400px"/></td></tr>
+        <tr><td><span class="empha">*</span>接收邮箱：</td><td><textarea placeholder="多个邮箱用空格隔开" class="oc-input" name="email_addr" style="width:400px"></textarea></td></tr>
+        <tr><td><span class="empha">*</span>关注词汇：</td><td><textarea placeholder="如：bug 不好玩 难 (多个关键词用空格隔开)" class="oc-input" name="keywords" style="width:400px"></textarea></td></tr>
+        <tr><td><span class="empha">*</span>发送日期：</td>
+            <td name="send_day_of_week">
+                <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=2 _checked="true">星期一</span>
+                <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=3 _checked="true">星期二</span>
+                <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=4 _checked="true">星期三</span>
+                <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=5 _checked="true">星期四</span>
+                <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=6 _checked="true">星期五</span>
+                <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=7>星期六</span>
+                <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week  _attr_val=1>星期日</span>
+            </td></tr>
+        <tr><td><span class="empha">*</span>推送时间：</td>
+            <td>
+                <div style="margin-bottom:0.5em">
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=0>00:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=1>01:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=2>02:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=3>03:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=4>04:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=5>05:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=6>06:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=7>07:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=8>08:00</span>
+                </div>
+
+                <div style="margin-bottom:0.5em">
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=9>09:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=10>10:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=11>11:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=12>12:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=13>13:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=14>14:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=15>15:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=16>16:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=17>17:00</span>
+                </div>
+
+
+                <div style="margin-bottom:0.5em">
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=18>18:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=19>19:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=20>20:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=21>21:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=22>22:00</span>
+                    <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=23>23:00</span>
+                    <span class="checkbox" onclick="UserCenterQueryServlet.AllSend_hour_of_dayClick(this)" name=all_send_hour_of_day>全选/不选</span>
+                </div>
+
+
+
+
+            </td>
+        </tr>
+        </tr><tr><td><span class="empha">*</span>按需推送：</td>
+            <td>
+                <span class="checkbox" _attr_name=ignore_empty name=ignore_empty _attr_val=1 _checked="true">只在您关注的词汇出现的情况下进行邮件推送</span>
+            </td>
+        </tr>
+        <tr><td><span class="empha">*</span>任务状态：</td>
+            <td>
+                <span class="radiobox" _attr_name=status _attr_val=1 name="status" _checked="true">开启</span>
+                <span class="radiobox" _attr_name=status _attr_val=0 name="status">暂停</span>
+            </td>
+        </tr>
+        <tr><td></td>
+            <td style="padding-top:20px;padding-bottom:20px;">
+                <button class="confirm">确认提交</button><button onclick="UserCenterQueryServlet.cancelAdd()" class="cancel" style="margin-left:30px;">取消添加</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div name="UserCenterUpdateServlet" style="width:900px;display:none;font-size:14px;"></div>
+
+
+<div style="height:30px;"></div>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<div id="mainContent" class="contrast-content">
+    <div id="headerTop" class="boxshadow face-fullScreen default-flytest-ht">
+        <span class="fl hotword">追踪群体</span>
+        <div class="tg-search-drop narrow-width" id="changeTagZone2">
+            <p class="tg-drop-text-part"><i class="tg-graph tg-triangle-gray-bottom"></i><span>全用户</span></p>
+        </div>
+        <span class="fl hotword">对照群体</span>
+        <div class="tg-search-drop" id="gameDropChooseRight"></div>
+        <div class="tg-search-drop narrow-width" id="changeTagZone3">
+            <p class="tg-drop-text-part"><i class="tg-graph tg-triangle-gray-bottom"></i><span>全用户</span></p>
+        </div>
+    </div>
+    <div class="container-fluid face-fullScreen" id="contentPart">
+        <div class="blockpart  col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <h3 class="tip-hover">关注类目对比
+           <div class="tip-box-show">
+                        <i class="triangle-up"></i>
+                        <div class="tip-box-content">
+                           用户关注度高的贴吧所属类别的统计，具体大类（除去游戏大类）有体育、动漫、影视、文学、科技、追星、音乐7项
+                        </div>
+              </div>
+            </h3>
+            <div class="boxshadow  face-part">
+                <div class="pictorial">
+                    <span id="leftNotice1"></span>
+                    <span class="color-r" id="rightNotice1"></span>
+                </div>
+                <div id="lt_item_list"></div>
+            </div>
+        </div>
+        <div class=" blockpart  col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <h3 >贴吧关注分布对比</h3>
+            <div class="boxshadow face-part" id="tab_forum_li">
+                <div class="pictorial">
+                    <span class="fl">贴吧类型</span>
+                    <ul class="tg-tab-btn fl">
+                        <li class="tg-tab-btn-normal tg-tab-btn-selected tip-hover">全部贴吧
+                           <div class="tip-box-show">
+                                        <i class="triangle-up"></i>
+                                        <div class="tip-box-content">
+                                          根据60天内活跃用户对各大贴吧的关注人数进行排序。
+                                        </div>
+                              </div>
+                        </li>
+                        <li class="tg-tab-btn-normal tip-hover">游戏贴吧
+                           <div class="tip-box-show">
+                                        <i class="triangle-up"></i>
+                                        <div class="tip-box-content">
+                                         根据60天内活跃用户对游戏贴吧的关注人数进行排序。
+                                        </div>
+                              </div>
+                        </li>
+                    </ul>
+                    <span id="leftNotice2"></span>
+                    <span class="color-r" id="rightNotice2"></span>
+                </div>
+                <div class="table-contrast">
+                    <ul class="fl" id="str_attention_forum_left"></ul>
+                    <ul class="fr" id="str_attention_forum_right"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="face-fullScreen blockpart  col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <h3>性别比例对比</h3>
+            <div class="boxshadow face-part-percent" >
+                <div class="pictorial">
+                    <span id="leftNotice3"></span>
+                    <span class="color-r" id="rightNotice3"></span>
+                </div>
+                <div id="lt_gender_compare"></div>
+            </div>
+        </div>
+        <div class="face-fullScreen blockpart  col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <h3>玩家发言情况对比</h3>
+            <div class="boxshadow face-part" id="tab_message_li">
+                <div class="pictorial">
+                    <ul class="tg-tab-btn fl">
+                        <li class="tg-tab-btn-normal tg-tab-btn-selected tip-hover">主贴发言量
+                           <div class="tip-box-show">
+                                        <i class="triangle-up"></i>
+                                        <div class="tip-box-content">
+                                          每100名用户当天发表主题帖的数量。
+                                        </div>
+                              </div>
+                        </li>
+                        <li class="tg-tab-btn-normal tip-hover">回复贴发言量
+                           <div class="tip-box-show">
+                                        <i class="triangle-up"></i>
+                                        <div class="tip-box-content">
+                                           每100名用户当天回复主题帖的数量。
+                                        </div>
+                              </div>
+                        </li>
+                        <li class="tg-tab-btn-normal tip-hover">发言响应量
+                           <div class="tip-box-show">
+                                    <i class="triangle-up"></i>
+                                    <div class="tip-box-content">
+                                      该类用户的主题帖，帖均被回复的数量。
+                                        </div>
+                              </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="b_chart_area">
+                    <div class="b_chart" id="chart_title_num_compare"></div>
+                </div>
+            </div>
+        </div>
+        <div class="face-fullScreen blockpart  col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <h3 class="tip-hover">活跃时间段对比
+                           <div class="tip-box-show">
+                                        <i class="triangle-up"></i>
+                                        <div class="tip-box-content">
+                                           用户发言的时段在24小时中的分布情况对比。
+                                        </div>
+                              </div>
+            </h3>
+            <div class="boxshadow face-part">
+                <div class="b_chart" id="chart_post_hour_compare"></div>
+            </div>
+        </div>
+        <div class="face-fullScreen blockpart  col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <h3 >吧龄及粉丝魅力对比</h3>
+            <div class="boxshadow face-part"  id="tab_age_li">
+                <div class="pictorial">
+                    <ul class="tg-tab-btn fl">
+                        <li class="tg-tab-btn-normal tg-tab-btn-selected tip-hover">吧龄分布
+                           <div class="tip-box-show">
+                                    <i class="triangle-up"></i>
+                                    <div class="tip-box-content">
+                                     该类用户的贴吧吧龄所占比例分布。
+                                    </div>
+                          </div>
+                        </li>
+                        <li class="tg-tab-btn-normal tip-hover">粉丝魅力
+                           <div class="tip-box-show">
+                                        <i class="triangle-up"></i>
+                                        <div class="tip-box-content">
+                                           该类用户的被其他用户关注的比例分布。
+                                        </div>
+                              </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="b_chart_area">
+                    <div class="b_chart" id="chart_tieba_age_compare"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

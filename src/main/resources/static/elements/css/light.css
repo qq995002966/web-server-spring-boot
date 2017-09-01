@@ -1,0 +1,218 @@
+@charset "utf-8";
+@import url("common.css");
+#light{ margin-top: 70px}
+#light .lt_title{ height: 35px; line-height: 35px; border-bottom: 1px solid #E5E5E5;}
+#light .lt_title h2{ font-size: 16px;}
+#light .lt_back_title h2{width: 80px;float: left;}
+#light .lt_back_title span{line-height: 20px;display: block;float: left;}
+#light .lt_title h5{ font-size: 12px;}
+#light .lt_title .lt_tlMore{ position: absolute; right: 5px; top: -6px}
+#light .lt_info{width: 770px;height: 565px;position: relative;}
+#light .lt_info .lt_collect{ position: absolute; right: -1px; top: 0; height: 55px; width: 55px;cursor: pointer }
+#light .lt_info .lt_ctOn{ background-position: 0 -48px}
+#light .lt_info .lt_ctOff{ background-position: -55px -48px}
+#light .lt_info .lt_gameInfo img{ width: 130px; height: 130px;}
+#light .lt_info dl{margin-left: 40px;}
+#light .lt_info dt{ height: 33px}
+#light .lt_info dt h1{ font-size: 24px; padding-right: 20px}
+#light .lt_info dt i{ background-position: -295px 0; width: 21px; height: 21px; margin-top: 8px; margin-right: 10px}
+#light .lt_info dt i:hover{color: #2CA4DD;}
+#light .lt_info dt a{ color:#A9A9A9; display: block; font-weight: normal; margin-top: 8px;cursor: pointer}
+#light .lt_info dt a:hover{ color:#679F37}
+#light .lt_info dd{height: 25px;position: relative;padding-left: 75px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; width: 340px}
+#light .lt_info dd span{ position: absolute; color:#A9A9A9; width: 75px; display: block; left: 0}
+#light .lt_info dd button{ border: 1px solid #679F37; border-radius: 5px; color:#679F37; background-color: #ffffff;outline:0;}
+#light .lt_info dd button:hover{ color:#ffffff; background-color: #679F37;}
+#light .lt_info .lt_content{line-height: 25px;height: 160px;}
+#light .lt_list{ width: 370px;}
+#light .lt_radar{height: 298px;position: relative;}
+#light .lt_radar_show{ width: 310px; height: 215px}
+#light .lt_rank{width: 190px; height: 150px; margin-left: 20px; position: absolute; right: 0; top: 70px;}
+#light .lt_rank .lt_rank_title{ color: #A9A9A9; font-size: 12px; margin-bottom: 5px}
+#light .lt_rank b{ color: #689F38; font-size: 36px}
+#light .lt_rank span{ color: #ffffff; border-radius: 10px; padding: 5px 10px;}
+#light .lt_rank .lt_rankUp{ background-color: #FF8B5A; }
+#light .lt_rank .lt_rankDown{ background-color: #6FC46F;}
+#light .lt_rank p{ color: #A9A9A9; margin-top: 15px}
+#light .lt_news{height: 250px;margin-top: 20px;}
+#light .lt_news ul{ list-style: none}
+#light .lt_news ul li{ height: 30px; line-height: 30px; width: 310px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+#light .lt_game{ margin: 20px 0}
+#light .lt_game ul{ list-style: none}
+#light .lt_game ul li{float: left;margin: 0 19px;position: relative;width: 50px;}
+#light .lt_game ul li .lt_mask{ width: 50px; height: 50px;  border-radius: 5px; overflow: hidden;position: absolute; top: 0; left: 0;}
+#light .lt_game ul li .lt_maskOn{ z-index: 3; border: 2px solid #ffffff;width: 52px; height: 52px;}
+#light .lt_game ul li span{height: 30px;line-height: 30px;margin-top: 55px;display: block;/* width: 64px; */white-space: nowrap;overflow: hidden;text-overflow: ellipsis;text-align: center;}
+#light .lt_game ul li img{ width: 50px; height: 50px}
+#light .lt_game ul li .lt_shade{ width: 175px; height: 53px; position: absolute; top:0px; left: -2px; background-color: #F6F6F6;z-index: 2; filter:alpha(opacity=95);-moz-opacity:0.95;-khtml-opacity: 0.95;opacity: 0.95; -webkit-box-shadow: 0 0 5px #D8D8D8;-moz-box-shadow: 0 0 5px #D8D8D8;box-shadow: 0 0 5px #D8D8D8;display: none}
+#light .lt_game ul li .lt_shade a{ display:block;text-indent: 70px; margin-top: 7px; }
+#light .lt_gmCollect{ position: absolute; right: -1px; top: 0; height: 28px; width: 28px; cursor: pointer}
+#light .lt_shade a{cursor: pointer}
+#light .lt_gmCtOn{ background-position: -110px -48px}
+#light .lt_gmCtOff{ background-position: -138px -48px}
+#light .lt_forum{ margin-top: 40px}
+#light .lt_forum .lt_fm_fkqx{ height: 210px}
+#light .lt_fmTitle{ height: 80px; position: relative;}
+#light .lt_fmTitle .lt_fmName{ width: 350px; padding-left: 35px}
+#light .lt_fmTitle .lt_fmDate{ width: 300px;right: 25px; margin-top: 25px}
+#light .lt_fmTitle .lt_fmDate .lt_fmChoose{ width: 265px; height: 32px; background-color: #ffffff; position: relative}
+#light .lt_fmTitle .lt_fmDate .lt_fmChoose .lt_fmShow{ height: 30px; width: 261px;margin-left: 5px; margin-top: 2px; line-height: 28px; cursor: pointer; position: absolute; z-index: 3; text-indent: 20px}
+#light .lt_fmTitle .lt_fmDate .lt_fmChoose .lt_fmBtn{ background-color: #689F38; height: 32px; width: 39px; position: absolute; right: 0; top: 0; border-radius: 0 5px 5px 0;}
+#light .lt_fmTitle .lt_fmDate .lt_fmChoose .lt_fmBtn i{ height: 18px; width:19px; background-position: -317px 0; display: block; margin-left: 10px; margin-top: 6px}
+#light .lt_fmTitle h3{ font-size: 24px}
+#light .lt_fmTitle h4{ font-size: 16px}
+#light .lt_fmNotice{ background-color: #FFEB99; padding: 10px 50px 10px 30px; line-height: 20px; position: relative}
+#light .lt_fmNotice i{ position: absolute; right: 20px; top: 15px; cursor: pointer}
+#light .lt_fmArea{ margin-top: 20px;}
+#light .lt_fmArea .lt_fmTsLeft{ width: 370px; height: 580px}
+#light .lt_fmArea .lt_fmTsLfArea{ width: 340px;}
+#light .lt_fmArea .lt_fmTsLeft p{ line-height: 20px; margin-bottom: 10px}
+#light .lt_fmArea .lt_fmTsLeft .lt_fkqy{ height: 150px; width: 340px; margin-bottom: 30px}
+#light .lt_fmArea .lt_fmPercent{ width: 115px; margin-left: 40px; padding-top: 30px}
+#light .lt_fmArea .lt_fmPercent p{ position: relative; display: block; margin-bottom: 25px; padding-left: 40px; cursor: pointer}
+#light .lt_fmArea .lt_fmPercent p i{ width: 12px; height: 12px; position: absolute; top: 15px; left: 15px}
+#light .lt_fmArea .lt_fmPercent p .lt_fmRed{background-position: -338px -1px;}
+#light .lt_fmArea .lt_fmPercent p .lt_fmGreen{background-position: -365px -1px;}
+#light .lt_fmArea .lt_fmPercent p .lt_fmBlue{background-position: -352px -1px;}
+#light .lt_fmArea .lt_fmPeople{ width: 150px;}
+#light .lt_fmArea .lt_fmPeople i{ width: 20px; height: 49px; float: left; margin-bottom: 10px; margin-right: 10px; display: block; cursor: pointer}
+#light .lt_fmArea .lt_fmPeople .lt_fmPRed{background-position: -380px 0;}
+#light .lt_fmArea .lt_fmPeople .lt_fmPBlue{background-position: -401px 0;}
+#light .lt_fmArea .lt_fmPeople .lt_fmPGreen{background-position: -422px 0;}
+#light .lt_fmArea .lt_fmTsMid{ width: 320px; height: 580px}
+#light .lt_fmArea .lt_fmTsMid .lt_fmTsTab{ height: 34px; border-bottom: 1px solid #E5E5E5;position: relative}
+#light .lt_fmArea .lt_fmTsMid .lt_fmTsTab ul{ list-style: none; }
+#light .lt_fmArea .lt_fmTsMid .lt_fmTsTab ul li{ width: 90px; float: left; text-align: center; font-size: 16px;  cursor: pointer; color: #A9A9A9; margin-left: 5px; margin-right: 5px; float: left}
+#light .lt_fmArea .lt_fmTsMid .lt_fmTsTab ul .liOn{ color: #555555}
+#light .lt_fmArea .lt_fmTsMid .lt_fmTsTab .t_slider{ position: absolute; top:32px; width: 90px; height: 2px; background-color: #679F37; left: 5px }
+#light .lt_fmArea .lt_fmTsMdArea{ height: 520px; position: relative}
+#light .lt_fmArea .lt_fmTsMdArea .lt_fmTsChoose{ height: 45px; line-height: 45px; background-color: #E6E6E6}
+#light .lt_fmArea .lt_fmTsMdArea .lt_fmTsChoose label{ padding-left: 20px; color: #989898}
+#light .lt_fmArea .lt_fmTsMdArea ul{ list-style: none; position: absolute; z-index: 10}
+#light .lt_fmArea .lt_fmTsMdArea ul li{ height: 40px; margin-top: 5px; margin-bottom: 5px; width: 313px; position: relative; line-height: 40px; text-indent: 40px; cursor: pointer}
+#light .lt_fmArea .lt_fmTsMdArea ul .liOn{background: url("../img/common.png") no-repeat;background-position: 0 -105px}
+#light .lt_fmArea .lt_fmTsMdArea ul li span{ display: block; width:20px; color: #A9A9A9; position: absolute; left: -20px }
+#light .lt_fmArea .lt_fmTsMdArea ul li .lt_fmTsLine{ height: 12px; width: 130px; background-position: -167px -48px; position: relative; float: right; background-color: #E3E6E7; border-radius: 5px; margin-right: 30px; margin-top: 15px; overflow: hidden}
+#light .lt_fmArea .lt_fmTsMdArea ul li .lt_fmTsLnMask{ height: 12px;  border-radius: 5px; position: absolute;left: 0; top: 0}
+#light .lt_fmArea .lt_fmTsMdArea ul li .lt_fmTsLnMaskColor{ background-color: #EEA59C;}
+#light .lt_fmArea .lt_fmTsMdArea ul li .lt_fmTsLnOn{ background-color: #DD4A38}
+#light .lt_fmArea .lt_fmTsMdArea ul li .lt_fmTsLnMaskColor2{  background-color: #B3CF9B; }
+#light .lt_fmArea .lt_fmTsMdArea ul li .lt_fmTsLnOn2{ background-color: #669F3C}
+#light .lt_fmArea .lt_fmTsMdArea ul li .lt_fmTsLnMaskColor3{  background-color: #95D1EE; }
+#light .lt_fmArea .lt_fmTsMdArea ul li .lt_fmTsLnOn3{ background-color: #30A5DD}
+#light .lt_fmArea .lt_fmTsMdArea .lt_fmTsMdArrow{ width: 21px; height: 40px; background-position: -443px 0; position: absolute; z-index: 1; top: 320px; left: -21px}
+#light .lt_fmArea .lt_fmTsRight{ width: 430px; position: absolute; right: 32px; top: 55px; height: 525px; }
+#light .lt_fmArea .lt_fmTsRight .lt_wtzs{ width: 360px; height: 190px;}
+#light .lt_fmArea .lt_fmTsRight .lt_wtfb{ width: 360px; height: 150px}
+#light .lt_fmArea .lt_fmTsRight .lt_wtfb .lt_legend{ position: absolute; width: 135px; right:0; top: 15px}
+#light .lt_fmArea .lt_fmTsRight .lt_wtfb .lt_legend ul li{ height: 25px; position: relative; line-height: 25px; text-indent: 20px; list-style: none; cursor: pointer}
+#light .lt_fmArea .lt_fmTsRight .lt_wtfb .lt_legend ul li i{ width: 12px; height: 12px; border-radius: 3px; position: absolute; left: 0; top: 5px}
+#light .lt_fmArea .lt_fmInfo{ position: relative; margin-left: 55px; min-height: 55px}
+#light .lt_fmArea .lt_fmInfo i{ width: 43px; height: 43px; background-position: -169px -48px; position: absolute; left: -55px; top: 0}
+#light .lt_fmArea .lt_fmInfo span{ font-size: 16px; display: block; margin-bottom: 5px}
+#light .lt_fmArea .lt_fmInfo p{ line-height: 20px}
+#light .lt_fmArea .lt_fmInfo p a{ color: #2DA5DF}
+#light .lt_fmArea .lt_rcarea button{ position: absolute; bottom: 105px; right: 280px; z-index: 500}
+#light .lt_fmArea .lt_rczs{ width: 1100px; height: 420px}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsTab{position: relative}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsTab ul{ list-style: none}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsTab ul li{ width: 185px; height: 176px; border: 1px solid #E5E5E5;border-top: 3px solid #E5E5E5;border-left:none; float: left; text-align: center; cursor: pointer}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsTab ul li:first-child{border-left:1px solid #e5e5e5}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsTab ul .liOn{ border-bottom: 0px; background: linear-gradient(rgba(174, 221, 140, 0.26),white,white,white,white);}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsTab .b_slider{ position: absolute; top:0; width: 185px; height: 3px; background-color: #679F37; left: 0 }
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsTab ul li p{ font-size: 16px; margin-top: 28px; margin-bottom: 18px}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsTab ul li b{ display: block; font-size: 30px; margin-bottom: 20px}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx{ width: 700px; height: 365px}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxArrow{ width: 56px; height: 323px; background-position: -330px -50px}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect{ position: relative;text-align: center; width: 620px}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect div{border-radius: 50%; color: #ffffff; position: absolute}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxR1{ height: 70px; width: 70px; background-color: #0895D7; top: 25px; padding-top: 23px}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxR2{ height: 65px; width: 65px; background-color: #1AA1DF; top: 80px; padding-top: 18px}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxR3{ height: 60px; width: 60px; background-color: #40B1E7; top: 150px; padding-top: 15px}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxR4{ height: 55px; width: 55px; background-color: #56BFEF; top: 180px; padding-top: 13px}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxR5{ height: 50px; width: 50px; background-color: #72CDF7; top: 235px; padding-top: 8px}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxR1:hover{height: 75px; width: 75px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxR2:hover{height: 70px; width: 70px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxR3:hover{height: 65px; width: 65px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxR4:hover{height: 60px; width: 60px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxR5:hover{height: 55px; width: 55px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP1{ left: 60px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP2{ left: 300px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP3{ left: 470px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP4{ left: 135px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP5{ left: 385px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP6{ left: 545px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP7{ left: 70px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP8{ left: 230px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP9{ left: 390px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP10{ left: 155px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP11{ left: 315px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP12{ left: 485px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP13{ left: 78px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP14{ left: 400px;}
+#light .lt_fmArea .lt_fmBbs .lt_ltfx .lt_ltfxRect .lt_ltfxRP15{ left: 560px;}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsRight{ width: 368px; height: 365px; position: relative}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsRight .lt_fmBbsPercet{ width: 158px; height: 100px; text-align: center}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsRight .lt_fmBbsPercet p{ margin-bottom: 15px}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsRight .lt_fmBbsPercet b{ display: block; font-size: 24px; margin-bottom: 15px}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsRight .lt_fmBbsArrow{ width: 21px; height: 40px; background-position: -443px 0; position: absolute; z-index: 1; top: 170px; left: -21px}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsRight .lt_fmBbsList ul{ list-style: none}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsRight .lt_fmBbsList ul li{ height: 50px; position: relative; width: 155px; float: left; padding-left: 60px; margin-top: 10px; margin-bottom: 10px}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsRight .lt_fmBbsList ul li img{ width: 50px; height: 50px; border-radius: 5px; position: absolute; left: 0}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsRight .lt_fmBbsList ul li p{ line-height: 20px}
+#light .lt_fmArea .lt_fmBbs .lt_fmBbsRight .lt_fmBbsList ul li .lt_shade{ width: 150px; height: 25px; position: absolute; bottom:0; left: 0; background-color: #F6F6F6;z-index: 2; filter:alpha(opacity=95);-moz-opacity:0.95;-khtml-opacity: 0.95;opacity: 0.95; line-height: 25px; padding-left: 5px; display: none}
+#light .lt_fmArea .lt_fmQd {padding: 30px;}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab{height: 172px; position: relative}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab .lt_fmQdArrow{ width: 40px; height: 77px; margin-top: 48px; border: 1px solid #EAEAEA; background-color: #EFEFEF; position: relative;}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab .lt_fmQdAwL{ margin-right: 5px; margin-left: 35px}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab .lt_fmQdAwR{ margin-left: 5px; margin-right: 35px}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab .lt_fmQdAwOn{ background-color: #E0E0E0; cursor: pointer}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab .lt_fmQdArrow i{ color: #ffffff; position: absolute; top:30px; left: 13px}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab .lt_fmQdMid{width: 878px;height: 235px;position: absolute;left: 120px;top:0;overflow: hidden;z-index: 1000;}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul{ list-style: none;width: 5000px; position: relative}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul .lt_fmQdScroll{ width: 5000px; position: absolute}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul li{ width: 209px; border: 1px solid #E5E5E5; float: left; margin: 0 5px;}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul li img{ height: 44px; align-self: center}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul li .lt_fmQdLogo{ width: 195px; height: 59px; margin-top: 10px; margin-left: 6px; cursor: pointer; text-align: center}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul li .lt_fmQdApple{ background-position: 0 -146px}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul li .lt_fmQdXm{ background-position: -196px -146px}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul li .lt_fmQdHw{ background-position: 0 -206px}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul li .lt_fmQdOp{ background-position: -196px  -206px}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul li p{ height: 25px; line-height: 20px; position: relative; padding-left: 70px}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul li p span{ position: absolute; top: 0; left: 0px; color:#A9A9A9; width: 60px; display: block; text-align: right}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul li p b{ font-weight: normal}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul li .lt_fmQdMore{ height: 38px; background-color: #F5F5F5; position: relative; cursor: pointer}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab ul li .lt_fmQdMore i{ position: absolute; top: 16px; left: 95px; color: #C7C7C7}
+#light .lt_fmArea .lt_fmQd .lt_fmQdTab .q_slider{ position: absolute; top:0px; width: 209px; height: 4px; background-color: #679F37; left: 5px }
+#light .lt_fmArea .lt_fmQd .lt_yxqd{ width: 1020px; height: 305px}
+#light .lt_fmArea .lt_fmQd .lt_yxqd .lt_yxqd_area{ width: 1020px; height: 305px}
+#light .lt_fmArea .lt_fmPl .lt_qdpl{ width: 740px; height: 360px}
+#light .lt_fmArea .lt_fmPl .lt_fmPlWord{ width: 300px; height: 350px; margin-left: 30px;}
+#light .lt_fmArea .lt_fmPl .lt_fmPlWord a{cursor: pointer; color: #679F37;}
+#light .lt_fmArea .lt_fmPl .lt_fmPlWord .lt_fmPlWPos{  color: #679F37;}
+#light .lt_fmArea .lt_fmPl .lt_fmPlWord .lt_fmPlWNeg{  color: #E88B80;}
+#light .lt_fmArea .lt_fmPl .lt_fmPlWord a:hover{ background-color: #00b7ee; color: #ffffff; border-radius: 5px}
+#light .lt_fmArea .lt_fmCx .lt_fmCxLeft{ width: 715px; height: 430px}
+#light .lt_fmArea .lt_fmCx .lt_fmCxLeft .lt_fmCxChoose{ height: 56px}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight{ width: 365px; height: 428px}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList{ margin-top: 20px}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList ul{ list-style: none}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList ul li{ height: 70px; position: relative; padding-left: 110px; padding-top: 11px;}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList ul li b{ width: 20px; height: 27px; position: absolute; left:10px; top: 20px; color: #689F38; font-size: 14px; display: block; text-align: center}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList ul .liOn{ background-color: #EDEDED}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList ul li .lt_fmCxLtTop1{ background-position:-295px -22px}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList ul li .lt_fmCxLtTop2{ background-position:-316px -22px}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList ul li .lt_fmCxLtTop3{ background-position:-337px -22px}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList ul li img{ width: 50px; height: 50px; border-radius: 5px; position: absolute; left: 50px}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList ul li p{ line-height: 20px}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList ul li .lt_shade{ width: 135px; height: 70px; position: absolute; top:0; right: 0; background-color: #F6F6F6;z-index: 2; filter:alpha(opacity=95);-moz-opacity:0.95;-khtml-opacity: 0.95;opacity: 0.95; display: none}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList ul li .lt_shade a{ margin-top: 15px; line-height: 15px; display: block; margin-left: 20px;}
+#light .lt_fmArea .lt_fmCx .lt_fmCxRight .lt_fmCxList ul li .lt_notin{ line-height: 22px; padding: 15px 0 0 20px;color:#FF8B59}
+#light .lt_fmArea .lt_fmCx .lt_fmCxLeft .lt_fmCxChoose div{ float: left}
+#light .lt_fmArea .lt_fmCx .lt_fmCxLeft .lt_fmCxChoose .lt_fmCxChName{ color: #CECECE; line-height: 35px; margin-left: 40px; text-align: right; margin-right: 20px}
+#light .lt_fmArea .lt_fmCx .lt_cxph{ width: 700px; height: 365px}
+#light .lt_fmArea .lt_fmCx .btn-group .btn-default{color:#CECECE; font-size: 12px}
+#light .lt_fmArea .lt_fmCx .btn-group .active{background-color: #689F38; color: #ffffff}
+#light .bs_app_type{ width: 150px; text-align: left}
+#light .bs_app_type i{ position: absolute; right: 10px; top:14px}
+#light .bs_app_type_choose a{cursor: pointer}

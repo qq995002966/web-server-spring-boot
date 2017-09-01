@@ -1,0 +1,584 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>画像追踪-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/icheck/skins/flat/aero.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/face.css">
+</head>
+<body>
+    <div class="container-flud">
+        <div class="c_maxWidth c_marginAuto">
+            <div id="MLeft" class="c_floatLeft c_hidden u_height"></div>
+            <div id="MRight" class="c_floatRight c_hidden u_height">
+                <div class="mr_head">
+                    <div class="mr_area">
+                        <div class="mr_h_left c_floatLeft">
+                            <h1>画像追踪</h1>
+                            <div class="mr_h_tab">
+                                <ul>
+                                    <li class="liOn">人群概况</li>
+                                    <li>详细指标</li>
+                                    <li>人群对比</li>
+                                    <li>游戏对比</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mr_h_right c_floatRight mr_h_face">
+                            <!--div class="mr_hf_logo"><img><p></p></div-->
+                            <div id="bs_game_choose"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="c_padding20 portrayal">
+                    <div class="py_choose py_floatl" style="height: 0"></div>
+                    <div class="py_choose py_floatl py_hidden">
+                        <div class="py_cosname">用户标签</div>
+                        <div class="py_coitem py_floatl">
+                            <input type="hidden" id="btnChoosed1" value="quick" >
+                            <input type="hidden" id="changePost1" value="" >
+                            <input type="hidden" id="changeOld1" value="" >
+                            <div class="py_coselect py_coslcolor1 py_boderra py_radius" id="changeTagZone1">
+                                <span id="changeTag1">全用户</span>
+                                <i class="py_coarrow1" id="tab2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py_choose py_floatl py_hidden">
+                        <div class="py_cosname">用户标签</div>
+                        <div class="py_coitem py_floatl">
+                            <input type="hidden" id="btnChoosed2" value="quick" >
+                            <input type="hidden" id="changePost2" value="" >
+                            <input type="hidden" id="changeOld2" value="" >
+                            <div class="py_coselect py_coslcolor1 py_boderra py_radius" id="changeTagZone2">
+                                <span id="changeTag2">全用户</span>
+                                <i class="py_coarrow1" id="tab3"></i>
+                            </div>
+                        </div>
+                        <div class="py_covs py_floatl">VS</div>
+                        <div class="py_coitem py_floatl">
+                            <input type="hidden" id="btnChoosed3" value="quick" >
+                            <input type="hidden" id="changePost3" value="pay_ability=高付费" >
+                            <input type="hidden" id="changeOld3" value="" >
+                            <div class="py_coselect py_coslcolor2 py_boderra py_radius" id="changeTagZone3">
+                                <span id="changeTag3">高付费</span>
+                                <i class="py_coarrow2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py_choose py_floatl py_hidden" style="width: 100%">
+                        <div class="py_cosname">用户标签</div>
+                        <div class="py_coitem py_floatl">
+                            <input type="hidden" id="btnChoosed4" value="quick" >
+                            <input type="hidden" id="changePost4" value="" >
+                            <input type="hidden" id="changeOld4" value="" >
+                            <input type="hidden" id="changePost5" value="" >
+                            <input type="hidden" id="changeOld5" value="" >
+                            <div class="py_coselect py_coslcolor1 py_boderra py_radius" id="changeTagZone4">
+                                <span id="changeTag4">全用户</span>
+                                <i class="py_coarrow1" id="tab4"></i>
+                            </div>
+                        </div>
+                        <div class="py_cogame py_floatr">
+                            <div class="py_cosname">对比游戏</div>
+                            <div id="bs_game_choose_compare" class="py_floatl" style="margin-top: -5px"></div>
+                        </div>
+                    </div>
+                    <div class="py_clear"></div>
+
+                    <div class="tabcontent">
+                        <div class="py_ratio py_floatl py_bgff py_radius py_ht450">
+                            <div class="py_pad20">
+                                <h2>男女比例</h2>
+                                <div id="str_sex"></div>
+                            </div>
+                        </div>
+                        <div class="py_map py_floatr py_bgff py_radius py_ht450">
+                            <div class="c_padding20">
+                                <h2>地域分布</h2>
+                                <div class="py_mpshow py_padt20 py_floatl">
+                                    <div id="pymap" style="width: 400px; height: 355px"></div>
+                                </div>
+                                <div class="py_mplist py_ranklist py_floatr">
+                                    <dl id="pymaplist"></dl>
+                                </div>
+                                <div class="py_clear"></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht275">
+                            <div class="py_pad20">
+                                <h2>号召情况<span onclick="U_Dom._tip(this,'号召情况根据发言被其他用户的响应量划分');"></span></h2>
+                                <div class="py_padt20">
+                                    <div class="py_pie py_floatl" id="callupon"></div>
+                                    <div class="py_pieinfo py_floatr" id="influencelist"></div>
+                                    <div class="py_clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht275">
+                            <div class="py_pad20">
+                                <h2>活跃情况<span onclick="U_Dom._tip(this,'活跃情况根据30天内用户平均的发言量划分');"></span></h2>
+                                <div class="py_padt20">
+                                    <div class="py_pie py_floatl" id="dynamic"></div>
+                                    <div class="py_pieinfo py_floatr" id="activelist"></div>
+                                    <div class="py_clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2>关注类目<span onclick="U_Dom._tip(this,'关注类目按用户关注最多的贴吧大类划分');"></span></h2>
+                                <div class="py_line" id="str_interest"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2>抱怨情况<span onclick="U_Dom._tip(this,'抱怨情况展示ThinkingGame平台已收录游戏的活跃度和玩家抱怨情况');"></span></h2>
+                                <div class="py_arrow_vertical py_floatl"></div>
+                                <div class="py_chart py_padt20 py_floatl" id="pycomplain"></div>
+                                <div class="py_clear"></div>
+                                <div class="py_arrow_horizontal"></div>
+                                <div class="py_chartinfo py_colorg py_floatl">
+                                    <span class="py_colorb" id="num_complain"></span>
+                                    抱怨用户数
+                                </div>
+                                <div class="py_chartinfo py_colorg py_floatl">
+                                    <span class="py_colorb" id="num_complain_percent"></span>
+                                    抱怨用户比例
+                                </div>
+                                <div class="py_chartinfo py_colorg py_floatl">
+                                    <span class="py_colorb" id="num_active_percent"></span>
+                                    全游戏活跃排名
+                                </div>
+                                <div class="py_clear"></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_list py_floatl py_radius py_bgff py_ht320 py_margr30">
+                            <div class="py_pad20">
+                                <h2>高魅力用户数<span onclick="U_Dom._tip(this,'指30天内用户影响力、粉丝等综合排名靠前的用户');"></span></h2>
+                                <div class="py_linfo py_colorg">
+                                    <i class="py_limg1" title="点击可查看详情" onclick="F_Common._openDetail('高魅力','charm_level',1);"></i>
+                                    <p class="py_colorb" id="num_high_charm"></p>
+                                    他们是游戏粉丝收割机
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_list py_floatl py_radius py_bgff py_ht320 py_margr30">
+                            <div class="py_pad20">
+                                <h2>高付费用户数<span onclick="U_Dom._tip(this,'指30天内通过行为能够判断出的高付费能力玩家');"></span></h2>
+                                <div class="py_linfo py_colorg">
+                                    <i class="py_limg2" title="点击可查看详情" onclick="F_Common._openDetail('高付费','pay_ability',1);"></i>
+                                    <p class="py_colorb" id="num_high_pay"></p>
+                                    他们是游戏收益提示者
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_list py_floatl py_radius py_bgff py_ht320 py_margr30">
+                            <div class="py_pad20">
+                                <h2>广告垃圾用户数<span onclick="U_Dom._tip(this,'指30天内经常发布广告、垃圾等不良信息的用户');"></span></h2>
+                                <div class="py_linfo py_colorg">
+                                    <i class="py_limg3" title="点击可查看详情" onclick="F_Common._openDetail('垃圾用户','post_quality',1);"></i>
+                                    <p class="py_colorb" id="num_trash"></p>
+                                    他们是舆论环境污染源
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_list py_floatl py_radius py_bgff py_ht320">
+                            <div class="py_pad20">
+                                <h2>即将流失用户数<span onclick="U_Dom._tip(this,'指30天内通过发言能判断出的即将流失玩家');"></span></h2>
+                                <div class="py_linfo py_colorg">
+                                    <i class="py_limg4 ma" title="点击可查看详情" onclick="F_Common._openDetail('流失玩家','game_lifecycle',1);"></i>
+                                    <p class="py_colorb" id="num_lost"></p>
+                                    他们是消极舆论制造者
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                    </div>
+                    <div class="tabcontent py_hidden">
+                        <div class="py_item py_floatl py_bgff py_radius py_ht590">
+                            <div class="py_pad20">
+                                <h2>贴吧关注排行</h2>
+                                <div class="py_ranklist py_tblist">
+                                    <dl id="str_attention_forum"></dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py_item py_floatr py_bgff py_radius py_ht590">
+                            <div class="py_pad20">
+                                <h2>游戏贴吧关注排行</h2>
+                                <div class="py_ranklist py_tblist">
+                                    <dl id="str_attention_game"></dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2>关注类目<span onclick="U_Dom._tip(this,'该类人群在各类目的关注分布');"></span></h2>
+                                <div class="py_line" id="str_interest2"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2>活跃用户数<span onclick="U_Dom._tip(this,'该类人群近30日活跃用户数');"></span></h2>
+                                <div class="py_chart2 py_padt20" id="chart_hot_value"></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2>主帖发言量（每百人）<span onclick="U_Dom._tip(this,'该类人群当天主贴的平均发言量');"></span></h2>
+                                <div class="py_chart2 py_padt20" id="chart_title_num"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2>回复帖发言量（每百人）<span onclick="U_Dom._tip(this,'该类人群当天回贴的平均发言量');"></span></h2>
+                                <div class="py_chart2 py_padt20" id="chart_content_num" ></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2>发言响应量<span onclick="tips(this,'该类人群当天发主贴被回复的量');"></span></h2>
+                                <div class="py_chart2 py_padt20" id="chart_be_replied"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2>活跃时段（百分比）<span onclick="U_Dom._tip(this,'该类人群发言的活跃时段占比');"></span></h2>
+                                <div class="py_chart2 py_padt20" id="chart_post_hour"></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2>吧龄分布<span onclick="U_Dom._tip(this,'该类人群按吧龄的分布情况');"></span></h2>
+                                <div class="py_chart2 py_padt20" id="chart_tieba_age"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2>粉丝魅力<span onclick="U_Dom._tip(this,'该类人群被关注的粉丝数量分布情况');"></span></h2>
+                                <div class="py_chart2 py_padt20" id="chart_fans_num"></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_ratio py_floatl py_bgff py_radius py_ht450">
+                            <div class="py_pad20">
+                                <h2>男女比例</h2>
+                                <div id="str_sex2"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_map py_floatr py_bgff py_radius py_ht450">
+                            <div class="py_pad20">
+                                <h2>地域分布</h2>
+                                <div class="py_mpshow py_padt20 py_floatl">
+                                    <div id="pymap2" style="width: 400px; height: 355px"></div>
+                                </div>
+                                <div class="py_mplist py_ranklist py_floatr">
+                                    <dl id="pymaplist2"></dl>
+                                </div>
+                                <div class="py_clear"></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                    </div>
+                    <div class="tabcontent py_hidden">
+                        <div class="py_item py_floatl py_bgff py_radius py_ht560">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">贴吧关注排行</h2>
+                                <div class="py_cptag py_floatl">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_h"></i><b id="leftNotice1">全用户</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_cptag py_floatr">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_l"></i><b id="rightNotice1">高付费</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_clear"></div>
+                                <div class="py_ranklist py_cprank py_floatl">
+                                    <div class="py_padr15">
+                                        <dl id="str_attention_forum_left"></dl>
+                                    </div>
+                                </div>
+                                <div class="py_ranklist py_cprank py_floatr py_boderl">
+                                    <div class="py_padll5">
+                                        <dl id="str_attention_forum_right"></dl>
+                                    </div>
+                                </div>
+                                <div class="py_clear"></div>
+                            </div>
+                        </div>
+                        <div class="py_item py_floatr py_bgff py_radius py_ht560">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">游戏贴吧关注排行</h2>
+                                <div class="py_cptag py_floatl">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_h"></i><b id="leftNotice2">全用户</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_cptag py_floatr">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_l"></i><b id="rightNotice2">高付费</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_clear"></div>
+                                <div class="py_ranklist py_cprank py_floatl">
+                                    <div class="py_padr15">
+                                        <dl id="str_attention_game_left"></dl>
+                                    </div>
+                                </div>
+                                <div class="py_ranklist py_cprank py_floatr py_boderl">
+                                    <div class="py_padll5">
+                                        <dl id="str_attention_game_right"></dl>
+                                    </div>
+                                </div>
+                                <div class="py_clear"></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht450">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">关注类目<span onclick="U_Dom._tip(this,'该类人群在各类目的关注分布');"></span></h2>
+                                <div class="py_cptag py_floatl">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_h"></i><b id="leftNotice3">全用户</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_cptag py_floatr">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_l"></i><b id="rightNotice3">高付费</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_clear"></div>
+                                <div class="py_line" id="str_interestcompare"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht450">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">男女比例</h2>
+                                <div class="py_cptag py_floatl">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_h"></i><b id="leftNotice4">全用户</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_cptag py_floatr">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_l"></i><b id="rightNotice4">高付费</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_clear"></div>
+                                <div class="py_cphuman py_margt60">
+                                    <div class="py_pad10" id="str_sexcompare"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">主帖发言量（每百人）<span onclick="U_Dom._tip(this,'该类人群当天主贴的平均发言量');"></span></h2>
+                                <div class="py_chart2 ma" id="chart_title_num_compare"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">回复帖发言量（每百人）<span onclick="U_Dom._tip(this,'该类人群当天回贴的平均发言量');"></span></h2>
+                                <div class="py_chart2 ma" id="chart_content_num_compare" ></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">发言响应量<span onclick="U_Dom._tip(this,'该类人群当天发主贴被回复的量');"></span></h2>
+                                <div class="py_chart2 ma" id="chart_be_replied_compare"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">活跃时段（百分比）<span onclick="U_Dom._tip(this,'该类人群发言的活跃时段占比');"></span></h2>
+                                <div class="py_chart2 ma" id="chart_post_hour_compare"></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">吧龄分布<span onclick="U_Dom._tip(this,'该类人群按吧龄的分布情况');"></span></h2>
+                                <div class="py_chart2 ma" id="chart_tieba_age_compare"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">粉丝魅力<span onclick="U_Dom._tip(this,'该类人群被关注的粉丝数量分布情况');"></span></h2>
+                                <div class="py_chart2 ma" id="chart_fans_num_compare"></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                    </div>
+
+
+                    <div class="tabcontent py_hidden">
+                        <div class="py_item py_floatl py_bgff py_radius py_ht560">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">贴吧关注排行</h2>
+                                <div class="py_cptag py_floatl">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_h"></i><b id="gameCompareLeftNotice1">全用户</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_cptag py_floatr">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_l"></i><b id="gameCompareRightNotice1">高付费</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_clear"></div>
+                                <div class="py_ranklist py_cprank py_floatl">
+                                    <div class="py_padr15">
+                                        <dl id="game_compare_str_attention_forum_left"></dl>
+                                    </div>
+                                </div>
+                                <div class="py_ranklist py_cprank py_floatr py_boderl">
+                                    <div class="py_padll5">
+                                        <dl id="game_compare_str_attention_forum_right"></dl>
+                                    </div>
+                                </div>
+                                <div class="py_clear"></div>
+                            </div>
+                        </div>
+                        <div class="py_item py_floatr py_bgff py_radius py_ht560">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">游戏贴吧关注排行</h2>
+                                <div class="py_cptag py_floatl">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_h"></i><b id="gameCompareLeftNotice2">全用户</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_cptag py_floatr">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_l"></i><b id="gameCompareRightNotice2">高付费</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_clear"></div>
+                                <div class="py_ranklist py_cprank py_floatl">
+                                    <div class="py_padr15">
+                                        <dl id="game_compare_str_attention_game_left"></dl>
+                                    </div>
+                                </div>
+                                <div class="py_ranklist py_cprank py_floatr py_boderl">
+                                    <div class="py_padll5">
+                                        <dl id="game_compare_str_attention_game_right"></dl>
+                                    </div>
+                                </div>
+                                <div class="py_clear"></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht450">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">关注类目<span onclick="U_Dom._tip(this,'该类人群在各类目的关注分布');"></span></h2>
+                                <div class="py_cptag py_floatl">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_h"></i><b id="gameCompareLeftNotice3">全用户</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_cptag py_floatr">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_l"></i><b id="gameCompareRightNotice3">高付费</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_clear"></div>
+                                <div class="py_line" id="game_compare_str_interestcompare"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht450">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">男女比例</h2>
+                                <div class="py_cptag py_floatl">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_h"></i><b id="gameCompareLeftNotice4">全用户</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_cptag py_floatr">
+                                    <div class="py_icon py_cptgpos">
+                                        <span><i class="py_cp_l"></i><b id="gameCompareRightNotice4">高付费</b></span>
+                                    </div>
+                                </div>
+                                <div class="py_clear"></div>
+                                <div class="py_cphuman py_margt60">
+                                    <div class="py_pad10" id="game_compare_str_sexcompare"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">主帖发言量（每百人）<span onclick="U_Dom._tip(this,'该类人群当天主贴的平均发言量');"></span></h2>
+                                <div class="py_chart2 ma" id="game_compare_chart_title_num_compare"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">回复帖发言量（每百人）<span onclick="U_Dom._tip(this,'该类人群当天回贴的平均发言量');"></span></h2>
+                                <div class="py_chart2 ma" id="game_compare_chart_content_num_compare" ></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">发言响应量<span onclick="U_Dom._tip(this,'该类人群当天发主贴被回复的量');"></span></h2>
+                                <div class="py_chart2 ma" id="game_compare_chart_be_replied_compare"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">活跃时段（百分比）<span onclick="U_Dom._tip(this,'该类人群发言的活跃时段占比');"></span></h2>
+                                <div class="py_chart2 ma" id="game_compare_chart_post_hour_compare"></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                        <div class="py_margt30 py_item py_floatl py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">吧龄分布<span onclick="U_Dom._tip(this,'该类人群按吧龄的分布情况');"></span></h2>
+                                <div class="py_chart2 ma" id="game_compare_chart_tieba_age_compare"></div>
+                            </div>
+                        </div>
+                        <div class="py_margt30 py_item py_floatr py_bgff py_radius py_ht425">
+                            <div class="py_pad20">
+                                <h2 class="c_marginB10">粉丝魅力<span onclick="U_Dom._tip(this,'该类人群被关注的粉丝数量分布情况');"></span></h2>
+                                <div class="py_chart2 ma" id="game_compare_chart_fans_num_compare"></div>
+                            </div>
+                        </div>
+                        <div class="py_clear"></div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/echart/echarts.min.js"></script>
+<script type="text/javascript" src="plugins/echart/china.js"></script>
+<script type="text/javascript" src="plugins/echart/macarons.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="plugins/icheck/icheck.min.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/center.js"></script>
+<script type="text/javascript" src="elements/js/face.js"></script>
+<script type="text/javascript" src="elements/js/chart.js"></script>

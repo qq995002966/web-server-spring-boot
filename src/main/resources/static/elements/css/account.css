@@ -1,0 +1,14 @@
+@import url("center.css");
+#invoice_s{ width: 570px; height: 450px}
+#invoice_s dl{ height: 45px; clear: both}
+#invoice_s dl dt{ width: 80px; float: left; line-height: 36px; font-weight: normal}
+#invoice_s dl dd{ float: left; line-height: 36px}
+#invoice_s dl dd input[type="text"]{ width: 400px; border: 1px solid #b2b2b2;margin: 2px;height:36px;outline: 0; border-radius: 4px; padding-left:10px; font-size: 13px}
+#invoice_s .dropdown-menu a{cursor: pointer}
+
+#detail_s{ width: 400px; height: 450px}
+#detail_s dl{ height: 35px; clear: both}
+#detail_s dl dt{ width: 80px; float: left; line-height: 36px; font-weight: normal}
+#detail_s dl dd{ float: left; line-height: 36px}
+
+

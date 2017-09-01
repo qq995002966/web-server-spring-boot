@@ -1,0 +1,279 @@
+@charset "UTF-8";
+/*字体标准*/
+* {
+  padding: 0;
+  margin: 0; }
+
+.tg-web-bg-blue {
+  background: #237bd0; }
+
+.tg-web-bg-gray {
+  background: #ebedf5; }
+
+.tg-web-font-blue {
+  color: #237bd0; }
+
+.tg-title {
+  font-size: 40px;
+  color: #191919; }
+
+.tg-main-title {
+  font-size: 24px;
+  color: #191919; }
+
+.tg-main-title1 {
+  font-size: 24px;
+  color: #555555; }
+
+.tg-sub-title {
+  font-size: 16px;
+  color: #191919; }
+
+.tg-sub-title1 {
+  font-size: 16px;
+  color: #a9a9a9; }
+
+.tg-main-content {
+  font-size: 12px;
+  color: #555555; }
+
+.tg-infor {
+  font-size: 10px;
+  color: #191919; }
+
+.tg-infor1 {
+  font-size: 10px;
+  color: #a9a9a9; }
+
+/*按钮标准*/
+.tg-main-btn {
+  text-align: center;
+  font-size: 12px;
+  background-color: #237bd0;
+  border-radius: 4px;
+  height: 28px;
+  border: none;
+  padding: 5px 18px;
+  color: #fff;
+  position: relative;
+  outline: none; }
+  .tg-main-btn:hover {
+    background-color: #216eb8; }
+  .tg-main-btn:focus {
+    outline: none;
+    background-color: #216eb8 !important; }
+  .tg-main-btn:active {
+    outline: none;
+    background-color: #216eb8; }
+  .tg-main-btn:visited {
+    outline: none;
+    background-color: #237bd0; }
+
+.tg-btn-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  margin-right: 5px; }
+
+.tg-assist-btn {
+  text-align: center;
+  font-size: 12px;
+  background-color: #ebedf5;
+  border-radius: 4px;
+  height: 28px;
+  border: none;
+  padding: 5px 15px;
+  color: #191919;
+  position: relative;
+  outline: none; }
+  .tg-assist-btn:hover {
+    background-color: #e0e2e8; }
+  .tg-assist-btn:focus {
+    outline: none;
+    background-color: #e0e2e8 !important; }
+  .tg-assist-btn:active {
+    outline: none;
+    background-color: #e0e2e8; }
+  .tg-assist-btn:visited {
+    outline: none;
+    background-color: #ebedf5; }
+
+.tg-checkbox-btn {
+  position: relative; }
+  .tg-checkbox-btn input:focus {
+    outline: none; }
+
+.tg-checkbox-btn label:before {
+  content: '';
+  background: url(../img/checkbox.jpg) no-repeat;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  background-position: -16px 0; }
+
+.tg-checkbox-btn input[type=checkbox]:checked + label:before {
+  background-position: 0 0; }
+
+.tg-switch-btn {
+  position: relative; }
+
+.tg-switch-btn .tg-switch-on {
+  background: url(../img/onoff.png) no-repeat;
+  position: absolute;
+  width: 30px;
+  height: 16px;
+  background-position: 0 0;
+  cursor: pointer;
+    cursor-transition: all ease-in 0.1s; }
+
+.tg-switch-btn .tg-switch-off {
+  background-position: -33px 0;
+  transition: all ease-in 0.1s; }
+
+.tg-tab-btn {
+  font-size: 10px;
+  overflow: hidden; }
+
+.tg-tab-btn > li {
+  float: left;
+  display: block;
+  padding: 3px 6px;
+  cursor: pointer; }
+
+.tg-tab-btn .tg-tab-btn-normal {
+  color: #237bd0;
+  border: 1px solid #237bd0;
+  border-radius: 4px;
+  margin-right: -4px; }
+
+.tg-tab-btn .tg-tab-btn-selected {
+  color: #fff;
+  background-color: #237bd0;
+  border: 1px solid #237bd0;
+  border-radius: 4px; }
+
+/*输入框*/
+input.tg-input {
+  width: 265px;
+  height: 35px;
+  border: none;
+  border-radius: 4px;
+  color: #191919;
+  padding-left: 10px; }
+
+input.tg-input:focus {
+  outline: none; }
+
+/*下拉选择框*/
+.tg-selected-drop > p {
+  width: 265px;
+  height: 35px;
+  padding-left: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  line-height: 35px;
+  cursor: pointer;
+  position: relative; }
+
+.tg-selected-drop > p:after {
+  content: '▼';
+  position: absolute;
+  right: 10px;
+  color: #666; }
+
+.tg-selected-drop > ul {
+  display: none;
+  width: 265px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-top: -4px;
+  position: absolute; }
+
+.tg-selected-drop > ul > li {
+  list-style: none;
+  height: 35px;
+  line-height: 35px;
+  width: 265px;
+  padding-left: 10px;
+  cursor: pointer; }
+
+.tg-selected-drop > ul > li > a {
+  display: block;
+  text-decoration: none; }
+
+.tg-selected-drop > ul > li:hover {
+  background-color: #f1f1f1; }
+
+.tg-page-list > li {
+  display: inline-block;
+  list-style: none;
+  color: #a9a9a9;
+  font-size: 10px; }
+
+.tg-page-list > li input {
+  width: 30px;
+  text-align: center;
+  margin: 0 5px;
+  border-radius: 2px;
+  border: 1px solid #e5e5e5;
+  padding: 3px 0; }
+
+.tg-page-list > li > span {
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  padding: 3px 5px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer; }
+
+.tg-page-list > li > button {
+  border-radius: 2px;
+  border: 1px solid #e5e5e5;
+  width: 48px;
+  padding: 3px 5px;
+  background-color: #fff; }
+  .tg-page-list > li > button:focus {
+    outline: none; }
+
+.tg-sidebar-follow {
+  width: 50px; }
+  .tg-sidebar-follow .qq {
+    background-position: 0 0; }
+    .tg-sidebar-follow .qq:hover {
+      background-position: -46px 0; }
+  .tg-sidebar-follow .subscribe {
+    background-position: 0 -50px;
+    position: relative; }
+    .tg-sidebar-follow .subscribe img {
+      position: absolute;
+      right: 50px;
+      bottom: 0;
+      display: none; }
+    .tg-sidebar-follow .subscribe:hover {
+      background-position: -46px -50px; }
+      .tg-sidebar-follow .subscribe:hover img {
+        display: block; }
+
+.tg-side-float-icon {
+  background: url(../img/float-icon.jpg) no-repeat;
+  width: 50px;
+  height: 50px;
+  display: block;
+  border-bottom: 1px solid #fff; }
+  .tg-side-float-icon:hover {
+    background-position: -46px 0;
+    cursor: pointer; }
+
+.tg-tab-wrap .tg-tab-change li {
+  display: inline-block;
+  list-style: none;
+  width: 150px;
+  cursor: pointer; }
+
+.tg-tab-wrap .tg-tab-content > div {
+  display: none; }
+  .tg-tab-wrap .tg-tab-content > div:first-child {
+    display: block; }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.channel.Mapper_proj_channel_lighttower_stat">
+	<resultMap type="cn.thinkingdata.web.domain.project.channel.Do_proj_channel_lighttower_stat"  id="persistence">
+		<result property="data_date" column="data_date"/>
+		<result property="project_id" column="project_id"/>
+		<result property="info_id" column="info_id"/>
+		<result property="source_name" column="source_name"/>
+		<result property="lighttower_classify" column="lighttower_classify"/>
+		<result property="classify_sentiment" column="classify_sentiment"/>
+		<result property="post_num" column="post_num"/>
+		<result property="lighttower_tags" column="lighttower_tags"/>
+	</resultMap>
+
+	<select id="get" resultMap="persistence">
+		select * from gas_new.proj_channel_lighttower_stat where project_id=#{project_id} and data_date between #{start_date} and #{end_date} and agg_code=0
+	</select>
+	
+	
+</mapper>

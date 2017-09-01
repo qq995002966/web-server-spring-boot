@@ -1,0 +1,150 @@
+.choose_game_type
+{
+    line-height: 3em;
+    text-indent:35px;
+    border-radius:3px;
+    width:103px;
+}
+
+
+.choose_game_type.mobile
+{
+    background: transparent url(http://image.thinkinggame.cn/img/reg/4/mobile.png) no-repeat 8px center;
+    background-size:20px;
+}
+
+.choose_game_type.mobile.chosen
+{
+    background: #03a9f5 url(http://image.thinkinggame.cn/img/reg/4/mobile_chosen.png) no-repeat 8px center;
+    background-size:20px;
+    color:#ffffff;
+}
+
+
+.choose_game_type.page
+{
+    background: transparent url(http://image.thinkinggame.cn/img/reg/4/page.png) no-repeat 8px center;
+    background-size:20px;
+}
+
+.choose_game_type.page.chosen
+{
+    background: #03a9f5 url(http://image.thinkinggame.cn/img/reg/4/page_chosen.png) no-repeat 8px center;
+    background-size:20px;
+    color:#ffffff;
+}
+
+.choose_game_type.pc
+{
+    background: transparent url(http://image.thinkinggame.cn/img/reg/4/pc.png) no-repeat 8px center;
+    background-size:20px;
+}
+
+.choose_game_type.pc.chosen
+{
+    background: #03a9f5 url(http://image.thinkinggame.cn/img/reg/4/pc_chosen.png) no-repeat 8px center;
+    background-size:20px;
+    color:#ffffff;
+}
+
+.choose_game_type.ps
+{
+    background: transparent url(http://image.thinkinggame.cn/img/reg/4/ps.png) no-repeat 8px center;
+    background-size:20px;
+}
+
+.choose_game_type.ps.chosen
+{
+    background: #03a9f5 url(http://image.thinkinggame.cn/img/reg/4/ps_chosen.png) no-repeat 8px center;
+    background-size:20px;
+    color:#ffffff;
+}
+
+.choose_game_pinyin
+{
+    margin-left:24px;
+    padding-left:4px;
+    padding-right:4px;
+    display: inline-block;
+
+}
+
+.choose_game_pinyin span
+{
+    margin-bottom: -1px;
+}
+
+
+.choose_game_pinyin.chosen
+{
+    color:#03a9f5;
+    border-bottom:2px solid #03a9f5;
+}
+
+.project-find.chosen
+{
+    color:#03a9f5;
+    font-size:13px;
+}
+
+.favor
+{
+    width: 80px;
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 60px;
+    transition:background .3s;
+    margin-left:3px;
+    margin-right:3px;
+}
+
+.favor-desc
+{
+    font-size:12px;
+    height:24px;
+    line-height: 1em;
+    margin-top:5px;
+    width:80px;
+}
+
+.favor:hover
+{
+    background-size: 70px;
+}
+
+.arrow-left
+{
+    background: transparent url(http://image.thinkinggame.cn/img/reg/4/arrows-left.png) no-repeat center center;
+    background-size:contain;
+    width:30px;
+    height:30px;
+}
+
+.arrow-right
+{
+    background: transparent url(http://image.thinkinggame.cn/img/reg/4/arrows-right.png) no-repeat center center;
+    background-size:contain;
+    width:30px;
+    height:30px;
+}
+
+.arrow-left.disable
+{
+    background: transparent url(http://image.thinkinggame.cn/img/reg/4/arrows-left1.png) no-repeat center center;
+    background-size: contain;
+}
+
+.arrow-right.disable
+{
+    background: transparent url(http://image.thinkinggame.cn/img/reg/4/arrows-right1.png) no-repeat center center;
+    background-size: contain;
+}
+
+.choose_game_tab.chosen
+{
+    border-bottom:2px solid #03a9f5;
+    color:#03a9f5;
+}
+
+

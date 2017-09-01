@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.channel.Mapper_proj_channel_info_mid">
+	<resultMap type="cn.thinkingdata.web.domain.project.channel.Do_proj_channel_info_mid" id="persistence">
+		<result property="project_id" column="project_id"/>
+		<result property="source_type" column="source_type"/>
+		<result property="download_num" column="download_num"/>
+		<result property="version" column="version"/>
+		<result property="update_date" column="update_date"/>
+		<result property="rating_value" column="rating_value"/>
+		<result property="rating_count" column="rating_count"/>
+		<result property="full_rating_value" column="full_rating_value"/>
+		<result property="cv_rating_value" column="cv_rating_value"/>
+		<result property="cv_rating_count" column="cv_rating_count"/>
+		<result property="hot_level" column="hot_level"/>
+		<result property="firmware" column="firmware"/>
+		<result property="like_num" column="like_num"/>
+		
+	</resultMap>
+
+	<select id="get" resultMap="persistence">
+		select a.* from gas_new.proj_channel_info_mid a,gas_new.gas_source_dim b where a.project_id=#{project_id} and a.source_type=b.source_type
+		order by b.rank
+	</select>
+	
+	
+</mapper>

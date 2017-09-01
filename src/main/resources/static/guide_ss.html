@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>行业指南-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="elements2.0/css/app/guide_ss.css">
+</head>
+
+<body>
+<div id="headerPart" class="min-width"></div>
+<div class="hover-nav" id="headerPartProductPop"></div>
+<div class="tf-guide-ss " style="margin-top: 100px">
+    <div class="tf-block">
+        <h3>行业综合走势
+            <div class="tip-box-show">
+                <i class="triangle-up"></i>
+                <div class="tip-box-content">
+                    行业综合走势协助您实时监控全网舆论，让您及时看到全网信息的更新。如发帖数、渠道评论、游戏媒体文章等。您还可以看到以上数据的当日走势、及时掌握行业最新发展。
+                </div>
+            </div>
+        </h3>
+        <div class="tf-boxshadow guide-trend">
+            <ul class="left-tab bs_trend_tab">
+                <li class="selected">
+                    <p class="title">今日累积发帖数</p>
+                    <div>
+                        <b class="bs_change_number"></b>
+                        <i></i>
+                    </div>
+                    <p class="post-num-compare"></p>
+                    <p class="post-num-all"></p>
+                </li>
+                <li>
+                    <p class="title">渠道评论发布数</p>
+                    <div>
+                        <b></b>
+                        <i></i>
+                    </div>
+                    <p class="post-num-compare"></p>
+                    <p class="post-num-all"></p>
+                </li>
+                <li>
+                    <p class="title">媒体文章发布数</p>
+                    <div>
+                        <b></b>
+                        <i></i>
+                    </div>
+                    <p class="post-num-compare"></p>
+                    <p class="post-num-all"></p>
+                </li>
+            </ul>
+            <div class="graph-part">
+                <ul class="tf-tab-change-btn bs_trend_type">
+                    <li class="selected">实时</li>
+                    <li>走势</li>
+                </ul>
+                <div id="bs_trend_chart" style="width: 100%; height: 100%"></div>
+                <div class="tf-graph-part" id="bs_trendDay_chart" style="display: none;width: 100%; height: 100%"></div>
+            </div>
+        </div>
+    </div>
+    <!--活跃玩家地域分布-->
+    <div class="tf-block">
+        <h3>活跃玩家地域分布
+            <div class="tip-box-show">
+                <i class="triangle-up"></i>
+                <div class="tip-box-content">
+                    展示全网当日活跃玩家全国地域分布图。
+                </div>
+            </div>
+        </h3>
+        <div class="tf-boxshadow activity-player-distribute">
+            <div class="graph-part">
+                <div id="bs_map_chart" style="width: 100%; height: 100%"></div>
+            </div>
+            <ul class="post-list" id="bs_content_list"></ul>
+        </div>
+    </div>
+    <div class="tf-block">
+        <h3>玩家抱怨人数分布
+            <div class="tip-box-show">
+                <i class="triangle-up"></i>
+                <div class="tip-box-content">
+                    展示各游戏类型下，全用户抱怨程度，负面反馈数分布情况。
+                </div>
+            </div>
+        </h3>
+        <div class="tf-boxshadow complain-player-distribute" id="bs_complain">
+
+        </div>
+    </div>
+    <div class="tf-block">
+        <h3>游戏类型分布
+            <div class="tip-box-show">
+                <i class="triangle-up"></i>
+                <div class="tip-box-content">
+                    展示不同平台在各游戏类型下的发行游戏数量情况，面积越大，数量越多。
+                </div>
+            </div>
+        </h3>
+        <div class="tf-boxshadow game-style-distribute">
+            <div class="graph-part" style="height: 450px">
+                <div id="bs_type_chart" style="width: 100%; height: 100%"></div>
+            </div>
+        </div>
+    </div>
+    <div class="tf-block">
+        <h3>手游App Store分类排行榜游戏分布
+            <div class="tip-box-show">
+                <i class="triangle-up"></i>
+                <div class="tip-box-content">
+                    柱状图展示了AppStore各平台、各类别下的入榜游戏数量，点击柱形可以跳转到榜单详情，查看App Store的入榜分布。
+                </div>
+            </div>
+        </h3>
+        <div class="tf-boxshadow appstore-list-distribute">
+            <div class="tab-change">
+                <span>游戏类型</span>
+                <ul class="bs_app_type">
+                    <li class="selected" data-i="3">畅销榜</li>
+                    <li data-i="1">免费榜</li>
+                    <li data-i="2">付费榜</li>
+                </ul>
+                <span>设备</span>
+                <ul class="bs_app_device">
+                    <li class="selected" data-i="1">iPhone</li>
+                    <li data-i="2">iPad</li>
+                </ul>
+            </div>
+            <div class="graph-part" style="height: 450px; padding-top: 80px">
+                <div id="bs_appStore" style="width: 100%; height: 100%"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部跳转页面 -->
+<div class="href-page-list">
+    <div class="black-top">
+    </div>
+    <div class="gray-bottom">
+        <ul>
+            <li>
+                <a href="professional.html">
+                    <div class="top-img img-a">
+                        专业服务
+                    </div>
+                    <div class="mask-hover"></div>
+                    <img src="  " alt="">
+                    <div class="des">
+                        <h3>思以智胜的专业服务</h3>
+                        <p> 知己，强大的自然语言技术能够轻松解读过亿玩家反馈，追踪玩家舆情变化；知彼，全面掌控千款热门游戏的游戏口碑、玩家画像、活动效果等</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="playerusage.html ">
+                    <div class="top-img img-a">
+                        玩家分析
+                    </div>
+                    <div class="mask-hover"></div>
+                    <img src="  " alt="">
+                    <div class="des">
+                        <h3>知微知彰的玩家运营</h3>
+                        <p> 由ThinkingGame的专业数据费分析师，结合人工智能技术所提供的专业服务，提让游戏开发者、运营企业创造出基于人工智能技术设计和运营的优秀游戏</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="usageanalysis.html">
+                    <div class="top-img img-a">
+                        智能运营
+                    </div>
+                    <div class="mask-hover"></div>
+                    <img src="  " alt="">
+                    <div class="des">
+                        <h3>极往知来的智能分析</h3>
+                        <p>极往，依托数据挖掘及时解读玩家行为，确保运营数据毫厘不差；知来，通过机器学习技术定位游戏系统中的关键利润点、导致流失的不合理设定等</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="footerPart"></div>
+<script data-main="elements2.0/js/app_source/industry" src="elements2.0/js/require.js"></script>
+</body>
+</html>

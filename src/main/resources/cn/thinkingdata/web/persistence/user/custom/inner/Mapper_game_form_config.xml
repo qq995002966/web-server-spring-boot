@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.Mapper_game_form_config">
+	<select id="findConfigByServiceAndGame" resultType="cn.thinkingdata.web.domain.user.custom.inner.Do_game_form_config">
+		select * from inner_game.game_form_config where is_disable=#{chart_type} and service_id = #{service_id} and game_id = #{game_id} order by form_id
+	</select>
+
+	<select id="findDataBySQL" parameterType="String" resultType="java.util.LinkedHashMap" statementType="STATEMENT">
+		${value}
+	</select>
+
+	<select id="getGameFormConfigById" resultType="cn.thinkingdata.web.domain.user.custom.inner.Do_game_form_config">
+		select * from inner_game.game_form_config where form_id = #{form_id}
+	</select>
+</mapper>

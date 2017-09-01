@@ -1,0 +1,92 @@
+@import url("center.css");
+#talk input[type=file] {filter: alpha(opacity=0);-moz-opacity: 0;opacity: 0;cursor: pointer;}
+#talk .tk_qq_icon{     width: 18px;
+    height: 20px;
+    position: relative;
+    background-position: -639px 0;
+    top: 13px;}
+#talk .bs_reupload{ background-color: #ffffff; border: 0; cursor: pointer; position: relative}
+#talk .bs_reupload *{cursor: pointer}
+#talk .tk_how{ text-align: center; font-size: 14px;}
+#talk .up_progress{width:412px;height:274px;color: #838e99;background-color:#ffffff;font-size:14px;}
+#talk .up_progress-bar{width:272px;height:8px;background-color:#838e99;border-radius:3px;margin-left:auto;margin-right:auto;}
+#talk .up_progress-bar .qq{width:10px;height:8px;background-color:#03a9f5;border-radius:3px;}
+#talk .up_percent{padding-top:90px;padding-bottom:10px; text-align: center}
+#talk .up_notice{padding-top:30px; text-align: center}
+#talk .tk_setup{ width:530px;padding:16px 30px 16px 40px;}
+#talk .tk_setup .date-range{ height: 25px; border: 1px solid #CCCCCC;width: 420px;display: block; line-height: 25px;z-index: 2; position: absolute; cursor: pointer}
+#talk .tk_setup .tk_setup_title{ padding-top: 10px; font-size: 14px}
+#talk .tk_setup .tk_date_area{ height: 30px}
+#talk .tk_setup .tk_date_area i{position: absolute; right: 45px;top: 7px;}
+#talk .tk_setup .tk_fast_choose span{ cursor: pointer}
+#talk_result .tk_rt_info{ height: 55px; line-height: 55px}
+#talk_result .tk_rt_info .tk_rt_name{ width: 600px; text-indent: 50px}
+#talk_result .tk_rt_info .tk_rt_name i{ width: 18px; height: 20px; background-position: -639px 0; position: absolute; left: 20px; top: 18px}
+#talk_result .tk_rt_info .tk_rt_time{ width: 340px}
+#talk_result .tk_rt_title{ height: 30px;}
+#talk_result .tk_rt_title h3{ font-size: 16px; text-indent: 20px; border-left: 3px solid #03A9F5; padding: 0; margin: 0}
+#talk_result .tk_rt_half{ width: 450px}
+#talk_result .tk_rt_half_title{ height: 40px; line-height: 40px; text-align: center; font-size: 14px}
+#talk_result .tk_rt_half_chart{width: 450px; height: 300px;}
+#talk_result .tk_rt_half_word{width: 450px; height: 250px;}
+#talk_result .tk_rt_half_word a:hover{ background-color: #00b7ee; color: #ffffff; border-radius: 5px; cursor: pointer}
+#talk_result .tk_rt_choose{ margin-top:20px;height: 35px; text-align: center; line-height: 35px}
+#talk_result .tk_rt_half .lt_fmPlWPos{color:#679F37;}
+#talk_result .tk_rt_half .lt_fmPlWNeg{color: #E88B80;}
+#talk_result .tk_rt_keywords{ height: 400px; width: 920px}
+#talk_result .tk_rt_topic{ height: 355px; width: 920px}
+#talk_result .tk_rt_topic_more{ height: 35px; line-height: 35px; text-align: center}
+#talk_result .tk_rt_topic_man_top{ height: 340px}
+#talk_result .tk_rt_topic_man_top_info{ width: 210px; height: 340px; background-position: 0 0}
+#talk_result .tk_rt_topic_man_top_info .tk_rt_number{ position: absolute; top:77px; left: 62px; color: #ffffff; font-size: 30px}
+#talk_result .tk_rt_topic_man_top_info .tk_rt_user{ position: absolute; top: 190px; left: 35px; line-height: 30px; font-size: 14px}
+#talk_result .tk_rt_topic_man_top_list{ width: 705px; height: 322px; background-position: 0 0; border: 1px solid #E1E4E8; margin-top: 9px; border-left: 0}
+#talk_result .tk_rt_topic_man_top_list .tk_rt_topic_man_detail_width{ width:510px; height: 320px; }
+#talk_result .tk_rt_topic_man_list ul{ list-style: none;}
+#talk_result .tk_rt_topic_man_list ul li{ background: url("../img/talk.jpg") no-repeat; position:relative;width: 290px; height: 154px; background-position: -213px -262px; float: left; margin-right: 20px; margin-top: 30px}
+#talk_result .tk_rt_topic_man_list ul .liNoMargin{ margin-right: 0}
+#talk_result .tk_rt_topic_man_list ul li .tk_rt_number{ position: absolute; top: 38px; left: 35px; font-size: 16px;}
+#talk_result .tk_rt_topic_man_list ul li .tk_rt_user{ position: absolute; left: 100px; top: 27px; line-height: 20px}
+#talk_result .tk_rt_topic_man_list ul li .tk_rt_detail{position: absolute; top: 100px; left: 10px; width: 290px; text-align: center; line-height: 53px}
+/*#talk_result_s .tk_rts_list{width: 600px; height: 500px;}
+#talk_result_s .tk_rts_user{width: 800px; height: 500px;}
+#talk_result_s .tk_rts_topic{width: 1100px; height: 500px;}*/
+#talk_result_s .tk_rts_topic .tk_rts_list{ width: 500px;}
+#talk_result_s .tk_rts_topic .tk_rts_border{border: 1px solid #E1E4E8; background-color: #F9F9F9; border-radius: 3px}
+#talk_result_s .tk_rts_topic .tk_rts_list ul{ list-style: none}
+#talk_result_s .tk_rts_topic .tk_rts_list ul li{ height: 80px; padding-top: 20px; border-bottom: 1px solid #E1E4E8; position: relative; cursor: pointer}
+#talk_result_s .tk_rts_topic .tk_rts_detail{ width: 570px;}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area{  /*height: 500px;width: 570px; */overflow: auto; overflow-x: hidden; word-break: break-all;height: 490px;}
+#talk_result_s .tk_rts_topic .tk_rts_list ul li .tk_rts_lt_cal{ width: 55px; height: 55px; overflow: hidden; position: absolute; left: 25px; top: 25px; text-align: center; line-height: 65px; font-size: 14px;}
+#talk_result_s .tk_rts_topic .tk_rts_list ul li .tk_rts_lt_cal_off{ background-position: -269px -180px}
+#talk_result_s .tk_rts_topic .tk_rts_list ul li .tk_rts_lt_cal_on{ background-position: -211px -180px}
+#talk_result_s .tk_rts_topic .tk_rts_list ul li .tk_rts_lt_info{ left: 105px; top: 30px; width: 390px; position: absolute;color: #a7abae;}
+#talk_result_s .tk_rts_topic .tk_rts_list ul li .tk_rts_lt_info span{ height: 30px; font-size: 14px; width: 350px; white-space: nowrap;text-overflow: ellipsis;overflow: hidden; display: block; color: #555555}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dl{ margin-bottom: 20px;height: 65px;}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dt{ height: 35px; line-height: 35px; font-weight: normal}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd { }
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd i{ display: block; height: 40px; width: 40px;  background-position: -326px -180px;}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd span{ border: 1px solid #E1E4E8; background: #ffffff; padding:6px; line-height: 25px; position: relative; border-radius: 3px; max-width: 450px;word-break: break-all}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd .mg_left{ margin-left: 20px;}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd .mg_right{ margin-right: 20px;}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd .ar_left{ width: 8px; height: 13px; background-position: -213px -242px; position: absolute; left: -7px}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd .ar_right{ width: 8px; height: 13px;background-position: -226px -243px;position: absolute; right: -7px}
+.tk_top_img{ background: url("../img/talk.jpg") no-repeat}
+.tk_rt_topic_man_detail{padding:10px;
+ word-break: break-all;height: 490px;}
+#bs_user .tk_rt_topic_man_detail {
+	width: 620px;
+}
+.tk_rt_topic_man_detail dl{ border-bottom: 1px dashed #E1E4E8}
+.tk_rt_topic_man_detail dl dt{ height: 30px; line-height: 30px; color: #a7abae; font-weight: normal}
+.tk_rt_topic_man_detail dl dd{ line-height: 25px; padding-bottom: 10px}
+.tk_rt_topic_man_more{ text-align: center; height: 40px; line-height: 40px}
+.tk_rt_topic_man_keyword{ width: 170px; background-color: #f9f9f9; border-left: 1px solid  #E1E4E8;height: 490px !important;}
+.tk_rt_topic_man_arrow{ width: 10px; height: 20px; background-position: -211px -156px; position: absolute; left: -10px; top: 150px}
+.tk_rt_topic_man_keyword_list{ line-height: 30px; font-size: 14px; text-align: center; padding-top: 60px}
+
+
+#MRight .m_show_title .m_soWork>div.btn {
+    background-color: #237bd0;
+    border-color: #237bd0;
+}

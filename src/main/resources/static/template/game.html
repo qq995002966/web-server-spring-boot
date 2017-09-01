@@ -1,0 +1,44 @@
+<div id="mainContent">
+    <div id="headerTop" class="boxshadow default-flytest-ht"></div>
+    <div class="tg-top-search low-height-search" id="bs_game_search_area" style="display: none">
+        <div class="search-wrap">
+            <form onsubmit="return M_Outside._doSearch();">
+            <input type="text" name="keyword" placeholder="搜索游戏名、游戏类型、开发商或发行商">
+            <button type="submit"><i class="tg-icon tg-search-btn"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="search-pop-wrap" style="display: none">
+        <i class="tg-remove-icon glyphicon glyphicon-remove"></i>
+        <div class="search-content">
+            <ul class="head-select-list" id="bs_gameChoose">
+                <li class="selected">ABC</li>
+                <li>DEF</li>
+                <li>GHI</li>
+                <li>JKL</li>
+                <li>MNO</li>
+                <li>PQR</li>
+                <li>STU</li>
+                <li>VW</li>
+                <li>XYZ</li>
+                <li>0-9</li>
+            </ul>
+            <div class="head-select-content">
+                <ul class="left-type-list" id="bs_game">
+                    <li class="selected" game_type="S"><i class="c_img cj-1"></i>手游</li>
+                    <li game_type="Y"><i class="c_img cj-2"></i>页游</li>
+                    <li game_type="D"><i class="c_img cj-3"></i>端游</li>
+                    <li game_type="W"><i class="c_img cj-4"></i>单机 电玩</li>
+                </ul>
+                <div class="right-result-list" id="bs_gameItem"></div>
+            </div>
+            <div class="recommend-game">
+                <h3>推荐游戏</h3>
+                <ul id="bs_menu_hot_game"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid insidelog-part" id="contentPart">
+        <div id="ct_main_area"></div>
+    </div>
+</div>

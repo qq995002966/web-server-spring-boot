@@ -1,0 +1,1174 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit">
+<title>游戏灯塔</title>
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="plugins/datarange/dateRange.css">
+<link rel="stylesheet" type="text/css" href="plugins/datarange/lq.datetimepick.css">
+<link rel="stylesheet" type="text/css" href="plugins/wordcloud/wcloud.css">
+<link rel="stylesheet" type="text/css" href="elements/css/light.css">
+</head>
+<body>
+<div id="header" class="container-flud c_bgWhite c_shadow1">
+    <div class="c_maxWidth c_marginAuto h_area">
+        <div class="c_img h_logo c_floatLeft"></div>
+        <div class="h_search c_floatLeft c_boderRadius">
+            <input type="text" name="keywords" placeholder="搜索游戏、文章、元素...">
+            <button type="submit" class="glyphicon glyphicon-search"></button>
+            <div class="h_pop h_quick c_bgWhite c_boderRadius c_hidden">
+                <div class="c_padding20 h_area">
+                    <div class="h_close"><i class="glyphicon glyphicon-remove"></i></div>
+                    <div class="h_qkTitle c_borderB">
+                        <div class="qk_slider"></div>
+                        <ul>
+                            <li class="liOn">游戏类型</li>
+                            <li>游戏标签</li>
+                            <li>行业媒体</li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="h_qkArea c_marginTop20">
+                        <div class="h_qkChoose">
+                            <div class="qc_slider"></div>
+                            <ul>
+                                <li class="liOn">ABC</li>
+                                <li>DEF</li>
+                                <li>GHI</li>
+                                <li>JKL</li>
+                                <li>MNO</li>
+                                <li>PQR</li>
+                                <li>STU</li>
+                                <li>VW</li>
+                                <li>XYZ</li>
+                                <li>0-9</li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="h_qkTab c_floatLeft">
+                            <div class="qt_slider"></div>
+                            <dl class="dlOn">
+                                <dt class="h_qkTb1 c_img"></dt>
+                                <dd>手游</dd>
+                            </dl>
+                            <dl>
+                                <dt class="h_qkTb2 c_img"></dt>
+                                <dd>页游</dd>
+                            </dl>
+                            <dl>
+                                <dt class="h_qkTb3 c_img"></dt>
+                                <dd>端游</dd>
+                            </dl>
+                            <dl>
+                                <dt class="h_qkTb4 c_img"></dt>
+                                <dd>单机 电玩</dd>
+                            </dl>
+                        </div>
+                        <div class="h_qkItem c_floatLeft c_borderT c_borderL">
+                            <dl>
+                                <dt>A</dt>
+                                <dd>暗夜黎明</dd><dd>傲世西游</dd><dd>阿修罗之眼</dd>
+                            </dl>
+                            <div class="clearfix"></div>
+                            <dl>
+                                <dt>B</dt>
+                                <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd>
+                                <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd>
+                                <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd>
+                                <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd>
+                            </dl>
+                            <div class="clearfix"></div>
+                            <dl>
+                                <dt>C</dt>
+                                <dd>暗夜黎明</dd><dd>傲世西游</dd><dd>阿修罗之眼</dd>
+                            </dl>
+                            <div class="clearfix"></div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="h_qkTitle c_borderB c_marginB10">
+                        <h5>热门游戏</h5>
+                    </div>
+                    <div class="h_qkList c_itemList">
+                        <dl>
+                            <img src="elements/img/game_icon.png">
+                            <dt>Lords of Xulima</dt>
+                            <dd>MP,LLC</dd>
+                        </dl>
+                        <dl>
+                            <img src="elements/img/game_icon.png">
+                            <dt>Lords of Xulima</dt>
+                            <dd>MP,LLC</dd>
+                        </dl>
+                        <dl>
+                            <img src="elements/img/game_icon.png">
+                            <dt>Lords of Xulima</dt>
+                            <dd>MP,LLC</dd>
+                        </dl>
+                        <dl>
+                            <img src="elements/img/game_icon.png">
+                            <dt>Lords of Xulima</dt>
+                            <dd>MP,LLC</dd>
+                        </dl>
+                        <dl>
+                            <img src="elements/img/game_icon.png">
+                            <dt>Lords of Xulima</dt>
+                            <dd>MP,LLC</dd>
+                        </dl>
+                        <dl>
+                            <img src="elements/img/game_icon.png">
+                            <dt>Lords of Xulima</dt>
+                            <dd>MP,LLC</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h_menu c_floatLeft">
+            <ul>
+                <li class="liOn">
+                    游戏灯塔
+                    <div class="h_pop h_light c_bgWhite c_boderRadius c_hidden">
+                        <div class="c_padding20 h_area  c_itemList">
+                            <div class="h_close"><i class="glyphicon glyphicon-remove"></i></div>
+                            <div class="h_ltZone1 c_floatLeft">
+                                <div class="c_paddingLR20">
+                                    <div class="h_title c_marginTB10">
+                                        <h2><i class="glyphicon glyphicon-time glyphicon "></i> 浏览历史</h2>
+                                    </div>
+                                    <div class="h_ltList h_ltLtTwo c_marginTop20">
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h_ltZone1 c_floatLeft">
+                                <div class="c_paddingLR20">
+                                    <div class="h_title c_marginTB10">
+                                        <h2><i class="glyphicon glyphicon-star-empty"></i> 您的收藏</h2>
+                                    </div>
+                                    <div class="h_ltList h_ltLtTwo c_marginTop20">
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h_ltZone2 c_floatLeft">
+                                <div class="c_paddingLR20">
+                                    <div class="h_title c_marginTB10">
+                                        <h2><i class="glyphicon glyphicon-heart"></i> 猜你喜欢</h2>
+                                    </div>
+                                    <div class="h_ltList c_marginTop20">
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                        <dl>
+                                            <img src="elements/img/game_icon.png">
+                                            <dt>Lords of Xulima</dt>
+                                            <dd>MP,LLC</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>行业指南</li>
+                <li>游戏图谱</li>
+                <li>私人定制</li>
+            </ul>
+            <div class="h_slider"></div>
+        </div>
+        <div class="h_user c_floatRight">
+            <button class="h_login">登录</button>
+            <button class="h_reg">注册用户</button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div id="light" class="container-flud">
+    <div class="c_maxWidth c_marginAuto">
+        <div class="lt_info c_shadow2 c_floatLeft c_bgWhite">
+            <div class="lt_collect c_img lt_ctOn"></div>
+            <div class="c_padding30">
+                <div class="lt_gameInfo c_floatLeft">
+                    <img src="elements/img/game_icon.png">
+                </div>
+                <dl class="c_floatLeft">
+                    <dt><h1 class="c_floatLeft">刀塔传奇　</h1><i class="c_img c_floatLeft"></i>　<a>查看游戏图谱></a></dt>
+                    <div class="clearfix"></div>
+                    <dd><span>开发商：</span>莉莉丝游戏</dd>
+                    <dd><span>发行商：</span>中清龙图游戏发行</dd>
+                    <dd><span>游戏类型：</span>卡牌/手游</dd>
+                    <dd><span>发行日期：</span>2015-07-09</dd>
+                    <dd><span>常用标签：</span><button>美国</button> <button>策略</button> <button>莉莉丝</button> <button>战略游戏</button></dd>
+                </dl>
+                <div class="clearfix"></div>
+                <div class="lt_title c_marginTB10">
+                    <h2>游戏简介</h2>
+                </div>
+                <div class="lt_content c_hidden">《刀塔传奇》是由莉莉丝游戏开发，龙图游戏发行的一款动作卡牌手机游戏，玩家可以收集到Q版英雄，通过装备附魔、技能升级、英雄进阶提升战队战斗力。游戏继承了老一代卡牌简单明快优点，同时在战斗系统上进行了深度革新，在战斗中玩家可以手动释放大招技能，实现打断技能、击杀英雄等目标。动动手指，英雄尽在掌控!</div>
+                <div class="lt_title c_marginTB10">
+                    <h2>竞品游戏</h2>
+                </div>
+                <div class="lt_game">
+                    <ul>
+                        <li>
+                            <div class="lt_mask">
+                                <img src="elements/img/game_icon.png">
+                            </div>
+                            <div class="lt_shade">
+                                <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                <a>查看游戏灯塔></a>
+                                <a>查看游戏图谱></a>
+                            </div>
+                            <span>秘密组织</span>
+                        </li>
+                        <li>
+                            <div class="lt_mask"><img src="elements/img/game_icon.png"></div>
+                            <div class="lt_shade">
+                                <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                <a>查看游戏灯塔></a>
+                                <a>查看游戏图谱></a>
+                            </div>
+                            <span>秘密组织</span>
+                        </li>
+                        <li>
+                            <div class="lt_mask"><img src="elements/img/game_icon.png"></div>
+                            <div class="lt_shade">
+                                <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                <a>查看游戏灯塔></a>
+                                <a>查看游戏图谱></a>
+                            </div>
+                            <span>秘密组织</span>
+                        </li>
+                        <li>
+                            <div class="lt_mask"><img src="elements/img/game_icon.png"></div>
+                            <div class="lt_shade">
+                                <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                <a>查看游戏灯塔></a>
+                                <a>查看游戏图谱></a>
+                            </div>
+                            <span>秘密组织</span>
+                        </li>
+                        <li>
+                            <div class="lt_mask"><img src="elements/img/game_icon.png"></div>
+                            <div class="lt_shade">
+                                <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                <a>查看游戏灯塔></a>
+                                <a>查看游戏图谱></a>
+                            </div>
+                            <span>秘密组织</span>
+                        </li>
+                        <li>
+                            <div class="lt_mask"><img src="elements/img/game_icon.png"></div>
+                            <div class="lt_shade">
+                                <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                <a>查看游戏灯塔></a>
+                                <a>查看游戏图谱></a>
+                            </div>
+                            <span>秘密组织</span>
+                        </li>
+                        <li>
+                            <div class="lt_mask"><img src="elements/img/game_icon.png"></div>
+                            <div class="lt_shade">
+                                <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                <a>查看游戏灯塔></a>
+                                <a>查看游戏图谱></a>
+                            </div>
+                            <span>秘密组织</span>
+                        </li>
+                        <li>
+                            <div class="lt_mask"><img src="elements/img/game_icon.png"></div>
+                            <div class="lt_shade">
+                                <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                <a>查看游戏灯塔></a>
+                                <a>查看游戏图谱></a>
+                            </div>
+                            <span>秘密组织</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="lt_list c_floatRight lt_rank c_bgWhite">
+            <div class="c_padding30">
+                <div class="lt_title c_marginB10">
+                    <h2>卡牌/手游类舆论热度排名</h2>
+                </div>
+                第 <b>18</b> 名
+                <p><span>较前日↑↓5名</span></p>
+                <p>以上排名依据舆情指数、玩家活跃度等综合因素计算</p>
+            </div>
+        </div>
+        <div class="lt_list c_floatRight lt_news c_bgWhite">
+            <div class="c_padding30">
+                <div class="lt_title c_marginB10">
+                    <h2>相关报道</h2>
+                </div>
+                <ul>
+                    <li>2016-03-21　狂野魔兽 新英雄狼人曝光</li>
+                    <li>2016-03-21　狂野魔兽 新英雄狼人曝光</li>
+                    <li>2016-03-21　狂野魔兽 新英雄狼人曝光</li>
+                    <li>2016-03-21　狂野魔兽 新英雄狼人曝光</li>
+                    <li>2016-03-21　狂野魔兽 新英雄狼人曝光</li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="lt_forum">
+            <div class="lt_fmTitle">
+                <div class="lt_fmName c_floatLeft">
+                    <h3>灯塔透视</h3>
+                    <h4>多维度+全方位解读用户</h4>
+                </div>
+                <div class="lt_fmDate c_floatRight">
+                    <div class="lt_fmChoose c_boderRadius c_shadow2" >
+                        <div class="lt_fmShow" id="dc1"></div>
+                        <span class="lt_fmBtn"><i class="c_img"></i></span>
+                        <input id="db1" type="hidden">
+                        <input id="de1" type="hidden">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="lt_fmArea c_bgWhite">
+                <div class="lt_fmNotice">
+                    <i class="glyphicon glyphicon-remove"></i> 该游戏的反馈数据来自5个玩家论坛和13个游戏渠道。玩家论坛：百度贴吧、九游论坛、兴趣部落、181813论坛、电玩巴士；游戏渠道：Apple Store、百度助手、360游戏助手、应用宝、安卓市场、魅族商店、华为应用商店、小米应用商店。查看详情
+                </div>
+                <div class="c_padding30" style="position: relative">
+                    <div class="lt_fmTsLeft c_floatLeft">
+                        <div class="lt_fmTsLfArea">
+                            <div class="lt_title c_marginB10">
+                                <h2>反馈曲线</h2>
+                            </div>
+                            <div class="c_prepare lt_fm_fkqx">
+                                <p>共<span class="c_colorG">123,456</span>份玩家反馈。负面反馈<span class="c_colorR">4545</span>份。正面反馈<span class="c_colorGS">54656</span>份。</p>
+                                <div class="lt_fkqy"><img src="elements/img/chart_1.png"> </div>
+
+                            </div>
+                            <div class="lt_title c_marginB10">
+                                <h2>反馈占比</h2>
+                            </div>
+                            <p class="c_colorH">点击人形示意图相应颜色了解详情。</p>
+                            <div class="lt_fmPercent c_floatLeft">
+                                <p>
+                                    <i class="lt_fmRed c_img"></i>负面反馈<br>48.21%
+                                </p>
+                                <p>
+                                    <i class="lt_fmBlue c_img"></i>其他反馈<br>48.21%
+                                </p>
+                                <p>
+                                    <i class="lt_fmGreen c_img"></i>正面反馈<br>48.21%
+                                </p>
+                            </div>
+                            <div class="lt_fmPeople c_floatLeft">
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPRed c_img"></i>
+                                <i class="lt_fmPBlue c_img"></i>
+                                <i class="lt_fmPGreen c_img"></i>
+                                <i class="lt_fmPGreen c_img"></i>
+                                <i class="lt_fmPGreen c_img"></i>
+                                <i class="lt_fmPGreen c_img"></i>
+                                <i class="lt_fmPGreen c_img"></i>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="lt_fmTsMid c_floatLeft">
+                        <div class="lt_fmTsTab">
+                            <ul>
+                                <li class="liOn">负面反馈</li>
+                                <li>正面反馈</li>
+                                <li>其他反馈</li>
+                            </ul>
+                            <div class="t_slider"></div>
+                        </div>
+                        <div class="lt_fmTsMdArea c_border">
+                            <div class="lt_fmTsMdArrow c_img"></div>
+                            <ul>
+                                <li class="liOn">
+                                    <span>1</span>bug反馈
+                                    <div class="lt_fmTsLine">
+                                        <div class="lt_fmTsLnMask lt_fmTsLnOn" style="width: 50%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2</span>英雄
+                                    <div class="lt_fmTsLine">
+                                        <div class="lt_fmTsLnMask" style="width: 30%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>3</span>更新
+                                    <div class="lt_fmTsLine">
+                                        <div class="lt_fmTsLnMask" style="width: 30%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>4</span>登录问题
+                                    <div class="lt_fmTsLine">
+                                        <div class="lt_fmTsLnMask" style="width: 30%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>5</span>客户端问题
+                                    <div class="lt_fmTsLine">
+                                        <div class="lt_fmTsLnMask" style="width: 30%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>6</span>网络异常
+                                    <div class="lt_fmTsLine">
+                                        <div class="lt_fmTsLnMask" style="width: 30%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>7</span>玩法
+                                    <div class="lt_fmTsLine">
+                                        <div class="lt_fmTsLnMask" style="width: 30%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>8</span>远征
+                                    <div class="lt_fmTsLine">
+                                        <div class="lt_fmTsLnMask" style="width: 30%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>9</span>社交
+                                    <div class="lt_fmTsLine">
+                                        <div class="lt_fmTsLnMask" style="width: 30%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>10</span>下载问题
+                                    <div class="lt_fmTsLine">
+                                        <div class="lt_fmTsLnMask" style="width: 30%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>11</span> 竞技场
+                                    <div class="lt_fmTsLine">
+                                        <div class="lt_fmTsLnMask" style="width: 30%"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lt_fmTsRight c_border c_shadow2 c_bgWhite">
+                        <div class="c_padding30" style="padding-top: 20px">
+                            <div class="lt_title c_marginB10">
+                                <h5>反馈走势</h5>
+                            </div>
+                            <div class="lt_wtzs c_marginB30"><img src="elements/img/chart_2.png"> </div>
+                            <div class="lt_title c_marginB10">
+                                <h5>反馈分布</h5>
+                            </div>
+                            <div class="lt_wtfb"><img src="elements/img/chart_3.png"> </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="lt_fmInfo c_marginTop20">
+                        <i class="c_img"></i>
+                        <span>数据解读</span>
+                        <p>
+                            最近一天共有715648份玩家反馈，但较昨天减少了1823份反馈。想了解更多行业供求关系、竞争动态，请订购<a>画像追踪</a>功能
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lt_forum">
+            <div class="lt_fmTitle">
+                <div class="lt_fmName c_floatLeft">
+                    <h3>热词走势</h3>
+                    <h4>多维度+全方位解读用户</h4>
+                </div>
+                <div class="lt_fmDate c_floatRight">
+                    <div class="lt_fmChoose c_boderRadius c_shadow2" >
+                        <div class="lt_fmShow" id="dc2"></div>
+                        <span class="lt_fmBtn"><i class="c_img"></i></span>
+                        <input id="db2" type="hidden">
+                        <input id="de2" type="hidden">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="lt_fmArea c_bgWhite">
+                <div class="c_padding30">
+                    <div class="lt_rczs"><img src="elements/img/chart_4.png"></div>
+                    <div class="lt_fmInfo c_marginTop20">
+                        <i class="c_img"></i>
+                        <span>数据解读</span>
+                        <p>
+                            最近一天共有715648份玩家反馈，但较昨天减少了1823份反馈。想了解更多行业供求关系、竞争动态，请订购<a>热词定制</a>功能
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lt_forum">
+            <div class="lt_fmTitle">
+                <div class="lt_fmName c_floatLeft">
+                    <h3>论坛分析</h3>
+                    <h4>多维度+全方位解读用户</h4>
+                </div>
+                <div class="lt_fmDate c_floatRight">
+                    <div class="lt_fmChoose c_boderRadius c_shadow2" >
+                        <div class="lt_fmShow" id="dc3"></div>
+                        <span class="lt_fmBtn"><i class="c_img"></i></span>
+                        <input id="db3" type="hidden">
+                        <input id="de3" type="hidden">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="lt_fmArea c_bgWhite">
+                <div class="c_padding30 lt_fmBbs">
+                    <div class="lt_fmBbsTab c_marginB30">
+                        <div class="b_slider"></div>
+                        <ul>
+                            <li class="liOn">
+                                <p>论坛帖子总量</p>
+                                <b>89203</b>
+                                <div>较前一日 <span class="c_colorG">↓</span>1% <i class="glyphicon glyphicon-info-sign c_colorG" data-toggle="popover" data-placement="bottom" data-content="提示：热门话题数下降高于同期100%，请查看详情"></i></div>
+                            </li>
+                            <li>
+                                <p>正面情感帖占比</p>
+                                <b>43.54%</b>
+                                <div>较前一日 <span class="c_colorR">↑</span>1%</div>
+                            </li>
+                            <li>
+                                <p>负面情感帖占比</p>
+                                <b>56.28%</b>
+                                <div>较前一日 <span class="c_colorR">↑</span>1%</div>
+                            </li>
+                            <li>
+                                <p>无效帖占比</p>
+                                <b>3.24%</b>
+                                <div>较前一日 <span class="c_colorR">↑</span>1%</div>
+                            </li>
+                            <li>
+                                <p>论坛热词总数</p>
+                                <b>47</b>
+                                <div>较前一日 <span class="c_colorR">↑</span>1%</div>
+                            </li>
+                            <li>
+                                <p>热门话题总数</p>
+                                <b>191</b>
+                                <div>较前一日 <span class="c_colorR">↑</span>1%</div>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="lt_ltfx c_floatLeft">
+                        <img src="elements/img/chart_5.png">
+                    </div>
+                    <div class="lt_fmBbsRight c_floatRight c_border c_shadow2">
+                        <div class="lt_fmBbsArrow c_img"></div>
+                        <div class="c_padding20">
+                            <div class="lt_fmBbsPercet c_floatLeft c_marginB30">
+                                <p>同类游戏平均</p>
+                                <b>10.11%</b>
+                                <div>较前一日 <span class="c_colorR">↑</span>1%</div>
+                            </div>
+                            <div class="lt_fmBbsPercet c_floatRight c_borderL c_marginB30">
+                                <p>同类优秀游戏</p>
+                                <b>19.20%</b>
+                                <div>较前一日 <span class="c_colorR">↑</span>1%</div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="lt_title c_marginB10 c_marginTop20">
+                                <h2>同类优秀游戏推荐</h2>
+                            </div>
+                            <div class="lt_fmBbsList">
+                                <ul>
+                                    <li>
+                                        <img src="elements/img/game_icon.png">
+                                        <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                        <div class="lt_shade">
+                                            <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                            <a>查看灯塔></a>
+                                            <a>查看图谱></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <img src="elements/img/game_icon.png">
+                                        <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                        <div class="lt_shade">
+                                            <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                            <a>查看灯塔></a>
+                                            <a>查看图谱></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <img src="elements/img/game_icon.png">
+                                        <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                        <div class="lt_shade">
+                                            <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                            <a>查看灯塔></a>
+                                            <a>查看图谱></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <img src="elements/img/game_icon.png">
+                                        <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                        <div class="lt_shade">
+                                            <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                            <a>查看灯塔></a>
+                                            <a>查看图谱></a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="lt_fmInfo c_marginTop20">
+                        <i class="c_img"></i>
+                        <span>数据解读</span>
+                        <p>
+                            最近一天龚鸥75648份玩家反馈，相较昨天减少了1823份反馈，其中负面反馈占比68% （486647份），相较昨天增长了123份负面反馈；正面反馈占比29%（186647份），相较昨天减少了
+                            79份正面反馈；去让反馈占比3%（28329份）。想了解更多行业供求关系、竞争动态，请订购<a>热词定制</a>、<a>聊天分析</a>功能！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lt_forum">
+            <div class="lt_fmTitle">
+                <div class="lt_fmName c_floatLeft">
+                    <h3>游戏渠道解读</h3>
+                    <h4>多维度+全方位解读用户</h4>
+                </div>
+                <div class="lt_fmDate c_floatRight">
+                    <div class="lt_fmChoose c_boderRadius c_shadow2" >
+                        <div class="lt_fmShow" id="dc4"></div>
+                        <span class="lt_fmBtn"><i class="c_img"></i></span>
+                        <input id="db4" type="hidden">
+                        <input id="de4" type="hidden">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="lt_fmArea c_bgWhite">
+                <div class="lt_fmQd">
+                    <div class="lt_fmQdTab c_marginB30">
+                        <div class="lt_fmQdArrow c_floatLeft lt_fmQdAwL">
+                            <i class="glyphicon glyphicon-chevron-left"></i>
+                        </div>
+                        <div class="lt_fmQdMid">
+                            <ul>
+                                <div class="q_slider"></div>
+                                <div class="lt_fmQdScroll">
+                                    <li>
+                                        <div class="c_img lt_fmQdLogo lt_fmQdApple"></div>
+                                        <p>
+                                            <span>评分</span>
+                                            <b class="c_colorGS">4.2</b>分 / 10分
+                                        </p>
+                                        <p>
+                                            <span>评价量</span>18,602
+                                        </p>
+                                        <p>
+                                            <span>下载量</span>396,40,000
+                                        </p>
+                                        <p class="c_none">
+                                            <span>版本号</span>4.1.37
+                                        </p>
+                                        <p class="c_none">
+                                            <span>更新时间</span>2016-02-25
+                                        </p>
+                                        <div class="lt_fmQdMore">
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="c_img lt_fmQdLogo lt_fmQdXm"></div>
+                                        <p>
+                                            <span>评分</span>
+                                            <i class="glyphicon glyphicon-star c_colorGS"></i><i class="glyphicon glyphicon-star c_colorGS"></i><i class="glyphicon glyphicon-star c_colorHS"></i><i class="glyphicon glyphicon-star c_colorHS"></i><i class="glyphicon glyphicon-star c_colorHS"></i> <b class="c_colorGS">4.2</b>分
+                                        </p>
+                                        <p>
+                                            <span>评价量</span>18,602
+                                        </p>
+                                        <p>
+                                            <span>下载量</span>396,40,000
+                                        </p>
+                                        <p class="c_none">
+                                            <span>版本号</span>4.1.37
+                                        </p>
+                                        <p class="c_none">
+                                            <span>更新时间</span>2016-02-25
+                                        </p>
+                                        <div class="lt_fmQdMore">
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="c_img lt_fmQdLogo lt_fmQdHw"></div>
+                                        <p>
+                                            <span>评分</span>
+                                            <i class="glyphicon glyphicon-star c_colorGS"></i><i class="glyphicon glyphicon-star c_colorGS"></i><i class="glyphicon glyphicon-star c_colorHS"></i><i class="glyphicon glyphicon-star c_colorHS"></i><i class="glyphicon glyphicon-star c_colorHS"></i> <b class="c_colorGS">4.2</b>分
+                                        </p>
+                                        <p>
+                                            <span>评价量</span>18,602
+                                        </p>
+                                        <p>
+                                            <span>下载量</span>396,40,000
+                                        </p>
+                                        <p class="c_none">
+                                            <span>版本号</span>4.1.37
+                                        </p>
+                                        <p class="c_none">
+                                            <span>更新时间</span>2016-02-25
+                                        </p>
+                                        <div class="lt_fmQdMore">
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="c_img lt_fmQdLogo lt_fmQdOp"></div>
+                                        <p>
+                                            <span>评分</span>
+                                            <i class="glyphicon glyphicon-star c_colorGS"></i><i class="glyphicon glyphicon-star c_colorGS"></i><i class="glyphicon glyphicon-star c_colorHS"></i><i class="glyphicon glyphicon-star c_colorHS"></i><i class="glyphicon glyphicon-star c_colorHS"></i> <b class="c_colorGS">4.2</b>分
+                                        </p>
+                                        <p>
+                                            <span>评价量</span>18,602
+                                        </p>
+                                        <p>
+                                            <span>下载量</span>396,40,000
+                                        </p>
+                                        <p class="c_none">
+                                            <span>版本号</span>4.1.37
+                                        </p>
+                                        <p class="c_none">
+                                            <span>更新时间</span>2016-02-25
+                                        </p>
+                                        <div class="lt_fmQdMore">
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="c_img lt_fmQdLogo lt_fmQdApple"></div>
+                                        <p>
+                                            <span>评分</span>
+                                            <b class="c_colorGS">4.2</b>分 / 10分
+                                        </p>
+                                        <p>
+                                            <span>评价量</span>18,602
+                                        </p>
+                                        <p>
+                                            <span>下载量</span>396,40,000
+                                        </p>
+                                        <p class="c_none">
+                                            <span>版本号</span>4.1.37
+                                        </p>
+                                        <p class="c_none">
+                                            <span>更新时间</span>2016-02-25
+                                        </p>
+                                        <div class="lt_fmQdMore">
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="c_img lt_fmQdLogo lt_fmQdXm"></div>
+                                        <p>
+                                            <span>评分</span>
+                                            <i class="glyphicon glyphicon-star c_colorGS"></i><i class="glyphicon glyphicon-star c_colorGS"></i><i class="glyphicon glyphicon-star c_colorHS"></i><i class="glyphicon glyphicon-star c_colorHS"></i><i class="glyphicon glyphicon-star c_colorHS"></i> <b class="c_colorGS">4.2</b>分
+                                        </p>
+                                        <p>
+                                            <span>评价量</span>18,602
+                                        </p>
+                                        <p>
+                                            <span>下载量</span>396,40,000
+                                        </p>
+                                        <p class="c_none">
+                                            <span>版本号</span>4.1.37
+                                        </p>
+                                        <p class="c_none">
+                                            <span>更新时间</span>2016-02-25
+                                        </p>
+                                        <div class="lt_fmQdMore">
+                                            <i class="glyphicon glyphicon-chevron-down"></i>
+                                        </div>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="lt_fmQdArrow c_floatRight lt_fmQdAwR lt_fmQdAwOn">
+                            <i class="glyphicon glyphicon-chevron-right"></i>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="lt_yxqd"><img src="elements/img/chart_6.png"></div>
+                    <div class="lt_fmInfo c_marginTop20">
+                        <i class="c_img"></i>
+                        <span>数据解读</span>
+                        <p>
+                            最近一天龚鸥75648份玩家反馈，相较昨天减少了1823份反馈，其中负面反馈占比68% （486647份），相较昨天增长了123份负面反馈；正面反馈占比29%（186647份），相较昨天减少了
+                            79份正面反馈；去让反馈占比3%（28329份）。想了解更多行业供求关系、竞争动态，请订购<a>舆情助手</a>功能！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lt_forum">
+            <div class="lt_fmTitle">
+                <div class="lt_fmName c_floatLeft">
+                    <h3>渠道评论统计</h3>
+                    <h4>多维度+全方位解读用户</h4>
+                </div>
+                <div class="lt_fmDate c_floatRight">
+                    <div class="lt_fmChoose c_boderRadius c_shadow2" >
+                        <div class="lt_fmShow" id="dc5"></div>
+                        <span class="lt_fmBtn"><i class="c_img"></i></span>
+                        <input id="db5" type="hidden">
+                        <input id="de5" type="hidden">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="lt_fmArea c_bgWhite">
+                <div class="c_padding30 lt_fmPl">
+                    <div class="lt_qdpl c_floatLeft"><img src="elements/img/chart_7.png"></div>
+                    <div class="lt_fmPlWord c_floatLeft c_colorG"></div>
+                    <div class="clearfix"></div>
+                    <div class="lt_fmInfo c_marginTop20">
+                        <i class="c_img"></i>
+                        <span>数据解读</span>
+                        <p>
+                            最近一天龚鸥75648份玩家反馈，相较昨天减少了1823份反馈，其中负面反馈占比68% （486647份），相较昨天增长了123份负面反馈；正面反馈占比29%（186647份），相较昨天减少了
+                            79份正面反馈；去让反馈占比3%（28329份）。想了解更多行业供求关系、竞争动态，请订购<a>舆情助手</a>功能！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lt_forum">
+            <div class="lt_fmTitle">
+                <div class="lt_fmName c_floatLeft">
+                    <h3>畅销排行</h3>
+                    <h4>多维度+全方位解读用户</h4>
+                </div>
+                <div class="lt_fmDate c_floatRight">
+                    <div class="lt_fmChoose c_boderRadius c_shadow2" >
+                        <div class="lt_fmShow" id="dc6"></div>
+                        <span class="lt_fmBtn"><i class="c_img"></i></span>
+                        <input id="db6" type="hidden">
+                        <input id="de6" type="hidden">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="lt_fmArea c_bgWhite">
+                <div class="c_padding30 lt_fmCx">
+                    <div class="lt_fmCxLeft c_floatLeft">
+                        <div class="lt_fmCxChoose c_marginB10 c_borderB">
+                            <div class="lt_fmCxChName">类型</div>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="typeChoose" data-toggle="dropdown">
+                                    角色扮演类　<span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="typeChoose">
+                                    <li><a href="#">棋牌类</a></li>
+                                    <li><a href="#">动作类</a></li>
+                                    <li><a href="#">模拟类</a></li>
+                                    <li><a href="#">卡牌类</a></li>
+                                </ul>
+                            </div>
+                            <div class="lt_fmCxChName">榜单类型</div>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default active">
+                                    <input type="radio" name="options" checked>畅销榜
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="options">下载榜
+                                </label>
+                            </div>
+                            <div class="lt_fmCxChName">平台</div>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default active">
+                                    <input type="radio" name="options" checked>iPhone
+                                </label>
+                                <label class="btn btn-default">
+                                    <input type="radio" name="options">iPad
+                                </label>
+                            </div>
+                        </div>
+                        <div class="lt_cxph"><img src="elements/img/chart_8.png"></div>
+                    </div>
+                    <div class="lt_fmCxRight c_floatRight c_border">
+                        <div class="c_padding20" style="padding-bottom: 0">
+                            <div class="lt_title">
+                                <h2>同类游戏排行榜</h2>
+                            </div>
+                        </div>
+                        <div class="lt_fmCxList">
+                            <ul>
+                                <li>
+                                    <b class="lt_fmCxLtTop1 c_img"></b>
+                                    <img src="elements/img/game_icon.png">
+                                    <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                    <div class="lt_shade">
+                                        <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                        <a>查看游戏灯塔></a>
+                                        <a>查看游戏图谱></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <b class="lt_fmCxLtTop2 c_img"></b>
+                                    <img src="elements/img/game_icon.png">
+                                    <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                    <div class="lt_shade">
+                                        <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                        <a>查看游戏灯塔></a>
+                                        <a>查看游戏图谱></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <b class="lt_fmCxLtTop3 c_img"></b>
+                                    <img src="elements/img/game_icon.png">
+                                    <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                    <div class="lt_shade">
+                                        <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                        <a>查看游戏灯塔></a>
+                                        <a>查看游戏图谱></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <b>4</b>
+                                    <img src="elements/img/game_icon.png">
+                                    <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                    <div class="lt_shade">
+                                        <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                        <a>查看游戏灯塔></a>
+                                        <a>查看游戏图谱></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <b>5</b>
+                                    <img src="elements/img/game_icon.png">
+                                    <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                    <div class="lt_shade">
+                                        <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                        <a>查看游戏灯塔></a>
+                                        <a>查看游戏图谱></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="lt_fmInfo c_marginTop20">
+                        <i class="c_img"></i>
+                        <span>数据解读</span>
+                        <p>
+                            最近一天龚鸥75648份玩家反馈，相较昨天减少了1823份反馈，其中负面反馈占比68% （486647份），相较昨天增长了123份负面反馈；正面反馈占比29%（186647份），相较昨天减少了
+                            79份正面反馈；去让反馈占比3%（28329份）。想了解更多行业供求关系、竞争动态，请订购<a>热词定制</a>、<a>聊天分析</a>功能！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="footer" class="container-flud">
+    <div class="c_maxWidth c_marginAuto"></div>
+</div>
+<div id="quicker" class="c_bgWhite">
+    <span class="q_faq c_img c_borderB"></span>
+    <span class="q_plus c_img c_borderB"></span>
+    <span class="q_msg c_img c_borderB"></span>
+    <span class="q_top c_img"></span>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/datarange/lq.datetimepick.js"></script>
+<script type="text/javascript" src="plugins/datarange/dateRange.js"></script>
+<script type="text/javascript" src="plugins/wordcloud/wcloud.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/divscroll.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/light.js"></script>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.Mapper_proj_outflow_direction_detail">
+
+	<select id="getOutflowDirection" resultType="cn.thinkingdata.web.domain.project.Do_proj_outflow_direction_detail">
+		SELECT forum_name,sum(count) as count,project_id,pic_url from gas_new.proj_outflow_direction_detail WHERE project_id = #{project_id} and data_date = #{end_date}  GROUP BY forum_name  ORDER BY count desc
+	</select>
+	
+</mapper>

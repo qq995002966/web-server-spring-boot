@@ -1,0 +1,143 @@
+.aside-container
+{
+    border:1px solid #d3d3d3;
+    box-shadow: 0 0 20px #d3d3d3;
+    width:50px;
+}
+
+.aside
+{
+    text-align: center;
+    vertical-align: middle;
+    color:transparent;
+    width:50px;
+    height:50px;
+    border-bottom:1px solid #d3d3d3;
+    font-size:14px;
+}
+
+.aside:hover
+{
+    color:#838e99;
+    cursor: pointer;
+    background: #ffffff;
+}
+
+.aside-1
+{
+    background : #ffffff url(http://image.thinkinggame.cn/img/aside/aside_1.png) no-repeat center center;
+    background-size : cover;
+    border-bottom:1px solid #d3d3d3;
+}
+
+.aside-2
+{
+    background : #ffffff url(http://image.thinkinggame.cn/img/aside/aside_2.png) no-repeat center center;
+    background-size : cover;
+    border-bottom:1px solid #d3d3d3;
+}
+
+.aside-3
+{
+    background : #ffffff url(http://image.thinkinggame.cn/img/aside/aside_3.png) no-repeat center center;
+    background-size : cover;
+}
+
+.aside-questions td
+{
+    padding-top:15px;
+    padding-bottom:15px;
+    border-bottom:1px dotted #d3d3d3;
+
+}
+
+.aside-question.chosen
+{
+    background : transparent url(http://image.thinkinggame.cn/img/aside/arrow-up.png) no-repeat right center;
+    background-size : 12px;
+}
+
+.aside-question
+{
+    background : transparent url(http://image.thinkinggame.cn/img/aside/arrow.png) no-repeat right center;
+    background-size : 12px;
+    cursor: pointer;
+}
+
+.aside-question-answer
+{
+    padding-left:15px;
+    color:#bbb;
+    margin-top:15px;
+    display: none;
+}
+
+.evolution
+{
+    font-size:14px;padding:10px 20px;
+
+}
+
+.evolution .header
+{
+    text-align: center;
+    margin-bottom:10px;
+}
+
+.evolution .header td
+{
+    border:1px solid #ccc;
+    cursor: pointer;
+    position: relative;
+}
+
+.evolution .triangle
+{
+    left:50%;
+    margin-left:-10px;
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 10px;
+    top: 40px;
+    background: transparent url(http://image.thinkinggame.cn/img/lt/triangle_b.png) no-repeat center center;
+    background-size:contain;
+}
+
+.evolution .header td.chosen
+{
+    color:#ffffff;
+    background-color:#03a9f5;
+    border:1px solid #03a9f5;
+}
+
+.evolution table
+{
+    width:100%;
+}
+
+.evolution caption>div
+{
+    background: #ffffd7;
+    font-size: 12px;
+    text-align: left;
+    line-height: 1.5em;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.evolution td
+{
+    padding:10px;
+}
+
+input.aside-input
+{
+    height:36px;
+    border:1px solid #b2b2b2;
+    border-radius:3px;
+    text-indent:10px;
+    font-size:13px;
+    text-align: left;
+}

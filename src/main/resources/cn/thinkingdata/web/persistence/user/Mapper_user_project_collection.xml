@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.Mapper_user_project_collection">
+	<resultMap type="cn.thinkingdata.web.domain.gas.Do_gas_source_dim" id="persistence">
+		<result property="id" column="id"/>
+		<result property="source_type" column="source_type"/>
+		<result property="source_desc" column="source_desc"/>
+		<result property="rank" column="rank"/>
+	</resultMap>
+
+	<select id="getUserCollectionNum" resultType="int" parameterType="long">
+		select count(1) from user_project_collection where user_id=#{user_id}
+	</select>
+	
+	<insert id="collectProject">
+		insert ignore into user_project_collection (user_id,project_id) values (#{user_id},#{project_id})
+	</insert>
+	
+	<delete id="unCollectProject">
+		delete from user_project_collection where user_id=#{user_id} and project_id=#{project_id}
+	</delete>
+	
+	<select id="getUserCollectionList" resultType="cn.thinkingdata.web.domain.user.Do_user_project_collection">
+		select * from user_project_collection where user_id=#{user_id} limit #{index},#{limit}
+	</select>
+	
+</mapper>

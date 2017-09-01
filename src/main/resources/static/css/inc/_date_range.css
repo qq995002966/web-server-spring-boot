@@ -1,0 +1,20 @@
+.date-range .date-span
+{
+    border-radius:3px;
+    font-size:12px;
+    line-height:23px;
+    display: inline-block;
+    padding-right:20px;
+    text-indent:8px;
+    background:transparent url(http://image.thinkinggame.cn/img/lq.datetimepick/date-icon.png) no-repeat right center;
+    background-size:contain;
+    border:1px solid #e1e4e8;
+    cursor: pointer;
+}
+
+.date-range.larger .date-span
+{
+    font-size:13px;
+    line-height:26px;
+    padding-right:22px;
+}

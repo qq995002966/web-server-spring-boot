@@ -1,0 +1,30 @@
+server:
+  port: ${port:8080}
+spring:
+  aop:
+    auto: true
+  session:  #看到报错才加的,听周哥说老的项目中并不是直接使用redis作为session store的，所以这里暂时先这样
+    store-type: redis
+  cloud:
+    config:
+      label: web-server
+      profile: config
+      discovery:
+        enabled: true
+        service-id: configuration-center
+  rabbitmq:
+    host: app
+    port: 5672
+    username: spring-cloud
+    password: spring-cloud
+    virtual-host: /spring-cloud-config
+  application:
+    name: web-server-${profile:test}
+mybatis:
+  mapper-locations: classpath*:cn/**/Mapper*.xml
+logging:
+  config: classpath:log4j2.xml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://reg-center1:6100/eureka/

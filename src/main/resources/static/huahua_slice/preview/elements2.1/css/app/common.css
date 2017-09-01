@@ -1,0 +1,114 @@
+* {
+  font-family: "Microsoft Yahei",STHeitiSC-Light,Arial,sans-serif;
+  margin: 0;
+  padding: 0; }
+
+.total-width {
+  width: 1175px;
+  margin: 0 auto; }
+
+li {
+  list-style: none; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+.min-width {
+  min-width: 1215px; }
+
+.blue-btn {
+  position: relative;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-decoration: none;
+  font-size: 12px;
+  background-color: #237bd0;
+  display: block;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px; }
+
+.boxshadow {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); }
+
+.blue-button {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-decoration: none;
+  font-size: 12px;
+  background-color: #237bd0;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px; }
+  .blue-button:hover {
+    background-color: #3064ac; }
+
+.gray-button {
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-decoration: none;
+  font-size: 12px;
+  background-color: #efeff0;
+  text-align: center;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #cdcdcd; }
+  .gray-button:hover {
+    background-color: #cfd0d2;
+    color: #333; }
+
+.tm-text {
+  font-size: 12px;
+  font-weight: normal;
+  position: relative;
+  top: -6px;
+  margin: 0 2px; }
+
+.tf-block h3 {
+  position: relative;
+  width: 320px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #333;
+  margin: 20px;
+  margin-left: 30px; }
+  .tf-block h3:hover .tip-box-show {
+    display: block; }
+  .tf-block h3 .tip-box-show {
+    position: relative;
+    display: none;
+    top: -15px; }
+    .tf-block h3 .tip-box-show .triangle-up {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      width: 0px;
+      height: 0px;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid rgba(55, 60, 71, 0.9); }
+    .tf-block h3 .tip-box-show .tip-box-content {
+      position: absolute;
+      cursor: auto;
+      z-index: 1000;
+      background: rgba(55, 60, 71, 0.9);
+      color: #fff;
+      border-radius: 4px;
+      padding: 20px;
+      text-align: left;
+      font-size: 12px;
+      top: 28px;
+      text-shadow: none;
+      line-height: 20px;
+      width: 300px; }
+
+.tf-boxshadow {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); }

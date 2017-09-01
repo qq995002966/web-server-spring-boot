@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <!--script(src='../app/mobile.js')-->
+    <!-- 强制国产浏览器使用 webkit 内核渲染-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-statue-bar-sytle" content="balck-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="keywords" content="ThinkingData,ThinkingGame,数数信息,游戏舆情,游戏口碑,数据服务,大数据">
+    <meta name="description" content="ThinkingData Home">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <!-- IE 浏览器运行最新的渲染模式下-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- build:css assets/css/style.css-->
+    <link href="assets/css/index.css" rel="stylesheet">
+    <!-- endbuild-->
+    <title>Warcraft</title>
+  </head>
+  <body>
+    <div class="header"> <a class="logo"><img src="assets/images/logo.png"></a><a class="url"> www.thinkinggame.cn</a></div>
+    <div class="fight-section">
+      <div class="slider-top sliderbg"><img src="assets/images/contain-bottom.jpg"></div>
+      <div class="slider-bottom sliderbg"><img src="assets/images/contain-bottom.jpg"></div>
+      <div class="content-bg">
+        <div class="login-input" style="display: none"><img src="assets/images/title-bg.png" class="title"><span class="title-des">登录</span>
+          <p class="title-des">请使用 ThinkingGame 平台账户名登录</p>
+          <ul class="login-list">
+              <li><i class="input-icon"></i>
+                  <input type="text" name="username" placeholder="用户名" class="username">
+              </li>
+              <li><i class="input-icon pass-icon"></i>
+                  <input type="password" name="userpass" placeholder="密码" class="password">
+              </li>
+              <li class="checkbox-part">
+                  <input id="checkLogin" type="checkbox" name="userexpire">
+                  <label for="checkLogin"></label><span class="gray-text">7天免登录  </span><span class="regis-btn"> <a href="register.html">立即注册</a></span>
+              </li>
+          </ul>
+          <div class="btn start"><button id="loginBtn"> 开始战斗</button></div>
+      </div>
+        <div class="fortribal"><img src="assets/images/for-text.png"></div>
+      </div>
+    </div>
+    <div id="bs_pop"></div>
+    <!-- lib-->
+    <!-- build:js app/lib.js-->
+    <script src="app/plugins/jquery-1.9.1.min.js"></script>
+    <!-- plugin-->
+    <script src="app/plugins/fontsize.js"></script>
+    <script src="app/plugins/zepto.min.js"></script>
+    <script src="app/plugins/touch.js"></script>
+    <!-- endbuild-->
+    <!-- app-->
+    <!-- build:js app/app.js-->
+    <script src="app/home.js"></script>
+    <script src="app/login.js"></script>
+    <!-- endbuild-->
+  </body>
+</html>

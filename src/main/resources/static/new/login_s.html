@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit">
+<title>ThinkingGame-用户登录</title>
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="plugins/icheck/skins/flat/aero.css">
+<link rel="stylesheet" type="text/css" href="elements/css/login.css">
+</head>
+<body>
+<div id="login_s" class="container-flud">
+    <div class="c_padding30">
+        <form id="loginSForm" method="post">
+        <div class="lg_area c_border c_boderRadius">
+            <i class="glyphicon glyphicon-user"></i>
+            <input type="text" placeholder="手机号/邮箱" name="username" maxlength="100" class="la_length">
+        </div>
+        <div class="lg_area c_border c_boderRadius c_marginTop20 c_marginB30">
+            <i class="glyphicon glyphicon-lock"></i>
+            <input type="password" placeholder="密码" name="userpass" maxlength="30" class="la_length">
+        </div>
+        <div class="lg_check">
+            <div class="lg_ckBtn c_floatLeft"><input name="userexpire" type="checkbox"> 七天免登录</div>
+            <div class="lg_ckForget c_floatRight"><a class="c_colorG c_cursor">忘记密码？</a></div>
+        </div>
+        <button type="button" class="btn btn-success btn-block c_marginTop20">登录</button>
+        <p>没有账号？ 请<a class="c_colorG c_cursor">注册</a></p>
+        </form>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/icheck/icheck.min.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/login.js"></script>
+</html>

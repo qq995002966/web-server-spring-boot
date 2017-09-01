@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.operation.Mapper_pay_user_oldays_distri">
+
+    <select id="getPayUserOldaysDistriListByGameId" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_pay_user_oldays_distri">
+        select game_id,user_type,classify_order,oldays_classify,sum(user_num) user_num from inner_game.pay_user_oldays_distri where game_id = #{game_id} and data_date between #{start_date} and #{end_date} group by user_type,classify_order,oldays_classify order by classify_order
+    </select>
+</mapper>

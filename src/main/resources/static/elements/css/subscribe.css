@@ -1,0 +1,19 @@
+@charset "utf-8";
+@import url("common.css");
+.order_title{ font-size: 25px;padding-left: 50px}
+.order_buy_btn{ padding:10px 30px}
+.mt_price{ text-align: right}
+#subscribe{ margin-top: 90px}
+#subscribe .sb_area{ background-color: #ffffff; margin-bottom: 40px}
+#subscribe .sb_title{ background-color: #F5F6FA; height: 69px; line-height: 69px; border-bottom: 3px #DDDDE5 solid; font-size: 18px; text-indent: 50px}
+#subscribe .sb_show dl{ margin: 20px; position: relative; font-size: 14px; min-height: 30px}
+#subscribe .sb_show dl dt{ position: absolute; position: absolute; left: 20px; width: 90px; line-height: 25px}
+#subscribe .sb_show dl dd{ margin-left: 110px; line-height: 25px; color: #CACACA}
+#subscribe .sb_show dl input{ width: 390px; height: 35px; line-height: 20px; border: 1px solid #CACACA; border-radius: 3px; color:#555555}
+#bs_game_choose{color:#555555}
+
+#order{ margin-top: 90px}
+#order .od_price{ text-align: center; line-height: 40px; font-size: 14px}
+#order .od_icon{ font-size: 30px; width: 60px; margin-left: 50px}
+#order .od_info{ width: 600px; font-size: 16px; line-height: 30px}
+#order .od_info span{ font-size: 20px}

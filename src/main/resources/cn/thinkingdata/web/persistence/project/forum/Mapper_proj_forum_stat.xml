@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.forum.Mapper_proj_forum_stat">
+
+	<resultMap type="cn.thinkingdata.web.domain.project.forum.Do_proj_forum_stat" id="persistence">
+		<result property="forum_post_num" column="forum_post_num"/>
+		<result property="data_date" column="data_date"/>
+		<result property="forum_name" column="forum_name"/>
+		<result property="info_id" column="info_id"/>
+	</resultMap>
+
+	<select id="getDistribute" resultMap="persistence">
+		select * from gas_new.proj_forum_stat where project_id=#{project_id} and agg_code=1 and data_date between #{start_date} and #{end_date}
+	</select>
+	
+	<select id="getPostCnt" resultType="hashmap">
+		select sum(forum_post_num) as getPostCnt from gas_new.proj_forum_stat where project_id=#{project_id} and agg_code=0 and data_date between #{start_date} and #{end_date}
+	</select>
+	
+</mapper>

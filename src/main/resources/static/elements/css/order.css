@@ -1,0 +1,91 @@
+@charset "utf-8";
+@import url("common.css");
+.order_title{ font-size: 25px;padding-left: 50px}
+.order_buy_btn{ padding:10px 30px}
+.order_buy_btn i{ font-size: 12px}
+.order_price{ color: #ff0000; font-size: 25px; font-weight: bold}
+#item{ margin-top: 90px}
+#item .im_product{ height: 420px;}
+#item .im_product img{ width: 530px; height: 290px; position: absolute; left: 30px; top: 30px}
+#item .im_product .im_info{ margin-left: 560px;font-size: 16px; }
+#item .im_product .im_info .im_if_title{ font-size: 25px; font-weight: bold}
+#item .im_product .im_info .im_if_intro{ color: #B3B3B3; line-height: 25px}
+#item .im_product .im_info dl{ height: 50px; }
+#item .im_product .im_info dl dt{ width: 108px; float: left;font-weight: normal;line-height: 50px}
+#item .im_product .im_info dl dd{ width: 430px; float: left;line-height: 50px}
+
+#market{ margin-top: 90px}
+#market .bs_unit .dropdown{ width: 80px; margin: 0 auto}
+#market .mt_price{ text-align: right; line-height: 40px; font-size: 14px}
+#market .mt_list table{ width: 100%; border: 1px solid #D9DEE6;}
+#market .mt_list table tr th,
+#market .mt_list table tr td{ height: 55px; line-height: 55px; text-align: center; border-bottom: 1px solid #D9DEE6;font-size: 16px; line-height: 30px}
+#market .mt_list table tr th{background-color: #F4F6F9; font-size: 16px; font-weight: normal}
+#market .mt_list table tr:hover{ background-color: #F0F8FC}
+#market .mt_list table tr:hover button{ background-color: #F0F8FC}
+#market .mt_item{ text-align: left; width: 350px; padding: 20px 20px 20px 50px}
+#market .mt_coupon label{font-size: 14px; margin-right: 10px; font-weight: normal; margin-left: 30px}
+#market .mt_coupon input{ height: 35px; width: 200px; line-height: 35px; border: 1px solid #D9DEE6; border-radius: 3px; padding:0 10px}
+#market .mt_game dl{height: 40px; width: 240px; border: 1px solid #DDDDDD; border-radius: 5px; margin:10px 0 10px 30px ; position: relative; float: left;}
+#market .mt_game dl dt{ height: 30px; width: 50px; position: absolute; left: 5px; top: 4px}
+#market .mt_game dl dt img{ height: 30px; width: 30px}
+#market .mt_game dl dd { font-size: 16px; text-indent: 50px; padding-top: 8px}
+#market .mt_game dl i{ height: 20px; width: 20px; color: #ccc; position: absolute; right: 5px; top: 13px}
+#market .mt_game #bs_game_choose{height: 40px; width: 240px; float: left;margin:10px 0 10px 30px ;}
+#market .mt_game .mt_game_notice{ text-indent: 30px; font-size: 16px}
+
+#market .mt_coupon .mt_coupon_list{ width: 500px; position: absolute; height: 200px; left: 130px; border-radius: 3px;border: 1px solid #D9DEE6;background-color: #ffffff}
+#market .mt_coupon .mt_coupon_list .mt_coupon_title{ height: 30px; position: relative}
+#market .mt_coupon .mt_coupon_list .mt_coupon_title span{ display: inline-block; position: absolute;left: 5px; top:0px; font-size: 14px; font-weight: bolder}
+#market .mt_coupon .mt_coupon_list .mt_coupon_title i{ display: block; width: 20px; height: 30px; position: absolute; right: 0; top: 5px}
+#market .mt_coupon .mt_coupon_list table{ width: 100%;}
+#market .mt_coupon .mt_coupon_list table th{ background-color: #F4F6F9; height: 40px; text-align: center}
+#market .mt_coupon .mt_coupon_list table td{ height: 40px;border-bottom: 1px solid #D9DEE6; cursor: pointer;text-align: center}
+#market .mt_coupon .mt_coupon_list table tr:hover{background-color: #F4F6F9;}
+#market .mt_coupon .mt_coupon_list .mt_coupon_notice{ height: 50px; text-align: center; line-height: 50px}
+#market .mt_coupon .mt_coupon_show{ height: 150px;overflow: auto; }
+#order{ margin-top: 90px}
+#order .od_price{ text-align: center; line-height: 40px; font-size: 14px}
+#order .od_icon{ font-size: 30px; width: 60px; margin-left: 50px}
+#order .od_info{ width: 500px; font-size: 16px; line-height: 30px}
+#order .od_info span{ font-size: 20px}
+#order .od_pay_type{ margin-left: 50px}
+#order .od_pay_type .inputChoose{ position: absolute; top: 35px; left: 30px}
+#order .od_pay_type .inputChoose2{ position: absolute; top: 35px; left: 230px}
+#order .od_pay_type i{ margin-left: 25px}
+#order .od_money{ width: 150px; text-align: right; margin-right: 50px; font-size: 23px; padding-top: 10px}
+#order .od_pay{ height: 50px; width: 165px; display:inline-block}
+#order .od_pay_alipay{ background-position: -248px -395px;}
+#order .od_pay_wechat{ background-position: -416px -395px;}
+#order .od_code{ padding:90px 130px}
+#order .od_code .odLeft{ width: 300px; float: left;}
+#order .od_code .odLeft .od_cd_title{ height: 35px; line-height: 35px; font-size: 16px}
+#order .od_code .odLeft .od_cd_code{ height: 260px}
+#order .od_code .odLeft .od_cd_notice{ height: 35px; line-height: 35px; color: #CCCCCC; padding-left: 90px }
+#order .od_code .odLeft .od_cd_remark{ line-height: 25px; font-size: 14px}
+#order .od_code .odRight{ width: 380px; float: right}
+#order .od_code .odRight .od_img{ background: url("../img/payMobile.png") no-repeat}
+#order .od_code .odRight .od_phone{ width: 380px; height: 484px; }
+#order .od_code .odRight .od_alipay{ background-position: 0 0}
+#order .od_code .odRight .od_wechat{ background-position: -381px 0}
+
+div.fixdFooter {
+	position: fixed;
+	bottom: 0;
+}
+
+div#bs_list  th.ser-name {
+	width: 25%;
+}
+
+div#bs_list  th.pay-style {
+	width: 20%;
+}
+
+div#bs_list  th.buy-size {
+	width: 20%;
+}
+
+div#bs_list  th.discount {
+	width: 10%;
+}

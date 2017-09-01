@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>聊天分析结果-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/wordcloud/wcloud.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/talk.css">
+</head>
+<body>
+<div class="container-flud">
+    <div class="c_maxWidth c_marginAuto">
+        <div id="MLeft" class="c_floatLeft c_hidden u_height"></div>
+        <div id="MRight" class="c_floatRight c_hidden u_height">
+            <div class="mr_head">
+                <div class="mr_area">
+                    <div class="mr_h_left c_floatLeft">
+                        <h1>聊天分析</h1>
+                        <div class="mr_h_tab">
+                            <ul>
+                                <li>历史分析</li>
+                                <li class="liOn">分析结果</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="c_padding20" id="talk_result">
+                <div class="tk_rt_info c_bgWhite c_boderRadius c_border c_marginB30"></div>
+                <div class="c_bgWhite c_boderRadius c_border c_marginB30">
+                    <div class="c_padding20">
+                        <div class="tk_rt_title c_borderB c_marginB20">
+                            <h3>聊天者情感分析</h3>
+                        </div>
+                        <div class="tk_rt_half c_floatLeft c_hidden">
+                            <div class="tk_rt_half_title c_marginB20">聊天者情感占比</div>
+                            <div class="tk_rt_half_chart" id="bs_emotion_percent"></div>
+                        </div>
+                        <div class="tk_rt_half c_floatRight c_hidden">
+                            <div class="tk_rt_half_title c_marginB20">聊天者情感关键词</div>
+                            <div class="tk_rt_half_word" id="bs_emotion_word"></div>
+                            <div class="tk_rt_choose"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="c_bgWhite c_boderRadius c_border c_marginB30">
+                    <div class="c_padding20">
+                        <div class="tk_rt_title c_borderB c_marginB20">
+                            <h3>聊天热词统计</h3>
+                        </div>
+                        <div class="tk_rt_keywords" id="bs_keywords"></div>
+                    </div>
+                </div>
+                <div class="c_bgWhite c_boderRadius c_border c_marginB30">
+                    <div class="c_padding20">
+                        <div class="tk_rt_title c_borderB c_marginB20">
+                            <h3>聊天话题</h3>
+                        </div>
+                        <div class="tk_rt_topic" id="bs_topic"></div>
+                        <div class="tk_rt_topic_more c_colorB c_none"><span class="c_cursor">查看所有话题 <i class="glyphicon glyphicon-menu-down"></i></span></div>
+                        <div class="tk_rt_topic_list mr_show_table c_padding20 c_none"></div>
+                    </div>
+                </div>
+                <div class="c_bgWhite c_boderRadius c_border">
+                    <div class="c_padding20">
+                        <div class="tk_rt_title c_borderB c_marginB20">
+                            <h3>活跃成员</h3>
+                        </div>
+                        <div id="bs_user"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/echart/echarts.min.js"></script>
+<script type="text/javascript" src="plugins/echart/macarons.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/wordcloud/wcloud.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/center.js"></script>
+<script type="text/javascript" src="elements/js/talkresult.js"></script>
+<script type="text/javascript" src="elements/js/chart.js"></script>
+</html>

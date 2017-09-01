@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.industry.Mapper_industry_game_type_distri">
+
+
+	<select id="getMaxDataDate" resultType="string">
+		select max(data_date) from gas_new.industry_game_type_distri
+	</select>
+	
+	<select id="getGameTypeDistriListByTwoDay" resultType="cn.thinkingdata.web.domain.industry.Do_industry_game_type_distri">
+		select a.*,b.user_rate user_rate_yesterday,b.game_rate game_rate_yesterday,b.post_num post_num_yesterday from gas_new.industry_game_type_distri a,gas_new.industry_game_type_distri b 
+		where a.data_date=#{data_date} and b.data_date=#{data_date_yesterday} and a.platform=b.platform and a.detail_type=b.detail_type
+		order by a.platform,a.user_rate desc
+	</select>
+	
+</mapper>

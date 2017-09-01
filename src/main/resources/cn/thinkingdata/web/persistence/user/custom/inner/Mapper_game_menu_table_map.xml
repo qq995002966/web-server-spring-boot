@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.Mapper_game_menu_table_map">
+
+    <select id="getGameMenuTableMapListByTableAndColumn" resultType="cn.thinkingdata.web.domain.user.custom.inner.Do_game_menu_table_map">
+        select * from inner_game.game_menu_table_map where table_name = #{table_name} and column_name = #{column_name}
+    </select>
+
+    <select id="getAbnormalGameCommonStatDay" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_game_common_stat_day">
+        select * from
+        (
+        select * from inner_game.game_common_stat_day WHERE game_id=#{game_id} and data_date > DATE_SUB(now(),INTERVAL 30 DAY) order by data_date desc limit 1
+        ) a
+        where a.abnormal_columns != ''
+    </select>
+
+    <select id="getAbnormalGameRetentionStat" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_game_retention_stat">
+        select * from
+        (
+        select * from inner_game.game_retention_stat WHERE game_id=#{game_id} and data_date > DATE_SUB(now(),INTERVAL 30 DAY) order by data_date desc limit 1
+        ) a
+        where a.abnormal_columns != ''
+    </select>
+
+    <select id="getAbnormalPayUserPotentialLost" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_pay_user_potential_lost_stat">
+        select * from
+        (
+        select * from inner_game.pay_user_potential_lost_stat WHERE game_id=#{game_id} and data_date > DATE_SUB(now(),INTERVAL 30 DAY) order by data_date desc limit 1
+        ) a
+        where a.abnormal_columns != ''
+    </select>
+
+    <select id="getAbnormalLostUserCommonAnalysis" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_lost_user_common_analysis">
+        select * from
+        (
+        select * from inner_game.lost_user_common_analysis WHERE game_id=#{game_id} and data_date > DATE_SUB(now(),INTERVAL 30 DAY) order by data_date desc limit 1
+        ) a
+        where a.abnormal_columns != ''
+    </select>
+
+    <select id="getAbnormalUserHabitPlayTimeStatDay" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_user_habit_play_time_stat">
+        select * from
+        (
+        select * from inner_game.user_habit_play_time_stat_day WHERE game_id=#{game_id} and data_date > DATE_SUB(now(),INTERVAL 30 DAY) order by data_date desc limit 1
+        ) a
+        where a.abnormal_columns != ''
+    </select>
+
+    <select id="getAbnormalUserHabitPlayTimeStatWeek" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_user_habit_play_time_stat">
+        select * from
+        (
+        select * from inner_game.user_habit_play_time_stat_week WHERE game_id=#{game_id} and data_date > DATE_SUB(now(),INTERVAL 30 DAY) order by data_date desc limit 1
+        ) a
+        where a.abnormal_columns != ''
+    </select>
+
+    <select id="getAbnormalChannelCommonStat" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_channel_common_stat">
+        select * from
+        (
+        select * from inner_game.channel_common_stat WHERE game_id=#{game_id} and data_date > DATE_SUB(now(),INTERVAL 30 DAY) order by data_date desc limit 1
+        ) a
+        where a.abnormal_columns != ''
+    </select>
+
+    <select id="getAbnormalPayCommonStatWeek" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_pay_common_stat_week">
+        select * from
+        (
+        select * from inner_game.pay_common_stat_week WHERE game_id=#{game_id} and data_date > DATE_SUB(now(),INTERVAL 30 DAY) order by data_date desc limit 1
+        ) a
+        where a.abnormal_columns != ''
+    </select>
+
+    <select id="getAbnormalLostCommonStatDay" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_lost_common_stat">
+        select * from
+        (
+        select * from inner_game.lost_common_stat_day WHERE game_id=#{game_id} and data_date > DATE_SUB(now(),INTERVAL 30 DAY) order by data_date desc limit 1
+        ) a
+        where a.abnormal_columns != ''
+    </select>
+
+</mapper>

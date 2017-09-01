@@ -1,0 +1,118 @@
+#headerPart {
+    height: 44px;
+    position: relative;
+    z-index: 100;
+    background-color: #fff;
+}
+
+#headerPart div.header-wrap {
+    padding: 10px 20px;
+    /*overflow: hidden;*/
+    position: relative;
+}
+
+#headerPart div.header-wrap div.navbar .h-logo {
+    width: 180px;
+    height: 29px;
+    position: absolute;
+    background: url(../images/common.png) no-repeat;
+}
+
+#headerPart div.header-wrap div.navbar ul {
+    margin-left: 212px;
+    line-height: 29px;
+}
+
+#headerPart div.header-wrap div.navbar ul li {
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 38px;
+    color: #565d66;
+}
+
+#headerPart div.header-wrap div.login-part ul {
+    line-height: 29px;
+}
+
+#headerPart div.header-wrap div.login-part ul li {
+    /*display: inline-block;*/
+    float: left;
+    font-size: 12px;
+}
+
+#headerPart div.header-wrap div.login-part ul li input {
+    width: 168px;
+    height: 25px;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    margin-right: 43px;
+    outline: none;
+    padding-left: 10px;
+}
+
+#headerPart div.header-wrap div.login-part ul li button {
+    border: none;
+    background-color: #679F37;
+    width: 70px;
+    height: 27px;
+    border-radius: 4px;
+    color: #fff;
+    margin-right: 23px;
+    outline: none;
+    cursor: pointer;
+}
+
+#headerPart div.header-wrap div.login-part ul li span {
+    color: #323a46;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+#headerPart div.header-wrap div.login-part ul li span:first-child {
+    border-right: 1px solid #686e76;
+}
+
+#headerPart div.header-wrap div.login-part ul li#hadLogin {}
+
+#headerPart div.header-wrap div.login-part ul li#hadLogin>p>b {
+        position: relative;
+    text-align: center;
+    width: 70px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    font-weight: normal;
+}
+
+#headerPart div.header-wrap div.login-part ul li#hadLogin>p:after {
+    content: '▼';
+    color: #a3a3a3;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+}
+
+#headerPart div.header-wrap div.login-part ul li#hadLogin>ul {
+    position: absolute;
+    width: 95px;
+    border-top: 0;
+    text-align: center;
+    position: absolute;
+    background: #fff;
+    right: 0;
+    top: 48px;
+        border: 1px solid #E5E5E5;
+}
+
+#headerPart div.header-wrap div.login-part ul li#hadLogin>ul  li {
+  display: block;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+#headerPart div.header-wrap div.login-part ul li#hadLogin>ul  li:first-child {
+  background: #679f37;
+    color: #fff;
+}

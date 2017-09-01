@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.operation.Mapper_game_retention_stat">
+
+    <select id="getGameRetentionStatListByGameId" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_game_retention_stat">
+        select * from inner_game.game_retention_stat where game_id = #{game_id} and data_date > #{data_date} order by data_date desc
+    </select>
+
+    <select id="getGameRetentionStatListByGameIdAndDate" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_game_retention_stat">
+        select * from inner_game.game_retention_stat where game_id = #{game_id} and data_date between #{start_date} and #{end_date}  order by data_date desc
+    </select>
+
+    <select id="getGameRetentionStatAvgByGameId" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_game_retention_stat">
+        select a.* from
+        (
+        select '1' avg_order,retention_rate_1d from inner_game.game_retention_stat where game_id = #{game_id} and data_date = DATE_SUB(#{data_date},INTERVAL 1 DAY)
+        union all
+        select '2' avg_order, avg(retention_rate_1d) retention_rate_1d from inner_game.game_retention_stat where game_id = #{game_id} and data_date between DATE_SUB(#{data_date},INTERVAL 7 DAY) and #{data_date}
+        union all
+        select '3' avg_order, avg(retention_rate_1d) retention_rate_1d from inner_game.game_retention_stat where game_id = #{game_id} and data_date between DATE_SUB(#{data_date},INTERVAL 30 DAY) and #{data_date}
+        ) a  order by avg_order
+    </select>
+</mapper>

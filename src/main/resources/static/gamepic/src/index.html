@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>game pic</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/animate.min.css">
+</head>
+
+<body>
+<div id="Wrap">
+        <div id="canvas" >
+        <!--<div id="center" class="arc">
+      <p></p>
+    </div>-->
+    </div>
+</div>
+
+    <!-- 侧边栏菜单 -->
+<!--     <div class="side-list-icon" >
+        <span class="icon-list-menu"></span>
+        <div class="sidemenu">
+            <ul class="top">
+                <li><i class="menu-icon icon-a"></i><span>热门游戏</span></li>
+                <li><i class="menu-icon icon-b"></i><span>我的收藏</span></li>
+                <li><i class="menu-icon icon-c"></i><span>浏览历史</span></li>
+            </ul>
+        </div>
+    </div> -->
+    <div id="particles-js"></div>
+<!--     <div class="footer-top"></div>
+    <div class="footer"></div> -->
+    <script src="script/jquery-1.9.1.min.js"></script>
+    <script src="script/data.js"></script>
+    <script src="script/config.js"></script>
+    <script src="script/draw.js"></script>
+    <script src="script/make.js"></script>
+
+    <script src="script/particles.js"></script>
+    <script src="script/particles-app.js"></script>
+     <script src="script/jquery.panzoom.js"></script>
+    <script src="script/jquery.mousewheel.js"></script>
+    <!-- <script src="script/jquery.pep.js"></script> -->
+        <script src="script/function.js"></script>
+<!-- <script>
+            // 缩放and拖动范围
+    (function() {
+        var $section = $('#canvas-box');
+        var $panzoom = $section.find('#canvas').panzoom({
+           contain: true
+        });
+        $panzoom.parent().on('mousewheel.focal', function(e) {
+            e.preventDefault();
+            var delta = e.delta || e.originalEvent.wheelDelta;
+            var zoomOut = delta ? delta < 0 : e.originalEvent.deltaY > 0;
+            $panzoom.panzoom('zoom', zoomOut, {
+                increment: 0.1,
+                animate: false,
+                focal: e
+            });
+        });
+    })();
+</script> -->
+</body>
+
+</html>
+

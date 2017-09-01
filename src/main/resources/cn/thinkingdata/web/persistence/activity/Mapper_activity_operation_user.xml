@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.activity.Mapper_activity_operation_user">
+
+    <insert id="insertActivityOperationUser" parameterType="cn.thinkingdata.web.domain.activity.Do_activity_operation_user" useGeneratedKeys="true" keyProperty="id">
+        insert into activity_operation_user (user_name,user_company,user_position,user_phone) values
+        (#{user_name},#{user_company},#{user_position},#{user_phone})
+    </insert>
+
+</mapper>

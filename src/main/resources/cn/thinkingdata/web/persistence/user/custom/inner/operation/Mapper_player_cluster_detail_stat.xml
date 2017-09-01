@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.operation.Mapper_player_cluster_detail_stat">
+
+    <select id="findPlayerClusterDetailStatByGameIdAndType" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_player_cluster_detail_stat">
+        select * from inner_game.player_cluster_detail_stat  where game_id = #{game_id} and agg_code = #{agg_code} and user_type = #{user_type} and cluster_type = #{cluster_type}
+    </select>
+</mapper>

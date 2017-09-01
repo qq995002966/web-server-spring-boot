@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.Mapper_project_detail_type_dim">
+	<select id="getDetailTypeDimList" resultType="cn.thinkingdata.web.domain.project.Do_project_detail_type_dim">
+		select * from gas_new.project_detail_type_dim
+	</select>
+</mapper>

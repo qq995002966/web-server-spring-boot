@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.operation.Mapper_lost_funnel_stat">
+
+    <select id="getLostFunnelStatListByGameId" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_lost_funnel_stat">
+        select * from inner_game.lost_funnel_stat where game_id = #{game_id} and data_date = #{data_date}
+    </select>
+
+</mapper>

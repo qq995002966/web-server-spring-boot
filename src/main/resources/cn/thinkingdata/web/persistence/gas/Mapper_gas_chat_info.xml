@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.gas.Mapper_gas_chat_info">
+	<resultMap type="cn.thinkingdata.web.domain.gas.Do_gas_chat_info" id="persistence">
+		<result property="info_id" column="info_id"/>
+		<result property="info_name" column="info_name"/>
+		<result property="user_id" column="user_id"/>
+		<result property="company" column="company"/>
+		<result property="project_id" column="project_id"/>
+		<result property="status" column="status"/>
+		<result property="source_type" column="source_type"/>
+		<result property="file_name" column="file_name"/>
+		<result property="group_name" column="group_name"/>
+		<result property="object" column="object"/>
+		<result property="start_date" column="start_date"/>
+		<result property="end_date" column="end_date"/>
+		<result property="create_time" column="create_time"/>
+		<result property="update_time" column="update_time"/>
+		<result property="real_file_name" column="real_file_name"/>
+		<result property="succ_times" column="succ_times"/>
+		<result property="fail_times" column="fail_times"/>
+		<result property="file_bytes" column="file_bytes"/>
+		<result property="del_flag" column="del_flag"/>
+	</resultMap>
+
+	<select id="get" resultMap="persistence">
+		select * from gas_new.gas_chat_info where del_flag=0 and user_id=#{user_id} order by info_id desc limit #{index}, #{limit}
+	</select>
+
+	<select id="getTotal" resultType="int">
+		select count(*) from gas_new.gas_chat_info where del_flag=0 and user_id=#{user_id}
+	</select>
+	
+	<update id="del" >
+		update gas_new.gas_chat_info set del_flag=1 where info_id=#{info_id} and user_id=#{user_id}
+	</update>
+	
+	<select id="getByInfoIdList" resultMap="persistence">
+		select * from gas_new.gas_chat_info where del_flag=0 and user_id=#{user_id} and info_id in
+			<foreach item="item" index="index" collection="info_id_list" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+	</select>
+	
+	<select id="getJustByInfoId" resultMap="persistence">
+		select * from gas_new.gas_chat_info where info_id=#{info_id}
+	</select>
+	
+	<insert id="add" parameterType="cn.thinkingdata.web.domain.gas.Do_gas_chat_info" >
+		insert into gas_new.gas_chat_info set real_file_name=#{real_file_name}, user_id=#{user_id}, company=#{company}, status=-1, source_type=#{source_type}, file_name=#{file_name}, create_time=UNIX_TIMESTAMP()
+	</insert>
+
+	<insert id="setup" parameterType="cn.thinkingdata.web.domain.gas.Do_gas_chat_info" >
+		update gas_new.gas_chat_info set status=0, start_date=#{start_date}, end_date=#{end_date} where info_id=#{info_id} and user_id=#{user_id}
+	</insert>
+	
+	<select id="getUserProcessingChatNum" parameterType="int" resultType="int">
+		select count(1) num from gas_new.gas_chat_info where user_id=#{user_id} and status in (0,1,2,4,5)
+	</select>
+	
+	<update id="reUpdateFile">
+		update gas_new.gas_chat_info set status=-1,file_name=#{file_name},file_bytes=#{file_bytes} where info_id=#{info_id}
+	</update>
+	
+	<update id="updateChatInfo">
+		update gas_new.gas_chat_info set company=#{company},status=#{status},source_type=#{source_type},file_name=#{file_name},real_file_name=#{real_file_name},file_bytes=#{file_bytes},del_flag=#{del_flag} where info_id=#{info_id}
+	</update>
+	
+	<insert id="insertChatInfo" parameterType="cn.thinkingdata.web.domain.gas.Do_gas_chat_info" useGeneratedKeys="true" keyProperty="info_id">
+		insert into gas_new.gas_chat_info set real_file_name=#{real_file_name}, user_id=#{user_id}, company=#{company}, status=#{status}, source_type=#{source_type}, file_name=#{file_name}, create_time=UNIX_TIMESTAMP(),del_flag=#{del_flag}
+	</insert>
+	
+	<update id="uploadFileSuccess">
+		update gas_new.gas_chat_info set status=-1,file_bytes=#{file_bytes},del_flag=0 where info_id=#{info_id}
+	</update>
+	
+	
+</mapper>

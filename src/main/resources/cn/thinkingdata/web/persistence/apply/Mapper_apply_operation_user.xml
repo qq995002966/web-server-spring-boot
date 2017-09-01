@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.apply.Mapper_apply_operation_user">
+
+    <insert id="insertAapplyOperationUser" parameterType="cn.thinkingdata.web.domain.apply.Do_apply_operation_user" useGeneratedKeys="true" keyProperty="id">
+        insert into apply_operation_user (apply_product,user_company,company_type,user_name,user_phone,email,job_type,project_names) values
+        (#{apply_product},#{user_company},#{company_type},#{user_name},#{user_phone},#{email},#{job_type},#{project_names})
+    </insert>
+
+</mapper>

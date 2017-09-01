@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.order.Mapper_item">
+
+	<select id="getItemById" parameterType="int" resultType="cn.thinkingdata.web.domain.order.Do_item">
+		select * from item where item_id=#{item_id}
+	</select>
+	
+	<select id="getItemList" resultType="cn.thinkingdata.web.domain.order.Do_item">
+		select item_id,item_name,item_classify,item_slogan,cover_pic,is_package,show_pic from item where is_on_sale=1
+		order by classify_order,item_order
+	</select>
+	
+	<select id="getRecommendItemList" parameterType="int" resultType="cn.thinkingdata.web.domain.order.Do_item">
+		select item_id,item_name,item_slogan,item_desc,cover_pic,service_list,refer_price,is_package from item where is_on_sale=1 and item_id in 
+		<foreach item="item" index="index" collection="item_id_list" open="(" separator="," close=")">
+				#{item}
+		</foreach>
+	</select>
+
+	<select id="getReportList"  resultType="cn.thinkingdata.web.domain.order.Do_item">
+		select * from item where service_list='7'
+	</select>
+
+	<select id="getUserReportList"  resultType="cn.thinkingdata.web.domain.order.Do_item">
+		select a.*,b.report_id from item a,user_custom_service b where a.item_id=b.report_id and a.service_list='7' and b.service_type='7' and b.user_id=#{user_id}
+	</select>
+
+	<select id="getReportNameById" parameterType="int" resultType="string">
+		select item_name from item where item_id=#{item_id}
+	</select>
+</mapper>

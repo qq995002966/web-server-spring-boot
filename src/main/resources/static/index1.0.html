@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"-->
+    <meta name="renderer" content="webkit">
+    <meta property="qc:admins" content="505435440764016316771556367" />
+    <title>ThinkingGame 游戏数据挖掘服务平台</title>
+    <meta name="keywords" content="ThinkingGame,ThinkingData,数数信息,游戏舆情,玩家论坛,游戏渠道,游戏口碑,玩家反馈,数据服务,大数据">
+    <meta name="description" content="ThinkingGame游戏数据分析服务平台；提供一站式全方位的玩家行为数据分析服务。">
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/articlelist.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/mediarticle.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/index.css">
+</head>
+
+<body>
+<div class="full-page" id="first-screen-box">
+    <div class="first-screen-content">
+        <div class="menu-container">
+            <ul>
+                <li>行业指南</li>
+                <li>游戏灯塔</li>
+                <li>游戏图谱</li>
+                <li>服务市场</li>
+            </ul>
+            <div class="user index_user"></div>
+        </div>
+        <div id="search">
+            <div class="c_none"><img src="elements/img/logo.jpg"></div>
+            <div class="search_index_logo2 c_cursor"><img src=""></div>
+            <div>
+                <form method="get" action="search.html">
+                <input type="text" name="k" placeholder="输入关键词，回车一下" class="search-input">
+                <span class="searchbox-btn"><input type="image" src="elements/img/search.png" alt=""></span>
+                </form>
+            </div>
+        </div>
+        <div id="posts" class="c_bgWhite c_boderRadius">
+            <div class="c_padding20">
+                <div class="p_qkTitle c_borderB">
+                    <div class="pk_slider"></div>
+                    <ul>
+                        <li class="liOn">游戏类型</li>
+                        <li>媒体文章</li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="p_qkArea" >
+                    <div class="p_qkChoose bs_gameChoose">
+                        <div class="pc_slider"></div>
+                        <ul>
+                            <li class="liOn">ABC</li>
+                            <li>DEF</li>
+                            <li>GHI</li>
+                            <li>JKL</li>
+                            <li>MNO</li>
+                            <li>PQR</li>
+                            <li>STU</li>
+                            <li>VW</li>
+                            <li>XYZ</li>
+                            <li>0-9</li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="p_qkTab c_floatLeft bs_game">
+                        <div class="pt_slider" ></div>
+                        <dl  class="dlOn" game_type="S">
+                            <dt class="h_qkTb1 c_img"></dt>
+                            <dd>手游</dd>
+                        </dl>
+                        <dl game_type="Y">
+                            <dt class="h_qkTb2 c_img"></dt>
+                            <dd>页游</dd>
+                        </dl>
+                        <dl game_type="D">
+                            <dt class="h_qkTb3 c_img"></dt>
+                            <dd>端游</dd>
+                        </dl>
+                        <dl game_type="W">
+                            <dt class="h_qkTb4 c_img"></dt>
+                            <dd>单机 电玩</dd>
+                        </dl>
+                    </div>
+                    <div class="p_qkItem c_floatLeft c_borderT c_borderL bs_gameItem"></div>
+                </div>
+                <div class="p_qkArea c_none">
+                    <div class="p_qkTab c_floatLeft bs_article"></div>
+                    <div class="p_qkItem c_floatLeft c_borderT c_borderL bs_articleItem" style="height: 230px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="load-more">
+            <p>查看更多</p>
+            <img src="elements/img/mediarticle/arrow.gif" alt="">
+         </div>
+    </div>
+</div>
+    <div id="more-content">
+        <div id="header" class="container-flud c_bgWhite c_shadow1"></div>
+        <div class="mediarticle-list">
+            <ul class="left">
+                <div id="choose_tab" class="c_paddingLR30 c_marginTop20 c_marginB30"></div>
+                <ul class="article-detail-list result-all"></ul>
+                <button type="" class="result-more-btn c_none" onclick="G_Jump._go('article','article.html?t=top')">查看更多> </button>
+            </ul>
+            <ul class="right">
+                <ul>
+                    <ul id="postPhoto">
+                        <li class="c_cursor"></li>
+                    </ul>
+                    <ul class="top-content">
+                        <li><span class="top-today">推荐游戏</span></li>
+                        <ul class="like"></ul>
+                    </ul>
+                </ul>
+                <ul class="bottom">
+                    <ul class="top-content">
+                        <li><span class="top-today">最近热门</span><span class="check-more c_cursor">查看全部></span></li>
+                        <ul id="bs_hot_recet" style="height: 150px"></ul>
+                    </ul>
+                </ul>
+                <ul class="mid">
+                    <ul class="top-content">
+                        <li><span class="top-today">近期最热</span><span class="check-more c_cursor">进入游戏图谱></span></li>
+                        <ul class="top-list"></ul>
+                    </ul>
+                </ul>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div id="footer" class="container-flud"></div>
+     </div>
+</div>
+</body>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/divscroll.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/init.js"></script>
+<script type="text/javascript" src="elements/js/home.js"></script>
+<script type="text/javascript" src="elements/js/index.js"></script>
+</html>

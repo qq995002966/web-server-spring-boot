@@ -1,0 +1,131 @@
+
+.common-table th
+{
+    background-color: #e1e6ea;
+    color:#596776;
+}
+
+.common-table th,.common-table td
+{
+    border-left:none;
+    border-right:none;
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+    line-height:44px;
+    font-size:14px;
+}
+
+.common-table td
+{
+    text-align:center;
+}
+
+.common-table td:first-child
+{
+    text-align:left;
+    text-indent:10px;
+}
+
+.common-table tr:not(:first-child):nth-child(odd)
+{
+    background-color: #fcfcfc;
+}
+
+.common-table tr:not(:first-child):hover
+{
+    cursor: pointer;
+    background-color:#f5f5f5;
+}
+
+.common-table tr:not(:first-child):nth-child(odd):hover
+{
+    background-color: #f0f0f0;
+}
+
+.common-table td:first-child
+{
+    color:#596776;
+}
+
+.common-table .edit.active,.chat-icon.edit.inac
+{
+    background:transparent url(http://image.thinkinggame.cn/img/common_table/edit.png) no-repeat left center;
+    background-size:contain;
+}
+
+.common-table .add.active
+{
+    background:transparent url(http://image.thinkinggame.cn/img/common_table/add.png) no-repeat left center;
+    background-size:contain;
+}
+
+.common-table .add.active:hover
+{
+    background:transparent url(http://image.thinkinggame.cn/img/common_table/add2.png) no-repeat left center;
+    background-size:contain;
+}
+
+
+.common-table .result.active
+{
+    background:transparent url(http://image.thinkinggame.cn/img/common_table/result.png) no-repeat left center;
+    background-size:contain;
+}
+
+.common-table .result.active:hover,.common-table .result.active.chosen
+{
+    background:transparent url(http://image.thinkinggame.cn/img/common_table/result2.png) no-repeat left center;
+    background-size:contain;
+}
+
+.common-table .edit.active:hover
+{
+    background:transparent url(http://image.thinkinggame.cn/img/common_table/edit2.png) no-repeat left center;
+    background-size:contain;
+}
+
+.common-table .del.active,.chat-icon.del.inac
+{
+    background:transparent url(http://image.thinkinggame.cn/img/common_table/delete.png) no-repeat left center;
+    background-size:contain;
+}
+
+.common-table .del.active:hover
+{
+    background:transparent url(http://image.thinkinggame.cn/img/common_table/delete2.png) no-repeat left center;
+    background-size:contain;
+}
+
+.common-table .operate-icon
+{
+    width:20px;
+    height:20px;
+    margin-left:15px;
+    float:left;
+}
+
+.common-table .operate-icon.active
+{
+    cursor:pointer;
+}
+
+.common-table .operate-icon.switch.on
+{
+    width:50px;
+    background:transparent url(http://image.thinkinggame.cn/img/common_table/switch-on.png) no-repeat center center;
+    background-size:contain;
+}
+
+.common-table .operate-icon.switch.off
+{
+    width:50px;
+    background:transparent url(http://image.thinkinggame.cn/img/common_table/switch-off.png) no-repeat center center;
+    background-size:contain;
+}
+
+.operate-icon.graph
+{
+    width:20px;
+    background:transparent url(http://image.thinkinggame.cn/img/common_table/graph.png) no-repeat center center;
+    background-size:contain;
+}

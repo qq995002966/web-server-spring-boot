@@ -1,0 +1,53 @@
+@import url("common.css");
+
+div#WarcraftSha, div#WarcraftRead {
+	display:  none;
+}
+div.warcraft-part {
+	padding-top: 100px;
+    width: 1120px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+div.warcraft-part div.nav-tab-change {
+	width: 540px;
+	margin: 0 auto;
+	margin-bottom: 40px
+}
+
+div.warcraft-part div.guide-tab-content {
+	background: #fff;
+}
+
+div#WarcraftRead {
+    background-color: #fff;
+    padding: 40px 100px;
+}
+
+div.warcraft-part  div.guide-tab-content  p {
+    margin: 35px 0;
+    line-height: 30px;
+    word-break: break-all;
+    font-size: 16px;
+}
+
+div#WarcraftRead img {
+	width: 70%;
+	position: relative;
+	left: 50%;
+	margin-left: -35%;
+}
+
+div.warcraft-part  div#WarcraftRead  h3 {
+font-size: 20px;
+    font-weight: bold;
+}
+
+div.warcraft-part  div#WarcraftRead  h2 {
+  text-align:  center;
+	font-weight: bold;
+	margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}

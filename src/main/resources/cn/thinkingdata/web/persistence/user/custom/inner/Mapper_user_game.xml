@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.Mapper_user_game">
+	<select id="findGameByUserAndService" resultType="map">
+		select a.game_id,a.game_name from inner_game.game_dim a,inner_game.game_service b where a.game_id in
+		<foreach collection="game_id_list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		and a.game_id=b.game_id  and c.service_id=#{service_id}
+	</select>
+
+	<select id="findGameByUser" resultType="map">
+		select game_id,game_name,project_id from inner_game.game_dim where game_id in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+
+	<select id="findGameByUserWithoutDemo" resultType="map">
+		select game_id,game_name,project_id from inner_game.game_dim where game_id in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		and game_id!=0
+	</select>
+</mapper>

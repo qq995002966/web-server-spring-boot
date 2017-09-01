@@ -1,0 +1,369 @@
+@charset "UTF-8";
+.lr-content {
+  background-color: #0d091c;
+  background-size: cover;
+  background-position: center;
+  height: 1042px; }
+  .lr-content .blank-wrap {
+    width: 1155px;
+    margin: 0 auto;
+    padding-top: 140px;
+    position: relative;
+    z-index: 2; }
+    .lr-content .blank-wrap .blank-content {
+      background: rgba(255, 255, 255, 0.3);
+      width: 400px;
+      padding: 60px  20px;
+      float: right; }
+      .lr-content .blank-wrap .blank-content ul li.slide-part {
+        margin: 40px 0; }
+      .lr-content .blank-wrap .blank-content ul li.login-now span {
+        text-align: center;
+        display: block !important;
+        margin-bottom: 0; }
+        .lr-content .blank-wrap .blank-content ul li.login-now span a:hover {
+          text-decoration: underline;
+          color: #237bd0; }
+      .lr-content .blank-wrap .blank-content ul li input[type="checkbox"] {
+        width: 17px;
+        height: 17px;
+        border: 1px solid #ccc;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        top: 4px; }
+      .lr-content .blank-wrap .blank-content ul li button.connection-phone {
+        margin-top: 40px; }
+      .lr-content .blank-wrap .blank-content ul li button {
+        width: 100%;
+        background: #237bd0;
+        color: #fff;
+        height: 50px;
+        border: 1px solid #237bd0;
+        border-radius: 10px;
+        font-size: 17px;
+        margin: 20px 0;
+        cursor: pointer; }
+        .lr-content .blank-wrap .blank-content ul li button:focus {
+          outline: none; }
+        .lr-content .blank-wrap .blank-content ul li button:hover {
+          background: #3064ac;
+          border: 1px solid #3064ac; }
+      .lr-content .blank-wrap .blank-content ul li span.get-code {
+        width: 82px;
+        height: 25px;
+        position: absolute;
+        background: #237bd0;
+        text-align: center;
+        border-radius: 4px;
+        line-height: 25px;
+        right: 12px;
+        top: 17px;
+        font-size: 12px;
+        cursor: pointer; }
+      .lr-content .blank-wrap .blank-content ul li span {
+        font-size: 14px;
+        color: #fff; }
+        .lr-content .blank-wrap .blank-content ul li span a {
+          text-decoration: none;
+          color: #fff; }
+          .lr-content .blank-wrap .blank-content ul li span a i {
+            height: 20px;
+            display: inline-block;
+            position: relative;
+            top: 5px;
+            left: 22px; }
+          .lr-content .blank-wrap .blank-content ul li span a i.verification {
+            width: 22px;
+            background-position: -66px 0; }
+          .lr-content .blank-wrap .blank-content ul li span a i.other-style {
+            width: 18px;
+            background-position: -88px 0;
+            height: 19px; }
+      .lr-content .blank-wrap .blank-content ul li.btn-line {
+        border-bottom: 1px solid #fff;
+        margin: 0 -20px;
+        padding: 0 20px;
+        margin-bottom: 30px; }
+        .lr-content .blank-wrap .blank-content ul li.btn-line + li span {
+          margin-bottom: 30px;
+          display: inline-block; }
+      .lr-content .blank-wrap .blank-content ul li.input-blank {
+        width: 100%;
+        height: 60px;
+        border: 1px solid #ccc;
+        background: #fff;
+        position: relative;
+        margin-bottom: 40px; }
+        .lr-content .blank-wrap .blank-content ul li.input-blank i.lr-icon {
+          width: 33px;
+          height: 33px;
+          position: absolute;
+          margin: 0 20px;
+          top: 15px; }
+        .lr-content .blank-wrap .blank-content ul li.input-blank input {
+          width: 310px;
+          border: none;
+          height: 100%;
+          outline: none;
+          margin-left: 73px; }
+        .lr-content .blank-wrap .blank-content ul li.input-blank .error-text {
+          color: #d4d3d6;
+          font-size: 12px;
+          padding-left: 20px;
+          position: relative;
+          float: right;
+          top: 10px; }
+          .lr-content .blank-wrap .blank-content ul li.input-blank .error-text i {
+            width: 15px;
+            height: 15px;
+            background: #bc0026;
+            position: absolute;
+            left: 0;
+            border-radius: 50%;
+            color: #fff;
+            font-style: normal;
+            text-align: center;
+            line-height: 15px;
+            font-size: 12px;
+            font-weight: bold; }
+
+i.lr-icon {
+  background: url(../../img/lr/lr-icon.png) no-repeat; }
+
+i.pass-icon {
+  background-position: -30px 0; }
+
+.connection-pop {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000; }
+
+.connection-content {
+  width: 696px;
+  height: 390px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -348px;
+  margin-top: -195px; }
+  .connection-content .top {
+    width: 365px;
+    margin: 0 auto;
+    margin-top: 73px; }
+    .connection-content .top img {
+      width: 115px;
+      height: 115px;
+      border-radius: 10px;
+      border: 1px solid #237bd0; }
+    .connection-content .top i.change-arrow {
+      background: url(../../img/lr/change-arrow.jpg) no-repeat;
+      display: inline-block;
+      width: 80px;
+      height: 74px;
+      position: relative;
+      top: -20px;
+      margin: 0 20px; }
+  .connection-content p {
+    text-align: center;
+    margin: 50px 0;
+    font-size: 16px; }
+  .connection-content .btn {
+    width: 178px;
+    margin: 0 auto; }
+    .connection-content .btn button {
+      width: 82px;
+      height: 25px;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer; }
+    .connection-content .btn .assist-btn {
+      background: #ebeaec;
+      border: 1px solid #ccc;
+      color: #333; }
+      .connection-content .btn .assist-btn:hover {
+        background: #cfd0d2;
+        color: #333; }
+    .connection-content .btn .main-btn {
+      margin-right: 8px;
+      background: #237bd0;
+      border: 1px solid #237bd0; }
+      .connection-content .btn .main-btn:hover {
+        background: #3064ac;
+        border: 1px solid #3064ac; }
+
+.re-success-wrap {
+  background: #f2f3f5;
+  width: 100%;
+  height: 100%;
+  padding-top: 20px; }
+
+.lr-boxshadow {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  width: 1155px;
+  margin: 0 auto;
+  padding: 40px;
+  margin-bottom: 20px; }
+
+.re-success {
+  position: relative; }
+  .re-success img {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 35px; }
+  .re-success .des {
+    margin-left: 48px; }
+    .re-success .des h3 {
+      margin-bottom: 20px;
+      font-size: 22px;
+      color: #333; }
+    .re-success .des p {
+      font-size: 17px; }
+
+.infor-complete {
+  margin-bottom: 250px; }
+  .infor-complete ul {
+    width: 575px;
+    margin: 0 auto; }
+    .infor-complete ul li {
+      margin-bottom: 20px;
+      position: relative; }
+      .infor-complete ul li > p {
+        text-align: center;
+        font-size: 14px;
+        color: #237bd0;
+        cursor: pointer; }
+      .infor-complete ul li span {
+        width: 112px;
+        height: 34px;
+        line-height: 34px;
+        float: left;
+        text-align: right;
+        font-size: 14px;
+        margin-right: 20px; }
+      .infor-complete ul li input {
+        width: 429px;
+        height: 34px;
+        border: 1px solid #ccc;
+        padding-left: 10px;
+        outline: none;
+        font-size: 12px;
+        color: #a6a6a6; }
+        .infor-complete ul li input:focus {
+          outline: none; }
+      .infor-complete ul li button {
+        width: 210px;
+        height: 50px;
+        background: #237bd0;
+        font-size: 17px;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        margin-top: 40px;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        left: 50%;
+        margin-left: -105px; }
+        .infor-complete ul li button:hover {
+          background: #3064ac; }
+        .infor-complete ul li button:focus {
+          outline: none; }
+
+#selectWrap #dropDown {
+  position: relative; }
+  #selectWrap #dropDown p {
+    width: 429px;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    color: #333;
+    margin-left: 132px;
+    padding-left: 10px;
+    cursor: pointer; }
+  #selectWrap #dropDown i.drop-icon {
+    background: url(../../img/lr/lr-icon.png) no-repeat;
+    width: 14px;
+    height: 10px;
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background-position: -66px -23px; }
+  #selectWrap #dropDown ul {
+    position: absolute;
+    left: 132px;
+    z-index: 2;
+    width: 439px;
+    background: #F4F4F4;
+    border: 1px solid #F4F4F4;
+    height: 125px;
+    overflow: auto;
+    display: none; }
+    #selectWrap #dropDown ul li {
+      height: 35px;
+      line-height: 35px;
+      margin-bottom: 0;
+      padding-left: 10px; }
+      #selectWrap #dropDown ul li:hover {
+        background: #237bd0; }
+        #selectWrap #dropDown ul li:hover a {
+          color: #fff; }
+      #selectWrap #dropDown ul li a {
+        font-size: 12px;
+        text-decoration: none;
+        color: #333;
+        display: block; }
+
+.password-content .pass-login .first-step ul {
+  padding-top: 80px; }
+  .password-content .pass-login .first-step ul li button {
+    margin-top: 130px !important; }
+
+.password-content .pass-login ul li h3 {
+  color: #fff;
+  font-size: 17px;
+  margin-bottom: 25px;
+  font-weight: normal; }
+
+/*yz 登陆界面*/
+#headerPart.yz-headerpart {
+  background-color: #131b26 !important;
+  height: 70px !important; }
+  #headerPart.yz-headerpart .navbar i.yz-h-logo {
+    position: relative;
+    top: -8px;
+    display: block;
+    background: url(../../img/tg-logo.png) no-repeat;
+    width: 180px;
+    height: 30px;
+    background-position: 0 -30px;
+    cursor: pointer; }
+
+.yz-lr-content {
+  background: #192533; }
+  .yz-lr-content .video-wrap {
+    position: absolute;
+    left: 50%;
+    margin-left: -570px;
+    padding-top: 205px; }
+    .yz-lr-content .video-wrap h3 {
+      position: relative;
+      font-size: 30px;
+      color: #fff;
+      top: -60px; }
+  .yz-lr-content .blank-wrap .blank-content {
+    background: #fff; }
+    .yz-lr-content .blank-wrap .blank-content ul li.input-blank {
+      background: #ebeaec; }
+      .yz-lr-content .blank-wrap .blank-content ul li.input-blank input {
+        background: #ebeaec; }
+    .yz-lr-content .blank-wrap .blank-content ul li span {
+      color: #888; }

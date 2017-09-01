@@ -1,0 +1,322 @@
+* {
+    font-family: "Microsoft Yahei", Arial, sans-serif;
+}
+
+body {
+    background: url(../img/bg.jpg) no-repeat;
+}
+
+
+div.comma-before:before {
+    content: "，";
+    color: #fff;
+    float: left;
+    position: relative;
+    z-index: 3;
+    top: 21px;
+    left: -17px;
+    font-size: 35px;
+    font-family: "KaiTi_GB2312";
+}
+
+.comma-before {
+    margin-left: 15px !important;
+}
+
+div.dataStatistics> h2 {
+    width: 100%;
+    display: block;
+    color: #fff;
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+div.logo {
+    position: relative;
+    top: 75px;
+    left: 35px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+div.logo>img {
+    width: 220px;
+}
+
+div.footer {
+    margin-left: 35px;
+    position: fixed;
+    right: 0;
+    bottom: 115px;
+    /* top: 0; */
+    bottom: 90px;
+    left: 0;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+div.footer>img {
+    position: absolute;
+    width: 100px;
+}
+
+div.footer>p {
+    margin-left: 110px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+div.footer>span {
+    color: #fff;
+    font-size: 14px;
+    display: block;
+    margin-left: 110px;
+    position: relative;
+    top: 41px;
+}
+
+div.content {
+    /* overflow: hidden; */
+    width: 1000px;
+    background: url(../img/point-bg.png) no-repeat;
+    background-position: center;
+    background-size: 620px;
+    position: absolute;
+    left: 50%;
+    margin-left: -500px;
+}
+
+div.content ul {
+    display: inline-block;
+    height: 800px;
+    width: 45%;
+    position: relative;
+}
+
+/*div.content  ul.content-left {
+    float: left;
+}
+
+div.content  ul.content-right {
+    float: right;
+}*/
+
+div.content  ul.content-right li.float-bg>img:first-child {
+     -moz-transform:scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);
+    /*IE*/
+    filter:FlipH;
+}
+
+div.content  ul.content-right li.float-bg>i.per-icon{
+    float: right;
+    left: -60px;
+    position: relative;
+    /* top: 0; */
+} 
+
+li.float-bg {
+    width: 378px;
+     display: none;
+    height: 122px;
+}
+
+li.float-bg>img {
+    float: left;
+}
+
+i.circle-bg {
+    width: 22px;
+    height: 23px;
+    border-radius: 50%;
+    /* float: right; */
+    background: #fff;
+    /* position: relative; */
+    /* top: 50px; */
+    /* left: -55px; */
+    display: block;
+    margin-left: 300px;
+    margin-top: 57px;
+}
+
+.per-icon {
+    width: 30px;
+    /* height: 60px; */
+    /*background: url(../img/person.png) no-repeat;*/
+    float: left;
+    position: relative;
+    top: 12px;
+    left: -280px;
+}
+
+ul.content-right  i.circle-bg {
+        /* left: -378px; */
+        margin-left: -21px;
+}
+
+li.float-bg>span {
+    display: block;
+    float: left;
+    position: relative;
+    top: -55px;
+    left: 60px;
+    color: #000;
+    font-size: 12px;
+    width: 210px;
+}
+
+li.float-bg>p {
+    /* font-size: 12px; */
+    color: #fff;
+    float: left;
+    /* text-align: left; */
+    width: 100%;
+    top: 62px;
+    left: 30px;
+    position: absolute;
+}
+
+li.float-bg.l-point-a {
+    position: absolute;
+    left: 44px;
+    top: 165px;
+}
+
+li.float-bg.l-point-b {
+    position: absolute;
+    left: 15px;
+    top: 288px;
+}
+
+li.float-bg.l-point-c {
+    position: absolute;
+    left: 166px;
+    top: 375px;
+}
+
+li.float-bg.l-point-d {
+    position: absolute;
+    left: 168px;
+    top: 528px;
+    /* display: none; */
+}
+
+li.float-bg.r-point-a {
+    position: absolute;
+    right: -81px;
+    top: 194px;
+}
+
+li.float-bg.r-point-b {
+    position: absolute;
+    right: -81px;
+    top: 315px;
+    /* display: none; */
+}
+
+li.float-bg.r-point-c {
+    position: absolute;
+    right: 72px;
+    top: 407px;
+}
+
+li.float-bg.r-point-d {
+    position: absolute;
+    right: -184px;
+    top: 473px;
+}
+
+li.float-bg.r-point-e {
+    position: absolute;
+    right: 42px;
+    top: 559px;
+    /* display: none; */
+}
+
+li.float-bg.c1 {
+    top: 407px;
+    right: 11px;
+    /* display: none; */
+}
+li.float-bg.c2 {
+    top: 468px;
+    right: 42px;
+    /* display: none; */
+    /* color: rebeccapurple; */
+}
+li.float-bg.c3 {
+    top: 345px;
+    right: 41px;
+    /* display: none; */
+}
+li.float-bg.c4 {
+    top: 376px;
+    right: -81px;
+}
+li.float-bg.c5 {
+    top: 498px;
+    right: -19px;
+    /* display: none; */
+}
+li.float-bg.c6 {
+   top: 530px;
+   /* display: none; */
+}
+li.float-bg.c7 {
+ top: 498px;
+ /* display: none; */
+}
+li.float-bg.c8 {
+  top: 438px;
+  right: 41px;
+  /* display: none; */
+}
+li.float-bg.c9 {
+  top: 438px;
+  right: -111px;
+  /* display: none; */
+}
+li.float-bg.c10 {
+  top: 437px;
+  right: -50px;
+  /* display: none; */
+}
+li.float-bg.c11 {
+  top: 347px;
+  right: -19px;
+  /* display: none; */
+}
+
+img.point-bg-img {
+    width: 512px;
+    position: absolute;
+    left: 50%;
+    margin-left: -256px;
+}
+
+img.float-img {
+    width: 300px;
+    position: relative;
+}
+
+ul.content-right {
+    float: right;
+}
+ul.content-left {
+    float: left;
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        background:url(../img/bg.jpg) ;
+    }
+
+    div.content {
+        top: 50%;
+        margin-top: -400px;
+    }
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.forum.Mapper_proj_forum_attitude_distri">
+
+	<resultMap type="cn.thinkingdata.web.domain.project.forum.Do_proj_forum_attitude_distri" id="getDistribute">
+		<result property="attitude_score" column="attitude_score"/>
+		<result property="post_num" column="post_num"/>
+		<result property="data_date" column="data_date"/>
+		<result property="forum_name" column="forum_name"/>
+		<result property="info_id" column="info_id"/>
+	</resultMap>
+
+	<select id="getDistribute" resultMap="getDistribute">
+		select attitude_score, sum(post_num) as post_num, data_date, forum_name, info_id from gas_new.proj_forum_attitude_distri where project_id=#{project_id} and agg_code=0 and data_date between #{start_date} and #{end_date} group by attitude_score
+	</select>
+
+	<select id="getDetailDistribute" resultMap="getDistribute">
+		select attitude_score, post_num, data_date, forum_name, info_id from gas_new.proj_forum_attitude_distri where project_id=#{project_id} and agg_code=0 and data_date between #{start_date} and #{end_date}
+	</select>
+	
+	<select id="getForumPostNumDistribute" resultMap="getDistribute">
+		select attitude_score, post_num, data_date, forum_name, info_id from gas_new.proj_forum_attitude_distri where project_id=#{project_id} and agg_code=1 and data_date between #{start_date} and #{end_date}
+	</select>
+
+	<select id="getProjForumAttitudeLatestDate" resultType="java.lang.String">
+		select data_date from gas_new.proj_forum_attitude_distri where agg_code=0 and data_date > SUBDATE(now(),INTERVAL 29 DAY) group by data_date order by data_date desc limit 1
+	</select>
+
+	<select id="getDetailDistributeByDate" resultType="cn.thinkingdata.web.vo.project.forum.Vo_proj_forum_attitude">
+		select sum(post_num) total,sum(case when attitude_score &lt; 0 then post_num else 0 end ) negative ,sum(case when attitude_score > 0 then post_num else 0 end ) positive  from gas_new.proj_forum_attitude_distri where project_id=#{project_id} and agg_code=0 and data_date = #{data_date}
+	</select>
+
+	<select id="getDetailDistributeByInfoIdAndDate" resultType="cn.thinkingdata.web.vo.project.forum.Vo_proj_forum_attitude">
+		select sum(post_num) total,sum(case when attitude_score&lt;0 then post_num else 0 end ) negative ,sum(case when attitude_score > 0 then post_num else 0 end ) positive  from gas_new.proj_forum_attitude_distri
+		where info_id=#{info_id} and agg_code=1 and data_date between  #{start_date} and  #{end_date}
+	</select>
+
+	<select id="getDetailDistributeByProjectIdAndDate" resultType="cn.thinkingdata.web.vo.project.forum.Vo_proj_forum_attitude">
+		select info_id,sum(post_num) total,sum(case when attitude_score&lt;0 then post_num else 0 end ) negative ,sum(case when attitude_score > 0 then post_num else 0 end ) positive  from gas_new.proj_forum_attitude_distri
+		where agg_code=1 and project_id=#{project_id} and data_date between  #{start_date} and  #{end_date} group by info_id
+	</select>
+
+	<select id="getProjForumName" resultType="string">
+		select forum_name from gas_new.proj_forum_attitude_distri where info_id=#{info_id} limit 1
+	</select>
+</mapper>

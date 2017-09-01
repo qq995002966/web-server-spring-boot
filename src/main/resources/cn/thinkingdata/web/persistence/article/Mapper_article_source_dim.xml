@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.article.Mapper_article_source_dim">
+
+
+	<select id="getArticleSourceDimList" resultType="cn.thinkingdata.web.domain.article.Do_article_source_dim">
+		select * from gas_new.article_source_dim
+	</select>
+	
+</mapper>

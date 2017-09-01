@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>如何导出</title>
+<link rel="stylesheet" type="text/css" href="css/root.min.css" />
+<style>
+
+    .cont td
+    {
+        vertical-align: top;
+        line-height: 3em;
+    }
+
+    .cont td:first-child
+    {
+        width:3em;
+    }
+
+    .cont img
+    {
+        display: block;
+        margin-top:20px;
+        margin-bottom: 60px;
+
+    }
+
+    .num
+    {
+        display: inline-block;
+        color:#ffffff;
+        background-color:#83b934;
+        text-align: center;
+        width:2em;
+        line-height: 2em;
+        border-radius: 2em;
+        margin-left:-1em;
+    }
+
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <script type="text/javascript" src="js/layer/layer.js" ></script>
+    <script type="text/javascript" src="js/store.min.js" ></script>
+    <script type="text/javascript" src="js/func.js" ></script>
+<script>
+
+function onLoad()
+{
+    G_MENU.AddMenuFooter();
+
+    FitMenuTextCenter('如何导出');
+
+    G_LOGIN.CheckLoginServlet(null, null);
+}
+
+$(onLoad);
+</script>
+</head>
+<body style="background:#f5f5f5">
+
+<div class="major-w block ma " style="margin-bottom:2em;">
+
+    <div class="tc font-theme" style="line-height: 5em;font-size:1.2em">如何导出微信聊天记录？</div>
+
+    <div class="ma" style="width:80%;margin-top:1em;margin-bottom:1em;">
+
+        <div class="empha" style="margin-bottom:1em;font-size:0.8em;">*说明：目前微信聊天记录导出为csv格式仅支持iphone手机</div>
+
+        <table class="cont" style="border-left:1px dotted #e1e4e8;">
+            <tbody>
+            <tr>
+                <td><span class="num">1</span></td><td>打开<a href="http://www.tongbusj.com/" target="_blank">同步助手</a>（点击进入下载），连接iphone手机，在“更多功能”中点击“微信"，即可看到“微信消息记录”界面，可看到获取微信记录的进度，如下图：<img src="http://image.thinkinggame.cn/img/wechathow/1.png"/></td>
+            </tr>
+            <tr>
+                <td><span class="num">2</span></td><td>微信数据获取完成后，“微信消息记录”界面即会显示所有聊天记录列表，选择您要导出聊天记录的微信群，如下图：<img src="http://image.thinkinggame.cn/img/wechathow/2.png"/></td>
+            </tr>
+            <tr>
+                <td><span class="num">3</span></td><td>选择您要导出聊天记录的微信群，依次如下图操作：<img src="http://image.thinkinggame.cn/img/wechathow/3.png"/></td>
+            </tr>
+            <tr>
+                <td><span class="num">4</span></td><td>保存完成后，即可在桌面上看到您保存的excel格式的聊天记录：<img src="http://image.thinkinggame.cn/img/wechathow/4.png"/></td>
+            </tr>
+            <tr>
+                <td><span class="num">5</span></td><td>使用Office Excel(以office2013为例)打开保存的excel文件，然后选择文件保存类型为csv格式，具体操作如下：<img src="http://image.thinkinggame.cn/img/wechathow/5.png"/></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

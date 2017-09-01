@@ -1,0 +1,42 @@
+.good
+{
+    background:transparent url(http://image.thinkinggame.cn/img/star/good.png) no-repeat center center;
+    background-size:contain;
+}
+
+.bad
+{
+    background:transparent url(http://image.thinkinggame.cn/img/star/bad.png) no-repeat center center;
+    background-size:contain;
+}
+
+.half-bad
+{
+    background:transparent url(http://image.thinkinggame.cn/img/star/half-bad.png) no-repeat center center;
+    background-size:contain;
+}
+
+.star
+ {
+     display:inline-block;
+     width:1em;
+     margin-right:0.1em;
+ }
+
+.like
+{
+    background:transparent url(http://image.thinkinggame.cn/img/star/like.png) no-repeat center center;
+    background-size:contain;
+}
+
+.dislike
+{
+    background:transparent url(http://image.thinkinggame.cn/img/star/dislike.png) no-repeat center center;
+    background-size:contain;
+}
+
+.nota
+{
+    background:transparent url(http://image.thinkinggame.cn/img/star/nota.png) no-repeat center center;
+    background-size:contain;
+}

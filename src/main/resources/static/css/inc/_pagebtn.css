@@ -1,0 +1,49 @@
+
+.pagebtn {
+    display: inline-block;
+    height:32px;
+    line-height:32px;
+    min-width:32px;
+    font-size:14px;
+    text-align: center;
+    margin-right:-1px;
+}
+
+.pagebtn.num {
+    border: 1px solid #e1e4e8;
+    color: #838e99;
+    cursor: pointer;
+}
+
+.pagebtn.prev {
+    border: 1px solid #e1e4e8;
+    color: #838e99;
+    cursor: pointer;
+    background : transparent url(http://image.thinkinggame.cn/img/chart/prev.png) no-repeat center center;
+    background-size: 22%;
+}
+
+.pagebtn.next {
+    border: 1px solid #e1e4e8;
+    color: #838e99;
+    cursor: pointer;
+    background : transparent url(http://image.thinkinggame.cn/img/chart/next.png) no-repeat center center;
+    background-size: 22%;
+}
+
+.pagebtn.num:hover,.pagebtn.prev:hover,.pagebtn.next:hover
+{
+    background-color:#eff1f4;
+}
+
+.pagebtn.chosen,.pagebtn.chosen:hover {
+    color: #fff;
+    background-color: #03a9f5;
+    border: 1px solid #03a9f5;
+}
+
+.page_footer_holder
+{
+    text-align:center;
+    margin-top:40px;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.industry.Mapper_industry_trend_day">
+
+
+	<select id="getTrendDayByDateSpan" resultType="cn.thinkingdata.web.domain.industry.Do_industry_trend_day">
+		select * from gas_new.industry_trend_day where data_date between #{start_date} and #{end_date} order by data_date
+	</select>
+
+	
+</mapper>

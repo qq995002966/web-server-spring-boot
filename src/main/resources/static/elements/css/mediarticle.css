@@ -1,0 +1,280 @@
+body {
+    background: #eaeaea;
+}
+
+.mediarticle-list {
+    width: 1175px;
+    margin: 0 auto;
+    margin-top: 108px !important;
+}
+
+.mediarticle-list .title h3 {
+    margin-bottom: 20px;
+}
+
+.mediarticle-list .left {
+    float: left;
+}
+
+.mediarticle-list .left {
+    width: 840px;
+    background: #fff;
+    margin-right: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.mediarticle-list .left .article-detail-list {
+        margin: 0 30px;
+        min-height: 200px;
+        display: block;
+}
+
+.mediarticle-list .left .page-list {
+    width: 715px;
+    margin: 0 auto;
+}
+
+.mediarticle-list .left .page-list li {
+    display: inline-block;
+    color: #afafaf;
+}
+
+.mediarticle-list .left .page-list li .page-num {
+    color: #606060;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.mediarticle-list .left .page-list li .num-selected {
+    background: #69a039;
+    color: #fff;
+}
+
+.mediarticle-list .left .page-list li button {
+    border: 1px solid #e9e9e9;
+    border-radius: 4px;
+    width: 72px;
+    height: 34px;
+    background: #fff;
+    color: #ababab;
+    margin: 0 25px;
+    cursor: pointer;
+}
+
+.mediarticle-list .right {
+    width: 304px;
+    float: right;
+}
+
+.mediarticle-list .right>ul {
+    margin-bottom: 35px;
+    background: #fff;
+    padding: 20px;
+}
+
+.mediarticle-list .right .top {
+    margin-top: -90px;
+}
+
+.mediarticle-list .right .top .top_ad {
+    margin-bottom: 20px;
+}
+
+.top-today {
+    font-size: 16px;
+}
+
+  .top-content .check-more {
+    color: #689f38;
+    float: right;
+    cursor: pointer;
+}
+
+ .top-content>li {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+ .top-content ul>li {
+    line-height: 30px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 260px;
+}
+
+ .top-content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+ }
+
+.top-content ul li .guide-title {
+    margin-left: 10px;
+}
+
+.mid .top-content .tab {
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.mid .top-content .tab li {
+    float: left;
+    width: 52px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.mid .top-content .tm_slider {
+    position: absolute;
+    top: 73px;
+    width: 50px;
+    height: 2px;
+    background-color: #679F37;
+    left: 5px;
+}
+
+.mid .top-content .check {
+    margin-bottom: 30px;
+}
+
+img.company-icon {
+    background: #9fbf5c;
+}
+
+img.person-icon {
+    background: #feb13b;
+}
+
+img.indus-icon {
+    background: #acd53b;
+}
+
+img.front-icon {
+    background: #fed73c;
+}
+
+img.research-icon {
+    background: #ff8b5a;
+}
+
+/* 媒体文章详情页 */
+.article-detail .right .top {
+    margin-top: 0;
+}
+
+.article-detail .article-content {
+    padding: 30px; min-height: 500px;
+}
+.article-detail .article-content .viewSource{
+    float: right;
+    margin-right: 10px;
+    color: #ccc;
+}
+
+.article-detail .article-content .title-tag {
+    font-size: 16px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 20px;
+    padding-left: 10px;
+}
+
+.article-detail .article-content>ul h2 {
+    margin-top: 10px;
+}
+
+.article-detail .article-content>ul {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.article-detail .article-content>ul li {
+    margin-top: 20px;
+}
+
+.article-detail .article-content>ul .article-tags span {
+    font-size: 12px;
+    padding: 5px 10px;
+    border: 1px solid #689f38;
+    color: #689f38;
+    border-radius: 4px;
+    margin-right: 10px;    
+}
+
+.article-detail .article-content>ul p {
+    margin-top: 20px;
+    line-height: 35px;
+    word-break: break-all;
+}
+.article-detail .article-content>ul img{ max-width: 760px}
+
+.article-detail .article-content .datetime {
+    color:#a9a9a9;
+}
+
+.article-detail .article-content .datetime:before {
+    content: '.';
+    position: relative;
+    top: -4px;
+    margin: 0 20px;
+    font-weight: bolder;
+}
+
+.article-detail .article-content .comment {
+    float: right;
+    position: relative;
+    top: -40px;
+    text-align: center;
+}
+
+.article-detail .article-content .comment b {
+    font-size: 24px;
+    color: #689f38;
+    text-align: center;
+    display: block;
+    font-weight: normal;
+}
+
+
+#postPhoto {
+    width: 270px;
+    height: 225px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#postPhoto li a {
+    display: block;
+}
+
+#choose_tab{ height: 50px;}
+#choose_tab>ul{ display: block;height: 50px;}
+#choose_tab>ul a{display: block; position: relative}
+#choose_tab>ul>li{ width: 95px; float: left; line-height: 50px; position: relative; text-indent: 35px; font-size: 14px; cursor: pointer}
+#choose_tab>ul>li i:first-child{position: absolute;top: 16px;left: 10px;display: block;}
+#choose_tab>ul>li .glyphicon-triangle-bottom{position: absolute; right: 5px; top: 18px;font-size: 11px;color: #CCCCCC;}
+#choose_tab>ul>li>ul{ width: 95px; position: absolute; top: 50px; background-color: #EEEEEE;z-index: 2; display: none}
+#choose_tab>ul>li>ul li{ height: 30px; line-height: 30px; text-align: center; text-indent: 0}
+#choose_tab>ul>li>ul li:hover{ background-color: #E5E5E5}
+#choose_tab .ct_slider {position: absolute;top: 49px;width: 95px;height: 2px;background-color: #679F37;left: 0;}
+
+
+#choose_tab2{ height: 50px;}
+#choose_tab2>ul{ display: block;height: 50px;}
+#choose_tab2>ul a{display: block; position: relative}
+#choose_tab2>ul>li{ width: 140px; float: left; line-height: 50px; position: relative; text-indent: 35px; font-size: 14px; cursor: pointer;}
+#choose_tab2>ul>.liOn{ border-bottom: 2px solid #679F37}
+#choose_tab2>ul>li i:first-child{position: absolute;top: 16px;left: 10px;display: block;}
+#choose_tab2>ul>li .glyphicon-triangle-bottom{position: absolute; right: 5px; top: 18px;font-size: 11px;color: #CCCCCC;}
+#choose_tab2>ul>li>ul{ width: 140px; position: absolute; top: 50px; background-color: #EEEEEE;z-index: 2; display: none; overflow: hidden}
+#choose_tab2>ul>li>ul li{ height: 30px; line-height: 30px; text-indent: 20px}
+#choose_tab2>ul>li>ul li:hover{ background-color: #E5E5E5}
+#choose_tab2 .ct_slider {position: absolute;top: 49px;width: 130px;height: 2px;background-color: #679F37;left: 0;}

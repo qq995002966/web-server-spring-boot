@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.lt.Mapper_proj_lt_common_stat">
+
+	<select id="getLatestLtCommonStat" resultType="cn.thinkingdata.web.domain.project.lt.Do_proj_lt_common_stat">
+		select * from gas_new.proj_lt_common_stat where project_id=#{project_id} and data_date > DATE_SUB(now(),INTERVAL 7 DAY) order by data_date desc limit 1
+	</select>
+
+	<select id="getLtCommonStatDataList" resultType="cn.thinkingdata.web.domain.project.lt.Do_proj_lt_common_stat">
+		select * from gas_new.proj_lt_common_stat where project_id=#{project_id} and data_date between #{start_date} and #{end_date}
+	</select>
+
+	<select id="getLtCommonStatListData" resultType="cn.thinkingdata.web.domain.project.lt.Do_proj_lt_common_stat">
+		select * from gas_new.proj_lt_common_stat where project_id=#{project_id} and data_date > #{date_state} order by data_date desc
+	</select>
+</mapper>

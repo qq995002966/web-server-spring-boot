@@ -1,0 +1,28 @@
+.project_tag_dim
+{
+    border:1px solid #e1e4e8;
+    padding:6px 10px;
+    margin-right:10px;
+    line-height: 1em;
+    margin-bottom:10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.project_tag_dim:hover
+{
+    color:#03a9f5;
+}
+
+.project_tag_dim.chosen
+{
+    border:1px solid #03a9f5;
+    color:#03a9f5;
+    background:transparent url("http://image.thinkinggame.cn/img/reg/chosen.png") no-repeat right bottom;
+    background-size:15px;
+}
+
+.project_tag_dim.chosen:hover
+{
+    font-weight: normal;
+}

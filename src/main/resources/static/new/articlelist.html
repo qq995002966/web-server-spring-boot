@@ -1,0 +1,477 @@
+<html>
+<head>
+    <title>文章列表</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Drag-based JavaScript component, embracing endless UI solutions.">
+
+    <script src="elements/js/jquery-1.9.1.min.js"></script>
+    <script src="elements/js/articlelist.js"></script>
+    <script type="text/javascript" src="plugins/layer/layer.js"></script>
+    <link rel="stylesheet" type="text/css" href="elements/css/light.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/articlelist.css">
+</head>
+<body>
+<!-- 导航部分 -->
+
+  <div id="header" class="container-flud c_bgWhite  data-header">
+      <div class="c_maxWidth c_marginAuto h_area">
+          <div class="c_img h_logo c_floatLeft data-img"></div>
+          <div class="h_search c_floatLeft c_boderRadius data-search">
+              <input type="text" name="keywords" placeholder="搜索游戏、文章、元素...">
+              <button type="submit" class="glyphicon glyphicon-search"></button>
+              <div class="h_pop h_quick c_bgWhite c_boderRadius c_hidden">
+                  <div class="c_padding20 h_area">
+                      <div class="h_close"><i class="glyphicon glyphicon-remove"></i></div>
+                      <div class="h_qkTitle c_borderB">
+                          <div class="qk_slider"></div>
+                          <ul>
+                              <li class="liOn">游戏类型</li>
+                              <li>游戏标签</li>
+                              <li>行业媒体</li>
+                          </ul>
+                          <div class="clearfix"></div>
+                      </div>
+                      <div class="h_qkArea c_marginTop20">
+                          <div class="h_qkChoose">
+                              <div class="qc_slider"></div>
+                              <ul>
+                                  <li class="liOn">ABC</li>
+                                  <li>DEF</li>
+                                  <li>GHI</li>
+                                  <li>JKL</li>
+                                  <li>MNO</li>
+                                  <li>PQR</li>
+                                  <li>STU</li>
+                                  <li>VW</li>
+                                  <li>XYZ</li>
+                                  <li>0-9</li>
+                              </ul>
+                              <div class="clearfix"></div>
+                          </div>
+                          <div class="h_qkTab c_floatLeft">
+                              <div class="qt_slider"></div>
+                              <dl class="dlOn">
+                                  <dt class="h_qkTb1 c_img"></dt>
+                                  <dd>手游</dd>
+                              </dl>
+                              <dl>
+                                  <dt class="h_qkTb2 c_img"></dt>
+                                  <dd>页游</dd>
+                              </dl>
+                              <dl>
+                                  <dt class="h_qkTb3 c_img"></dt>
+                                  <dd>端游</dd>
+                              </dl>
+                              <dl>
+                                  <dt class="h_qkTb4 c_img"></dt>
+                                  <dd>单机 电玩</dd>
+                              </dl>
+                          </div>
+                          <div class="h_qkItem c_floatLeft c_borderT c_borderL">
+                              <dl>
+                                  <dt>A</dt>
+                                  <dd>暗夜黎明</dd><dd>傲世西游</dd><dd>阿修罗之眼</dd>
+                              </dl>
+                              <div class="clearfix"></div>
+                              <dl>
+                                  <dt>B</dt>
+                                  <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd>
+                                  <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd>
+                                  <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd>
+                                  <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd>
+                              </dl>
+                              <div class="clearfix"></div>
+                              <dl>
+                                  <dt>C</dt>
+                                  <dd>暗夜黎明</dd><dd>傲世西游</dd><dd>阿修罗之眼</dd>
+                              </dl>
+                              <div class="clearfix"></div>
+
+                          </div>
+                          <div class="clearfix"></div>
+                      </div>
+                      <div class="h_qkTitle c_borderB c_marginB10">
+                          <h5>热门游戏</h5>
+                      </div>
+                      <div class="h_qkList c_itemList">
+                          <dl>
+                              <img src="elements/img/game_icon.png">
+                              <dt>Lords of Xulima</dt>
+                              <dd>MP,LLC</dd>
+                          </dl>
+                          <dl>
+                              <img src="elements/img/game_icon.png">
+                              <dt>Lords of Xulima</dt>
+                              <dd>MP,LLC</dd>
+                          </dl>
+                          <dl>
+                              <img src="elements/img/game_icon.png">
+                              <dt>Lords of Xulima</dt>
+                              <dd>MP,LLC</dd>
+                          </dl>
+                          <dl>
+                              <img src="elements/img/game_icon.png">
+                              <dt>Lords of Xulima</dt>
+                              <dd>MP,LLC</dd>
+                          </dl>
+                          <dl>
+                              <img src="elements/img/game_icon.png">
+                              <dt>Lords of Xulima</dt>
+                              <dd>MP,LLC</dd>
+                          </dl>
+                          <dl>
+                              <img src="elements/img/game_icon.png">
+                              <dt>Lords of Xulima</dt>
+                              <dd>MP,LLC</dd>
+                          </dl>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="h_menu c_floatLeft">
+              <ul>
+                  <li class="liOn">
+                      游戏灯塔
+                      <div class="h_pop h_light c_bgWhite c_boderRadius c_hidden">
+                          <div class="c_padding20 h_area  c_itemList">
+                              <div class="h_close"><i class="glyphicon glyphicon-remove"></i></div>
+                              <div class="h_ltZone1 c_floatLeft">
+                                  <div class="c_paddingLR20">
+                                      <div class="h_title c_marginTB10">
+                                          <h2><i class="glyphicon glyphicon-time glyphicon "></i> 浏览历史</h2>
+                                      </div>
+                                      <div class="h_ltList h_ltLtTwo c_marginTop20">
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="h_ltZone1 c_floatLeft">
+                                  <div class="c_paddingLR20">
+                                      <div class="h_title c_marginTB10">
+                                          <h2><i class="glyphicon glyphicon-star-empty"></i> 您的收藏</h2>
+                                      </div>
+                                      <div class="h_ltList h_ltLtTwo c_marginTop20">
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="h_ltZone2 c_floatLeft">
+                                  <div class="c_paddingLR20">
+                                      <div class="h_title c_marginTB10">
+                                          <h2><i class="glyphicon glyphicon-heart"></i> 猜你喜欢</h2>
+                                      </div>
+                                      <div class="h_ltList c_marginTop20">
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                          <dl>
+                                              <img src="elements/img/game_icon.png">
+                                              <dt>Lords of Xulima</dt>
+                                              <dd>MP,LLC</dd>
+                                          </dl>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                  <li>行业指南</li>
+                  <li>游戏图谱</li>
+                  <li>私人定制</li>
+              </ul>
+              <div class="h_slider"></div>
+          </div>
+          <div class="h_user c_floatRight">
+              <button class="h_login">登录</button>
+              <button class="h_reg">注册用户</button>
+          </div>
+          <div class="clearfix"></div>
+      </div>
+  </div>
+<div class="article-tab">
+    <ul class="tabs">
+        <li class="article-active-tab"href="#resultGamestyle">游戏类型</li>
+        <li href="#resultMedia">行业媒体</li>
+    </ul>
+</div>
+  <div class="article-list-content">
+    <!-- 列表头 -->
+    <ul class="article-list-header-tip">
+      <li class="result-num">为您找到<span>3</span>个相关结果</li>
+      <li class="article-list-tip-name"><span>刀塔传奇</span>_相关文章</li>
+    </ul>
+    <!-- 行业媒体 -->
+    <ul class="article-detail-list result-all" id="resultMedia">
+      <li class="detail-content">
+          <img src="" alt="">
+          <ul class="detail-right">
+              <li>
+                <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+               </li>
+               <li class="detail-infor">
+                   来自
+                   <span class="article-from">百度贴吧</span>
+                   <span class="article-readall"><a href="">查看原文</a></span>
+                   <span class="article-date">16/4/17</span>
+               </li>
+               <p>百善孝为先。人之拜父母所赐，一尺五寸长成人，父母养儿含辛茹苦披星戴月，父母呼应勿缓，父母命应勿懒，王祥卧冰为他母，杨香救父手扼虎，孟宗哭竹冬生笋，吴猛代亲饱蚊噬，······当然二十四孝也有它迂腐封建的糟粕，但感人的孝心和孝举却永远是人间正道，值得推崇和学习的，一个不懂孝道不知感恩父母的人，我们又祈求他如何去爱人？就像新闻里最近哪个弑母的学生一样，长大了又何尝不是家庭和社会的悲哀？谨守孝道是一种礼仪，更是做人的根本，发身受之于父母，每个人都应该常怀一颗感恩之心无微不至地侍奉双亲！<span class="readall">阅读全文</span></p>
+          </ul>
+      </li>
+      <li class="detail-content">
+          <img src="" alt="">
+          <ul class="detail-right">
+              <li>
+                <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+               </li>
+               <li class="detail-infor">
+                   来自
+                   <span class="article-from">百度贴吧</span>
+                   <span class="article-readall"><a href="">查看原文</a></span>
+                   <span class="article-date">16/4/17</span>
+               </li>
+               <p>百善孝为先。人之拜父母所赐，一尺五寸长成人，父母养儿含辛茹苦披星戴月，父母呼应勿缓，父母命应勿懒，王祥卧冰为他母，杨香救父手扼虎，孟宗哭竹冬生笋，吴猛代亲饱蚊噬，······当然二十四孝也有它迂腐封建的糟粕，但感人的孝心和孝举却永远是人间正道，值得推崇和学习的，一个不懂孝道不知感恩父母的人，我们又祈求他如何去爱人？就像新闻里最近哪个弑母的学生一样，长大了又何尝不是家庭和社会的悲哀？谨守孝道是一种礼仪，更是做人的根本，发身受之于父母，每个人都应该常怀一颗感恩之心无微不至地侍奉双亲！<span class="readall">阅读全文</span></p>
+          </ul>
+      </li>
+      <li class="detail-content">
+          <img src="" alt="">
+          <ul class="detail-right">
+              <li>
+                <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+               </li>
+               <li class="detail-infor">
+                   来自
+                   <span class="article-from">百度贴吧</span>
+                   <span class="article-readall"><a href="">查看原文</a></span>
+                   <span class="article-date">16/4/17</span>
+               </li>
+               <p>百善孝为先。人之拜父母所赐，一尺五寸长成人，父母养儿含辛茹苦披星戴月，父母呼应勿缓，父母命应勿懒，王祥卧冰为他母，杨香救父手扼虎，孟宗哭竹冬生笋<span class="readall">阅读全文</span></p>
+          </ul>
+      </li>
+    </ul>
+    <!-- 游戏类型 -->
+    <ul class="article-detail-list result-all" id="resultGamestyle">
+       <li class="detail-content">
+          <img src="elements/img/game_icon.png" alt="">
+          <ul class="detail-right">
+              <li>
+                <span class="game-title">脑洞漫画</span>
+                 <i class="c_img "></i>
+                  <span class="check-gamepic"><a href="">查看游戏图谱></a></span>
+               </li>
+               <li class="detail-infor">
+                   <b>开发商：</b><span class="article-publisher">百度贴吧</span>
+               </li>
+              <li class="detail-infor">
+                  <b>游戏类型：</b><span class="article-game-style">卡牌/手游</span>
+              </li>
+          </ul>
+      </li>
+        <li class="detail-content">
+            <img src="elements/img/game_icon.png" alt="">
+            <ul class="detail-right">
+                <li>
+                    <span class="game-title">脑洞漫画</span>
+                    <i class="c_img "></i>
+                    <span class="check-gamepic"><a href="">查看游戏图谱></a></span>
+                </li>
+                <li class="detail-infor">
+                    <b>开发商：</b><span class="article-publisher">百度贴吧</span>
+                </li>
+                <li class="detail-infor">
+                    <b>游戏类型：</b><span class="article-game-style">卡牌/手游</span>
+                </li>
+            </ul>
+        </li>
+        <li class="detail-content">
+            <img src="elements/img/game_icon.png" alt="">
+            <ul class="detail-right">
+                <li>
+                    <span class="game-title">脑洞漫画</span>
+                    <i class="c_img "></i>
+                    <span class="check-gamepic"><a href="">查看游戏图谱></a></span>
+                </li>
+                <li class="detail-infor">
+                    <b>开发商：</b><span class="article-publisher">百度贴吧</span>
+                </li>
+                <li class="detail-infor">
+                    <b>游戏类型：</b><span class="article-game-style">卡牌/手游</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- 翻页 -->
+    <ul class="page-list">
+      <li>
+        <span class="prev"><button type="">上一页</button></span>
+        <span class="page-num">1</span>
+        <span class="page-num">…</span>
+        <span class="page-num">35</span>
+        <span class="page-num">36</span>
+        <span class="page-num num-selected">37</span>
+        <span class="page-num">38</span>
+        <span class="page-num">39</span>
+        <span class="page-num">…</span>
+        <span class="page-num">90</span>
+        <span class="next"><button type="">下一页</button></span>
+      </li>
+      <li class="page-num-total">共 <b>19</b> 页 <b>198</b>个 结果</li>
+    </ul>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,473 @@
+@import "base.css";
+@import "common.css";
+@import "front.css";
+#searchresultPart {
+    margin-top: 90px
+}
+
+#searchresultPart .tab-wrap {
+    background: #ebeaec;
+    position: relative;
+}
+
+#searchresultPart .tab-wrap .tab-change {
+    height: 46px;
+    width: 1155px;
+    margin: 0 auto;
+}
+
+#searchresultPart .tab-wrap .tab-change li {
+    float: left;
+    width: 124px;
+    height: 46px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 46px;
+    cursor: pointer;
+}
+
+#searchresultPart .tab-wrap .tab-change li.selected {
+    background: #237bd0;
+    color: #fff;
+}
+
+#searchresultPart .relative-game-content {
+  min-height: 500px;
+  position: relative;
+}
+
+#searchresultPart .relative-game-content  .b_loading {
+    position: absolute;
+    left: 0;
+    margin-left: 0;
+    top: 0;
+    margin-top: 0;
+}
+
+#searchresultPart .relative-game-content .boxshadow {
+    width: 1155px;
+    margin: 0 auto;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li {
+    min-height: 76px;
+    padding: 0;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fr {
+    position: absolute;
+    right: 15px;
+    height: 100%;
+    top: 0;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fr li {
+    float: left;
+    height: 100%;
+    padding: 0 20px;
+    padding-top: 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    color: #595959;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fr li .tg-main-btn {
+    position: relative;
+    top: 10px;
+    text-align: center;
+    font-size: 12px;
+    background: #237bd0;
+    border-radius: 4px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #d6d6d6;
+    color: #fff;
+    outline: none;
+    width: 100px;
+    cursor: pointer;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fr li .tg-main-btn:hover {
+    background: #3064ac;
+    color: #fff;
+    text-decoration: none;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fr li p {
+    position: relative;
+    top: 8px;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fr li span {
+    cursor: pointer;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fr li span b.color-blue {
+    color: #237bd0;
+    cursor: default;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fl span {
+    font-size: 12px;
+    color: #8e8e8e;
+    margin-right: 15px;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fl img {
+    width: 76px;
+    height: 76px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#searchresultPart .relative-game-content #bs_search_other .game-list > li .fl img {
+    cursor: default;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fl p {
+    margin-left: 91px;
+    margin-bottom: 5px;
+    width: 800px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fl p + span {
+    margin-left: 91px;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fl .tg-tab-btn {
+    position: absolute;
+    font-size: 10px;
+    z-index: 1;
+    left: 105px;
+    margin-top: 10px;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fl .tg-tab-btn .tg-tab-btn-normal {
+    border-radius: 4px;
+    background: #fff;
+    float: left;
+    display: block;
+    padding: 3px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+    border: 1px solid #237bd0;
+    color: #237bd0;
+    padding-bottom: 0px;
+    padding-top: 1px;
+}
+
+#searchresultPart .relative-game-content .boxshadow .game-list > li .fl .tg-tab-btn .tg-tab-btn-normal:hover {
+    background: #237bd0;
+    color: #fff;
+}
+
+#searchresultPart .relative-game-content .top-search {
+    height: 300px;
+    background: #237bd0;
+}
+
+#searchresultPart .relative-game-content .top-search h3 {
+    font-size: 17px;
+    text-align: center;
+    color: #fff;
+    padding-top: 100px;
+    margin: 0;
+    font-weight: normal;
+}
+
+#searchresultPart .relative-game-content .top-search .search-wrap {
+    position: relative;
+    width: 1005px;
+    margin: 0 auto;
+}
+
+#searchresultPart .relative-game-content .top-search .search-wrap input[type="text"] {
+    position: relative;
+    height: 38px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding-left: 25px;
+    width: 100%;
+    outline: none;
+    margin-top: 36px;
+    font-size: 14px;
+    color: #828282;
+    background: #ebeaec;
+}
+
+#searchresultPart .relative-game-content .top-search .search-wrap button {
+    border: none;
+}
+
+#searchresultPart .relative-game-content .top-search .search-wrap button .tg-search-btn {
+    position: absolute;
+    right: 3px;
+    top: 40px;
+    width: 60px;
+    height: 29px;
+    background-position: -343px 0px;
+    background: url(../../img/tg-icon.png) no-repeat;
+}
+
+#searchresultPart .article-result-content {
+    width: 1155px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#searchresultPart .article-result-content  .b_loading {
+    position: absolute;
+     left: 0; 
+     margin-left: 100px; 
+     top: 0; 
+     margin-top: 0px; 
+}
+
+#searchresultPart .article-result-content .content-wrap {
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#searchresultPart .article-result-content p {
+    color: #333;
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+#searchresultPart .article-result-content >p b {
+    color: #237bd0;
+}
+
+#searchresultPart .article-result-content ul.right {
+    margin-left: 145px;
+}
+
+#searchresultPart .article-result-content ul.right .tab-change {
+    height: 54px;
+    border-bottom: 1px solid #ccc;
+}
+
+#searchresultPart .article-result-content ul.right .tab-change span {
+    float: left;
+    height: 54px;
+    line-height: 54px;
+    min-width: 50px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 18px;
+}
+
+#searchresultPart .article-result-content ul.right .tab-change span:hover {
+    border-bottom: 2px solid #237bd0;
+}
+
+#searchresultPart .article-result-content ul.right .tab-change span.selected {
+    border-bottom: 2px solid #237bd0;
+}
+
+#searchresultPart .article-result-content ul.right li {
+    margin: 20px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+#searchresultPart .article-result-content ul.right li img {
+    position: absolute;
+    width: 136px;
+    height: 92px;
+}
+
+#searchresultPart .article-result-content ul.right li .des {
+    margin-left: 154px;
+}
+
+#searchresultPart .article-result-content ul.right li .des i {
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#searchresultPart .article-result-content ul.right li .des i + span {
+    margin-right: 25px;
+}
+
+#searchresultPart .article-result-content ul.right li .des span.date {
+    float: right;
+    position: relative;
+    right: 20px;
+}
+
+#searchresultPart .article-result-content ul.right li .des span {
+    font-size: 14px;
+}
+
+#searchresultPart .article-result-content ul.right li .des h3 {
+    font-size: 17px;
+    color: #333;
+    cursor: pointer;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+#searchresultPart .article-result-content ul.right li .des h3:hover {
+    text-decoration: underline;
+    color: #237bd0;
+}
+
+#searchresultPart .article-result-content ul.right li .des h3 a {
+    white-space: nowrap;
+    display: block;
+    width: 800px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #337ab7;
+    text-decoration: none;
+}
+
+#searchresultPart .article-result-content ul.right li .des h3 a:hover {
+    color: #23527c;
+    text-decoration: underline;
+}
+
+#searchresultPart .article-result-content ul.right li .des p {
+    color: #575757;
+    font-size: 12px;
+    white-space: nowrap;
+    width: 800px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#searchresultPart .article-result-content ul.right li .des div {
+    margin-top: 23px;
+    color: #919191;
+}
+
+#searchresultPart .article-result-content ul.left {
+    width: 145px;
+    height: 100%;
+    position: absolute;
+    padding-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#searchresultPart .article-result-content ul.left li {
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+#searchresultPart .article-result-content ul.left li i {
+    position: absolute;
+    top: 11px;
+    left: 20px;
+}
+
+#searchresultPart .article-result-content ul.left li:hover {
+    background: #237bd0;
+    color: #fff;
+}
+
+#searchresultPart .article-result-content ul.left li.selected {
+    background: #237bd0;
+    color: #fff;
+}
+
+#searchresultPart .article-result-content ul.left li.selected .triangle-icon {
+    width: 4px;
+    height: 7px;
+    right: 0;
+    background-position: -20px 0;
+    top: 17px;
+    left: 101px;
+}
+
+#searchresultPart .article-result-content ul.left li.selected .tf-icon {
+    background: url(../../img/tf-icon.png) no-repeat;
+}
+
+.boxshadow {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.relative-game-content  p.search-text-show {
+    width: 1155px;
+    font-size: 14px;
+    color: #333;
+    margin: 20px auto;
+}
+
+.relative-game-content   p.search-text-show b {
+    color: #237bd0;
+}
+
+#searchresultPart .relative-game-content .page-list {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    min-width: 470px;    
+}
+
+#searchresultPart .relative-game-content .page-list  .page-list-number .page-list li .num-selected {
+    background: #237bd0;
+    color: #fff;
+}
+
+#searchresultPart .article-result-content .page-list {
+    min-width: 780px;
+}
+
+#searchresultPart .article-result-content .page-list  li {
+  border: none;
+}
+
+#searchresultPart .article-result-content .page-list li {
+    border-bottom: none !important;
+}
+
+#searchresultPart .article-result-content .page-list   .page-list-number .page-list li .num-selected {
+    background: #237bd0;
+    color: #fff;
+}
+
+
+  #searchresultPart .relative-game-content +.article-result-content ul.left li.selected .triangle-icon {
+    width: 4px;
+    height: 7px;
+    /* right: 0; */
+    background-position: -20px 0 !important;
+    top: 17px;
+    left: 141px;
+    display: block;
+}
+
+.href-page-list {
+    height: 509px;
+}
+
+#searchresultPart .relative-game-content .game-list .fl {
+    width: 680px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

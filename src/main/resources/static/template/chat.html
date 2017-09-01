@@ -1,0 +1,41 @@
+<div id="headerTop" class="boxshadow default-flytest-ht"></div>
+<div class="container-fluid talk-part" id="contentPart">
+    <div class="tg-table-layout assistant talk blockpart col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h3>聊天分析任务</h3>
+        <div class="boxshadow tg-table-content" id="talk">
+            <div class="tg-table-wrap">
+                <div class="tg-select-filter">
+                    <div>
+                        <span>提示：我们仅对聊天结果做分析和展示，不会截取任何隐私内容，请放心使用。<a id="nt_qq_show">如何导出QQ聊天记录？</a></span>
+                        <button class="tg-main-btn" id="tk_upload_btn">上传QQ聊天记录</button>
+                    </div>
+                </div>
+                <div class="table-out-wrap" id="lt_item_list"></div>
+                <ul class="tg-page-list" id="lt_forum_page"></ul>
+            </div>
+            <div class="up_progress b_none">
+                <div class="up_percent">45%</div>
+                <div class="up_progress-bar">
+                    <div class="qq"></div>
+                </div>
+                <div class="up_notice">正在上传中...</div>
+            </div>
+
+            <div class="tk_setup b_none">
+                <div class="b_marginB30 tk_setup_title">请选择您希望解析聊天记录的时间段：</div>
+                <div class="b_marginB20 b_relative tk_date_area">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                    <span class="date-range b_borderRadius" id="dc1"></span>
+                    <input id="db1" type="hidden">
+                    <input id="de1" type="hidden">
+                </div>
+                <div class="tk_fast_choose b_marginB30">
+                    快速选择：　<span data-t="1">近一年</span>　|　<span data-t="2">近六月</span>　|　<span data-t="3">近三月</span>　|　<span data-t="4">近一月</span>　|　<span data-t="5">近一周</span>　|　<span data-t="6">今天</span>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="tg-main-btn" id="btn_replace_confirm">确认</button>　<button type="button" class="tg-assist-btn" id="btn_replace_cancel">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

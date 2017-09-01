@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>游戏灯塔-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/icheck/skins/flat/red.css">
+    <link rel="stylesheet" type="text/css" href="plugins/datarange/dateRange.css">
+    <link rel="stylesheet" type="text/css" href="plugins/datarange/lq.datetimepick.css">
+    <link rel="stylesheet" type="text/css" href="plugins/wordcloud/wcloud.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/hovermove.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/light.css">
+    <link rel="stylesheet" type="text/css" href="elements2.0/css/app/front.css">
+</head>
+<body>
+<div id="headerPart" class="min-width"></div>
+<div class="hover-nav" id="headerPartProductPop"></div>
+<div id="light" class="container-flud">
+<div class="c_maxWidth c_marginAuto">
+<div class="lt_info c_floatLeft c_bgWhite c_shadow2 tip-all"></div>
+<div class="lt_list c_floatRight lt_radar c_bgWhite tip-all">
+    <i class="glyphicon glyphicon-question-sign  title-tip tip-b tip-click" onclick="tips(2)"></i>
+    <div class="lt_fmNotice" id="Position2">
+        <i class="glyphicon glyphicon-remove" onclick="tips(2)"></i>综合自身各维度舆情指标与同平台游戏均值进行雷达图对比展示，面积越大则舆情反馈越好。
+    </div>
+    <div class="c_padding30">
+        <div class="lt_title c_marginB10 bs_radar_title">
+            <h2></h2>
+        </div>
+        <div id="bs_rander" class="lt_radar_show"></div>
+    </div>
+</div>
+<div class="lt_list c_floatRight lt_news c_bgWhite tip-all c_relative">
+    <i class="glyphicon glyphicon-question-sign  title-tip tip-c tip-click" onclick="tips(3)"></i>
+    <div class="lt_fmNotice" id="Position3" >
+        <i class="glyphicon glyphicon-remove" onclick="tipsClose(3)"></i>
+        覆盖全网主流游戏媒体，例如GameLook游戏大观、GameRes游资网、腾讯游戏、游戏驼螺等25家游戏业权威网络媒体，为您提供与该游戏有关的报道与媒体类信息。
+    </div>
+    <div class="c_padding30">
+        <div class="lt_title c_marginB10 c_relative">
+            <h2>相关报道</h2>
+            <span class="lt_tlMore c_cursor"><a>查看全部></a></span>
+        </div>
+        <ul class="c_relative bj_article_limit" style="height: 160px"></ul>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="lt_forum">
+    <div class="lt_fmTitle">
+        <div class="lt_fmName c_floatLeft">
+            <h3>灯塔透视</h3>
+            <i class="glyphicon glyphicon-question-sign  title-tip"></i>
+            <h4>全面分析游戏舆情</h4>
+        </div>
+        <div class="lt_fmDate c_floatRight">
+            <div class="lt_fmChoose c_boderRadius c_shadow2" >
+                <div class="lt_fmShow" id="dc1"></div>
+                <span class="lt_fmBtn"><i class="c_img"></i></span>
+                <input id="db1" type="hidden">
+                <input id="de1" type="hidden">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="lt_fmArea c_bgWhite">
+        <div class="lt_fmNotice">
+            <span class="glyphicon glyphicon-triangle-top bg-triangle"></span>
+            <i class="glyphicon glyphicon-remove"></i>
+            ThinkingGame平台的反馈数据来自玩家论坛有：百度贴吧、九游论坛、兴趣部落、手游宝、18183论坛、17173论坛、16163论坛、腾讯官方论坛、老虎论坛、多玩论坛、腾讯玩家社区、360游戏大厅、NGA论坛、空中网、51wan、4399论坛、3DM游戏论坛、游民论坛、A9VG电玩部落、电玩巴士、网易游戏官方论坛等。已经覆盖的渠道有：AppStore，应用宝，豌豆荚，360手机助手，小米应用商店，百度手机助手，oppo软件商店，华为应用市场，vivo应用商店，魅族应用商店，安卓市场等。更多游戏论坛和渠道正在进一步覆盖中。
+                <br>
+            灯塔透视帮助游戏公司运营人员及时发现游戏问题并降低用户流失率。舆情内容包括用户对产品的优缺点反馈，数据统计结果包括负面反馈占比、负面反馈关键词排名及玩家提供的游戏建议等，点击具体节点可查看对应的反馈内容。例如：某运营人员发现该游戏的负面反馈关键词为登陆问题，运营者可以查看在该关键词下的走势及具体帖子内容，定位产品bug，及时解决痛点。
+        </div>
+        <div class="c_padding30 c_relative">
+            <div class="lt_fmTsLeft c_floatLeft">
+                <div class="lt_fmTsLfArea">
+                    <div class="lt_title lt_back_title c_marginB10">
+                        <h2>反馈曲线</h2><span class="c_colorR bs_less_notice"></span>
+                    </div>
+                    <div class="c_prepare lt_fm_fkqx"></div>
+                    <div class="lt_title c_marginB10">
+                        <h2>反馈占比</h2>
+                    </div>
+                    <p class="c_colorH">点击人形示意图相应颜色了解详情。</p>
+                    <div class="bs_fkzb" style="height: 240px"></div>
+                </div>
+            </div>
+            <div class="lt_fmTsMid c_floatLeft"></div>
+            <div class="lt_fmTsRight c_border c_shadow2 c_bgWhite">
+                <div class="bs_lt_fm_r">
+                    <div class="c_padding30" style="padding-top: 20px">
+                        <div class="lt_title c_marginB10">
+                            <h5>反馈走势</h5>
+                        </div>
+                        <div class="lt_wtzs c_marginB30" id="lt_wtzs0"></div>
+                        <div class="lt_title c_marginB10">
+                            <h5>反馈分布</h5>
+                        </div>
+                        <div class="lt_wtfb c_relative" id="lt_wtfb0"></div>
+                    </div>
+                </div>
+                <div class="bs_lt_fm_r c_none">
+                    <div class="c_padding30" style="padding-top: 20px">
+                        <div class="lt_title c_marginB10">
+                            <h5>反馈走势</h5>
+                        </div>
+                        <div class="lt_wtzs c_marginB30" id="lt_wtzs1"></div>
+                        <div class="lt_title c_marginB10">
+                            <h5>反馈分布</h5>
+                        </div>
+                        <div class="lt_wtfb c_relative" id="lt_wtfb1"></div>
+                    </div>
+                </div>
+                <div class="bs_lt_fm_r c_none">
+                    <div class="c_padding30" style="padding-top: 20px">
+                        <div class="lt_title c_marginB10">
+                            <h5>反馈走势</h5>
+                        </div>
+                        <div class="lt_wtzs c_marginB30" id="lt_wtzs2"></div>
+                        <div class="lt_title c_marginB10">
+                            <h5>反馈分布</h5>
+                        </div>
+                        <div class="lt_wtfb c_relative" id="lt_wtfb2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="lt_fmInfo c_marginTop20">
+                <i class="c_img"></i>
+                <span>数据解读</span>
+                <p>想获得专属用户群体分析，我们推荐您使用<a class="c_cursor" href="service.html#anc_face">画像追踪</a>功能</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="lt_forum">
+    <div class="lt_fmTitle">
+        <div class="lt_fmName c_floatLeft">
+            <h3>热词走势</h3>
+             <i class="glyphicon glyphicon-question-sign  title-tip"></i>
+            <h4>快速定位热门趋势</h4>
+        </div>
+        <div class="lt_fmDate c_floatRight">
+            <div class="lt_fmChoose c_boderRadius c_shadow2" >
+                <div class="lt_fmShow" id="dc2"></div>
+                <span class="lt_fmBtn"><i class="c_img"></i></span>
+                <input id="db2" type="hidden">
+                <input id="de2" type="hidden">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="lt_fmArea c_bgWhite">
+        <div class="lt_fmNotice">
+            <span class="glyphicon glyphicon-triangle-top bg-triangle"></span>
+            <i class="glyphicon glyphicon-remove"></i> 热词走势为您快速定位各类舆情热词的变化趋势，您也可在私人定制页面开通热词定制服务自定义关注词汇。
+        </div>
+        <div class="c_padding30 lt_rcarea c_relative">
+            <button type="button" class="btn btn-success btn-sm c_none">更改词汇</button>
+            <div class="lt_rczs" id="lt_rczs"></div>
+            <div class="lt_fmInfo c_marginTop20">
+                <i class="c_img"></i>
+                <span>数据解读</span>
+                <p>想更改专属热词变化趋势，我们推荐您使用<a class="c_cursor" href="service.html#anc_hotword">热词定制</a>功能</p>
+            </div>
+        </div>
+    </div>
+</div>
+<a name="anc_ltfx"></a>
+<div class="lt_forum">
+    <div class="lt_fmTitle">
+        <div class="lt_fmName c_floatLeft">
+            <h3>论坛分析</h3>
+             <i class="glyphicon glyphicon-question-sign  title-tip"></i>
+            <h4>多维解读舆情特征</h4>
+        </div>
+        <div class="lt_fmDate c_floatRight">
+            <div class="lt_fmChoose c_boderRadius c_shadow2" >
+                <div class="lt_fmShow" id="dc3"></div>
+                <span class="lt_fmBtn"><i class="c_img"></i></span>
+                <input id="db3" type="hidden">
+                <input id="de3" type="hidden">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="lt_fmArea c_bgWhite">
+         <div class="lt_fmNotice">
+            <span class="glyphicon glyphicon-triangle-top bg-triangle"></span>
+            <i class="glyphicon glyphicon-remove"></i> 了解玩家讨论度，定量展现游戏热度趋势及情感份额。最多可展示游戏在过去三个月内的讨论情况及玩家态度占比。帮助您提升运营效率。您不必再遍历该类游戏在各大论坛的发帖情况，一键即可查看所有数据报告及具体内容。统计条目包括游戏在各论坛的总发帖数量、正负面情绪帖子、被删的无效贴、聚类的论坛热词及热门话题，并为您展现各条目与同类别优秀游戏Top4的比较结果。右侧的数据中心可快速在论坛、渠道、媒体中切换查看全历史关键舆情。
+        </div>
+        <div class="c_padding30 lt_fmBbs">
+            <div class="bs_forum c_relative" style="height: 580px"></div>
+            <div class="lt_fmInfo c_marginTop20">
+                <i class="c_img"></i>
+                <span>数据解读</span>
+                <p>想精准监测管理舆情变化，我们推荐您使用<a class="c_cursor" href="service.html#anc_assist">舆情助手</a>功能</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="lt_forum bs_apps">
+    <div class="lt_fmTitle">
+        <div class="lt_fmName c_floatLeft">
+            <h3>游戏渠道解读</h3>
+            <i class="glyphicon glyphicon-question-sign  title-tip" style="left:200px;"></i>
+            <h4>精确展示渠道舆情</h4>
+        </div>
+        <div class="lt_fmDate c_floatRight">
+            <div class="lt_fmChoose c_boderRadius c_shadow2" >
+                <div class="lt_fmShow" id="dc4"></div>
+                <span class="lt_fmBtn"><i class="c_img"></i></span>
+                <input id="db4" type="hidden">
+                <input id="de4" type="hidden">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="lt_fmArea c_bgWhite">
+         <div class="lt_fmNotice">
+            <span class="glyphicon glyphicon-triangle-top bg-triangle"></span>
+            <i class="glyphicon glyphicon-remove"></i> 聚合并精确展示游戏在各大主流游戏分发渠道内的版本号、评价数量、评分、下载量及产品口碑，提升运营效率。
+        </div>
+        <div class="lt_fmQd">
+            <div class="bs_fmQd" style="height: 520px"> </div>
+            <div class="lt_fmInfo c_marginTop20">
+                <i class="c_img"></i>
+                <span>数据解读</span>
+                <p>想快速洞察聊天热门人事，我们推荐您使用<a class="c_cursor" href="service.html#anc_chat">聊天分析</a>功能</p>
+            </div>
+        </div>
+    </div>
+</div>
+<a name="anc_qdpl"></a>
+<div class="lt_forum bs_apps">
+    <div class="lt_fmTitle">
+        <div class="lt_fmName c_floatLeft">
+            <h3>渠道评论统计</h3>
+             <i class="glyphicon glyphicon-question-sign  title-tip" style="left:200px;"></i>
+            <h4>聚合量化渠道热词</h4>
+        </div>
+        <div class="lt_fmDate c_floatRight">
+            <div class="lt_fmChoose c_boderRadius c_shadow2" >
+                <div class="lt_fmShow" id="dc5"></div>
+                <span class="lt_fmBtn"><i class="c_img"></i></span>
+                <input id="db5" type="hidden">
+                <input id="de5" type="hidden">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="lt_fmArea c_bgWhite">
+        <div class="lt_fmNotice">
+            <span class="glyphicon glyphicon-triangle-top bg-triangle"></span>
+            <i class="glyphicon glyphicon-remove"></i> 聚合归纳各大主流游戏渠道的评论热词，统计与呈现正负面词汇，并滚球状播出热词。点击词汇即可浏览具体舆情内容。
+        </div>
+        <div class="c_padding30 lt_fmPl">
+            <div class="lt_qdpl c_floatLeft" id="bs_qdpl"></div>
+            <div class="lt_fmPlWord c_floatLeft c_colorG"></div>
+            <div class="clearfix"></div>
+            <div class="lt_fmInfo c_marginTop20">
+                <i class="c_img"></i>
+                <span>数据解读</span>
+                <p>想精准监测管理舆情变化，我们推荐您使用<a class="c_cursor" href="service.html#anc_assist">舆情助手</a>功能</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="lt_forum bs_apps_rank c_none">
+    <div class="lt_fmTitle">
+        <div class="lt_fmName c_floatLeft">
+            <h3>App Store排行</h3>
+             <i class="glyphicon glyphicon-question-sign  title-tip" style="left:220px;"></i>
+            <h4>快速监测排行走势</h4>
+        </div>
+        <div class="lt_fmDate c_floatRight">
+            <div class="lt_fmChoose c_boderRadius c_shadow2" >
+                <div class="lt_fmShow" id="dc6"></div>
+                <span class="lt_fmBtn"><i class="c_img"></i></span>
+                <input id="db6" type="hidden">
+                <input id="de6" type="hidden">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="lt_fmArea c_bgWhite">
+        <div class="lt_fmNotice">
+            <span class="glyphicon glyphicon-triangle-top bg-triangle"></span>
+            <i class="glyphicon glyphicon-remove"></i> 快速监测游戏应用在苹果应用商城的所属各类目排行走势，帮助运营者更好地了解产品的位置，做出合理的运营策略。
+        </div>
+        <div class="c_padding30 lt_fmCx">
+            <div class="bs_fmCx" style="height: 450px"> </div>
+            <div class="lt_fmInfo c_marginTop20">
+                <i class="c_img"></i>
+                <span>数据解读</span>
+                <p>想获得专属用户群体分析，我们推荐您使用<a class="c_cursor" href="service.html#anc_face">画像追踪</a>功能</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div id="footerPart"></div>
+<div class="more" id="iframeDataCenter">
+     <iframe class="iframe-more-date-hide" src="" height="100%" width="100%" scrolling="no" frameborder="0"></iframe>
+</div>
+<div class="more" id="iframeDataMore">
+    <iframe class="iframe-more-date-hide" src="" height="100%" width="100%" scrolling="no" frameborder="0"></iframe>
+</div>
+<div class="data-center-quicker" id="lightQuicker" data-t="0" data-i="0">
+    <span>查看数据中心</span>
+    <span class="arrow"></span>
+</div>
+<div class="more" id="iframeInsert">
+    <iframe name="data" id="data" class="iframe-more-date-hide" src="" height="100%" width="100%" scrolling="no" frameborder="0"></iframe>
+</div>
+</body>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/echart/echarts.min.js"></script>
+<script type="text/javascript" src="plugins/echart/macarons.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/icheck/icheck.min.js"></script>
+<script type="text/javascript" src="plugins/datarange/lq.datetimepick.js"></script>
+<script type="text/javascript" src="plugins/datarange/dateRange.js"></script>
+<script type="text/javascript" src="plugins/wordcloud/wcloud.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/divscroll.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/init.js"></script>
+<script type="text/javascript" src="elements/js/light.js"></script>
+<script type="text/javascript" src="elements/js/chart.js"></script>
+</html>

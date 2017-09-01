@@ -1,0 +1,30 @@
+@charset "utf-8";
+@import url("common.css");
+#rank{ margin-top: 20px}
+#rank .rk_title{ height: 75px}
+#rank .rk_title{ height: 80px; position: relative;}
+#rank .rk_title .rk_fmName{ width: 350px; }
+#rank .rk_title .rk_fmDate{ width: 300px;right: 25px; margin-top: 25px}
+#rank .rk_title .rk_fmDate .rk_fmChoose{ width: 265px; height: 32px; background-color: #ffffff; position: relative}
+#rank .rk_title .rk_fmDate .rk_fmChoose .rk_fmShow{ height: 30px; width: 261px;margin-left: 5px; margin-top: 2px; line-height: 32px; cursor: pointer; position: absolute; z-index: 3}
+#rank .rk_title .rk_fmDate .rk_fmChoose .rk_fmBtn{ background-color: #689F38; height: 32px; width: 39px; position: absolute; right: 0; top: 0; border-radius: 0 5px 5px 0;}
+#rank .rk_title .rk_fmDate .rk_fmChoose .rk_fmBtn i{ height: 18px; width:19px; background-position: -317px 0; display: block; margin-left: 10px; margin-top: 6px}
+#rank .rk_title h1{ font-size: 30px; line-height: 80px}
+#rank .rk_tab{ height: 35px; border-bottom: 2px solid #E5E5E5;}
+#rank .rk_tab .t_slider{ position: absolute; top:33px; width: 59px; height: 2px; background-color: #679F37; left: 0 }
+#rank .rk_tab ul{ list-style: none}
+#rank .rk_tab ul li{ width: 59px; float: left; line-height: 25px; font-size: 14px; text-align: center; cursor: pointer}
+#rank .rk_tab ul .liOn{ font-weight: bold}
+#rank .rk_list{ min-height: 500px}
+#rank .rk_list table{ width: 100%}
+#rank .rk_list table tr th{ border-bottom: 1px solid #E5E5E5; height: 30px; line-height: 30px;white-space: nowrap;}
+#rank .rk_list table tr td{ border-bottom: 1px solid #E5E5E5; height: 60px; line-height: 60px; padding: 5px; position: relative}
+#rank .rk_list table tr .td1{ text-align: center}
+#rank .rk_list table tr td img{ height: 50px; width: 50px; position: absolute; top: 10px; left: 5px}
+#rank .rk_list table tr td p{ height: 25px; padding-left: 60px; line-height: 20px}
+#rank .rk_list table tr .rk_company{ color:#A9A9A9}
+#rank .rk_list table tr .td2{ padding-left: 60px}
+#rank .rk_list table tr td .rk_number{ width: 50px; position: absolute; left: 10px; top: 5px}
+#rank .rk_list table tr td .rk_lineBg{ background: #e3e6e8;border-radius: 10px;width: 150px;height: 12px;}
+#rank .rk_list table tr td .rk_line{ background: #2da5df;border-radius: 10px;height: 12px;}
+

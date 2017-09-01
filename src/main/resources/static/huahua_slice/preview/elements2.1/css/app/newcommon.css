@@ -1,0 +1,303 @@
+@charset "UTF-8";
+/********************************************common-style*/
+.tf-min-content {
+  width: 1175px;
+  margin: 0 auto; }
+
+.tf-padding-60 {
+  padding: 60px 0; }
+
+.tf-gray-bg {
+  background: #f9f9f9; }
+
+/********************标题块样式*/
+.tf-block-title {
+  text-align: center; }
+  .tf-block-title h3 {
+    font-size: 30px;
+    color: #333;
+    font-weight: normal;
+    margin-bottom: 10px; }
+  .tf-block-title p {
+    font-size: 23px;
+    color: #808080;
+    margin: 0;
+    margin-bottom: 40px; }
+
+/**************************按钮样式*/
+button {
+  cursor: pointer; }
+  button:focus {
+    outline: none; }
+
+.tf-main-btn {
+  width: 98px;
+  height: 30px;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  background: #24416b;
+  border-radius: 4px;
+  border: none;
+  text-decoration: none;
+  transition: all 0.3s;
+  margin-right: 5px; }
+  .tf-main-btn:hover {
+    background: #fff;
+    color: #24416b;
+    transition: all 0.3s; }
+
+.tf-assist-btn1 {
+  width: 98px;
+  height: 30px;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #24416b;
+  border-radius: 4px;
+  background: none;
+  text-decoration: none;
+  transition: all 0.3s; }
+  .tf-assist-btn1:hover {
+    background: #fff;
+    border: 1px solid #fff;
+    color: #24416b;
+    transition: all 0.3s; }
+
+.tf-assist-btn2 {
+  width: 109px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s; }
+  .tf-assist-btn2:hover {
+    color: #fff;
+    background: #24416b;
+    border: 1px solid #24416b;
+    transition: all 0.3s; }
+
+.white-bg-style .tf-main-btn:hover {
+  background: #ccc;
+  color: #333; }
+
+.white-bg-style .tf-assist-btn1 {
+  color: #24416b; }
+  .white-bg-style .tf-assist-btn1:hover {
+    background: #ccc;
+    color: #333;
+    border: 1px solid #ccc; }
+
+/******************左右结构*/
+.tf-lr-constract {
+  padding: 100px 0; }
+  .tf-lr-constract .tf-min-content {
+    position: relative;
+    width: 1130px;
+    margin: 0 auto;
+    overflow: hidden; }
+    .tf-lr-constract .tf-min-content img {
+      width: 560px;
+      height: 290px; }
+    .tf-lr-constract .tf-min-content .des {
+      width: 450px;
+      margin-left: 20px; }
+      .tf-lr-constract .tf-min-content .des h2 {
+        font-size: 30px;
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: normal; }
+      .tf-lr-constract .tf-min-content .des h3 {
+        font-size: 23px;
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: normal; }
+      .tf-lr-constract .tf-min-content .des p {
+        font-size: 16px;
+        color: #8c8c8c;
+        line-height: 30px;
+        margin-top: 30px; }
+      .tf-lr-constract .tf-min-content .des .btn-union {
+        margin-top: 40px; }
+
+/*******************产品功能列表*/
+.tf-product ul.list {
+  width: 1000px;
+  margin: 0 auto;
+  overflow: hidden; }
+  .tf-product ul.list li {
+    float: left;
+    margin: 30px 20px;
+    width: 210px; }
+    .tf-product ul.list li img {
+      position: relative;
+      top: 3px;
+      width: 20px;
+      height: 20px;
+      margin-right: 5px; }
+    .tf-product ul.list li span {
+      font-size: 17px;
+      color: #333; }
+    .tf-product ul.list li p {
+      font-size: 14px;
+      color: #8a8a8a;
+      line-height: 20px;
+      margin-top: 20px; }
+
+/*******************申请演示*/
+.show-how-part {
+  text-align: center;
+  background: #0f1521; }
+  .show-how-part h2 {
+    font-size: 30px;
+    color: #fff;
+    font-weight: normal; }
+  .show-how-part button {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 15px 55px;
+    background: none;
+    margin-top: 40px;
+    border-radius: 40px; }
+    .show-how-part button:hover {
+      background: #fff;
+      color: #0f1521; }
+
+/****************底部跳转页面*/
+.href-page-list .gray-bottom {
+  background-color: #ebeaec;
+  overflow: hidden;
+  height: 528px;
+  padding-top: 263px;
+  margin-bottom: -263px; }
+  .href-page-list .gray-bottom ul {
+    width: 1176px;
+    margin: 0 auto;
+    position: relative; }
+    .href-page-list .gray-bottom ul li a {
+      width: 392px;
+      height: 245px;
+      float: left;
+      padding-top: 20px;
+      text-align: center;
+      text-decoration: none; }
+      .href-page-list .gray-bottom ul li a:hover {
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); }
+        .href-page-list .gray-bottom ul li a:hover .mask-hover {
+          opacity: 0; }
+      .href-page-list .gray-bottom ul li a .mask-hover {
+        height: 263px;
+        width: 392px;
+        position: absolute;
+        top: -263px;
+        background-color: #000;
+        opacity: 0.7;
+        transition: opacity  2s;
+        -moz-transition: opacity 2s;
+        -webkit-transition: opacity 2s; }
+      .href-page-list .gray-bottom ul li a .top-img {
+        height: 263px;
+        width: 392px;
+        line-height: 263px;
+        font-size: 30px;
+        color: #fff; }
+      .href-page-list .gray-bottom ul li a div.img-a {
+        background: url(http://image.thinkinggame.cn/img/2.0/home/7-1.jpg) no-repeat;
+        position: absolute;
+        top: -263px; }
+      .href-page-list .gray-bottom ul li a div.img-b {
+        background: url(http://image.thinkinggame.cn/img/2.0/home/7-2.jpg) no-repeat;
+        position: absolute;
+        top: -263px; }
+      .href-page-list .gray-bottom ul li a div.img-c {
+        background: url(http://image.thinkinggame.cn/img/2.0/home/7-3.jpg) no-repeat;
+        position: absolute;
+        top: -263px; }
+      .href-page-list .gray-bottom ul li a img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 30px; }
+      .href-page-list .gray-bottom ul li a .des h3 {
+        color: #333;
+        font-size: 22px;
+        margin-bottom: 25px; }
+      .href-page-list .gray-bottom ul li a .des p {
+        font-size: 14px;
+        color: #333;
+        padding: 0 20px;
+        line-height: 25px; }
+
+.href-page-list .black-top {
+  background-color: #000;
+  overflow: hidden;
+  height: 263px;
+  width: 100%;
+  position: absolute; }
+  .href-page-list .black-top ul {
+    width: 1176px;
+    margin: 0 auto; }
+    .href-page-list .black-top ul li {
+      width: 392px;
+      height: 263px;
+      float: left;
+      background-color: #333;
+      text-align: center;
+      color: #fff;
+      font-size: 30px;
+      line-height: 263px; }
+
+/****************************单 banner*/
+.tf-single-banner ul {
+  background: #192839; }
+  .tf-single-banner ul li {
+    height: 525px; }
+    .tf-single-banner ul li a {
+      display: block;
+      height: 100%;
+      width: 100%;
+      text-decoration: none;
+      color: #333; }
+      .tf-single-banner ul li a img {
+        display: block;
+        width: 510px;
+        height: 390px;
+        float: right;
+        margin-right: 50px;
+        margin-top: 75px; }
+      .tf-single-banner ul li a .des {
+        width: 565px;
+        margin-top: 190px;
+        padding-left: 40px;
+        color: #fff; }
+        .tf-single-banner ul li a .des h3 {
+          font-size: 23px;
+          font-weight: normal;
+          line-height: 35px; }
+        .tf-single-banner ul li a .des h2 {
+          font-size: 40px;
+          font-weight: normal;
+          margin-bottom: 15px; }
+        .tf-single-banner ul li a .des .tf-btn-union {
+          margin-top: 40px; }
+          .tf-single-banner ul li a .des .tf-btn-union button {
+            margin-right: 15px; }
+  .tf-single-banner ul li.center a .des {
+    margin-top: 70px;
+    text-align: center; }
+  .tf-single-banner ul li.center a img {
+    width: 740px;
+    height: 210px;
+    position: relative;
+    left: 50%;
+    margin-left: -370px;
+    margin-top: 40px; }
+
+.tf-single-banner ul.white-bg {
+  background: #fff; }
+  .tf-single-banner ul.white-bg li a .des {
+    color: #333; }

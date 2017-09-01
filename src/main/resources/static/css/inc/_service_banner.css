@@ -1,0 +1,18 @@
+.service_banner
+{
+    background: transparent url(http://image.thinkinggame.cn/img/service/banner2.jpg) repeat-x center center;
+    background-size:cover;
+    height:100px;
+    color:#ffffff;
+    text-align: center;
+    letter-spacing: 6px;
+    box-shadow: 0 3px 2px #ccc;
+}
+
+.service_banner .large_text
+{
+    font-size: 1.5em;
+    line-height: 2.5em;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ffffff;
+}

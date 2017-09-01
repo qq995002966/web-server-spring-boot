@@ -1,0 +1,272 @@
+* {
+    font-family: "Microsoft Yahei", Arial, sans-serif;
+}
+
+body {
+    background: url(../img/bg.jpg) no-repeat;
+    background-size: 100%;
+    /* background: #114d66; */
+}
+
+
+div.comma-before:before {
+    content: "，";
+    color: #fff;
+    float: left;
+    position: relative;
+    z-index: 3;
+    top: 85px;
+    left: -52px;
+    font-size: 110px;
+    font-family: "KaiTi_GB2312";
+}
+
+.comma-before {
+    margin-left: 55px !important;
+}
+
+div.dataStatistics> h2 {
+    width: 100%;
+    display: block;
+    color: #fff;
+    text-align: center;
+    font-size: 80px;
+    font-weight: normal;
+    margin-top: -50px;
+}
+
+div.logo {
+    position: relative;
+    top: 60px;
+    left: 35px;
+    width: 720px;
+}
+
+div.logo>img {
+    width: 100%;
+}
+
+div.footer {
+    margin-left: 35px;
+    position: fixed;
+    right: 0;
+    bottom: 115px;
+    /* top: 0; */
+    bottom: 200px;
+    left: 0;
+}
+
+div.footer>img {
+    position: absolute;
+    width: 265px;
+}
+
+div.footer>p {
+    margin-left: 295px;
+    color: #fff;
+    font-size: 40px;
+    line-height: 70px;
+}
+
+div.footer>span {
+    color: #fff;
+    font-size: 40px;
+    display: block;
+    margin-left: 295px;
+    position: relative;
+    top: 60px;
+}
+
+div.content {
+    /* overflow: hidden; */
+    width: 3390px;
+    /* margin: 0 auto; */
+    background: url(../img/point-bg.png) no-repeat;
+    background-position: center;
+    position: relative;
+    top: 155px;
+    left: 50%;
+    margin-left: -1695px;
+}
+
+div.content ul {
+    display: inline-block;
+    height: 1505px;
+    width: 45%;
+    position: relative;
+}
+
+/*div.content  ul.content-left {
+    float: left;
+}
+
+div.content  ul.content-right {
+    float: right;
+}*/
+
+div.content  ul.content-right li.float-bg>img {
+     -moz-transform:scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);
+    /*IE*/
+    filter:FlipH;
+}
+
+div.content  ul.content-right li.float-bg>i.per-icon{
+    float: right;
+    left: -60px;
+    position: relative;
+    /* top: 0; */
+} 
+
+li.float-bg {
+    width: 431px;
+}
+
+li.float-bg>img {
+    float: left;
+}
+
+i.circle-bg {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    float: right;
+    background: #fff;
+    position: relative;
+    top: -260px;
+    left: 560px;
+}
+
+.per-icon {
+    width: 100px;
+    /* height: 60px; */
+    /*background: url(../img/person.png) no-repeat;*/
+    float: left;
+    position: relative;
+    top: -175px;
+    left: 60px;
+}
+
+ul.content-right  i.circle-bg {
+        left: -420px;
+}
+
+li.float-bg>span {
+    display: block;
+    float: left;
+    position: relative;
+    top: -290px;
+    left: 225px;
+    color: #000;
+    font-size: 35px;
+}
+
+li.float-bg>p {
+    font-size: 30px;
+    color: #fff;
+    float: left;
+    /* text-align: left; */
+    width: 100%;
+    top: -235px;
+    left: 60px;
+    position: relative;
+}
+
+li.float-bg.l-point-a {
+    position: absolute;
+    left: 297px;
+    top: 18px;
+}
+
+li.float-bg.l-point-b {
+    position: absolute;
+    left: 204px;
+    top: 298px;
+}
+
+li.float-bg.l-point-c {
+    position: absolute;
+    left: 579px;
+    top: 953px;
+}
+
+li.float-bg.l-point-d {
+    position: absolute;
+    left: 672px;
+    top: 581px;
+}
+
+li.float-bg.r-point-a {
+    position: absolute;
+    right: 319px;
+    top: 21px;
+}
+
+li.float-bg.r-point-b {
+    position: absolute;
+    right: 319px;
+    top: 393px;
+}
+
+li.float-bg.r-point-c {
+    position: absolute;
+    right: 786px;
+    top: 673px;
+}
+
+li.float-bg.r-point-d {
+    position: absolute;
+    right: -2px;
+    top: 877px;
+}
+
+li.float-bg.r-point-e {
+    position: absolute;
+    right: 693px;
+    top: 1142px;
+}
+
+li.float-bg.c1 {
+    top: 785px;
+    right: -12px;
+}
+li.float-bg.c2 {
+    top: 859px;
+    right: 505px;
+}
+li.float-bg.c3 {
+    top: 486px;
+    right: 690px;
+}
+li.float-bg.c4 {
+    top: 580px;
+    right: 319px;
+}
+li.float-bg.c5 {
+    top: 956px;
+    right: 414px;
+}
+li.float-bg.c6 {
+   top: 953px;
+}
+li.float-bg.c7 {
+ top: 1048px;
+}
+li.float-bg.c8 {
+  top: 766px;
+  right: 693px;
+}
+li.float-bg.c9 {
+  top: 768px;
+  right: 226px;
+}
+li.float-bg.c10 {
+  top: 768px;
+  right: 412px;
+}
+li.float-bg.c11 {
+  top: 674px;
+  right: 693px;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.sigma.Mapper_sigma_lt_warn">
+
+    <select id="getSigmaItWarnByProjectId" resultType="cn.thinkingdata.web.domain.sigma.Do_sigma_lt_warn">
+        select * from gas_new.sigma_lt_warn where project_id = #{project_id} and data_date between DATE_SUB(now(),INTERVAL "1 1:0:0" DAY_SECOND) and now()
+    </select>
+
+</mapper>

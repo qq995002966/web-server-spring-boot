@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>购物车-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/order.css">
+    <link rel="stylesheet" type="text/css" href="elements2.0/css/app/front.css">
+</head>
+<body>
+<div id="headerPart" class="min-width"></div>
+<div class="hover-nav" id="headerPartProductPop"></div>
+<div id="market" class="container-flud">
+    <div class="c_maxWidth c_marginAuto">
+        <div class="order_title c_marginB20">已选服务</div>
+        <div class="c_bgWhite c_boderRadius c_marginB30 mt_list" id="bs_list"></div>
+        <div class="order_title c_marginB20 bs_t_game_title">选择服务适用的游戏</div>
+        <div class="c_bgWhite c_boderRadius c_marginB30 mt_game bs_t_game_choose">
+            <div class="c_padding20" id="bs_mt_game">
+                <div id="bs_game_choose"></div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="order_title c_marginB20">使用代金券</div>
+        <div class="c_bgWhite c_boderRadius c_marginB30 mt_coupon c_relative">
+            <div class="c_padding20">
+                <label>代金券代码</label><input type="text" name="coupon" maxlength="30" placeholder="输入代码">　<button class="btn btn-default">添加</button>
+                <div class="mt_coupon_list c_padding10 c_none">
+                    <div class="mt_coupon_title">
+                        <span>我的优惠券</span>
+                        <i class="glyphicon glyphicon-remove c_cursor"></i>
+                    </div>
+                    <div class="mt_coupon_show"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mt_price" style="margin-bottom: 150px">
+            服务金额：<span class="service_price"></span><br>
+            代金优惠：<span class="coupon_price"></span><br>
+            应付款：<span class="order_price"></span><br>
+            <button type="button" class="btn btn-primary order_buy_btn">前去支付</button>
+        </div>
+    </div>
+</div>
+<div id="footerPart"></div>
+</body>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="elements/js/jquery.md5.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/divscroll.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/init.js"></script>
+<script type="text/javascript" src="elements/js/order.js"></script>
+</html>

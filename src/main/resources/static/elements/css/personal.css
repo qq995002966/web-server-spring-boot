@@ -1,0 +1,315 @@
+li {
+  list-style: none;
+}
+
+*{
+  outline: none;
+}
+
+.personal-content {
+  width: 1175px;
+  margin: 0 auto;
+  background: #fff;
+  margin-top: 110px;
+  height: 900px;
+  margin-bottom: 20px;
+}
+
+.personal-content .left {
+  width: 250px;
+  height: inherit;
+  background: #f4f4f4;
+}
+
+.personal-content .left .personal-tabs li {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.personal-content .left .personal-tabs li:hover {
+  background: #e8e8e8;
+  cursor: pointer;
+}
+
+.personal-content .left h4 {
+    border-bottom: 2px solid #e5e5e5;
+    padding-bottom: 20px;
+    text-align: center;
+    padding-top: 64px;
+    width: 160px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+.personal-content>div {
+  float: left;
+}
+
+.personal-content .right {
+  width: 925px;
+}
+
+.personal-content .right-content {
+  padding: 50px;
+}
+
+.personal-content .right-content .head-title {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 55px;
+  font-size: 24px;
+  height: 30px;
+  line-height: 30px;
+  margin-top: -20px;
+  padding-top: 8px;
+  padding-bottom: 65px;
+}
+
+.personal-content .right-content .head-title h3 {
+  font-weight: normal;
+}
+
+.personal-tab-selected {
+  background: #fff;
+  border-left: 2px solid #689f38;
+      margin-left: -2px;
+}
+
+.personal-content .left .personal-tabs .personal-tab-selected:hover {
+  background: #fff;
+}
+
+.personal-content .right-content .content {
+  margin-top: 20px;
+  position: relative;
+}
+
+.personal-content .right-content .content>img {
+  position: absolute;
+}
+
+.personal-content .right-content .content>ul {
+  margin-left: 150px;
+}
+
+.personal-content .right-content .content ul li {
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+}
+
+.personal-content .right-content .content ul li span {
+    color: #a9a9a9;
+    font-size: 16px;
+    width: 90px;
+    display: inline-block;
+}
+
+.personal-content .right-content .content ul li input[type="text"] , 
+.personal-content .right-content .content ul li input[type="password"] {
+    width: 223px;
+    height: 28px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    line-height: 28px;
+    padding-left: 10px;
+    font-size: 16px;
+    color:#555; 
+}
+
+.personal-content .right-content .content ul li  input[type="radio"]  {
+  margin-right: 8px;
+}
+
+.personal-content .right-content .content ul li b {
+      font-weight: normal;
+      margin-left: 10px;
+}
+
+.personal-content .right-content .content ul li label {
+  margin-right: 30px;
+}
+
+
+.personal-content .right-content .content ul li .tags {
+  overflow: hidden;
+}
+
+.personal-content .right-content .content ul li .tags li {
+   float: left;
+   padding: 0 10px;
+   height: 30px;
+   border: 1px solid #679F37;
+   margin-right: 20px;
+   border-radius: 4px;
+   line-height: 30px;
+   font-size: 12px;
+   color: #679F37;
+   margin-bottom: 20px;
+   cursor: pointer;
+}
+
+.personal-content .right-content .content ul li .tags li.tag-selected {
+  color: #fff;
+  background: #679F37;
+}
+
+.personal-content .save-btn button {
+  display: block;
+  min-width: 85px;
+  height: 30px;
+  background: #679F37;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  position: relative;
+      top: 40px;
+    margin: 0 auto;
+}
+
+.personal-content .right .content ul li {
+  position: relative;
+}
+
+.personal-content .right .content ul li label:before {
+   content: " ";
+    background: url(../img/personal/radio.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    background-position: -16px 0;
+    display: inline-block;
+    right: 43px;
+    top: 2px;
+    cursor: pointer;
+}
+
+.personal-content .right .content ul li  input[type="radio"]:checked + label:before  {
+    background-position: 0px 0;
+}
+#dropDown p {
+  color:#555; 
+  cursor:pointer;
+    width: 223px;
+    height: 28px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    line-height: 28px;
+    padding-left: 10px;
+}
+div#dropDown ul {
+  width:184px; 
+  background:#e8f5fe; 
+  margin-top:2px; 
+  border:1px solid #a9c9e2; 
+  position:absolute; 
+  display: none;
+}
+#dropDown ul li {
+  height: 28px;
+  line-height: 28px;
+  text-indent: 10px;
+  margin-left: -10px;
+}
+#dropDown ul li a {
+  display:block;
+  color:#807a62;
+  text-decoration:none;
+}
+#dropDown ul li a:hover {
+  background: #679F37;
+  color: #FFFFFF;
+}
+div#selectWrap {
+    position: absolute;
+    left: 95px;
+    top: 10px;
+}
+div#dropDown ul {
+    display: none;
+    width: 223px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    line-height: 28px;
+    padding-left: 10px;
+    background: #F4F4F4;
+    z-index: 2;
+    position: relative;
+    top: -1px;
+}
+.drop-icon {
+  background: url(../img/personal/drop.png) no-repeat;
+  display: block;
+  width: 7px;
+  height: 4px;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+}
+.personal-content .right-content #idenTity>ul,.personal-content .right-content #editPassword>ul {
+  margin-left: 0;
+}
+#idenTity>ul>li textarea {
+    width: 635px;
+    height: 180px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    resize: none;
+    position: absolute;
+    left: 95px;
+    top: 10px;
+    padding: 0px 10px;
+    font-size: 16px;
+    color: #555;
+    line-height: 25px;
+}
+.tips {
+  width: 540px;
+  height: 160px;
+  background: #F4F4F4;
+  margin-left: 95px;
+  margin-top: 10px;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.personal-content .right-content #idenTity .tips>ul li {
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+      margin-left: 24px;
+}
+
+.personal-content .right-content #idenTity .tips>ul li:first-child {
+  font-size: 16px;
+  margin-left: 0;
+}
+
+.personal-content .right-content #idenTity .tips>ul li b {
+  color: #689f38;
+}
+
+.personal-content .right-content #idenTity .submit-disabled button {
+  background: #e8e8e8;
+  color: #a9a9a9;
+}
+
+.personal-content .right-content #editPassword .submit button {
+    margin-left: 120px;
+}
+.has-identified {
+  background: url(../img/personal/per-id.png);
+  display: block;
+  width: 36px;
+  height: 44px;
+  position: absolute;
+  z-index: 2;
+  left: 85px;
+  top: 75px;
+}
+.identity_show{
+    line-height: 25px;
+    margin: 30px 40px;
+    padding: 20px;
+}

@@ -1,0 +1,363 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ThinkingGame</title>
+<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="elements/css/articlelist.css">
+<link rel="stylesheet" type="text/css" href="elements/css/mediarticle.css">
+<link rel="stylesheet" type="text/css" href="elements/css/index.css">
+<link rel="stylesheet" type="text/css" href="elements/css/common.css">
+<link rel="stylesheet" type="text/css" href="elements/css/addlogin.css">
+</head>
+<body>
+
+<!-- 第一屏主体内容 -->
+<div class="full-page" id="first-screen-box">
+  <div class="first-screen-content">
+    <!-- 导航 -->
+    <div class="menu-container">
+            <ul>
+                <li>行业指南</li>
+                <li>游戏图谱</li>
+                <li>私人定制</li>
+            </ul> 
+          <!--   <div class="user">
+                <button class="h_login">登录</button>
+                <button class="h_reg">注册用户</button>
+            </div> -->
+
+
+            <!-- 登录后下拉框start -->
+            <div id="had-login">
+                <img src="elements/img/user_icon.png">
+                <i class="glyphicon glyphicon-triangle-bottom login-list-toggle"></i>
+                
+                <ul class="login-list">
+                  <li>
+                    Paris
+                    <span class="login-icon"></span>
+                  </li>
+                  <li>个人中心</li>
+                  <li>退出登录</li>
+                </ul>
+            </div>
+            <!-- 登录后下拉框end -->
+    </div>
+    <!-- 搜索框 -->
+    <div id="search">
+      <img src="elements/img/logo.png">
+      <div>
+        <input type="text" name="q" value="搜游戏、元素、文章" class="search-input">
+        <span class="searchbox-btn"><img src="elements/img/search.png" alt=""></span>
+      </div>
+    </div>
+    <div id="posts">
+      <ul class="tab">
+         <div class="h_pop h_quick c_bgWhite c_boderRadius c_hidden">
+                    <div class="c_padding20 h_area">
+                        <div class="h_close"><i class="glyphicon glyphicon-remove"></i></div>
+                        <div class="h_qkTitle c_borderB">
+                            <div class="qk_slider"></div>
+                            <ul>
+                                <li class="liOn">游戏类型</li>
+                                <li>行业媒体</li>
+                            </ul>
+                        </div>
+                        <div class="h_qkArea c_marginTop20">
+                            <div class="h_qkChoose">
+                                <div class="qc_slider"></div>
+                                <ul>
+                                    <li class="liOn">ABC</li>
+                                    <li>DEF</li>
+                                    <li>GHI</li>
+                                    <li>JKL</li>
+                                    <li>MNO</li>
+                                    <li>PQR</li>
+                                    <li>STU</li>
+                                    <li>VW</li>
+                                    <li>XYZ</li>
+                                    <li>0-9</li>
+                                </ul>
+                            </div>
+                            <div class="h_qkTab c_floatLeft">
+                                <div class="qt_slider"></div>
+                                <dl class="dlOn">
+                                    <dt class="h_qkTb1 c_img"></dt>
+                                    <dd>手游</dd>
+                                </dl>
+                                <dl>
+                                    <dt class="h_qkTb2 c_img"></dt>
+                                    <dd>页游</dd>
+                                </dl>
+                                <dl>
+                                    <dt class="h_qkTb3 c_img"></dt>
+                                    <dd>端游</dd>
+                                </dl>
+                                <dl>
+                                    <dt class="h_qkTb4 c_img"></dt>
+                                    <dd>单机 电玩</dd>
+                                </dl>
+                            </div>
+                            <div class="h_qkItem c_floatLeft c_borderT c_borderL">
+                                <dl>
+                                    <dt>A</dt>
+                                    <dd>暗夜黎明</dd><dd>傲世西游</dd><dd>阿修罗之眼</dd>
+                                </dl>
+                                <dl>
+                                    <dt>B</dt>
+                                    <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd>
+                                    <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd>
+                                    <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd>
+                                    <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd> <dd>暗夜黎明</dd><dd>捕鱼达人千炮版</dd><dd>阿修罗之眼</dd>
+                                </dl>
+                                <dl>
+                                    <dt>C</dt>
+                                    <dd>暗夜黎明</dd><dd>傲世西游</dd><dd>阿修罗之眼</dd>
+                                </dl>
+
+                            </div>
+                        </div>
+                        <div class="h_qkTitle c_borderB c_marginB10">
+                            <h5>热门游戏</h5>
+                        </div>
+                        <div class="h_qkList c_itemList">
+                            <dl>
+                                <img src="elements/img/game_icon.png">
+                                <dt>Lords of Xulima</dt>
+                                <dd>MP,LLC</dd>
+                            </dl>
+                            <dl>
+                                <img src="elements/img/game_icon.png">
+                                <dt>Lords of Xulima</dt>
+                                <dd>MP,LLC</dd>
+                            </dl>
+                            <dl>
+                                <img src="elements/img/game_icon.png">
+                                <dt>Lords of Xulima</dt>
+                                <dd>MP,LLC</dd>
+                            </dl>
+                        </div>
+                    </div>
+        </div>
+      </ul>
+    </div>
+    <div class="load-more">
+        <p>滚动查看更多</p>
+        <img src="elements/img/mediarticle/arrow-more.png" alt="">
+    </div>
+  </div>
+</div>
+
+
+<!-- 第二屏more content-->
+<div id="more-content">
+  <!-- 导航 -->
+    <div id="header" class="container-flud c_bgWhite c_shadow1"></div>
+  <!-- 主体 -->
+  <div class="mediarticle-list">
+        <div class="title">
+            <h3>公司类_最新动态</h3>
+        </div>
+        <ul class="left">
+            <ul class="article-detail-list result-all" id="loadMore">
+                  <li class="detail-content">
+                      <img src="elements/img/mediarticle/company.png" alt="" class="company-icon">
+                      <ul class="detail-right">
+                          <li>
+                            <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                           </li>
+                           <li class="detail-infor">
+                               来自
+                               <span class="article-from">百度贴吧</span>
+                               <span class="article-readall"><a href="">查看原文</a></span>
+                               <span class="article-date">16/4/17</span>
+                           </li>
+                           <p>百善孝为先。人之拜父母所赐，一尺五寸长成人，父母养儿含辛茹苦披星戴月，父母呼应勿缓，父母命应勿懒，王祥卧冰为他母，杨香救父手扼虎，孟宗哭竹冬生笋，吴猛代亲饱蚊噬，······当然二十四孝也有它迂腐封建的糟粕，但感人的孝心和孝举却永远是人间正道，值得推崇和学习的，一个不懂孝道不知感恩父母的人，我们又祈求他如何去爱人？就像新闻里最近哪个弑母的学生一样，长大了又何尝不是家庭和社会的悲哀？谨守孝道是一种礼仪，更是做人的根本，发身受之于父母，每个人都应该常怀一颗感恩之心无微不至地侍奉双亲！<span class="readall">阅读全文</span></p>
+                      </ul>
+                  </li>
+                  <li class="detail-content">
+                      <img src="elements/img/mediarticle/person.png" alt="" class="person-icon">
+                      <ul class="detail-right">
+                          <li>
+                            <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                           </li>
+                           <li class="detail-infor">
+                               来自
+                               <span class="article-from">百度贴吧</span>
+                               <span class="article-readall"><a href="">查看原文</a></span>
+                               <span class="article-date">16/4/17</span>
+                           </li>
+                           <p>百善孝为先。人之拜父母所赐，一尺五寸长成人，父母养儿含辛茹苦披星戴月，父母呼应勿缓，父母命应勿懒，王祥卧冰为他母，杨香救父手扼虎，孟宗哭竹冬生笋，吴猛代亲饱蚊噬，······当然二十四孝也有它迂腐封建的糟粕，但感人的孝心和孝举却永远是人间正道，值得推崇和学习的，一个不懂孝道不知感恩父母的人，我们又祈求他如何去爱人？就像新闻里最近哪个弑母的学生一样，长大了又何尝不是家庭和社会的悲哀？谨守孝道是一种礼仪，更是做人的根本，发身受之于父母，每个人都应该常怀一颗感恩之心无微不至地侍奉双亲！<span class="readall">阅读全文</span></p>
+                      </ul>
+                  </li>
+                  <li class="detail-content">
+                      <img src="elements/img/mediarticle/indus.png" alt="" class="indus-icon">
+                      <ul class="detail-right">
+                          <li>
+                            <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                           </li>
+                           <li class="detail-infor">
+                               来自
+                               <span class="article-from">百度贴吧</span>
+                               <span class="article-readall"><a href="">查看原文</a></span>
+                               <span class="article-date">16/4/17</span>
+                           </li>
+                           <p>百善孝为先。人之拜父母所赐，一尺五寸长成人，父母养儿含辛茹苦披星戴月，父母呼应勿缓，父母命应勿懒，王祥卧冰为他母，杨香救父手扼虎，孟宗哭竹冬生笋<span class="readall">阅读全文</span></p>
+                      </ul>
+                  </li>
+                  <li class="detail-content">
+                      <img src="elements/img/mediarticle/front.png" alt="" class="front-icon">
+                      <ul class="detail-right">
+                          <li>
+                            <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                           </li>
+                           <li class="detail-infor">
+                               来自
+                               <span class="article-from">百度贴吧</span>
+                               <span class="article-readall"><a href="">查看原文</a></span>
+                               <span class="article-date">16/4/17</span>
+                           </li>
+                           <p>百善孝为先。人之拜父母所赐，一尺五寸长成人，父母养儿含辛茹苦披星戴月，父母呼应勿缓，父母命应勿懒，王祥卧冰为他母，杨香救父手扼虎，孟宗哭竹冬生笋<span class="readall">阅读全文</span></p>
+                      </ul>
+                  </li>
+                  <li class="detail-content">
+                      <img src="elements/img/mediarticle/research.png" alt="" class="research-icon">
+                      <ul class="detail-right">
+                          <li>
+                            <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                           </li>
+                           <li class="detail-infor">
+                               来自
+                               <span class="article-from">百度贴吧</span>
+                               <span class="article-readall"><a href="">查看原文</a></span>
+                               <span class="article-date">16/4/17</span>
+                           </li>
+                           <p>百善孝为先。人之拜父母所赐，一尺五寸长成人，父母养儿含辛茹苦披星戴月，父母呼应勿缓，父母命应勿懒，王祥卧冰为他母，杨香救父手扼虎，孟宗哭竹冬生笋<span class="readall">阅读全文</span></p>
+                      </ul>
+                  </li>
+                </ul>
+        </ul>
+        <!-- 侧边栏 -->
+         <ul class="right">
+            <ul class="top">
+                <img src="" alt="" class="big-pic">
+                  <ul class="top-content">
+                    <li><span class="top-today">推荐游戏</span></li>
+                    <ul class="like">
+                        <li>
+                          <img src="elements/img/game_icon.png" alt="">
+                          <span>Shadow</span>
+                          <span>MP.LLC</span>
+                        </li>
+                        <li>
+                          <img src="elements/img/game_icon.png" alt="">
+                          <span>Shadow</span>
+                          <span>MP.LLC</span>
+                        </li>
+                        <li>
+                          <img src="elements/img/game_icon.png" alt="">
+                          <span>Shadow</span>
+                          <span>MP.LLC</span>
+                        </li>
+                    </ul>
+                    <ul class="like">
+                        <li>
+                          <img src="elements/img/game_icon.png" alt="">
+                          <span>Shadow</span>
+                          <span>MP.LLC</span>
+                        </li>
+                        <li>
+                          <img src="elements/img/game_icon.png" alt="">
+                          <span>Shadow</span>
+                          <span>MP.LLC</span>
+                        </li>
+                        <li>
+                          <img src="elements/img/game_icon.png" alt="">
+                          <span>Shadow</span>
+                          <span>MP.LLC</span>
+                        </li>
+                    </ul>
+                </ul>
+            </ul>
+           
+            <ul class="bottom">
+                 <ul class="top-content">
+                    <li><span class="top-today">最近热门</span><span class="check-more">进入行业指南></span></li>
+                    <ul>
+                        <li><span class="guidelines-date">2016-3-21</span><span class="guide-title">狂兽魔神 新英雄狼人曝光</span></li>
+                        <li><span class="guidelines-date">2016-3-21</span><span class="guide-title">狂兽魔神 新英雄狼人曝光</span></li>
+                        <li><span class="guidelines-date">2016-3-21</span><span class="guide-title">狂兽魔神 新英雄狼人曝光</span></li>
+                        <li><span class="guidelines-date">2016-3-21</span><span class="guide-title">狂兽魔神 新英雄狼人曝光</span></li>
+                        <li><span class="guidelines-date">2016-3-21</span><span class="guide-title">狂兽魔神 新英雄狼人曝光</span></li>
+                    </ul>
+                </ul>
+            </ul>
+
+             <ul class="mid">
+                 <img src="" alt="" class="big-pic">
+                  <ul class="top-content">
+                    <li><span class="top-today">热门游戏</span><span class="check-more">进入游戏图谱></span></li>
+                     <ul class="top-list">
+                            <li>
+                                <b class="lt_fmCxLtTop1 c_img"></b>
+                                <img src="elements/img/game_icon.png">
+                                <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                <div class="lt_shade">
+                                    <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                    <a>查看游戏灯塔&gt;</a>
+                                    <a>查看游戏图谱&gt;</a>
+                                </div>
+                             </li>
+                             <li>
+                                <b class="lt_fmCxLtTop2 c_img"></b>
+                                <img src="elements/img/game_icon.png">
+                                <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                <div class="lt_shade">
+                                    <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                    <a>查看游戏灯塔&gt;</a>
+                                    <a>查看游戏图谱&gt;</a>
+                                </div>
+                             </li>
+                             <li>
+                                <b class="lt_fmCxLtTop3 c_img"></b>
+                                <img src="elements/img/game_icon.png">
+                                <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                <div class="lt_shade">
+                                    <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                    <a>查看游戏灯塔&gt;</a>
+                                    <a>查看游戏图谱&gt;</a>
+                                </div>
+                             </li>
+                             <li>
+                                <b>4</b>
+                                <img src="elements/img/game_icon.png">
+                                <p>Lords of Xulima<br><span class="c_colorH">MP,LLC</span></p>
+                                <div class="lt_shade">
+                                    <div class="lt_gmCollect c_img lt_gmCtOn"></div>
+                                    <a>查看游戏灯塔&gt;</a>
+                                    <a>查看游戏图谱&gt;</a>
+                                </div>
+                             </li>
+                        </ul>
+                </ul>
+            </ul>
+        </ul>
+  </div>
+    <div class="clearfix"></div>
+    <div id="footer" class="container-flud"></div>
+</div>
+
+
+</body>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/divscroll.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/init.js"></script>
+<script type="text/javascript" src="elements/js/jquery.scrollLoading.min.js"></script>
+<script type="text/javascript" src="elements/js/home.js"></script>
+<script type="text/javascript" src="elements/js/index.js"></script>
+</html>

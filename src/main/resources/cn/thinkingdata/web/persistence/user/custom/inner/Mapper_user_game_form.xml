@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.Mapper_user_game_form">
+
+	<select id="findUserGameFormByUserAndService" resultType="cn.thinkingdata.web.domain.user.custom.inner.Do_user_game_form">
+		select * from user_game_form where user_id = #{user_id} and service_id = #{service_id} and game_id = #{game_id}
+	</select>
+
+	<insert id="insertUpdateUserGameForm"  parameterType="cn.thinkingdata.web.domain.user.custom.inner.Do_user_game_form">
+		insert into user_game_form (user_id,service_id,game_id,form_id) values (#{user_id},#{service_id},#{game_id},#{form_id})
+		ON DUPLICATE KEY update user_id=#{user_id},service_id=#{service_id},game_id=#{game_id},form_id=#{form_id}
+	</insert>
+</mapper>

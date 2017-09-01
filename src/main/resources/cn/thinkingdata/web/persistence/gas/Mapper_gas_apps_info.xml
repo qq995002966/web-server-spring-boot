@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.gas.Mapper_gas_apps_info">
+
+    <select id="getGasAppsInfoByKeyword" resultType="cn.thinkingdata.web.domain.gas.Do_gas_apps_info">
+        select a.* from (select * from gas_new.gas_apps_info where app_name like #{keyword}  ) a left join gas_new.gas_apps b on a.app_id = b.app_key and b.status = 1 where b.app_key is null limit #{index},#{limit}
+    </select>
+
+</mapper>

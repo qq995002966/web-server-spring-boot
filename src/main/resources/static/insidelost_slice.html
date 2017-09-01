@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>潜在流失用户定位-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/icheck/skins/flat/aero.css">
+    <link rel="stylesheet" type="text/css" href="plugins/datarange/dateRange.css">
+    <link rel="stylesheet" type="text/css" href="plugins/datarange/lq.datetimepick.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/talk.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/center.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/insidelost.css">
+</head>
+
+<body>
+    <div class="container-flud">
+        <div class="c_maxWidth c_marginAuto">
+            <div id="MLeft" class="c_floatLeft c_hidden u_height"></div>
+            <div id="MRight" class="c_floatRight c_hidden u_height">
+                <div class="mr_head">
+                    <div class="mr_area">
+                        <div class="mr_h_left c_floatLeft">
+                            <h1>潜在付费玩家定位</h1>
+                            <div class="mr_h_tab">
+                                <ul>
+                                    <li class="liOn">玩家列表</li>
+                                </ul>
+                            </div>
+                            <!-- 下拉选择列表 -->
+                            <ul id="optionSelect">
+                                <p>请勾选需要定位的内容</p>
+                                <li class=""><input type="checkbox" id="a" ><label for="a" class=""></label>潜在付费玩家占比</li>
+                                <li class=""><input type="checkbox" id="b" ><label for="b" class=""></label>潜在付费玩家男女占比</li>
+                                <li class=""><input type="checkbox" id="c" ><label for="c" class=""></label>潜在付费玩家年龄特征</li>
+                                <li class=""><input type="checkbox" id="d" ><label for="d" class=""></label>玩家等级分布</li>
+                                <li class=""><input type="checkbox" id="e" ><label for="e" class=""></label>玩家消费喜好</li>
+                                <li class=""><input type="checkbox" id="f" ><label for="f" class=""></label>活跃时间段分布</li>
+                                <li class=""><input type="checkbox" id="g" ><label for="g" class=""></label>活跃时间段分布</li>
+                                <li class=""><input type="checkbox" id="h" ><label for="h" class=""></label>活跃时间段分布</li>
+                                <li class=""><input type="checkbox" id="i" ><label for="i" class=""></label>PVE胜率分布</li>
+                                <li class=""><input type="checkbox" id="j" ><label for="j" class=""></label>PVP胜率分布</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- 主体部分开始 -->
+                <div class="inLost-content">
+                    <!-- 图表展示部分 -->
+                    <div class="chart-part">
+                        <ul class="cp-l">
+                            <li class="title">潜在付费玩家概览</li>
+                        </ul>
+                        <ul class="cp-r">
+                            <li class="title">潜在付费玩家比例变化趋势</li>
+                        </ul>
+                    </div>
+                    <!-- 选择部分 -->
+                    <div class="choice-part">
+                        <div class="choice-list">
+                            <ul>
+                                <li class="text-input"><span>所在服务器</span>
+                                    <input type="text" value="请输入服务器名称" class="all-input name-input ">
+                                </li>
+                                <li class="select-area"><span>活跃天数</span>
+                                    <input type="text" value="" class="all-input  area-input"><span>至</span>
+                                    <input type="text" value="" class="all-input  area-input">
+                                </li>
+                                <li class="select-drop"><span>付费意愿</span>
+                                    <div id="selectWrap">
+                                        <div id="dropDown">
+                                            <p class="all-input " data-i="0">30%-45%</p>
+                                            <i class="drop-icon"></i>
+                                            <ul>
+                                                <li><a href="#" data-i="0">30%-45%</a></li>
+                                                <li><a href="#" data-i="1">40%-80%</a></li>
+                                                <li><a href="#" data-i="3">80%-90%</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn-part">
+                            <button>开始定位</button>
+                        </div>
+                    </div>
+                    <div class="download-data">
+                        <button> <i class="glyphicon glyphicon-save"></i>下载数据</button>
+                    </div>
+                    <!-- 表格展示部分 -->
+                    <div class="table-part">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th class="p-id">玩家ID</th>
+                                    <th class="server">服务器</th>
+                                    <th class="p-level">玩家
+                                        <br>等级</th>
+                                    <th class="average-rate tran-icon">平均升
+                                        <br>级速度</th>
+                                    <th class="online-time tran-icon">在线
+                                        <br>时间段</th>
+                                    <th class="average-time tran-icon">平均在
+                                        <br>线时长</th>
+                                    <th class="p-day tran-icon">已玩
+                                        <br>天数</th>
+                                    <th class="money-all tran-icon">货币
+                                        <br>存量</th>
+                                    <th class="deal-times tran-icon">NPC
+                                        <br>交易次数</th>
+                                    <th class="pay-hope tran-icon">付费
+                                        <br>意愿</th>
+                                    <th class="operation">操作</th>
+                                </tr>
+                            </tbody>
+                            <tr>
+                                <td>WC10203020120</td>
+                                <td>华东一区</td>
+                                <td>7级</td>
+                                <td>5天/级</td>
+                                <td>00:30-01:00</td>
+                                <td>90分钟</td>
+                                <td>7天</td>
+                                <td>193813元</td>
+                                <td>8次</td>
+                                <td class="t-progress">
+                                    <div>
+                                        <p class="progress-rate"></p>
+                                    </div>
+                                </td>
+                                <td class="op"><a href="">查看详情</a></td>
+                            </tr>
+                            <tr>
+                                <td>WC10203020120</td>
+                                <td>华东一区</td>
+                                <td>7级</td>
+                                <td>5天/级</td>
+                                <td>00:30-01:00</td>
+                                <td>90分钟</td>
+                                <td>7天</td>
+                                <td>193813元</td>
+                                <td>8次</td>
+                                <td class="t-progress">
+                                    <div>
+                                        <p class="progress-rate"></p>
+                                    </div>
+                                </td>
+                                <td class="op"><a href="">查看详情</a></td>
+                            </tr>
+                            <tr>
+                                <td>WC10203020120</td>
+                                <td>华东一区</td>
+                                <td>7级</td>
+                                <td>5天/级</td>
+                                <td>00:30-01:00</td>
+                                <td>90分钟</td>
+                                <td>7天</td>
+                                <td>193813元</td>
+                                <td>8次</td>
+                                <td class="t-progress">
+                                    <div>
+                                        <p class="progress-rate"></p>
+                                    </div>
+                                </td>
+                                <td class="op"><a href="">查看详情</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- 翻页 -->
+                    <div class="page-list">
+                        <ul>
+                            <li>共<b>16</b>页</li>
+                            <li><第<span><input type="text" value="2"></span>页></li>
+                            <li><button>确定</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/webuploader/webuploader.min.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/center.js"></script>
+<!-- <script type="text/javascript" src="elements/js/insidelost.js"></script> -->
+<script>
+$(function() {
+    function dropShow() {
+        // 下拉菜单
+        $("#dropDown p").click(function() {
+            var ul = $(this).parent('#dropDown').children('ul');
+            if (ul.css("display") == "none") {
+                ul.slideDown("fast");
+            } else {
+                ul.slideUp("fast");
+            }
+        });
+    }
+
+    function dropSelected() {
+        $("#dropDown ul li a").click(function() {
+            var txt = $(this).text();
+            var key = $(this).attr('data-i');
+            $(this).parents('#dropDown').find('p').html(txt).attr('data-i', key);
+            $(this).parents('#dropDown').children('ul').hide();
+        });
+    }
+
+    dropShow();
+    dropSelected();
+})
+</script>

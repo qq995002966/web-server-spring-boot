@@ -1,0 +1,200 @@
+* {
+    font-family: "Microsoft Yahei", Arial, sans-serif;
+}
+
+input {
+    border: 0;
+    /* 方法1 */
+    -webkit-appearance: none;
+    /* 方法2 */
+}
+
+a,
+img,
+button,
+input,
+textarea {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.content {
+    width: 12rem;
+    height: 20rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -6rem;
+    margin-top: -10rem;
+}
+
+.content header img {
+    width: 7rem;
+    position: relative;
+    left: 50%;
+    margin-left: -3.5rem;
+}
+
+.content h2 {
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: normal;
+    text-align: center;
+    margin: 0.1rem;
+}
+
+ul.form {
+    width: 10rem;
+    padding: 1rem;
+    position: relative;
+    border-radius: 0.2rem;
+    background: #fff;
+}
+
+ul.form li {
+    list-style: none;
+    border: 0.05rem solid #e9e9e9;
+    margin-bottom: 0.8rem;
+    border-radius: 0.2rem;
+    position: relative;
+    height: 1.3rem;
+}
+
+ul.form li input[type="text"] {
+    height: 1rem;
+    line-height: 1rem;
+    border: none;
+    width: 75%;
+    margin-left: 20%;
+    font-size: 0.5rem;
+    position: relative;
+    top: -0.2rem;
+    color: #a3a3a3;
+    background: transparent;
+}
+
+ul.form li input[type="text"]:focus {
+    outline: none;
+}
+
+ul.form button.register {
+    width: 100%;
+    height: 1.3rem;
+    border: none;
+    background: #5bc0de;
+    color: #fff;
+    border-radius: 0.2rem;
+    font-size: 0.5rem;
+}
+
+img.icon-list {
+    width: 0.8rem;
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    margin-top: -0.4rem;
+}
+
+ul.form button.register:focus {
+    outline: none;
+}
+
+ul.form select {
+    width: 80%;
+    margin-left: 20%;
+    height: 1.2rem;
+    border: none;
+    position: relative;
+    top: -0.2rem;
+    color: #a3a3a3;
+    background: transparent;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 0.5rem;
+}
+
+ul.form select option {
+    border: 0.05rem solid #a3a3a3;
+}
+
+ul.form select:focus {
+    outline: none;
+}
+
+ul.form li.after:after {
+    content: "*";
+    color: red;
+    position: absolute;
+    right: -0.6rem;
+    top: 0.2rem;
+    font-size: 0.8rem;
+}
+
+li.position:after {
+    content: '▼';
+    color: #a9a9a9;
+    position: absolute;
+    right: 0;
+    font-size: 0.5rem;
+    top: 0.3rem;
+    right: 0.2rem;
+}
+
+.loader-inner.ball-beat {
+    position: l;
+    position: absolute;
+    left: 50%;
+    margin-left: -1rem;
+}
+
+.loader-inner.ball-beat div {
+    width: 0.3rem;
+    height: 0.3rem;
+}
+
+.success {
+    top: 65%;
+}
+
+.success p {
+    color: #fff;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.success h2 {
+    margin-bottom: 1rem;
+}
+
+span.load-logo {
+    background: url(../img/logo.png) no-repeat;
+    display: block;
+    width: 8rem;
+    height: 4rem;
+    position: relative;
+    left: 50%;
+    margin-left: -5.5rem;
+    background-size: 130%;
+}
+
+p.errorMessage {
+    margin: 0;
+    font-size: 0.5rem;
+    color: red;
+    text-align: center;
+    /* position: absolute; */
+    /* top: -0.1rem; */
+    /* margin-top: -0.8rem; */
+    padding-bottom: 0.5rem;
+}
+
+ul.form li.red-border {
+    border: 0.05rem solid red;
+}

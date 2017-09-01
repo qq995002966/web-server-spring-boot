@@ -1,0 +1,142 @@
+/****************底部跳转页面*/
+
+.href-page-list .gray-bottom {
+    background-color: #ebeaec;
+    overflow: hidden;
+    height: 528px;
+    padding-top: 263px;
+    margin-bottom: -263px;
+}
+
+.href-page-list .gray-bottom ul {
+    width: 1176px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.href-page-list .gray-bottom ul li {
+    cursor: pointer;
+}
+
+.href-page-list .gray-bottom ul li a {
+    width: 392px;
+    height: 245px;
+    float: left;
+    padding-top: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.href-page-list .gray-bottom ul li a:hover {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.href-page-list .gray-bottom ul li a:hover .mask-hover {
+    opacity: 0;
+}
+
+.href-page-list .gray-bottom ul li a .mask-hover {
+    height: 263px;
+    width: 392px;
+    position: absolute;
+    top: -263px;
+    background-color: #000;
+    opacity: 0.7;
+    transition: opacity 2s;
+    -moz-transition: opacity 2s;
+    -webkit-transition: opacity 2s;
+}
+
+.href-page-list .gray-bottom ul li a .top-img {
+    height: 263px;
+    width: 392px;
+    line-height: 263px;
+    font-size: 30px;
+    color: #fff;
+    position: absolute;
+    top: -263px;
+}
+
+.href-page-list .gray-bottom ul li a div.img-a {
+    background: url(http://image.thinkinggame.cn/img/2.0/home/7-1.jpg) no-repeat;
+}
+
+.href-page-list .gray-bottom ul li a div.img-b {
+    background: url(http://image.thinkinggame.cn/img/2.0/home/7-2.jpg) no-repeat;
+}
+
+.href-page-list .gray-bottom ul li a div.img-c {
+    background: url(http://image.thinkinggame.cn/img/2.0/home/7-3.jpg) no-repeat;
+}
+
+.href-page-list .gray-bottom ul li a div.img-d {
+    background: url(http://image.thinkinggame.cn/img/2.0/home/7-4.jpg) no-repeat;
+}
+
+.href-page-list .gray-bottom ul li a div.img-e {
+    background: url(http://image.thinkinggame.cn/img/2.0/home/7-5.jpg) no-repeat;
+}
+
+.href-page-list .gray-bottom ul li a div.img-f {
+    background: url(http://image.thinkinggame.cn/img/2.0/home/7-6.jpg) no-repeat;
+}
+
+.href-page-list .gray-bottom ul li a div.img-g {
+    background: url(http://image.thinkinggame.cn/img/2.0/home/7-7.jpg) no-repeat;
+}
+
+.href-page-list .gray-bottom ul li a img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 30px;
+}
+
+.href-page-list .gray-bottom ul li a .des {
+    position: relative;
+}
+
+.href-page-list .gray-bottom ul li a .des h2 {
+    font-size: 30px;
+    color: #fff;
+    font-weight: normal;
+    position: absolute;
+    width: 100%;
+    top: -260px;
+}
+
+.href-page-list .gray-bottom ul li a .des h3 {
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.href-page-list .gray-bottom ul li a .des p {
+    font-size: 14px;
+    color: #333;
+    padding: 0 20px;
+    line-height: 25px;
+}
+
+.href-page-list .black-top {
+    background-color: #000;
+    overflow: hidden;
+    height: 263px;
+    width: 100%;
+    position: absolute;
+}
+
+.href-page-list .black-top ul {
+    width: 1176px;
+    margin: 0 auto;
+}
+
+.href-page-list .black-top ul li {
+    width: 392px;
+    height: 263px;
+    float: left;
+    background-color: #333;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    line-height: 263px;
+}

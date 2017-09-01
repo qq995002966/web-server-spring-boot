@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.Mapper_game_search_table">
+	<select id="findGameSearchTableByServiceAndGame" resultType="cn.thinkingdata.web.domain.user.custom.inner.Do_game_search_table">
+		select * from inner_game.game_search_table where service_id = #{service_id} and game_id = #{game_id}
+	</select>
+
+	<select id="findGameSearchTableByServiceAndGameAndType" resultType="cn.thinkingdata.web.domain.user.custom.inner.Do_game_search_table">
+		select * from inner_game.game_search_table where service_id = #{service_id} and game_id = #{game_id} and table_name = #{table_name}
+	</select>
+
+	<select id="findGameSearchTableById" resultType="cn.thinkingdata.web.domain.user.custom.inner.Do_game_search_table">
+		select * from inner_game.game_search_table where gt_id = #{gt_id}
+	</select>
+
+	<select id="findLogSearchTableTypeByGame" resultType="map">
+		select table_name,table_desc from inner_game.game_search_table where service_id = 4 and game_id = #{game_id}
+	</select>
+</mapper>

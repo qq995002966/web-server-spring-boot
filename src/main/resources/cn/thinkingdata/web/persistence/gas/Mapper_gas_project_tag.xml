@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.gas.Mapper_gas_project_tag">
+	<resultMap type="cn.thinkingdata.web.domain.gas.Do_gas_project_tag" id="persistence">
+		<result property="id" column="id"/>
+		<result property="project_id" column="project_id"/>
+		<result property="tag_id" column="tag_id"/>
+	</resultMap>
+
+	<select id="getByTags" resultMap="persistence">
+		select * from gas_new.gas_project_tag where tag_id in 
+			<foreach item="item" index="index" collection="tags" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+	</select>
+	
+	<select id="getProjectTagListByProject" parameterType="int" resultType="int">
+		select tag_id from gas_new.gas_project_tag where project_id=#{project_id}
+	</select>
+	
+	<select id="getProjectTagListByTag" parameterType="int" resultType="cn.thinkingdata.web.domain.gas.Do_gas_project_tag">
+		select * from gas_new.gas_project_tag where tag_id=#{tag_id}
+	</select>
+	
+	<select id="getProjectIDListByTag" parameterType="int" resultType="int">
+		select b.project_id from gas_new.gas_project_tag a,gas_new.gas_projects b where a.project_id=b.project_id and b.status=1 and a.tag_id=#{tag_id}
+		order by b.hot_score desc
+	</select>
+	
+	<select id="getProjectIdListByTagName" parameterType="string" resultType="cn.thinkingdata.web.domain.gas.Do_gas_projects">
+		select c.*,d.detail_type_desc from gas_new.project_tag_dim a,gas_new.gas_project_tag b,gas_new.gas_projects c,gas_new.project_detail_type_dim d where a.tag_id=b.tag_id and b.project_id=c.project_id and c.detail_type=d.detail_type and c.status=1 and a.tag_name like "%"#{tag_name}"%" 
+		order by c.hot_score desc
+	</select>
+
+	<select id="findAll" resultType="java.util.HashMap">
+		select project_id,GROUP_CONCAT(tag_id) tags from gas_new.gas_project_tag GROUP BY project_id
+	</select>
+	
+</mapper>

@@ -1,0 +1,125 @@
+ <!DOCTYPE html >
+<html lang="zh-CN">
+
+<head>
+    <title>ThinkingGame 游戏数据挖掘服务平台----用户登录</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"-->
+    <meta name="renderer" content="webkit">
+    <meta property="qc:admins" content="505435440764016316771556367" />
+    <meta name="keywords" content="ThinkingGame,ThinkingData,数数信息,游戏舆情,玩家论坛,游戏渠道,游戏口碑,玩家反馈,数据服务,大数据">
+    <meta name="description" content="ThinkingGame游戏数据分析服务平台；提供一站式全方位的玩家行为数据分析服务。">
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/common.css">
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/footer.css">
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/header.css">
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/login.css">
+</head>
+
+<body>
+    <div id="headerPart" class="min-width">
+        <div class="header-wrap total-width ">
+            <div class="navbar fl">
+                <i class="h-logo c-img"></i>
+            </div>
+            <div class="L-btn">
+                <span> 登录</span>
+            </div>
+        </div>
+    </div>
+
+
+<!-- 主体部分 -->
+<div class="lr-content">
+    <!-- 账号密码登录 -->
+    <div class="blank-wrap pass-login" style="display: none;">
+        <div class="blank-content">
+            <ul>
+                <li class="input-blank"><i class="lr-icon"></i>
+                    <input type="text" placeholder="手机号">
+                    <div class="error-text"><i>!</i>手机号不存在</div>
+                </li>
+                <li class="input-blank"><i class="lr-icon pass-icon"></i>
+                    <input type="password" placeholder="密码">
+                    <div class="error-text"><i>!</i>密码错误</div>
+                </li>
+                <li>
+                    <label for="remenberBox"></label>
+                    <input type="checkbox" id="remenberBox">
+                    <span>七天免登录</span>
+                    <span class="fr"><a href="">忘记密码？</a></span>
+                </li>
+                <li class="btn-line">
+                    <button>登录</button>
+                </li>
+                <li>
+                    <span>使用验证码登录<a href=""><i class="lr-icon verification"></i></a>  </span>
+                    <span class="fr"><a href="">新用户注册</a></span>
+                </li>
+                <li><span>第三方账号登录<a href="">  <i class="lr-icon other-style"></i></a></span></li>
+            </ul>
+        </div>
+    </div>
+    <!--验证码登录  -->
+    <div class="blank-wrap verification-login">
+        <div class="blank-content">
+            <ul>
+                <li class="input-blank">
+                    <i class="lr-icon"></i>
+                    <input type="text" placeholder="输入手机号">
+                    <div class="error-text"><i>!</i>手机号不存在</div>
+                </li>
+                <li class="slide-part">此处为滑块部分</li>
+                <li class="input-blank">
+                    <i class="lr-icon pass-icon"></i>
+                    <input type="" placeholder="验证码">
+                    <span class="get-code">获取验证码</span>
+                    <div class="error-text"><i>!</i>验证码不正确</div>
+                </li>
+                <li>
+                    <label for="remenberBox"></label>
+                    <input type="checkbox" id="remenberBox">
+                    <span>我同意并遵守《隐私策略及服务条款》</span>
+                </li>
+                <li class="btn-line">
+                    <button class="connection-phone">绑定手机号</button>
+                </li>
+                <li>
+                    <span>密码登录<a href=""><i class="lr-icon verification"></i></a> </span>
+                    <span class="fr"><a href="">新用户注册</a></span>
+                </li>
+                <li><span>第三方账号登录<a href="">  <i class="lr-icon other-style"></i></a></span></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 绑定弹窗 -->
+    <div class="connection-pop">
+        <div class="connection-content">
+            <div class="top">
+                <img src="" alt="">
+               <i class="change-arrow"></i>
+                <img src="elements2.1/img/lr/default-pic.jpg" alt="">
+            </div>
+            <p>该手机号已注册，是否将QQ号与该账号进行绑定</p>
+            <div class="btn">
+                <button class="main-btn">确认绑定</button>
+                <button class="assist-btn">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="LoginFooterPart">
+    <p>2015-2017 THINKINGGAME.CN 版权所有 <a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备 15030552号</a></p>
+</div>
+<!-- footer部分 -->
+<script type="text/javascript" src="elements2.1/js/lib/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="elements2.1/js/lib/jquery.bxslider.js"></script>
+<!-- <script type='text/javascript' src='elements2.1/js/lib/jquery.particleground.min.js'></script> -->
+<script type='text/javascript' src='elements2.1/js/lib/particles.min.js'></script>
+<script src="http://cdn.dowebok.com/134/js/scrollReveal.js"></script>
+<script type="text/javascript" src="elements2.1/js/function.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.Mapper_user_evo_proj">
+	<insert id="add" parameterType="cn.thinkingdata.web.domain.user.evo.Do_user_evo_proj">
+		insert into user_evo_proj set project_id=0, project_name=#{project_name}, user_id=#{user_id}, project_type=#{project_type}, project_desc=#{project_desc}
+		,forum_name1=#{forum_name1},forum_url1=#{forum_url1},forum_name2=#{forum_name2},forum_url2=#{forum_url2}
+	</insert>
+</mapper>

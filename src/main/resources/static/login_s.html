@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>用户登录-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="elements2.0/css/app/login_s.css">
+    <script src="http://api.geetest.com/get.php"></script>
+</head>
+<body>
+<div id="login_s" class="container-flud">
+    <div class="c_padding30">
+        <div class="lg_left c_floatLeft">
+            <div class="lg_tab" style="">
+                <span class="lg_tabOn">账号密码登录</span>
+                <span>验证码登录</span>
+            </div>
+            <div class="lg_area c_borderB c_boderRadius">
+                <i class="c_img i_user"></i>
+                <input type="text" placeholder="手机号" name="username" maxlength="100" class="la_length">
+            </div>
+            <div class="lg_area c_borderB c_boderRadius c_marginTop20 c_marginB30" id="bs_u_0">
+                <i class="c_img i_password"></i>
+                <input autocomplete="off" onfocus="this.type='password'" type="text" placeholder="密码" name="userpass" maxlength="30" class="la_length">
+            </div>
+            <div id="bs_u_1" class="c_none">
+                <div class="lg_area c_borderB c_boderRadius c_marginTop20 c_marginB30">
+                    <i class="c_img i_password"></i>
+                    <input autocomplete="off" type="text" placeholder="短信验证码" name="usercaptcha" maxlength="6" class="la_length2">
+                    <button class="lg_button" id="bs_sms_send">获取验证码</button>
+                </div>
+                <div class="lg_area c_marginB20" style="padding-left: 0">
+                    <div id="div_gt_embed" style="width:100%;"></div>
+                </div>
+            </div>
+            <div class="lg_check">
+                <div class="lg_ckBtn c_floatLeft"><input name="userexpire" type="checkbox"> 七天免登录</div>
+                <div class="lg_ckForget c_floatRight"><a class="c_colorB c_cursor" href="find.html" target="_parent">忘记密码？</a></div>
+            </div>
+            <button type="button" class="btn btn-info btn-block popup-login" id="bs_login_btn">登录</button>
+            <div class="lg_union">
+                <span>第三方帐号直接登录</span> <span class="bs_qq c_cursor"><i class="c_img i_qq"></i></span> <span class="bs_wx c_cursor"><i class="c_img i_wx"></i></span>
+            </div>
+            <p>没有账号？ 请<a class="c_colorB c_cursor" href="register.html" target="_parent">注册</a></p>
+        </div>
+        <div class="lg_right c_floatRight c_cursor"></div>
+    </div>
+</div>
+</body>
+<script data-main="elements2.0/js/app/login" src="elements2.0/js/require.js"></script>
+</html>

@@ -1,0 +1,940 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<head>
+<meta charset="utf-8" />
+<title>聊天分析</title>
+<link rel="stylesheet" type="text/css" href="css/dateRange.css" />
+<link rel="stylesheet" type="text/css" href="css/root.min.css" />
+<link rel="stylesheet" type="text/css" href="css/lq.datetimepick.css" />
+<style>
+
+input[type=file] {
+	filter: alpha(opacity=0);
+	-moz-opacity: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.upload_btn
+{
+	height:70px;
+	width:270px;
+	border-radius:10px;
+	display:inline-block;
+	line-height:70px;
+	font-size:16px;
+	text-indent:20px; transition:color 0.3s;    -moz-transition:color 0.3s;     -webkit-transition:color 0.3s;
+	transition:background-color 0.3s;    -moz-transition:background-color 0.3s;     -webkit-transition:background-color 0.3s;
+}
+
+.why
+{
+	text-align:center;
+	width:270px;
+	font-size:14px;
+	cursor:pointer;
+}
+
+
+.upload_btn:hover
+{
+	cursor:pointer;
+	color:#fff;
+}
+
+.upload_btn.qq
+{
+	bagkgound-color:transparent;
+	border:2px solid #03a9f5;
+	color:#03a9f5;
+}
+
+.upload_btn.qq:hover
+{
+	background-color:#03a9f5;
+	color:#ffffff;
+}
+
+.upload_btn.we-chat
+{
+	bagkgound-color:transparent;
+	border:2px solid #08bc06;
+	color:#08bc06;
+}
+
+.upload_btn.we-chat:hover
+{
+	background-color:#08bc06;
+	color:#ffffff;
+}
+
+.upload_btn .img
+{
+	width:30px;
+	height:70px;
+	float:left;
+	margin-left:30px;
+}
+
+.inac
+{
+	opacity: 0.3;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+	cursor:auto;
+}
+
+.upload_btn.qq .img
+{
+	background:transparent url(http://image.thinkinggame.cn/img/chat/qq2.png) no-repeat center center;
+	background-size:contain;
+}
+
+.upload_btn.we-chat .img
+{
+	background:transparent url(http://image.thinkinggame.cn/img/chat/wechat2.png) no-repeat center center;
+	background-size:contain;
+}
+
+.upload_btn.qq:hover .img
+{
+	background:transparent url(http://image.thinkinggame.cn/img/chat/qq.png) no-repeat center center;
+	background-size:contain;
+}
+
+.upload_btn.we-chat:hover .img
+{
+	background:transparent url(http://image.thinkinggame.cn/img/chat/wechat.png) no-repeat center center;
+	background-size:contain;
+}
+
+
+
+.chat-icon.result.active
+{
+	background:transparent url(http://image.thinkinggame.cn/img/chat/result2.png) no-repeat center center;
+	background-size:contain;
+}
+
+.chat-icon.result.inac
+{
+	background:transparent url(http://image.thinkinggame.cn/img/chat/result.png) no-repeat center center;
+	background-size:contain;
+}
+
+.chat-icon.play.active,.chat-icon.play.inac
+{
+	background:transparent url(http://image.thinkinggame.cn/img/chat/play.png) no-repeat center center;
+	background-size:contain;
+}
+
+
+.chat-icon.edit.active,.chat-icon.edit.inac
+ {
+	 background:transparent url(http://image.thinkinggame.cn/img/chat/edit.png) no-repeat center center;
+	 background-size:contain;
+ }
+
+.chat-icon.edit.active:hover
+{
+	background:transparent url(http://image.thinkinggame.cn/img/chat/edit2.png) no-repeat center center;
+	background-size:contain;
+}
+
+.chat-icon.del.active,.chat-icon.del.inac
+{
+	background:transparent url(http://image.thinkinggame.cn/img/chat/delete.png) no-repeat center center;
+	background-size:contain;
+}
+
+.chat-icon.del.active:hover
+{
+	background:transparent url(http://image.thinkinggame.cn/img/chat/delete2.png) no-repeat center center;
+	background-size:contain;
+}
+
+
+.chat-success
+{
+	color:#03a9f5;
+}
+
+.progress-wnd
+{
+	width:412px;
+	height:274px;
+	color: #838e99;
+	background-color:#ffffff;
+	font-size:14px;
+}
+
+.progress-bar
+{
+	width:272px;
+	height:8px;
+	background-color:#838e99;
+	border-radius:3px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.progress-bar .qq
+{
+	width:10px;
+	height:8px;
+	background-color:#03a9f5;
+	border-radius:3px;
+}
+
+.progress-bar .we-chat
+{
+	width:10px;
+	height:8px;
+	background-color:#08bc06;
+	border-radius:3px;
+}
+
+.dt2
+{
+	border:1px solid #838e99;
+	width:200px;
+}
+
+.fast_choose span
+{
+	cursor:pointer;
+}
+
+input[type=file]
+{
+    width:100%;
+    height:70px;
+    position: absolute;
+}
+
+.date-range .date-span
+{
+    width:400px;
+}
+
+
+</style>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="js/webuploader-0.1.5/webuploader.min.js"></script>
+	<script type="text/javascript" src="js/selectUi.js" ></script>
+	<script type="text/javascript" src="js/lq.datetimepick.js" ></script>
+	<script type="text/javascript" src="js/layer/layer.js" ></script>
+	<script type="text/javascript" src="js/store.min.js" ></script>
+	<script type="text/javascript" src="js/func.js" ></script>
+    <script type="text/javascript" src="js/date/dateRange.js" ></script>
+
+<script>
+
+
+var g_cur_buf=null;
+
+var g_total_page_cnt=0;
+
+function onLoad()
+{
+	G_MENU.AddMenuFooter();
+
+    FitMenuTextCenter('');
+
+	G_LOGIN.CheckLoginServlet(DrawCharts, PopLogin);
+
+	InitDateRange(-30,0);
+
+	InitUploadBtn();
+
+	InitDoneLoadingFailure();
+
+	InitFastClick();
+	
+	InitAnaing();
+
+	
+}
+
+var PROGRESS_BAR={
+	index:-1,
+	ShowProgress:function(which,percentage)
+	{
+		percentage=(percentage+'').split(".")[0];
+
+		if(which=='we-chat')
+			$(".progress-wnd").find(".qq").removeClass("qq").addClass(which);
+		else
+			$(".progress-wnd").find(".we-chat").removeClass("we-chat").addClass(which);
+
+		$(".progress-wnd").find("[name=percentage]").html(percentage+'%');
+
+		$(".progress-wnd").find("."+which).css({width:percentage+'%'});
+
+		if($(".progress-wnd").is(":hidden"))
+		{
+			$(".progress-wnd").find("."+which).css({width:'0%'});
+
+			PROGRESS_BAR.index=layer.open({
+				type: 1,
+				title: false,
+				closeBtn: false,
+				shadeClose: false,
+				area: ['auto', 'auto'],
+				content: $(".progress-wnd")
+			});
+		}
+	},
+	CloseProgress:function(){
+		layer.close(PROGRESS_BAR.index);
+		PROGRESS_BAR.index=-1;
+	}
+}
+
+
+function DrawCharts()
+{
+    if(IsDemoUser())
+    {
+        PopLogin();
+        return;
+    }
+
+	GasChatInfoServlet(true);
+}
+
+function GasChatInfoServlet(start_over)
+{
+	if(start_over)
+	{
+		G_LOCAL_STORAGE.GasChatInfoServlet.page=1;
+		G_LOCAL_STORAGE.GasChatInfoServlet.page_num=1;
+	}
+
+	var _post=G_LOCAL_STORAGE.GasChatInfoServlet._make_post();
+
+
+	var _loading=$(".loading[name=GasChatInfoServlet]");
+	var _failure=$(".failure[name=GasChatInfoServlet]");
+	var _done=$(".done[name=GasChatInfoServlet]");
+
+	__GasChatInfoServlet(_post, _loading, _failure, _done);
+
+}
+
+function __GasChatInfoServlet(_post, _loading, _failure, _done)
+{
+	if(_loading.is(":visible")) // 上次请求正在进行中
+		return;
+
+	MyPost(G_CGI_URL.chat.GasChatInfoServlet,
+			_post,
+			function()
+			{
+				_loading.show();
+				_failure.hide();
+				_done.hide();
+			},
+			function()
+			{
+				_done.show();
+				_failure.hide();
+				_loading.hide();
+			},
+			function(data)
+			{
+				data=data.get;
+
+				_done.show();
+
+				var tb=_done.find("[name=list]");
+
+				if(data.length==0 && _post.page==1)
+				{
+					_done.children().hide();
+					return;
+				}
+
+				_done.children().show();
+
+
+				g_cur_buf=data;
+
+
+
+				var total_page_cnt=0;
+				var maybe_more=true;
+
+				if(g_total_page_cnt)
+				{
+					maybe_more=false;
+					total_page_cnt=g_total_page_cnt;
+				}
+				else
+				{
+					if(data.length==0)
+					{
+						g_total_page_cnt=G_LOCAL_STORAGE.GasChatInfoServlet.page;
+						total_page_cnt=g_total_page_cnt;
+						maybe_more=false;
+					}
+					else if(data.length<=G_LOCAL_STORAGE.GasChatInfoServlet.num_per_page)
+					{
+						total_page_cnt=G_LOCAL_STORAGE.GasChatInfoServlet.page;
+						g_total_page_cnt=G_LOCAL_STORAGE.GasChatInfoServlet.page;
+						maybe_more=false;
+					}
+					else
+					{
+						total_page_cnt=G_LOCAL_STORAGE.GasChatInfoServlet.page+1;
+						maybe_more=true;
+					}
+				}
+
+				GenPageFooter(_done.find('.page_footer_holder'), total_page_cnt, G_LOCAL_STORAGE.GasChatInfoServlet.page,function(newpage){
+					G_LOCAL_STORAGE.GasChatInfoServlet.page=parseInt(newpage);
+					GasChatInfoServlet(false);
+				}, maybe_more);
+
+				tb.find("tr:gt(0)").remove();
+
+
+				for(var i=0; i<data.length; ++i)
+				{
+					var source_type='';
+
+					var cur=data[i];
+
+					if(cur.source_type==10)
+					{
+						source_type=$('<div class="chat-icon qq"></div>');
+					}
+					else if(cur.source_type==11)
+					{
+						source_type=$('<div class="chat-icon we-chat"></div>');
+					}
+
+					var status='';
+
+
+					//'-1: 文件上传成功；1：文件解析中；2：文件解析成功；3：文件解析失败；4：生成分析挖掘任务成功；5：文件分析挖掘中；6：文件分析挖掘成功；7：文件分析挖掘失败'；8：解析成功，但是是空的'
+
+					var play=$('<div class="chat-icon play active cp" title="开始解析"></div>').click((function(info_id){
+						return function(){
+							PopSetup(info_id);
+						}
+					})(cur.info_id));
+
+					var result=$('<div class="chat-icon result active cp" title="查看解析结果"></div>').click((function(result_url){
+						return function(){
+							JumpUrl(result_url, true);
+						}
+					})("chatresult.html?info_id="+cur.info_id));
+
+					var edit=$('<div class="chat-icon edit active cp" title="编辑记录"></div>').click((function(info_id){
+						return function(){
+							PopSetup(info_id);
+						}
+					})(cur.info_id));
+
+					var del=$('<div class="chat-icon del cp active" title="删除记录"></div>').click((function(info_id,file_name){
+						return function(){
+							DelGasChatInfoServlet(info_id, file_name);
+						}
+					})(cur.info_id, cur.file_name));
+
+					var play_inac=$('<div class="chat-icon play inac cp"></div>');
+
+					var result_inac=$('<div class="chat-icon result inac cp"></div>');
+
+					var edit_inac=$('<div class="chat-icon edit inac cp"></div>');
+
+
+					var oper=$("<div></div>");
+
+
+					var tr_class="";
+
+
+
+					// 解析成功
+					if(cur.status==6 || cur.status==8)
+					{
+						status=$("<div class='chat-success'>解析成功</div>");
+						oper.append(result.css({'margin-left':'0'})).append(edit).append(del);
+					}
+					else if(cur.status==-1)
+					{
+						status=$("<div style='color:#FF0000'>未解析</div>");
+						oper.append(play.css({'margin-left':'0'})).append(edit_inac).append(del);
+					}
+					else if(cur.status==3 || cur.status==7)
+					{
+						status=$("<div style='color:red'>解析失败</div>");
+						oper.append(play_inac.css({'margin-left':'0'})).append(edit).append(del);
+					}
+					else
+					{
+						status=$("<div >解析中...</div>");
+						tr_class="is_loading";
+						oper.append(result_inac.css({'margin-left':'0'})).append(edit_inac).append(del);
+					}
+
+					tb.append($('<tr info_id='+cur.info_id+' class="'+tr_class+'"></tr>').css({
+							'cursor':'auto'
+							})
+							.append($('<td></td>').append(source_type))
+							.append($('<td>'+decodeURI(cur.file_name)+'</td>'))
+							.append($('<td>'+cur.dt_create_time+'</td>'))
+							.append($('<td></td>').append(status))
+							.append($('<td></td>').append(oper)));
+				}
+
+			},
+			function()
+			{
+				_done.hide();
+				_loading.hide();
+				_failure.show();
+			}
+	);
+}
+
+function DelGasChatInfoServlet(info_id, file_name)
+{
+	G_PopWnd.confirm("确实要删除当前记录【"+decodeURI(file_name)+"】么？",function(){
+		MyPost(G_CGI_URL.chat.DelGasChatInfoServlet,
+				{info_id:info_id},
+				ShowLoading,
+				HideLoading,
+				function()
+				{
+					GasChatInfoServlet(false);
+				},
+				function(){
+					alert("操作失败！");
+				});
+	});
+}
+
+function EvalDate(start_date, end_date)
+{
+    $("[name=data_date_start]").val(start_date);
+    $("[name=data_date_end]").val(end_date);
+    $(".date-span").html(start_date + ' 至 ' + end_date);
+}
+
+
+function InitFastClick()
+{
+	$(".fast_choose span").click(function(){
+	
+		$(".fast_choose span").removeClass("chosen");
+	
+		$(this).addClass('chosen');
+		
+		var start_date=parseInt($(this).attr("start_date_diff"));
+		var end_date=parseInt($(this).attr("end_date_diff"));
+		
+		start_date=G_DATE.GetDate(start_date);
+		end_date=G_DATE.GetDate(end_date);
+
+        EvalDate(start_date, end_date);
+	})
+}
+
+function InitAnaing()
+{
+	setInterval(function(){
+		UpdatingAnaStatus()
+	}, 60000);
+}
+
+// 将指定info_id的行设置为成功
+function SetInfoIdToSuccessStatus(info_id)
+{
+	var cur=FindInCurBuf(info_id);
+
+	var result=$('<div class="chat-icon result active cp" title="查看解析结果"></div>').click((function(result_url){
+		return function(){
+			JumpUrl(result_url, true);
+		}
+	})("chatresult.html?info_id="+cur.info_id));
+
+	var edit=$('<div class="chat-icon edit active cp" title="编辑记录"></div>').click((function(info_id){
+		return function(){
+			PopSetup(info_id);
+		}
+	})(cur.info_id));
+
+	var del=$('<div class="chat-icon del cp active" title="删除记录"></div>').click((function(info_id,file_name){
+		return function(){
+			DelGasChatInfoServlet(info_id, file_name);
+		}
+	})(cur.info_id, cur.file_name));
+
+	var oper=$("<div></div>").append(result.css({'margin-left':'0'})).append(edit).append(del);
+
+
+	$("tr[info_id="+info_id+"]").removeClass("is_loading");
+	$("tr[info_id="+info_id+"]").find("td").eq(3).html("<div class='chat-success'>解析成功</div>");
+	$("tr[info_id="+info_id+"]").find("td").eq(4).children().remove();
+	$("tr[info_id="+info_id+"]").find("td").eq(4).append(oper);
+}
+
+// 将指定info_id的行设置为失败
+function SetInfoIdToFailStatus(info_id)
+{
+	var cur=FindInCurBuf(info_id);
+
+	var edit=$('<div class="chat-icon edit active cp" title="编辑记录"></div>').click((function(info_id){
+		return function(){
+			PopSetup(info_id);
+		}
+	})(cur.info_id));
+
+	var del=$('<div class="chat-icon del cp active" title="删除记录"></div>').click((function(info_id,file_name){
+		return function(){
+			DelGasChatInfoServlet(info_id, file_name);
+		}
+	})(cur.info_id, cur.file_name));
+
+	var play_inac=$('<div class="chat-icon play inac cp"></div>');
+
+	var oper=$("<div></div>").append(play_inac.css({'margin-left':'0'})).append(edit).append(del);
+
+
+	$("tr[info_id="+info_id+"]").removeClass("is_loading");
+	$("tr[info_id="+info_id+"]").find("td").eq(3).html("<div style='color:red'>解析失败</div>");
+	$("tr[info_id="+info_id+"]").find("td").eq(4).children().hide();
+	$("tr[info_id="+info_id+"]").find("td").eq(4).append(oper);
+}
+
+function UpdatingAnaStatus()
+{
+	var info_id_list=$(".is_loading").map(function(){
+		return $(this).attr("info_id");
+	}).get().join(',');
+	
+	
+	if(info_id_list != "")
+	{
+		MyPost(G_CGI_URL.chat.GasChatInfoServlet, 
+			{info_id_list:info_id_list,index:0,limit:0},
+			null,
+			null,
+			function(data)
+			{
+				var list=data.get;
+				
+				for(var i=0; i<list.length; ++i)
+				{
+					ReplaceBuf(list[i]);
+					
+					if(list[i].status==6)
+					{
+						SetInfoIdToSuccessStatus(list[i].info_id);
+					}
+					else if(list[i].status==3 || list[i].status==7)
+					{
+						SetInfoIdToFailStatus(list[i].info_id);
+					}
+				}
+			},
+			function(data, msg, code)
+			{
+				
+			}
+			);
+	}
+}
+
+// 初始化上传按钮
+function InitUploadBtn()
+{
+	
+	var uploader_qq = WebUploader.create({
+		auto: true,
+		swf: 'js/webuploader-0.1.5/Uploader.swf',
+		server: G_CGI_URL.chat.AddGasChatInfoServlet,
+		pick: '.upload_btn.qq',
+		accept:{
+			title: 'intoTypes',
+			extensions: 'txt',
+			mimeTypes: '.txt'
+		},
+		formData:{
+			source_type:10
+		},
+		which:'qq'
+	});
+
+
+	var uploader_we_chat = WebUploader.create({
+		auto: true,
+		swf: 'js/webuploader-0.1.5/Uploader.swf',
+		server: G_CGI_URL.chat.AddGasChatInfoServlet,
+		pick: '.upload_btn.we-chat',
+		accept:{
+			title: 'intoTypes',
+			extensions: 'csv',
+			mimeTypes: '.csv'
+		},
+		formData:{
+			source_type:11
+		},
+		which:'we-chat'
+	});
+	
+	var ar={
+	
+		'qq':uploader_qq,
+		'we-chat':uploader_we_chat
+		
+	};
+	
+	for (var k in ar)
+	{
+		ar[k].on( 'beforeFileQueued', function( file ) {
+
+            if(IsDemoUser())
+            {
+                PopLogin();
+                return false;
+            }
+
+			if(file.size==0)
+			{
+				alert("不能上传空文件！");
+				return false;
+			}
+			else if(file.size>=150*1024*1024)
+			{
+				alert("文件大小不能超过150M！");
+				return false;
+			}
+			
+			this.options.formData["file_name"]=encodeURI(file.name);
+			
+		}).on( 'uploadSuccess', function( file , response) {
+
+			if(response.return_code!=0)
+			{
+				alert(file.name+"上传失败！"+response.return_message);
+			}
+			else
+			{
+				GasChatInfoServlet(true);
+			}
+			
+		}).on( 'uploadError', function( file ) {
+			alert(file.name+"上传失败！");
+		}).on( 'uploadProgress', function( file, percentage ) {
+
+			PROGRESS_BAR.ShowProgress(this.options.which, percentage*100);
+
+		}).on( 'uploadComplete', function( file ) {
+	
+			this.reset();
+
+			PROGRESS_BAR.CloseProgress();
+		});
+	}
+	
+}
+
+
+
+function FindInCurBuf(info_id)
+{
+	if(g_cur_buf)
+	{
+		for(var i=0; i<g_cur_buf.length; ++i)
+		{
+			if(g_cur_buf[i].info_id+''==info_id+'')
+			{
+				return g_cur_buf[i];
+			}
+		}
+	}
+	return null;
+}
+
+function ReplaceBuf(item)
+{
+	if(g_cur_buf)
+	{
+		for(var i=0; i<g_cur_buf.length; ++i)
+		{
+			if(g_cur_buf[i].info_id+''==item.info_id+'')
+			{
+				g_cur_buf[i]=item;
+			}
+		}
+	}
+}
+
+
+
+function PopSetup(info_id)
+{
+	var item=FindInCurBuf(info_id);
+
+	G_PopWnd.dialog("开始解析：" + decodeURI(item.file_name),$('[name=setup]'), "", 0, "", 3);
+		
+	$("[name=submit]").unbind("click").click(function(){
+		SubmitSetup(info_id, parseInt(item.file_bytes));
+	});
+
+    EvalDate(item.start_date.split(" ")[0], item.end_date.split(" ")[0]);
+}
+
+
+$(onLoad);
+
+
+function PopQQWhy()
+{
+	JumpUrl("qqhow.html", true);
+}
+
+function PopWeChatWhy()
+{
+	JumpUrl("wechathow.html", true);
+}
+
+function SubmitSetup(info_id, file_bytes)
+{
+	var start_date=$("[name=data_date_start]").val()+" 00:00:00";
+	var end_date=$("[name=data_date_end]").val()+" 23:59:59";
+
+	if(start_date=='')
+	{
+		G_PopWnd.error("起始日期不能为空！");
+		return;
+	}
+	if(end_date=='')
+	{
+		G_PopWnd.error("结束日期不能为空！");
+		return;
+	}
+	if(end_date<start_date)
+	{
+		G_PopWnd.error("结束时间不能小于开始时间！");
+		return;
+	}
+	
+	MyPost(
+		G_CGI_URL.chat.SetupGasChatInfoServlet, 
+		{
+			info_id:info_id,
+			start_date:start_date,
+			end_date:end_date
+		},
+		ShowLoading,
+		HideLoading,
+		function(data,msg)
+		{
+			GasChatInfoServlet(false);
+
+			layer.closeAll();
+			
+			var wait_min=Math.floor(file_bytes/1000*0.028+15*60)/60;
+			//G_PopWnd.good("操作成功！解析大概需要"+wait_min+"分钟，请耐心等待");
+            G_PopWnd.good(msg);
+		},
+		function(data,msg)
+		{
+			alert("操作失败！"+msg);
+		}
+	);
+	
+}
+
+</script>
+</head>
+
+
+
+<body style="background-color:#f5f5f5;">
+
+<div class="service_banner"><span class="large_text">聊天分析</span><br/><span>聊天记录分析.热门人事洞察</span></div>
+
+<div class="progress-wnd" style="display:none">
+	<div name="percentage" class="tc" style="padding-top:90px;padding-bottom:10px">45%</div>
+	<div class="progress-bar">
+		<div class="qq"></div>
+	</div>
+	<div class="tc" style="padding-top:30px">正在上传中...</div>
+</div>
+
+<div class="major-w ma" style="margin-top:30px;font-size:0.8em;line-height: 2.5em">提示：我们仅对聊天结果做分析和展示，不会截取任何隐私内容，请放心使用。</div>
+
+<div class="major-w block ma" style="padding-top:80px;min-height:700px;margin-top:0px;">
+
+
+	<div style="width:270px;margin:auto;height:70px">
+
+		<div class="upload_btn qq fl"><div class="img"></div>上传QQ聊天记录</div>
+
+		<!--div class="upload_btn we-chat fr"><div class="img"></div>上传微信聊天记录</div-->
+
+	</div>
+
+	<div style="width:270px;margin-left:auto;margin-right:auto;height:30px;margin-top:10px;">
+
+		<div class="why fl tc" onclick="PopQQWhy();">如何导出QQ聊天记录?</div>
+
+		<!--div class="why fr tc" onclick="PopWeChatWhy();">如何导出微信聊天记录?</div-->
+
+	</div>
+
+	<div style="height:60px"></div>
+
+	<div name="GasChatInfoServlet" class="chart-cont chart-cont-font loading ma search-result"></div>
+	<div name="GasChatInfoServlet" class="chart-cont chart-cont-font failure ma search-result"></div>
+
+	<div name="GasChatInfoServlet" class="search-result done ma">
+		<table name="list" style="margin-top:0;" class="common-table">
+			<tbody>
+			<tr>
+				<th style="width:4em;">来源</th>
+				<th>文件名</th>
+				<th style="width:20em;">上传时间</th>
+				<th style="width:8em;">解析状态</th>
+				<th style="width:7em;">操作</th>
+			</tr>
+			</tbody>
+		</table>
+		<div class="page_footer_holder"></div>
+	</div>
+
+		<div style="margin-top: 30px;font-size: 13px;color: #838e99;margin-top:70px;text-align:center">您上传聊天记录后，我们可以根据您设定的解析时间段对文本进行解析，解析结果将展示"用户聊天热词"，"用户聊天话题"等内容。</div>
+	<div style="height:70px"></div>
+</div>
+
+<div style="height:30px"></div>
+
+<div name="setup" style="width:424px;padding:16px 40px 16px 40px;font-size:14px;display:none">
+	<div>
+		请选择您希望解析聊天记录的时间段：
+	</div>
+	<div style="margin-top:30px" class="tc">
+
+        <span class="date-range" style="text-align:left"></span>
+
+	</div>
+	<div style="font-size:12px;margin-top:20px" class="fast_choose">
+		快速选择：&nbsp;&nbsp;<span start_date_diff=-365 end_date_diff=0>近一年</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span start_date_diff=-180 end_date_diff=0>近六月</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span start_date_diff=-90 end_date_diff=0>近三月</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span start_date_diff=-30 end_date_diff=0>近一月</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span start_date_diff=-7 end_date_diff=0>近一周</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span start_date_diff=0 end_date_diff=0>今天</span>
+	</div>
+	<div class="tc" style="margin-top:25px">
+		<button class="confirm" name="submit" style="margin-right:20px">提交</button><button class="cancel" onclick="layer.closeAll()">取消</button>
+	</div>
+</div>
+
+
+
+</body>
+
+</html>

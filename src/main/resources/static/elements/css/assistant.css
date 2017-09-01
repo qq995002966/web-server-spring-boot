@@ -1,0 +1,6 @@
+@import url("center.css");
+#assistant_s{ width:820px; height: 510px; overflow: hidden; font-size: 14px}
+#assistant_s dl{ height: 45px; clear: both}
+#assistant_s dl dt{ width: 100px; float: left; line-height: 36px; font-weight: normal}
+#assistant_s dl dd{ float: left; line-height: 36px}
+#assistant_s dl dd input[type="text"]{ width: 400px; border: 1px solid #e8e8e8;margin: 2px;height:36px;outline: 0; border-radius: 0px; padding-left:10px; font-size: 13px}

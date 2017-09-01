@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    window.location.href='light.html';
+</script>
+    <title>ThinkingGame 游戏灯塔</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="ThinkingGame,ThinkingData,数数信息,游戏舆情,玩家论坛,游戏渠道,游戏口碑,玩家反馈,数据服务,大数据">
+    <meta name="description" content="ThinkingGame游戏舆情分析服务平台；提供全面的游戏玩家舆论统计分析服务。">
+    <link rel="stylesheet" type="text/css" href="css/dateRange.css" />
+    <link rel="stylesheet" type="text/css" href="css/root.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/lq.datetimepick.css" />
+<style>
+
+body
+{
+    background-color:#f7f7f7;
+}
+
+.fast-chosen-date
+{
+    font-size:12px;
+    height: 2em;
+    border-radius:2em;
+    border:1px solid #e1e4e8;
+    color:#838e99;
+    padding-left:1em;
+    padding-right:1em;
+    margin-left:1em;
+    background-color:transparent;
+}
+
+.fast-chosen-date:hover
+{
+    background-color:#f4f2f1;
+}
+
+.fast-chosen-date.chosen
+{
+    background-color:#e1e4e8;
+}
+
+.negative
+{
+    background-color:#fe6f6b;
+    border:6px solid #ffffff;
+}
+
+.b_positive,.b_negative,.b_neutral
+{
+    font-size:14px;
+}
+
+.f_negative,.b_negative
+{
+    background-color:#fe6f6b;
+    color:#ffffff;
+    border-radius:10px;
+    border:3px solid transparent;
+}
+
+.f_negative.disable
+{
+    background-color:#cccccc;
+}
+
+.b_negative:hover
+{
+    border:4px solid #fdc0b4;
+    cursor:pointer;
+}
+
+.sharp
+{
+    border-radius:3px;
+}
+
+.positive
+{
+    background-color:#22cb22;
+    border:6px solid #ffffff;
+}
+
+.f_positive,.b_positive
+{
+    background-color:#22cb22;
+    color:#ffffff;
+    border-radius:10px;
+    border:3px solid transparent;
+}
+
+.f_positive.disable
+{
+    background-color:#cccccc;
+}
+
+.b_positive:hover
+{
+    border:4px solid #b1e0bd;
+    cursor:pointer;
+}
+
+.f_neutral,.b_neutral
+{
+    background-color:#009ee6;
+    color:#ffffff;
+    border-radius:10px;
+    border:3px solid transparent;
+}
+
+.f_neutral.disable
+{
+    background-color:#cccccc;
+}
+
+.b_neutral:hover
+{
+    border:4px solid #c3e7fb;
+    cursor:pointer;;
+}
+
+
+
+    .tab-chosen
+    {
+        border-bottom:2px solid #03a9f5;
+        color:#03a9f5;
+    }
+
+    .disable
+    {
+        color:#cccccc;
+    }
+
+    .fast-chosen
+    {
+        border:1px solid #e1e4e8;
+        padding:3px 10px;
+        border-radius:34px;
+        font-size:12px;
+    }
+
+.date-range .date-span
+{
+    font-size:14px;
+    width:200px;
+}
+
+.date-range
+{
+    line-height: 46px;
+}
+
+.faint-bg
+{
+    background-color:#fbfbfb;
+    font-size: 14px;
+    line-height:40px;
+}
+
+.choose-tab
+{
+    border-radius: 3px;
+    width:135px;
+    text-indent: 43px;
+    position: relative;
+    font-size: 15px;
+}
+
+.detail-tab-0
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/luntan.png) no-repeat 10px center;
+    background-size: 16px;
+}
+
+.detail-tab-0.tab-chosen
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/luntan_s.png) no-repeat 10px center;
+    background-size: 16px;
+}
+
+.detail-tab-1
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/qudao.png) no-repeat 10px center;
+    background-size: 16px;
+}
+
+.detail-tab-1.tab-chosen
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/qudao_s.png) no-repeat 10px center;
+    background-size: 16px;
+}
+
+.choose-tab.bad
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/bad.png) no-repeat 15px center;
+    background-size: 18px;
+}
+
+.choose-tab.good
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/good.png) no-repeat 15px center;
+    background-size: 18px;
+}
+
+.choose-tab.neutral
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/neutral.png) no-repeat 15px center;
+    background-size: 18px;
+}
+
+.choose-tab.bad.chosen
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/bad1.png) no-repeat 15px center;
+    background-size: 18px;
+    background-color:#fe8e8e;
+    color:#ffffff;
+}
+
+.choose-tab.good.chosen
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/good1.png) no-repeat 10px center;
+    background-size: 18px;
+    background-color:#84ba38;
+    color:#ffffff;
+}
+
+.choose-tab.neutral.chosen
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/neutral1.png) no-repeat 10px center;
+    background-size: 18px;
+    background-color:#03a9f5;
+    color:#ffffff;
+}
+
+.triangle
+{
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 10px;
+    top: 40px;
+    left: 59px;
+}
+
+.triangle.bad
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/triangle_r.png) no-repeat center center;
+    background-size:contain;
+}
+
+.triangle.good
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/triangle_g.png) no-repeat center center;
+    background-size:contain;
+}
+
+.triangle.neutral
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/triangle_b.png) no-repeat center center;
+    background-size:contain;
+}
+
+.lt-bar
+{
+    border-left:2px solid transparent;
+    margin-bottom:20px;
+    position: relative;
+    transition:background-color 0.1s;
+    -moz-transition:background-color 0.1s;
+    -webkit-transition:background-color 0.1s;
+}
+
+.lt-bar:hover
+{
+    background-color:#eee;
+}
+
+.lt-bar-right-arrow
+{
+    width:10px;
+    height:20px;
+    position: absolute;
+    right:-10px;
+    top:10px;
+}
+
+.lt-bar-right-arrow.bad
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/arrow_r.png) no-repeat center center;
+    background-size: contain;
+}
+
+.lt-bar-right-arrow.good
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/arrow_g.png) no-repeat center center;
+    background-size: contain;
+}
+
+.lt-bar-right-arrow.neutral
+{
+    background: transparent url(http://image.thinkinggame.cn/img/lt/arrow_b.png) no-repeat center center;
+    background-size: contain;
+}
+
+.lt-bar-bad.chosen
+{
+    border-left:2px solid #fe8e8e;
+    background:#ffeded;
+}
+
+.colored-bar
+{
+    line-height: 20px;
+}
+
+.lt-bar-bad .colored-bar
+{
+    display: inline-block;
+    background: #f69196;
+}
+
+.lt-bar-good .colored-bar
+{
+    display: inline-block;
+    background: #83cc4f;
+}
+
+.lt-bar-neutral .colored-bar
+{
+    display: inline-block;
+    background: #71c4ff;
+}
+
+
+.lt-bar-good.chosen
+{
+    border-left:2px solid #84ba38;
+    background:#e7f5dc;
+}
+
+
+.lt-bar-neutral.chosen
+{
+    border-left:2px solid #03a9f5;
+    background:#e3f3ff;
+}
+
+.lt-bar-desc
+{
+    display: inline-block;
+    font-weight: bold;
+    width: 92px;
+    padding-left: 20px;
+}
+
+    .tags
+    {
+        padding: 0 1em;
+        border: 1px solid #ccc;
+        border-radius: 2em;
+        display: inline-block;
+        margin-right: 10px;
+        line-height:2em;
+        font-size:12px;
+        margin-top:5px;
+        margin-bottom:5px;
+    }
+
+.tags.bad-tag
+{
+    border:1px solid #fe8e8e;
+}
+.tags.good-tag
+{
+    border:1px solid #84ba38;
+}
+.tags.neutral-tag
+{
+    border:1px solid #03a9f5;
+}
+
+.tags.bad-tag.chosen
+{
+    background-color:#fe8e8e;
+    color: #ffffff;
+}
+
+.tags.good-tag.chosen
+{
+    background-color:#84ba38;
+    color:#ffffff;
+}
+
+.tags.neutral-tag.chosen
+{
+    background-color:#03a9f5;
+    color:#ffffff;
+}
+
+    .tags_container
+    {
+        font-size: 14px;
+        padding:5px 18px;
+        text-align: left;
+    }
+
+</style>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <script type="text/javascript" src="js/selectUi.js" ></script>
+    <script type="text/javascript" src="js/lq.datetimepick.js" ></script>
+    <script type="text/javascript" src="js/Highcharts-4.1.8/highstock.js" ></script>
+    <script type="text/javascript" src="js/layer/layer.js" ></script>
+    <script type="text/javascript" src="js/store.min.js" ></script>
+    <script type="text/javascript" src="js/func.js" ></script>
+    <script type="text/javascript" src="js/chart.js" ></script>
+    <script type="text/javascript" src="js/wc/wcloud.js" ></script>
+    <script type="text/javascript" src="js/date/dateRange.js" ></script>
+<script>
+
+function onLoad()
+{
+    G_MENU.AddMenuFooter(0);
+
+    InitDateRange(-7,0,_DrawCharts);
+
+    InitFastChosenDateClick();
+
+    InitDoneLoadingFailure();
+
+    setInterval(iFrameHeight, 100);
+
+    G_LOGIN.CheckLoginServlet(DrawCharts, PopLogin);
+
+    InitChooseTab();
+
+    $(".fast-chosen-date").eq(3).click();
+
+    floatSide();
+}
+
+
+
+
+function InitChooseTab()
+{
+    $(".choose-tab").click(function(){
+        $(".choose-tab.chosen").removeClass("chosen");
+        $(this).addClass("chosen");
+        $(".split").css({
+           visibility:"visible"
+        });
+        $(this).prev(".split").css({
+            visibility:'hidden'
+        });
+        $(this).next(".split").css({
+            visibility:'hidden'
+        });
+        $(".triangle").hide();
+        $(this).find(".triangle").show();
+
+
+    });
+
+    $(".choose-tab").eq(0).click(function(){
+
+        HideAllBars();
+
+        $("[name=bad_lt_bars]").show();
+    });
+
+    $(".choose-tab").eq(1).click(function(){
+
+        HideAllBars();
+
+        $("[name=good_lt_bars]").show();
+    });
+
+    $(".choose-tab").eq(2).click(function(){
+
+        HideAllBars();
+
+        $("[name=neutral_lt_bars]").show();
+    });
+
+    $(".choose-tab").click(function(){
+       $(".lt-bar:visible").eq(0).click();
+    });
+}
+
+
+function EvalDate(start_date, end_date)
+{
+    $("input[name=data_date_start]").val(start_date);
+    $("input[name=data_date_end]").val(end_date);
+    $("span[name=data_date_start]").html(start_date);
+    $("span[name=data_date_end]").html(end_date);
+    $(".date-span").html(start_date + ' 至 ' + end_date);
+}
+
+
+function _DrawCharts()
+{
+    var project_id=GetProjectId();
+
+    if(parseInt('0'+project_id)==0)
+    {
+        G_PopWnd.error("请选择游戏");
+        return;
+    }
+
+    if($("input[name=data_date_start]").val()=="")
+    {
+        G_PopWnd.error("请选择起止时间");
+        return;
+    }
+
+    if($("input[name=data_date_end]").val()=="")
+    {
+        G_PopWnd.error("请选择起止时间");
+        return;
+    }
+
+    if( $("input[name=data_date_start]").val() > $("input[name=data_date_end]").val() )
+    {
+        G_PopWnd.error("起始时间不能大于结束时间");
+        return;
+    }
+
+    G_LOGIN.GetGasCrawlerInfoAndGasAppsServlet(project_id, ProjForumLighttowerStatServlet);
+
+
+}
+
+function DrawCharts()
+{
+    FixPopProjects(_DrawCharts);
+
+    GetCommProjectId();
+
+    _DrawCharts();
+}
+
+function InitFastChosenDateClick()
+{
+    $(".fast-chosen-date").click(function(){
+        $(".fast-chosen-date").removeClass("chosen");
+        $(this).addClass("chosen");
+        var date_start=parseInt($(this).attr("date_start"));
+        var date_end=parseInt($(this).attr("date_end"));
+
+
+        EvalDate(G_DATE.GetDate(date_start),G_DATE.GetDate(date_end));
+
+
+        if(parseInt('0'+GetProjectId())>0)
+        {
+            _DrawCharts();
+        }
+
+
+    });
+
+}
+
+$(onLoad);
+
+
+function _loading_e(key)
+{
+    return $(".loading[name="+key+"]");
+}
+function _done_e(key)
+{
+    return $(".done[name="+key+"]");
+}
+function _failure_e(key)
+{
+    return $(".failure[name="+key+"]");
+}
+
+
+function ProjForumLighttowerStatServlet()
+{
+    g_lt.reset();
+
+    var data_date_start=$("input[name=data_date_start]").val();
+    var data_date_end=$("input[name=data_date_end]").val();
+    var project_id=GetProjectId();
+
+    var p={
+        project_id:project_id,
+        data_date_start:data_date_start,
+        data_date_end:data_date_end
+    };
+
+    var key="ProjForumLighttowerStatServlet";
+
+    HideAllBars();
+
+    HideAllTabs();
+
+    $("[name=ForumChannelServlet]").hide();
+
+    MyPost(G_CGI_URL.lt[key],
+            p,
+            ShowLoading,
+            HideLoading,
+            function(data)
+            {
+                var post_num=data.post_num;
+
+                $('[name=LtSentiServlet]').find('[name=post_num]').html(addCommas(post_num));
+
+                var list_forum=data.get_forum;
+
+                var list_channel=data.get_channel;
+
+                if(list_forum.length==0 && list_channel.length==0)
+                {
+                    G_PopWnd.remind("没有找到数据");
+                    return;
+                }
+
+                list_forum = $.map(list_forum, function(e){
+                    e.which="forum";
+                    return e;
+                })
+
+                list_channel = $.map(list_channel, function(e){
+                    e.which="channel";
+                    return e;
+                })
+
+                var _list=list_forum.concat(list_channel);
+
+                for(var i=0; i<_list.length; ++i)
+                {
+                    if (_list[i].post_num <= 0)
+                    {
+                        continue;
+                    }
+
+                    var classify_sentiment = _list[i].classify_sentiment ;
+
+                    var lighttower_classify = _list[i].lighttower_classify ;
+
+                    var lighttower_tags = _list[i].lighttower_tags ;
+
+
+                    var which_lt='';
+                    var which_tab=0;
+
+                    if(classify_sentiment<0)
+                    {
+                        which_lt = "bad" ;
+                        which_tab = 0;
+                    }
+                    else if(classify_sentiment>0)
+                    {
+                        which_lt = "good" ;
+                        which_tab = 1;
+                    }
+                    else
+                    {
+                        which_lt = "neutral" ;
+                        which_tab = 2;
+                    }
+
+                    if(lighttower_classify in g_lt[which_lt])
+                    {
+                        g_lt[which_lt][lighttower_classify].forum+=(_list[i].which=="forum") ? _list[i].post_num : 0;
+                        g_lt[which_lt][lighttower_classify].channel+=(_list[i].which=="channel") ? _list[i].post_num : 0;
+                        g_lt[which_lt][lighttower_classify].total+=_list[i].post_num;
+
+                        if(_list[i].which=="forum")
+                        {
+                            g_lt[which_lt][lighttower_classify].forum_tags.push(lighttower_tags);
+                        }
+                        else if(_list[i].which=="channel")
+                        {
+                            g_lt[which_lt][lighttower_classify].channel_tags.push(lighttower_tags);
+                        }
+                    }
+                    else
+                    {
+                        g_lt[which_lt][lighttower_classify] = {
+                            forum:(_list[i].which=="forum") ? _list[i].post_num : 0,
+                            channel:(_list[i].which=="channel") ? _list[i].post_num : 0,
+                            total:_list[i].post_num,
+                            forum_tags:(_list[i].which=="forum") ? [lighttower_tags] : [],
+                            channel_tags:(_list[i].which=="channel") ? [lighttower_tags] : []
+                        } ;
+                    }
+
+                    ShowTab(which_tab);
+                }
+
+
+                var _ar=['bad', 'good', 'neutral'] ;
+
+                var _ir=[-1,1,0];
+
+                for(var i=0; i<_ar.length; ++i)
+                {
+                    var cur = _ar[i] ;
+
+                    var parent_dom=$("[name="+cur+"_lt_bars]").empty();
+
+                    var bars = g_lt.gen_ar(g_lt[cur]);
+
+                    if(bars.length==0)
+                        continue;
+
+                    var max=bars[0].total;
+
+                    var min=bars[bars.length-1].total;
+
+                    var max_w=280;
+
+                    var j=0;
+
+                    for(j=0; j<bars.length && j<11; ++j)
+                    {
+                        var w = 0;
+
+                        w = max_w / max * bars[j].total ;
+
+                        var e = $("<div class='lt-bar cp faint-bg lt-bar-"+cur+"'><span class='lt-bar-desc' name='lighttower_classify'></span><span class='colored-bar'>&nbsp;</span></div>");
+
+                        e.append($("<div class='lt-bar-right-arrow "+_ar[i]+"'></div>").hide());
+
+                        if (!bars[j].forum)
+                        {
+                            bars[j].forum = 0;
+                        }
+
+                        if (!bars[j].channel)
+                        {
+                            bars[j].channel = 0;
+                        }
+
+                        e.attr("forum", bars[j].forum).attr("channel", bars[j].channel);
+
+                        e.find("[name=lighttower_classify]").html(bars[j].lighttower_classify);
+
+                        e.find(".colored-bar").css({
+                            "width":w+"px"
+                        });
+
+                        e.attr("total", bars[j].total).attr("lighttower_classify", bars[j].lighttower_classify).attr("classify_sentiment", _ir[i]).attr("forum_tags",bars[j].forum_tags.join(',')).attr("channel_tags",bars[j].channel_tags.join(','));
+
+                        e.appendTo(parent_dom).click(
+                                (function(cur, e){
+                                    return function(){
+                                        $(".lt-bar-"+cur).removeClass("chosen");
+                                        $(this).addClass("chosen");
+
+                                        $('.lt-bar-right-arrow').hide();
+
+                                        $(this).find('.lt-bar-right-arrow').show();
+
+                                        $("[name=ForumChannelServlet]").show();
+
+
+
+                                        $("[name=ForumChannelServlet] [name=forum_tags]").empty();
+                                        $("[name=ForumChannelServlet] [name=channel_tags]").empty();
+
+
+                                        var max_tag=8;
+
+                                        var lighttower_classify=$(this).attr("lighttower_classify");
+
+                                        var classify_sentiment=$(this).attr("classify_sentiment");
+
+
+                                        var _both={"forum":"","channel":""};
+
+                                        for(var which in _both)
+                                        {
+                                            var arr_tags = $(this).attr(which+'_tags').split(',');
+
+                                            for(var i=0; i<arr_tags.length && i<max_tag; ++i)
+                                            {
+                                                if(arr_tags[i].trim()=="")
+                                                {
+                                                    continue;
+                                                }
+
+                                                var tag=$("<span class='cp tags "+cur+"-tag'></span>").html(arr_tags[i]);
+
+                                                tag.attr("lighttower_classify",lighttower_classify);
+                                                tag.attr("classify_sentiment",classify_sentiment);
+                                                tag.attr("which",which);
+
+                                                tag.click(function(){
+                                                    if($(this).hasClass("chosen"))
+                                                    {
+                                                        $(this).removeClass("chosen");
+                                                    }
+                                                    else
+                                                    {
+                                                        $(this).parent().find(".tags").removeClass("chosen");
+                                                        $(this).addClass("chosen");
+                                                    }
+
+                                                    var lighttower_classify=$(this).attr("lighttower_classify");
+
+                                                    var classify_sentiment=$(this).attr("classify_sentiment");
+
+                                                    if($(this).attr("which")=="forum")
+                                                    {
+                                                        G_LOCAL_STORAGE.PopForumQueryPostsServlet._reset();
+                                                        G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_start=data_date_start;
+                                                        G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_end=data_date_end;
+                                                        G_LOCAL_STORAGE.PopForumQueryPostsServlet.lighttower_classify=lighttower_classify;
+                                                        G_LOCAL_STORAGE.PopForumQueryPostsServlet.classify_sentiment=classify_sentiment;
+                                                        G_LOCAL_STORAGE.PopForumQueryPostsServlet.lighttower_tags=$(this).hasClass("chosen") ? ($(this).html()) : "";
+
+
+                                                        PopForumChannelQueryPostsServlet(true, false, true);
+                                                    }
+                                                    else if($(this).attr("which")=="channel")
+                                                    {
+                                                        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet._reset();
+                                                        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.data_date_start=data_date_start;
+                                                        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.data_date_end=data_date_end;
+                                                        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.lighttower_classify=lighttower_classify;
+                                                        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.classify_sentiment=classify_sentiment;
+                                                        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.lighttower_tags=$(this).hasClass("chosen") ? ($(this).html()) : "";
+
+                                                        PopForumChannelQueryPostsServlet(true, true, false);
+                                                    }
+                                                });
+
+                                                $("[name=ForumChannelServlet] [name="+which+"_tags]").append(tag);
+                                            }
+                                        }
+
+
+                                        G_LOCAL_STORAGE.PopForumQueryPostsServlet._reset();
+                                        G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_start=data_date_start;
+                                        G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_end=data_date_end;
+                                        G_LOCAL_STORAGE.PopForumQueryPostsServlet.lighttower_classify=lighttower_classify;
+                                        G_LOCAL_STORAGE.PopForumQueryPostsServlet.classify_sentiment=classify_sentiment;
+                                        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet._reset();
+                                        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.data_date_start=data_date_start;
+                                        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.data_date_end=data_date_end;
+                                        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.lighttower_classify=lighttower_classify;
+                                        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.classify_sentiment=classify_sentiment;
+
+                                        PopForumChannelQueryPostsServlet(true);
+
+                                        if($(e).attr("forum")=="0") // 论坛没有数据，就展示渠道
+                                        {
+                                            $("[name=ForumChannelServlet] [name=tab_channel]").click();
+                                        }
+                                        else
+                                        {
+                                            $("[name=ForumChannelServlet] [name=tab_forum]").click();
+                                        }
+
+                                    };
+                                })(cur,e));
+
+                    }
+
+                    // 不管怎样，补齐11个
+                    for(; j<11; ++j)
+                    {
+                        var e = $("<div class='lt-bar faint-bg'>&nbsp;</div>").appendTo(parent_dom);
+                    }
+
+                    var max=Math.ceil(bars[0].total/5)*5;
+
+                    var axis=$('<table class="w100" style="font-size:12px;margin-bottom:15px;"><tbody><tr><td style="width:115px;"></td></tr></tbody></table>');
+
+                    axis.find("tr").append($("<td style='width:2px;'>0</td>"));
+
+                    var each_tick=max/5;
+
+                    if(each_tick>1)
+                    {
+                        for(var k=1; k<=5; ++k)
+                        {
+                            axis.find("tr").append($("<td style='height:12px'><span style='float:right;margin-right:-8px'>"+addCommas(parseInt(each_tick)*k)+"</span></td>"));
+                        }
+                    }
+                    else
+                    {
+                        for(var k=1; k<=bars[0].total; ++k)
+                        {
+                            axis.find("tr").append($("<td class='tr'></td>").html(addCommas(k)));
+                        }
+                    }
+
+                    var tick_cnt = axis.find("td").length ;
+
+                    var new_row=$("<tr></tr>");
+
+                    for(var k=0;k<tick_cnt; ++k)
+                    {
+                        var td=$("<td style='border-bottom: 1px solid #ccc;border-right:1px solid #ccc;height:5px;'></td>");
+
+                        if(k==0)
+                        {
+                            td.css({
+                                "width":"115px",
+                                "border-bottom":"none"
+                            });
+                        }
+                        else if(k==1)
+                        {
+                            td.css({
+                                "width":"2px",
+                                "border-right":"none",
+                                "border-left":"1px solid #ccc"
+                            });
+                        }
+
+
+                        new_row.append(td);
+                    }
+
+                    axis.find("tbody").prepend(new_row);
+
+                    parent_dom.append(axis);
+                }
+
+                GetFirstVisibleTab().click();
+            },
+            function()
+            {
+                G_PopWnd.error("系统异常");
+            }
+    );
+}
+
+
+function PopForumChannelQueryPostsServlet(start_over, not_search_forum, not_search_channel)
+{
+    if(start_over)
+    {
+        if(!not_search_forum)
+        {
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.page=1;
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.page_num=1;
+        }
+        if(!not_search_channel)
+        {
+            G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.page=1;
+            G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.page_num=1;
+        }
+    }
+
+    G_LOCAL_STORAGE.PopForumQueryPostsServlet.num_per_page = 11 ;
+    G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.num_per_page = 4 ;
+
+    if(!not_search_forum)
+    {
+        var _post=G_LOCAL_STORAGE.PopForumQueryPostsServlet._make_post(GetProjectId());
+
+        var _loading=$(".loading[name=PopForumQueryPostsServlet]");
+        var _failure=$(".failure[name=PopForumQueryPostsServlet]");
+        var _done=$(".done[name=PopForumQueryPostsServlet]");
+
+        $("[name=tab_forum] [name=post_num]").html('0');
+
+        G_LOCAL_STORAGE.__ForumQueryPostsServlet(_post, _loading, _failure, _done, function(data) {
+            $("[name=tab_forum] [name=post_num]").html(data.total);
+
+
+
+            // 第一列标题的宽度
+            $(".common-table[name=list] td:nth-child(1)>div").css({
+                'max-width':'295px'
+            });
+
+            $(".common-table[name=list] td:nth-child(3)").remove();
+
+            $(".common-table[name=list] td:nth-child(3)").remove();
+
+        }, null, function(){_done.find("[name=forum_tags]").show();});
+    }
+
+    if(!not_search_channel)
+    {
+        var _post=G_LOCAL_STORAGE.PopChannelQueryCommentsServlet._make_post(GetProjectId());
+
+        var _loading=$(".loading[name=PopChannelQueryCommentsServlet]");
+        var _failure=$(".failure[name=PopChannelQueryCommentsServlet]");
+        var _done=$(".done[name=PopChannelQueryCommentsServlet]");
+
+        $("[name=tab_channel] [name=post_num]").html('0');
+
+        G_LOCAL_STORAGE.__ChannelQueryCommentsServlet(_post, _loading, _failure, _done, function(data) {
+            $("[name=tab_channel] [name=post_num]").html(data.total);
+
+        }, null, function(){_done.find("[name=channel_tags]").show();});
+    }
+}
+
+
+
+function OrderSearch(order_by_field)
+{
+
+    for (var k in G_LOCAL_STORAGE.PopForumQueryPostsServlet.order_by) {
+        if (k == order_by_field) {
+            var last = G_LOCAL_STORAGE.PopForumQueryPostsServlet.order_by[k];
+            if (last == "desc")
+                last = "asc";
+            else
+                last = "desc";
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.order_by[k] = last;
+        }
+        else {
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.order_by[k] = "";
+        }
+    }
+
+    PopForumChannelQueryPostsServlet(true, null, null, false, true);
+
+}
+
+
+
+var g_lt={
+    reset:function(){
+      this.good={};
+      this.bad={};
+      this.neutral={};
+    },
+    good:{},
+    bad:{},
+    neutral:{},
+    gen_ar:function(m){
+
+        var ret=[];
+
+        for(var k in m)
+        {
+            var _new = {
+                lighttower_classify:k,
+                total:m[k].total,
+                forum:m[k].forum,
+                channel:m[k].channel
+            }
+
+
+            var _both = {
+                "forum":"",
+                "channel":""
+            };
+
+            for(var which in _both)
+            {
+                var _tags=m[k][which+"_tags"];
+
+                var _tag_cnt={};
+
+                for(var i=0; i<_tags.length; ++i)
+                {
+                    if(_tags[i]=="")
+                    {
+                        continue;
+                    }
+
+                    var _ar = _tags[i].split(",");
+
+                    $.each(_ar, function(i,v){
+                        var tag=v.split(":")[0];
+                        var cnt=parseInt(v.split(":")[1]);
+
+                        if(tag in _tag_cnt)
+                        {
+                            _tag_cnt[tag]+=cnt;
+                        }
+                        else
+                        {
+                            _tag_cnt[tag]=cnt;
+                        }
+                    });
+                }
+
+                var _tag_arr=[];
+
+                for(var tag in _tag_cnt)
+                {
+                    _tag_arr.push({tag:tag, cnt:_tag_cnt[tag]});
+                }
+
+                _tag_arr = _tag_arr.sort(function(a,b){
+                    return b.cnt - a.cnt;
+                })
+
+                _tag_arr = $.map(_tag_arr, function(v){
+                    return v['tag'];
+                });
+
+                _new[which+"_tags"]=_tag_arr;
+            }
+
+            ret.push(_new);
+        }
+
+        return ret.sort(function(a,b){
+            return b.total - a.total;
+        });
+    }
+};
+
+function HideAllBars()
+{
+    $("[name=bad_lt_bars]").hide();
+    $("[name=good_lt_bars]").hide();
+    $("[name=neutral_lt_bars]").hide();
+}
+
+function HideTab(which)
+{
+    $(".choose-tab").eq(which).hide();
+    $(".choose-tab").eq(which).prev(".split").hide();
+    $(".choose-tab").eq(which).next(".split").hide();
+}
+
+function ShowTab(which)
+{
+    $(".choose-tab").eq(which).show();
+    $(".choose-tab").eq(which).prev(".split").show();
+    $(".choose-tab").eq(which).next(".split").show();
+}
+
+function GetFirstVisibleTab()
+{
+    for(var i=0;i<3;++i)
+    {
+        if($(".choose-tab").eq(i).is(":visible"))
+        {
+            return $(".choose-tab").eq(i);
+        }
+    }
+
+    return null;
+}
+
+function HideAllTabs()
+{
+    HideTab(0);
+    HideTab(1);
+    HideTab(2);
+}
+
+
+
+
+function ShowPopForumQueryPostsServlet(e)
+{
+    $("[name=p_PopForumQueryPostsServlet]").show();
+    $("[name=p_PopChannelQueryCommentsServlet]").hide();
+
+    $(".tab-chosen").removeClass("tab-chosen");
+    $(e).addClass("tab-chosen");
+}
+
+function ShowPopChannelQueryCommentsServlet(e)
+{
+    $("[name=p_PopForumQueryPostsServlet]").hide();
+    $("[name=p_PopChannelQueryCommentsServlet]").show();
+
+    $(".tab-chosen").removeClass("tab-chosen");
+    $(e).addClass("tab-chosen");
+}
+
+
+
+
+</script>
+</head>
+<body>
+
+
+    <div class="major-w block ma project">
+        <span style="font-size:14px;line-height:58px;text-indent:20px;display:inline-block;">游戏灯塔：依据玩家反馈的真实数据对游戏产品进行多维度、全方位的画像<span class="question-mark cp" onclick="ShowForumChannelTip(this, '通过用户发帖和评论的数据统计与分析，聚类展示出正面、负面及其他反馈，主要包括Bug、活动反馈、登录、客户端、更新、充值以及游戏设计相关等分类。查看游戏灯塔的数据，可以详尽了解游戏运营过程中出现的问题，并针对性的解决，提高用户满意度、用户留存和付费。')">?</span></span>
+        <div class="fr projects" style="position:relative;">
+            <div class="main-bar"><div class="fl project-icon"></div><span name="project_name">请选择游戏</span></div>
+            <div class="projects-selector arrow-pop close_when_mouse_down" style="top:70px;right:0;display:none;width:800px">
+                <div class="top-arrow" style="position:absolute;right:100px"></div>
+                <div name="holder">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="major-w ma" id="chart" style="position:relative; height:auto;">
+
+
+        <div class="major-w block ma chart" style=" height:auto;">
+
+
+            <div class="search-bar ma" style="width:450px;margin-top:36px;">
+                <span style="font-size:14px;padding-left: 20px;">请选择时间段</span>
+                <div class="search-btn" onclick="_DrawCharts()">查询</div>
+                <span class="date-range" style="margin-left:10px;"></span>
+            </div>
+
+            <div style="text-align:center;margin-top:30px;"><button class="fast-chosen-date" date_start=-90 date_end=-1>最近三个月</button><button class="fast-chosen-date" date_start=-60 date_end=-1>最近两个月</button><button class="fast-chosen-date" date_start=-30 date_end=-1>最近一个月</button><button class="fast-chosen-date" date_start=-14 date_end=-1>最近两周</button><button class="fast-chosen-date" date_start=-7 date_end=-1>最近一周</button>
+            </div>
+
+            <div class="faint-bg" style="margin:30px 40px;height:40px;padding-right:15px;border-radius: 3px" name="LtSentiServlet">
+
+                <span class="fl choose-tab cp bad" style="display: none">负面反馈<span class="triangle bad" style="display: none"></span></span>
+
+                <span class="split fl" style="color:#ccc;display: none">|</span>
+
+                <span class="fl choose-tab cp good" style="display: none">正面反馈<span class="triangle good" style="display: none"></span></span>
+
+                <span class="split fl" style="color:#ccc;display: none">|</span>
+
+                <span class="fl choose-tab cp neutral" style="display: none">其它反馈<span class="triangle neutral" style="display: none"></span></span>
+
+                <span class="fr">玩家反馈采样数：<span name="post_num" class="empha"></span></span>
+
+            </div>
+
+            <div style="min-height:600px;padding-left:40px;padding-right:40px;">
+
+                <table class="w100">
+                    <tbody>
+                        <tr>
+                            <td style="width:40%;vertical-align: top">
+                                <div name="bad_lt_bars" style="display: none"></div>
+                                <div name="good_lt_bars" style="display: none"></div>
+                                <div name="neutral_lt_bars" style="display: none"></div>
+                            </td>
+                            <td style="width:60%;vertical-align:top;padding-left:20px;padding-bottom:20px">
+                                <div style="border-radius: 3px;border:1px solid #e1e4e8;display: none;min-height:683px;" name="ForumChannelServlet">
+                                    <div style="border-bottom:1px solid #e1e4e8;height:40px;font-size:14px;">
+                                        <div class="fl tc cp detail-tab-0 tab-chosen" style="width:9em;line-height:40px" name="tab_forum" onclick="ShowPopForumQueryPostsServlet(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;论坛帖子&nbsp;<span name="post_num" class="empha" style="font-size:0.9em">0</span>&nbsp;</div>
+                                        <div class="fl tc cp detail-tab-1" style="width:9em;line-height:40px" name="tab_channel" onclick="ShowPopChannelQueryCommentsServlet(this)">&nbsp;&nbsp;&nbsp;渠道评论&nbsp;<span name="post_num" class="empha" style="font-size:0.9em">0</span>&nbsp;</div>
+                                    </div>
+
+                                    <div name="p_PopForumQueryPostsServlet">
+                                        <div name="PopForumQueryPostsServlet" class="chart-cont chart-cont-font loading ma" style="width:100%"></div>
+                                        <div name="PopForumQueryPostsServlet" class="chart-cont chart-cont-font failure ma" style="width:100%"></div>
+                                        <div name="PopForumQueryPostsServlet" class="done ma">
+                                            <div class="tags_container">
+                                                <div name="forum_tags"></div>
+                                            </div>
+                                            <table name="list" class="common-table w100">
+                                                <tbody>
+                                                <tr>
+                                                    <th style="width:290px">标题</th>
+                                                    <th style="width:9em">帖子来源</th>
+                                                    <th style="width:9em;cursor:pointer" name="publish_time" class="order-by" onclick="OrderSearch('publish_time');">发帖时间&nbsp;&nbsp;<span class="icon desc">&nbsp;&nbsp;</span></th>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="page_footer_holder" style="margin-top:10px;margin-bottom:10px"></div>
+                                        </div>
+                                    </div>
+
+                                    <div name="p_PopChannelQueryCommentsServlet" style="display:none">
+                                        <div name="PopChannelQueryCommentsServlet" style="width:100%" class="chart-cont chart-cont-font loading ma channel-search-result"></div>
+                                        <div name="PopChannelQueryCommentsServlet" style="width:100%" class="chart-cont chart-cont-font failure ma channel-search-result"></div>
+                                        <div name="PopChannelQueryCommentsServlet" style="width:100%" class="channel-search-result done ma">
+
+                                            <table name="list_sample" style="display:none;margin-top:10px;margin-bottom:10px">
+                                                <tr>
+                                                    <td style="width:55px;vertical-align:top">
+                                                        <span class="source_img">&nbsp;</span>
+                                                    </td>
+                                                    <td>
+                                                        <div><span name="rating_star" style="margin-right:1em;"></span>&nbsp;&nbsp;<span name="title" style="font-weight:bold;"></span></div>
+                                                        <div name="content" style="line-height:1.5em;"></div>
+                                                        <div style="color:#ccc"><span class="reply_name icon">&nbsp;&nbsp;&nbsp;&nbsp;</span><span name="author"></span>&nbsp;&nbsp;<span class="reply_time icon">&nbsp;&nbsp;&nbsp;&nbsp;</span><span name="publish_time"></span></div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <div class="tags_container">
+                                                <div name="channel_tags"></div>
+                                            </div>
+
+                                            <table name="list" style="margin-top:0px">
+
+                                                <tbody>
+
+                                                </tbody>
+                                            </table>
+                                            <div class="page_footer_holder" style="margin-top:15px;margin-bottom:15px"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+    <div name="js_ForumQueryReplyPostsServlet" style="display:none">
+        <div name="ForumQueryReplyPostsServlet">
+            <div class="title-bar">
+                <div class="title" name="title"></div>
+                <div class="info">
+                    <div><span class="link icon">&nbsp;&nbsp;&nbsp;&nbsp;</span>采集地址：<a name="from_url" target=_blank title="在新窗口中打开"></a></div>
+                    <div><span class="reply_num icon">&nbsp;&nbsp;&nbsp;&nbsp;</span>回复数：<span name="reply_num"></span></div>
+                    <div><span class="reply_time icon">&nbsp;&nbsp;&nbsp;&nbsp;</span>发帖时间：<span name="publish_time"></span></div>
+                </div>
+            </div>
+            <div class="floor-sample" style="display: none">
+                <div class="floor">
+                    <div class="info">
+                        <span class="reply_name icon">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span name="author"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="reply_time icon">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span name="publish_time"></span>
+                        <span name="post_index" class="fr"></span>
+                    </div>
+                    <div class="data" name="content"></div>
+                    <div class="data" name="attach_content"></div>
+                </div>
+            </div>
+            <div class="floors" style="margin-bottom:20px">
+            </div>
+            <div class="more"><button class="small">加载更多<span style="letter-spacing:-1px;margin-left:6px">╲╱</span></button></div>
+            <div class="loading2"><span class="inactive">加载中...</span></div>
+            <div class="done"><span class="inactive">已显示全部</span></div>
+        </div>
+    </div>
+
+    <div class="block-margin-h">
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+@import url("init.css");
+#chatNotice{ width: 900px; margin: 0 auto}
+#chatNotice .cn_title{ text-align: center; height: 50px; line-height: 5em;font-size:1.2em}
+#chatNotice .cn_area{border-left:1px dotted #e1e4e8;margin-top:1em;margin-bottom:1em; margin-left: 30px}
+#chatNotice .cont td{vertical-align: top;line-height: 3em;}
+#chatNotice .cont td:first-child{width:3em;}
+#chatNotice .cont img{display: block;margin-top:20px;margin-bottom: 60px;}
+#chatNotice .num{display: inline-block;color:#ffffff;background-color:#237bd0;text-align: center;width:2em;line-height: 2em;border-radius: 2em;margin-left:-1em;}
+#payNotice{width: 1000px; margin: 0 auto}
+#payNotice .cn_title{ text-align: center; height: 50px; line-height: 5em;font-size:1.2em; font-weight: bold}
+#payNotice .cn_area{ padding: 30px}
+#payNotice .cn_area p{ text-indent: 25px; line-height: 25px; margin:15px 0}
+#payNotice .cn_area b{ margin-bottom: 30px}
+

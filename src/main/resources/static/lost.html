@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>流失去向分析-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/datarange/dateRange.css">
+    <link rel="stylesheet" type="text/css" href="plugins/datarange/lq.datetimepick.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/lost.css">
+</head>
+<body>
+    <div class="container-flud">
+        <div class="c_maxWidth c_marginAuto">
+            <div id="MLeft" class="c_floatLeft c_hidden u_height"></div>
+            <div id="MRight" class="c_floatRight c_hidden u_height">
+                <div class="mr_head">
+                    <div class="mr_area">
+                        <div class="mr_h_left c_floatLeft">
+                            <h1>流失分析</h1>
+                            <div class="mr_h_tab">
+                                <ul>
+                                    <li class="liOn">流失分析</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mr_h_right c_floatRight mr_h_face">
+                            <div id="bs_game_choose"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="c_padding20" id="Lost">
+                    <div class="lost-part lost-radar">
+                        <div class="c_padding20" style="padding-bottom: 0">
+                            <div class="mr_choose_date">
+                                <h3>流失去向雷达</h3>
+                                <div class="mr_choose_area">
+                                    <div class="mr_choose_show">
+                                        <span id="dc1"></span>
+                                        <i class="mr_choose_icon glyphicon glyphicon-calendar"></i>
+                                        <input id="db1" type="hidden" value=""><input id="de1" type="hidden" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="coordinate"></div>
+                    </div>
+                    <div class="lost-part lost-factor">
+                        <div class="c_padding20" style="padding-bottom: 0">
+                            <div class="mr_choose_date">
+                                <h3>流失关键因素</h3>
+                                <div class="mr_choose_area bs_reason"></div>
+                            </div>
+                        </div>
+                        <div class="content-part"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="plugins/datarange/lq.datetimepick.js"></script>
+<script type="text/javascript" src="plugins/datarange/dateRange.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/center.js"></script>
+<script type="text/javascript" src="elements/js/lost.js"></script>

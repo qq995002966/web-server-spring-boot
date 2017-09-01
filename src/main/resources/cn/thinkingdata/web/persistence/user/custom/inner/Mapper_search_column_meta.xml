@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.Mapper_search_column_meta">
+	<select id="findSearchMetaByServiceAndGame" resultType="cn.thinkingdata.web.domain.user.custom.inner.Do_search_column_meta">
+		select sm.* from inner_game.search_column_meta sm join (select gt_id from inner_game.game_search_table where game_id = #{game_id} and service_id=#{service_id}) gt on gt.gt_id = sm.gt_id order by sm.column_order
+	</select>
+	<select id="findSearchMetaGroupByServiceAndGame" resultType="String">
+		select distinct(sm.column_group) from inner_game.search_column_meta sm join (select gt_id from inner_game.game_search_table where game_id = #{game_id} and service_id=#{service_id}) gt on gt.gt_id = sm.gt_id order by sm.column_order
+	</select>
+	<select id="findSearchMetaByServiceAndGameAndType" resultType="cn.thinkingdata.web.domain.user.custom.inner.Do_search_column_meta">
+		select sm.* from inner_game.search_column_meta sm join (select gt_id from inner_game.game_search_table where game_id = #{game_id} and service_id=#{service_id} and table_name=#{table_name}) gt on gt.gt_id = sm.gt_id order by sm.column_order
+	</select>
+</mapper>

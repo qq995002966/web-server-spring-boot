@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>改进计划-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/init.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/aside.css">
+</head>
+<body class="c_bgWhite">
+<div class="aside-wrap">
+    <div class="aside-content">
+        <div class="plan">
+            <ul class="tab fl">
+                <li class="tab-selected" href="#addNewgame">申请添加新游戏<i class="triganle-icon"></i></li>
+                <li href="#addGameword">添加游戏词汇<i></i></li>
+                <li href="#addGamefrom">添加参考数据源<i></i></li>
+            </ul>
+            <div class="notice">* 添加新游戏后，我们需要进行游戏相关信息核对，并进行数据抓取、分析工作，需要2~3天时间，   请耐心等待或联系客服。</div>
+            <div id="addNewgame" class="planArea" style="background-color: #ffffff">
+                <ul class="tab-content">
+                    <li style="margin-bottom: 0">
+                        <span>游戏类型:</span>
+                        <input  name="gamestyle" type="radio" value="0" id="Shou" checked />手游
+                        <label for="Shou"></label>
+                        <input  name="gamestyle" type="radio" value="1" id="Ye" />页游
+                        <label for="Ye"></label>
+                        <input  name="gamestyle" type="radio" value="2" id="Duan" />端游
+                        <label for="Duan"></label>
+                        <input  name="gamestyle" type="radio" value="3" id="Dang" />单机
+                        <label for="Dang"></label>
+                    </li>
+                    <li style="margin-bottom: 0">
+                        <span>游戏名称:</span>
+                        <input type="text" name="gameName" placeholder="请填写游戏名称" class="search-input">
+                    </li>
+                    <li style="margin-bottom: 0;height: 105px;">
+                        <span>新数据源:</span>
+                        <div class="input-list" style="left: 95px">
+                            <input name="gameSource1" placeholder="如：百度贴吧" class="search-input">
+                            <input name="gameUrl1" placeholder="如：http://tieba.baidu.com/f?kw=刀塔传奇" class="search-input">
+                        </div>
+                        <div class="input-list" style="left: 95px">
+                            <input name="gameSource2" placeholder="如：18183论坛" class="search-input">
+                            <input name="gameUrl2" placeholder="如：http://bbs.18183.com/forum-daotachuanqi-1.html" class="search-input">
+                        </div>
+                    </li>
+                    <li style="padding-bottom: 20px;">
+                        <span>游戏简介:</span>
+                        <textarea style="height: 80px" onKeyUp="checkLength(this,100,'wordLeft')" name="gameContent" placeholder="例如：游戏开发商，官网链接等介绍信息(不超过100字)"></textarea>
+                    </li>
+                </ul>
+                <span class="wordArea2">您还可以输入 <b id="wordLeft" class="wordLeft">100</b> 个字符</span> <button type="button" class="commit-btn worButton2" >确认提交</button>
+                <div class="clearfix"></div>
+            </div>
+            <div id="addGameword" class="planArea" style="background-color: #ffffff">
+                <ul class="tab-content">
+                    <li>
+                        <span>选择游戏:</span>
+                        <div id="selectWrap" class="bs_game_1"></div>
+                    </li>
+                    <li>
+                        <span>词汇分类:</span>
+                        <input type="text" name="wordClassify" placeholder="请输入游戏词汇类别（如任务、技能、进阶等）" class="search-input">
+                    </li>
+                    <li style="padding-bottom: 100px;">
+                        <span>添加词汇:</span>
+                        <textarea onKeyUp="checkLength(this,1000,'wordLeft2')" name="wordContent" placeholder="请输入词汇，以空格分隔"></textarea>
+                    </li>
+                </ul>
+                <span class="wordArea2">您还可以输入 <b id="wordLeft2" class="wordLeft">1000</b> 个字符</span> <button type="button" class="commit-btn worButton2" >确认提交</button>
+                <div class="clearfix"></div>
+            </div>
+            <div id="addGamefrom" class="planArea" style="background-color: #ffffff">
+                <ul class="tab-content">
+                    <li>
+                        <span>选择游戏:</span>
+                        <div id="selectWrap" class="bs_game_2"></div>
+                    </li>
+                    <li style="line-height: 30px" id="bs_forums">
+                        <span>已有数据源:</span>
+                    </li>
+                    <li style="height: 90px;">
+                        <span>申请新数据源:</span>
+                        <div class="input-list">
+                            <input name="source1" placeholder="如：百度贴吧" class="search-input">
+                            <input name="url1" placeholder="如：http://tieba.baidu.com/f?kw=刀塔传奇" class="search-input">
+                        </div>
+                        <div class="input-list">
+                            <input name="source2" placeholder="如：18183论坛" class="search-input">
+                            <input name="url2" placeholder="如：http://bbs.18183.com/forum-daotachuanqi-1.html" class="search-input">
+                        </div>
+                    </li>
+                </ul>
+                <button type="button" class="commit-btn worButton3" >确认提交</button>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/aside.js"></script>
+<script type="text/javascript" src="elements/js/plan.js"></script>

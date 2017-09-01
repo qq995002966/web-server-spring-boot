@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>手机绑定-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="elements2.0/css/app/login_s.css">
+    <script src="http://api.geetest.com/get.php"></script>
+</head>
+<body>
+<div id="bind_s" class="container-flud">
+    <div class="c_padding30">
+        <form id="registerForm" method="post">
+            <div class="lg_area c_border c_boderRadius">
+                <i class="glyphicon glyphicon-user"></i>
+                <input type="text" placeholder="手机号" name="username" maxlength="100" class="la_length">
+            </div>
+            <div class="lg_area c_border c_boderRadius c_marginTop20">
+                <i class="glyphicon glyphicon-lock"></i>
+                <input type="password" placeholder="密码，至少六位" name="userpass" maxlength="30" class="la_length">
+            </div>
+            <div class="lg_area c_border c_boderRadius c_marginTop20">
+                <i class="glyphicon glyphicon-pencil"></i>
+                <input type="password" placeholder="确认密码" name="passcheck" maxlength="30" class="la_length">
+            </div>
+            <div class="lg_area c_marginTop20" style="padding-left: 0">
+                <div id="div_gt_embed" style="width:100%;"></div>
+            </div>
+            <div class="c_marginTop20 c_marginB30">
+                <div class="lg_area c_border c_boderRadius c_floatLeft" style="width: 160px">
+                    <i class="glyphicon glyphicon-signal"></i>
+                    <input type="text" placeholder="验证码" name="usercode" maxlength="6" class="la_length2">
+                </div>
+                <div class="c_floatRight"><button type="button" data-c="0" class="btn btn-success la_length3" id="bs_sms_send">获取验证码</button></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="lg_check">
+                <input name="useragree" type="checkbox" checked> 我已阅读并同意 <a class="c_colorB c_cursor" href="license.html" target="_blank">《隐私策略及服务条款》</a>
+            </div>
+            <button type="button" class="btn btn-info btn-block c_marginTop20" id="bs_bind_btn">绑定手机号</button>
+        </form>
+     </div>
+</div>
+</body>
+<script data-main="elements2.0/js/app/bind" src="elements2.0/js/require.js"></script>
+</html>

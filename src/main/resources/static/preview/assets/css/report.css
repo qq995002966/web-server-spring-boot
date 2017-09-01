@@ -1,0 +1,24 @@
+div.report-content {
+	width: 1175px;
+	margin: 0 auto;
+}
+
+div.report-content>div>img {
+    width: 1175px;
+  /*  position: relative;
+    left: 50%;
+    margin-left: -587.5px;*/
+    vertical-align: bottom;
+}
+
+div.report-content>div.a{background-color: #e4e4e4;}
+div.report-content>div.d{background-color: #212e3e;position: relative;}
+div.report-content>div.e{background-color: #ffffff;}
+div.report-content>div.f{background-color: #ebebeb;}
+div.report-content>div.g{background-color: #e4e4e4;}
+div.report-content>div.h{background-color: #eaeaea;}
+div.report-content>div.i{background-color: #ffffff;}
+
+div.report-content>div.d>a {
+	position: absolute;
+}

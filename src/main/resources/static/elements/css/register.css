@@ -1,0 +1,28 @@
+@charset "utf-8";
+@import url("common.css");
+#register{ width: 355px; height: 555px; margin: 0 auto}
+#register .lg_position{position: absolute; top: 50%; margin-top: -350px; }
+#register .lg_logo{ height: 133px; width: 228px; margin: 20px auto 0 auto; background-position: 0 -487px; cursor: pointer}
+#register .lg_zone{ width: 355px; height: 550px; margin: 0 auto}
+#register .lg_area i{ position: absolute; top:3px; left: 5px; width: 27px; height: 27px}
+#register .lg_area .i_user{ background-position: -549px -146px }
+#register .lg_area .i_password{ background-position: -576px -146px}
+#register .lg_area .i_rewrite{ background-position: -604px -146px}
+#register .lg_area{ height: 35px; position: relative; padding-left: 40px}
+#register .lg_area input{ border: 1px solid #ffffff; margin:2px; height: 30px;outline:0; }
+#register .lg_area .la_length{ width: 250px;}
+#register .lg_area .la_length2{ width: 100px;}
+#register .la_length3{ width: 125px;}
+#register .lg_check{ height: 35px;position: relative; }
+#register .lg_check .lg_ckBtn{ width: 350px}
+#register .lg_check .lg_ckForget{ width: 130px; text-align: right}
+#register .lg_union{ text-align: center; color: #A1A1A1}
+#register .lg_union span{ padding-left:20px; position: relative; display: inline-block; margin-right:20px}
+#register p{ height: 30px; line-height: 30px; text-align: center; display: block; font-size: 12px}
+#register .lg_union p{height: 20px; line-height: 20px; margin: 0; padding: 0}
+#register .lg_union i{ width: 37px; height: 38px}
+#register .lg_union{ height: 35px; margin-top: 20px}
+#register .lg_union i{ display: block; position: absolute; left: 0}
+#register .lg_area .lg_button{ width: 85px; height: 30px; position: absolute; right: 0; top: 0; background-color: #00B1FF; color: #FFFFFF; border: 1px solid #FFFFFF}
+.i_wx_new{ background-position: -587px -176px}
+.i_qq_new{ background-position: -550px -176px}

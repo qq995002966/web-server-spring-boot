@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>添加突发问题预警-ThinkingGame智能化游戏运营服务平台</title>
+    <link rel="stylesheet" href="elements2.0/css/app/background.css">
+</head>
+<body id="layBody">
+    <ul class="pop-list">
+        <li>
+            <span>选择产品：</span>
+            <div class="tg-search-drop" id="gameDropChoose"></div>
+        </li>
+        <li>
+            <span>问题筛选：</span>
+        </li>
+        <li>
+            <span>报警级别：</span>
+            <div class="tg-selected-drop pop-drop"></div>
+        </li>
+        <li>
+            <span>任务名称：</span>
+            <input name="email_title" type="text" placeholder="如：游戏Bug监控" maxlength="32">
+        </li>
+        <li>
+            <span>接受邮箱：</span>
+            <input name="email_addr" type="text" placeholder="如需多个邮箱接收，请用空格隔开邮件地址。" maxlength="200">
+        </li>
+        <li>
+            <span>任务状态：</span>
+            <input type="radio" name="status" value="1"> 开启　<input type="radio" name="status" value="0"> 关闭
+        </li>
+        <li class="tg-btn">
+            <button class="tg-main-btn">确认提交</button>
+            <button class="tg-assist-btn">取消设置</button>
+        </li>
+    </ul>
+</body>
+</html>
+<script data-main="elements2.0/js/app/task_s" src="elements2.0/js/require.js"></script>

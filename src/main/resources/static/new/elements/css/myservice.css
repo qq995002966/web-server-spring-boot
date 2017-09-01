@@ -1,0 +1,363 @@
+
+body{
+  font-family: "Microsoft Yahei","STHeitiSC-Light","Arial",sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+.header-banner {
+  width: 1175px;
+  margin: 0 auto;
+}
+
+.service-wrap {
+  width: 1175px;
+  margin: 0 auto;
+  padding: 40px 50px;
+  border: 1px solid #e5e5e5;
+}
+
+.service-wrap>img {
+  height: 90px;
+}
+
+.service-content {
+  position: relative;
+}
+
+
+.service-content>div {
+    width: 100%;
+    height: 286px;
+    border: 1px solid #ccc;
+    position: relative;
+    box-shadow: 0 0 10px #ccc;
+    margin-bottom: 45px;
+    background: #fff;
+    padding: 0 50px;
+}
+
+.service-content>div>ul {
+  float: left;
+  height: inherit;
+}
+
+.trial-icon {
+  background: url(../img/service/trial.png) no-repeat;
+  height: 69px;
+  width: 69px;
+  position: absolute;
+  display: block;
+  z-index: 2;
+  top: -4px;
+  left: -4px;
+}
+
+.service-content .left>img {
+    position: relative;
+    top: 30px;
+    left: 20px;
+}
+
+
+
+.service-content .right  {
+      /* padding: 25px 0 15px 70px; */
+      width: 500px;
+      margin-top: 10px;
+      float: right;
+}
+
+.service-content .right .title {
+  font-size: 18px;
+  color: #03a9f5;
+}
+
+.enter-into {
+      width: 174px;
+      height: 38px;
+      line-height: 38px;
+      border-radius: 3px;
+      background-color: #08bc06;
+      transition: all 0.3s;
+      color: #fff;
+      border: 0;
+      border-radius: 3px;
+      outline: 0;
+      font-size: 16px;
+      /* margin: 0 auto; */
+      margin-left: 163px;
+}
+
+.service-content .right li.descrip-bg {
+
+  height: 50px;
+  background: url(../img/service/bg.png) no-repeat;
+  background-size: contain;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  color: #838e99;
+  margin: 0 auto;
+  margin: 25px auto;
+}
+
+.remaining {
+  float: right;
+}
+
+.remaining>i {
+  background: url(../img/service/timer.png) no-repeat;
+  width: 16px;
+  height: 16px;
+  display: block;
+  position: absolute;
+  left: -20px;
+}
+
+.remaining>b {
+      color: #f43900;
+}
+
+.service-content .left {
+  width: 351px;
+  padding-left: 0;
+}
+
+.service-content .right li span {
+      color: #838e99;
+      font-size: 13px;
+      margin-top: 3px;
+      position: relative;
+}
+
+.service-content .right li {
+      font-size: 12px;
+    line-height: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #838e99;
+}
+
+.service-content .hover-bg {
+  background: #424242;
+  opacity: 0;
+  height: 222px;
+  position: absolute;
+  top: 30px;
+  left: 70px;
+  width: 351px;
+  /*display: none;*/
+}
+
+.service-content .hover-bg .check-demo {
+  font-size: 15px;
+  line-height: 3em;
+  width: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  margin-top: 20px;
+  cursor: pointer;
+  background: none;
+  color: #fff;
+  text-align: center;
+}
+
+.service-content .hover-bg li {
+      font-size: 28px;
+      letter-spacing: 4px;
+      color: #fff;
+      width: 131px;
+      margin: 0 auto;
+}
+
+.service-content .hover-bg {
+  padding-left: 0;
+}
+
+.service-content .hover-bg li:first-child {
+  margin-top: 50px;
+}
+
+.pop-content {
+  height: 718px;
+  display: none;
+  width: 990px;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  -webkit-background-clip: content;
+  box-shadow: 1px 1px 50px rgba(0,0,0,.3);
+  border-radius: 2px;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+}
+
+.pop-content .header {
+      height: 58px;
+      font-size: 14px;
+      background-color: #f2f4f5;
+      color: #03a9f5;
+      line-height: 58px;
+      text-indent: 30px;
+      border-bottom: 1px solid #dee3e8;
+      border-radius: 3px 3px 0 0;
+      padding: 0 30px;
+      width: 990px;
+}
+
+.pop-content .content {
+      border-top: 0;
+      padding: 14px 30px;
+      position: relative;
+      height: 90%;
+      width: 990px;
+}
+
+.pop-content .head-icon {
+  background: url(../img/service_demo/9.png) no-repeat;
+  display: inline-block;
+  height: 17px;
+  width: 29px;
+  float: left;
+  position: relative;
+  top: 20px;
+}
+
+.pop-content .close-pop-icon {
+  background: url(../img/dataicon.png) no-repeat;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  right: 0;
+  background-position: 0 -21px;
+  cursor: pointer;
+  float: right;
+  position: relative;
+  top: 20px;
+}
+
+.service-wrap .layui-layer {
+  width: 990px !important;
+}
+
+.bx-controls-direction {
+    height: 50px;
+    position: relative;
+}
+
+.prev-image {
+  background: url(../img/service_demo/arrows-left.png) no-repeat;
+  height: 21px;
+  width: 12px;
+  display: inline-block;
+}
+
+.next-image {
+  background: url(../img/service_demo/arrows-right.png) no-repeat;
+  height: 21px;
+  width: 12px;
+}
+
+.layer-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.layer-content {
+  background: #FFFFFF;
+}
+.layer-content .layer-body {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 20px;
+}
+.layer-content .layer-header {
+  height: 20px;
+}
+.layer-content .close-layer {
+  float: right;
+  font-size: 12px;
+  color: #000000;
+}
+.layer-content .close-layer:after {
+  content: "x";
+}
+
+.slider-box {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.slider-box .image-list {
+  position: absolute;
+  left: 0;
+  width: 990px;
+}
+.slider-box .image-list .image-box {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.slider-box .image-list .image-box img {
+  display: block;
+  /* width: 80%; */
+  height: auto;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+.slider-box p {
+  position: absolute;
+  bottom: 0;
+  letter-spacing: 3px;
+  line-height: 3em;
+  font-size: 1.5em;
+  left: 50%;
+  bottom: -15px;
+}
+.slider-box .slider-controllers {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  font-size: 14px;
+  margin-top: -7px;
+  color: #FFFFFF;
+  width: 96%;
+  margin: 0 auto;
+}
+
+.slider-box .slider-controllers span {
+   cursor: pointer;
+}
+
+.slider-box .slider-controllers .next-image {
+  position: absolute;
+  right: 0;
+}
+.slider-box .slider-controllers .disable {
+  /* color: red; */
+}
+
+
+.slider-box p .cont-slider {
+      color: #03a9f5;
+}

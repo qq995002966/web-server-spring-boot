@@ -1,0 +1,2489 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>个人中心</title>
+<link rel="stylesheet" type="text/css" href="css/root.min.css" />
+<style>
+
+    .left-bar
+    {
+        width:154px;border-right:1px solid #dee3eb;padding-right:30px;
+    }
+
+    .left-bar button
+    {
+        width:115px;
+        height:30px;
+        line-height:30px;
+        font-size:14px;
+        border-radius:3px;
+        background-color:#f0f1f2;
+        color:#838e99;
+        margin-left:33px;
+        margin-right:20px;
+        margin-bottom:10px;
+        display:block;
+    }
+
+    .mid-icon-1
+    {
+        width: 54px;
+        margin-top: 22px;
+        margin-bottom:10px;
+    }
+
+    .mid-icon-2
+    {
+        width: 148px;
+        margin-bottom:10px;
+        margin-top:-10px;
+    }
+
+    .mid-sub-info
+    {
+        color:#a7acb0;
+        margin-top:8px;
+        margin-bottom:22px;
+    }
+
+
+    .left-bar button.chosen
+    {
+        background-color:#03a9f5;
+        color:#ffffff;
+    }
+
+    .left-bar .hdr
+    {
+        font-size:16px;
+        font-weight:bold;
+        color:#596776;
+        margin-top:35px;
+        margin-bottom:20px;
+        border-left:3px solid #03a9f5;
+        text-indent: 30px;
+    }
+
+    .right-bar .hdr
+    {
+        font-size:16px;
+        color:#596776;
+        margin-top:20px;
+        margin-bottom:20px;
+        border-left:3px solid #596776;
+        text-indent: 30px;;
+        line-height:14px;
+    }
+
+
+    .right-bar textarea
+    {
+        height:96px;
+    }
+
+    [name=ChangePasswordServlet] td
+    {
+        padding-bottom:10px;
+    }
+
+    .cont-title-bar
+    {
+        line-height:50px;
+        height:50px;
+        color:#03a9f5;
+        font-weight:bold;
+    }
+
+    .question-mark
+    {
+        width:14px;height:14px;font-size:12px;text-align:center;color:#a0a8af;border:2px solid #a0a8af;border-radius:14px;
+        line-height:14px;
+    }
+
+    .pop_wnd_tips
+    {
+        font-size:12px;
+        background-color:#fff5de;
+        line-height:4em;
+        text-indent:30px;
+    }
+
+    .pop_add td
+    {
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+
+    .pop_add td:first-child
+    {
+        vertical-align: top;
+        width:6em;
+        text-align:right;
+        padding-right:10px;
+    }
+
+    table.mid>tbody>tr>td
+    {
+        border:1px solid #dee3eb;
+    }
+
+    table.mid-desc>tbody>tr>td
+    {
+        vertical-align:top;
+    }
+
+    table.mid-desc>tbody>tr>td:first-child
+    {
+        padding-right:20px;
+    }
+
+    table.mid-desc .desc
+    {
+        line-height:2em;
+        font-size:12px;
+    }
+
+    table.mid-desc button
+    {
+        color:#03a9f5;
+        border:1px solid #dee3eb;
+        background:transparent;
+        font-size:14px;
+        line-height:2.5em;
+    }
+
+    table.mid-desc button:hover
+    {
+        color:#009ee6;
+        font-weight:bold;
+    }
+
+    table.mid-desc .title
+    {
+        font-weight:bold;
+        font-size:16px;
+        padding-bottom:8px;
+    }
+
+    .follow-icon-task
+    {
+        margin-right:10px;background:transparent url(img/oc/follow/task.png) no-repeat center center;background-size:contain;
+    }
+
+    .follow-icon-msg
+    {
+        margin-right:10px;background:transparent url(img/oc/follow/msg.png) no-repeat center center;background-size:contain;
+    }
+
+    .follow-icon-status
+    {
+        margin-right:10px;background:transparent url(img/oc/follow/status.png) no-repeat center center;background-size:contain;
+    }
+
+    .follow-icon-time
+    {
+        margin-right:10px;background:transparent url(img/oc/follow/time.png) no-repeat center center;background-size:contain;
+    }
+
+    span.dashed
+    {
+        border:1px dotted #dee3eb;
+        font-size:12px;
+        line-height:2em;
+        width: 100px;
+        display:inline-block;
+        text-align:center;
+        border-radius:10px;
+        margin-left:20px;
+    }
+
+    table.follow-status
+    {
+        border:1px solid #e9edf0;border-radius:3px;margin-bottom:20px;
+        font-size:13px;
+    }
+
+    table.follow-status>tbody>tr>td:first-child
+    {
+        padding-left: 5px;
+        width: 180px;
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    table.follow-status>tbody>tr>td:last-child
+    {
+        padding: 5px;
+        width: 180px;
+    }
+
+    .loading,.failure
+    {
+        height:400px;
+    }
+
+    .with-space
+    {
+        margin-left:4px;
+        margin-right:4px;
+    }
+
+
+    .words-classifys-icon
+    {
+        display:inline-block;
+        text-indent:25px;
+        margin-left:10px;
+    }
+    .words-classifys-icon:hover,.words-classifys-icon.chosen
+    {
+        color:#03a9f5;
+    }
+
+    .with-delete
+    {
+        border:1px solid #bbbbbb;
+    }
+
+    .delete
+    {
+        cursor:pointer;
+        margin-left:5px;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <script type="text/javascript" src="js/layer/layer.js" ></script>
+    <script type="text/javascript" src="js/store.min.js" ></script>
+    <script type="text/javascript" src="js/func.js" ></script>
+<script>
+
+function onLoad()
+{
+    G_MENU.AddMenuFooter();
+
+    $(".t_about .chosen>div").html('个人中心');
+    $(".left-bar button").click(function(){
+        $(".left-bar .chosen").removeClass("chosen");
+        $(this).addClass("chosen");
+        var name=$(this).attr("name");
+        $("[name=cont]>div").hide();
+        $("[name=cont]>div[name="+name+"]").show();
+
+
+    })
+
+    $(".chosen").click();
+
+
+    InitDoneLoadingFailure();
+
+
+    G_LOGIN.CheckLoginServlet(LoginDone,PopLogin,true);
+}
+
+function LoginDone()
+{
+    UserServlet.load();
+    UserCenterQueryServlet.init().query(true);
+    ProjectDataSourceServlet.init();
+    UserFollowProjectServlet.init().query();
+    GasWordsClassifysServlet.init();
+    GenProjects();
+    InitArrowPop();
+    ProjectDataSourceServlet.initAfterGenProjects().query(true);
+    GasWordsClassifysServlet.initAfterGenProjects().query(true);
+
+
+    InitCheckbox();
+
+    InitRadiobox();
+}
+
+function ChangePasswordServlet()
+{
+    var old_password=$("[name=_old_password]").val();
+    var password=$("[name=_password]").val();
+    var password_confirm=$("[name=_password_confirm]").val();
+
+    if(old_password=="")
+    {
+        alert("请填写旧密码！");
+        return;
+    }
+
+    if(password=="")
+    {
+        alert("请填写新密码！");
+        return;
+    }
+
+
+    if(password.length<6)
+    {
+        alert("密码长度不得少于6位！");
+        return;
+    }
+
+
+    if(password_confirm=="")
+    {
+        alert("请填写新密码二次确认！");
+        return;
+    }
+
+    if(password!=password_confirm)
+    {
+        alert("两次密码填写不一致！");
+        return;
+    }
+
+    MyPost(G_CGI_URL.auth.ChangePasswordServlet,
+        {
+            old_password:old_password,
+            password:password
+        },ShowLoading,HideLoading,
+        function()
+        {
+            $("[name=_old_password]").val("");
+            $("[name=_password]").val("");
+            $("[name=_password_confirm]").val("");
+
+            G_PopWnd.good("密码修改成功！");
+        },
+        function(data,msg,code)
+        {
+            G_PopWnd.good("密码修改失败！"+msg);
+        });
+};
+
+var UserServlet={
+    load:function()
+    {
+        var user=G_LOCAL_STORAGE.user.user;
+        for(var k in user)
+        {
+            $("[name=UserServlet]").find("[name="+k+"]").html(user[k]);
+        }
+    }
+};
+
+var UserCenterQueryServlet={
+    root:null,
+    init:function(){
+
+        if(UserCenterQueryServlet.root==null)
+        {
+            UserCenterQueryServlet.root=$("div[name=UserCenterQueryServlet]")
+        }
+
+        var add=UserCenterQueryServlet.root.find("[name=UserCenterAddServlet]");
+
+        var html=add.html();
+
+        var upt=UserCenterQueryServlet.root.find("[name=UserCenterUpdateServlet]");
+
+        upt.html(html);
+
+        add.find("button.confirm").click(function(){
+            UserCenterQueryServlet.UserCenterAddServlet();
+        });
+
+        upt.find(".cont-title-bar>span").html("修改监控任务");
+
+        upt.find("button.cancel").unbind('click').html('取消修改').click(function(){
+            UserCenterQueryServlet.cancelUpdate();
+        });
+
+        upt.find("button.confirm").unbind('click');
+
+        UserCenterQueryServlet.root.find(".checkbox").css({
+            'min-width':'80px',
+            'margin-bottom':'10px'
+        });
+        UserCenterQueryServlet.root.find(".radiobox").css({
+            'min-width':'80px'
+        });
+
+
+
+
+        var add_projects=$(".projects[name=example]").clone().attr("name","for_add");
+
+        UserCenterQueryServlet.root.find("[name=UserCenterAddServlet] [name=choose_project]").append(add_projects.show());
+
+
+        var update_projects=$(".projects[name=example]").clone().attr("name","for_update");
+
+        UserCenterQueryServlet.root.find("[name=UserCenterUpdateServlet] [name=choose_project]").append(update_projects.show());
+
+        return UserCenterQueryServlet;
+    },
+    explain:function(){
+        var e=UserCenterQueryServlet.root.find("[name=explain]");
+        if(e.width()==0)
+        {
+            e.animate({
+                width:'640px'
+            });
+        }
+        else
+        {
+            e.animate({
+                width:'0'
+            });
+        }
+    },
+    add:function()
+    {
+        UserCenterQueryServlet.root.find("[name=list]").hide();
+        UserCenterQueryServlet.root.find("[name=UserCenterAddServlet]").show("slow");
+    },
+    findInCurList:function(id)
+    {
+        for(var i=0; i<UserCenterQueryServlet.cur_list.length; ++i)
+        {
+            if(UserCenterQueryServlet.cur_list[i].id==id)
+            {
+                return UserCenterQueryServlet.cur_list[i];
+            }
+        }
+
+        return null;
+    },
+    updateStatus:function(id,status)
+    {
+        var father=UserCenterQueryServlet;
+
+        var cur=father.findInCurList(id);
+        if(!cur)
+            return;
+
+        var old_status=cur.status;
+        cur.status=status;
+
+
+        var key="UserCenterUpdateServlet";
+
+        MyPost(G_CGI_URL.usercenter[key],
+                cur,ShowLoading,HideLoading,
+                function()
+                {
+                    G_PopWnd.good("修改成功");
+                    father.query(false);
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+
+        cur.status=old_status;
+    },
+    update:function(id)
+    {
+        var row=UserCenterQueryServlet.findInCurList(id);
+
+        for(var k in row)
+        {
+            var e=$("[name=UserCenterUpdateServlet] [name="+k+"]");
+
+            if(k=='project_id')
+            {
+                $(".projects .item[project_id="+row[k]+"]").click();
+            }
+            else if(k=='status' || k=='ignore_empty')
+            {
+                $("[name=UserCenterUpdateServlet] [name="+k+"][_attr_val="+row[k]+"]").click();
+            }
+            else if(k=='send_hour_of_day')
+            {
+                for(var i=0; i<=23; ++i)
+                {
+                    DisableCheckbox($("[name=UserCenterUpdateServlet] [name="+k+"][_attr_val="+i+"]"));
+                }
+
+                var _hours=row[k].split(',');
+                for(var i=0; i<_hours.length; ++i)
+                {
+                    EnableCheckbox($("[name=UserCenterUpdateServlet] [name="+k+"][_attr_val="+_hours[i]+"]"));
+                }
+
+            }
+            else if(k=='send_day_of_week')
+            {
+                for(var i=1; i<=7; ++i)
+                {
+                    DisableCheckbox($("[name=UserCenterUpdateServlet] [name="+k+"][_attr_val="+i+"]"));
+                }
+
+                var _days=row[k].split(',');
+                for(var i=0; i<_days.length; ++i)
+                {
+                    EnableCheckbox($("[name=UserCenterUpdateServlet] [name="+k+"][_attr_val="+_days[i]+"]"));
+                }
+            }
+            else
+            {
+                $(e).val(row[k]);
+            }
+        }
+
+
+        UserCenterQueryServlet.root.find("[name=list]").hide();
+        UserCenterQueryServlet.root.find("[name=UserCenterUpdateServlet]").show("slow");
+
+        UserCenterQueryServlet.root.find("[name=UserCenterUpdateServlet] button.confirm").unbind("click").click(function(){
+            UserCenterQueryServlet.UserCenterUpdateServlet(id);
+        });
+
+    },
+    delete:function(id,email_title)
+    {
+        email_title="";
+
+        var cur=UserCenterQueryServlet.findInCurList(id);
+        if(cur)
+            email_title=cur.email_title;
+
+        G_PopWnd.confirm("确实要删除监控任务【"+email_title+"】么？", function(){
+            UserCenterQueryServlet.UserCenterDelServlet(id);
+        })
+    },
+    UserCenterDelServlet:function(id)
+    {
+        var key="UserCenterDelServlet";
+
+        var p={id:id,project_id:0};
+
+        MyPost(G_CGI_URL.usercenter[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    G_PopWnd.good("删除成功！");
+                    UserCenterQueryServlet.query(false);
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+    MakeUserCenterAddUpdateReq:function(key, id)
+    {
+        var father=UserCenterQueryServlet;
+
+        var p={};
+
+        p.id=id;
+        p.email_addr=ReplaceEnter2Space(father.root.find("[name="+key+"] [name=email_addr]").val());
+        p.email_title=father.root.find("[name="+key+"] [name=email_title]").val();
+        p.status=father.root.find("[name="+key+"] [name=status]:checked").attr('status');
+        p.keywords=ReplaceEnter2Space(father.root.find("[name="+key+"] [name=keywords]").val());
+        p.send_day_of_week=father.root.find("[name="+key+"] [name=send_day_of_week] input:checked").map(function(){
+            return $(this).attr("send_day_of_week");
+        }).get().join(',');
+
+        p.send_hour_of_day=father.root.find("[name="+key+"] [name=send_hour_of_day] input:checked").map(function(){
+            return $(this).attr("send_hour_of_day");
+        }).get().join(',');
+
+        p.ignore_empty=father.root.find("[name="+key+"] [name=ignore_empty]:checked").attr('ignore_empty');
+
+        p.project_id=GetProjectId(father.root.find(".projects[name=for_add]"));
+
+        return p;
+    },
+
+    CheckUserCenterAddUptReqValid:function(p)
+    {
+        if(! p.email_title)
+        {
+            G_PopWnd.error("请填写监控任务名称");
+            return false;
+        }
+        else if(! p.email_addr)
+        {
+            G_PopWnd.error("请填写接收邮箱地址");
+            return false;
+        }
+        else if(! IsValidEmail(p.email_addr))
+        {
+            G_PopWnd.error("请填写接收邮箱地址");
+            return false;
+        }
+        else if(! p.keywords)
+        {
+            G_PopWnd.error("请填写关注词汇");
+            return false;
+        }
+        else if(! p.send_day_of_week)
+        {
+            G_PopWnd.error("请选择推送日期");
+            return false;
+        }
+        else if(! p.send_hour_of_day)
+        {
+            G_PopWnd.error("请选择推送时间");
+            return false;
+        }
+        else if(! p.project_id)
+        {
+            G_PopWnd.error("请选择游戏");
+            return false;
+        }
+
+        return true;
+
+
+    },
+
+    UserCenterUpdateServlet:function(id)
+    {
+        var father=UserCenterQueryServlet;
+
+        var key="UserCenterUpdateServlet";
+
+        var p=father.MakeUserCenterAddUpdateReq(key, id);
+
+        if(!father.CheckUserCenterAddUptReqValid(p))
+        {
+            return;
+        }
+
+        MyPost(G_CGI_URL.usercenter[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    G_PopWnd.good("修改成功");
+                    father.cancelUpdate();
+                    father.query(false);
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+
+    UserCenterAddServlet:function()
+    {
+        var father=UserCenterQueryServlet;
+
+        var key="UserCenterAddServlet";
+
+        var p=father.MakeUserCenterAddUpdateReq(key);
+
+        if(!father.CheckUserCenterAddUptReqValid(p))
+        {
+            return;
+        }
+
+        MyPost(G_CGI_URL.usercenter[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    father.cancelAdd();
+                    father.query(true);
+                    G_PopWnd.good("添加成功");
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+    cancelAdd:function()
+    {
+        UserCenterQueryServlet.root.find("[name=UserCenterAddServlet]").hide();
+
+        UserCenterQueryServlet.root.find("[name=list]").show();
+    },
+    cancelUpdate:function()
+    {
+        UserCenterQueryServlet.root.find("[name=UserCenterUpdateServlet]").hide();
+
+        UserCenterQueryServlet.root.find("[name=list]").show();
+    },
+    AllSend_hour_of_dayClick:function(e){
+        if($(e).find(".on").length)
+        {
+            $("[name=send_hour_of_day]").each(function(){
+                DisableCheckbox($(this));
+            });
+        }
+        else
+        {
+            $("[name=send_hour_of_day]").each(function(){
+                EnableCheckbox($(this));
+            });
+        }
+    },
+    query_limit:10,
+    query_page_num:0,
+    query_page:1,
+    cur_list:[],
+    query:function(restart_over){
+
+        var key="UserCenterQueryServlet";
+
+        var father=UserCenterQueryServlet;
+
+        var done=father.root.find(".done");
+        var loading=father.root.find(".loading");
+        var failure=father.root.find(".failure");
+
+        loading.show();
+        done.hide();
+        failure.hide();
+
+        if(restart_over)
+        {
+            father.query_page=1;
+            father.query_page_num=0;
+        }
+
+        MyPost(G_CGI_URL.usercenter[key],
+                {
+                    index : (father.query_page-1)*father.query_limit,
+                    limit : father.query_limit+1
+                },
+                function()
+                {
+                    done.hide();
+                    failure.hide();
+                    loading.show();
+                },
+                function()
+                {
+                    done.show();
+                    failure.hide();
+                    loading.hide();
+                },
+                function(data)
+                {
+                    $("[name=keywords_cnt]").html(data.keywords_cnt);
+                    $("[name=user_center_cnt]").html(data.user_center_cnt);
+
+                    var list=data.get;
+
+                    father.cur_list=list;
+
+                    done.find(".common-table").find("tr:gt(0)").remove();
+
+
+                    var total_page_cnt=0;
+                    var maybe_more=true;
+
+                    if(father.query_page_num)
+                    {
+                        maybe_more=false;
+                        total_page_cnt=father.query_page_num;
+                    }
+                    else
+                    {
+                        if(list.length==0)
+                        {
+                            father.query_page_num=father.query_page;
+                            total_page_cnt=father.query_page_num;
+                            maybe_more=false;
+                        }
+                        else if(list.length<=father.query_limit)
+                        {
+                            father.query_page_num=father.query_page;
+                            total_page_cnt=father.query_page_num;
+                            maybe_more=false;
+                        }
+                        else
+                        {
+                            total_page_cnt=father.query_page+1;
+                            maybe_more=true;
+                        }
+                    }
+
+                    GenPageFooter(father.root.find(".page_footer_holder"), total_page_cnt, father.query_page,function(newpage){
+                        father.query_page=newpage;
+                        father.query(false);
+                    }, maybe_more);
+
+
+                    for(var i=0; i<list.length && i<father.query_limit; ++i) {
+                        var cur = list[i];
+
+                        cur.last_send_time = cur.last_send_time.split(".")[0];
+
+                        if(cur.last_send_time=="")
+                        {
+                            cur.last_send_time="尚未推送";
+                        }
+
+                        var row = $("<tr><td name='_id'></td><td name='project_name'></td><td name='email_title'></td><td name='keywords'></td><td name='last_send_time'></td><td name='status'></td><td></td></tr>")
+
+                        row.find("[name=_id]").html((i+1)+(father.query_page-1)*father.query_limit);
+
+                        row.find("td:last-child").append($("<div class='operate-icon del active' onclick='UserCenterQueryServlet.delete("+cur.id+")'></div>")).append($("<div class='operate-icon edit active' onclick='UserCenterQueryServlet.update("+cur.id+")'></div>"));
+
+                        row.css({
+                            'cursor':'auto'
+                        });
+
+                        // 开启
+                        if(cur.status=='1')
+                        {
+                            row.find("td:last-child").append($("<div class='operate-icon active switch on' onclick='UserCenterQueryServlet.updateStatus("+cur.id+",0)'></div>"));
+                        }
+                        else
+                        {
+                            row.find("td:last-child").append($("<div class='operate-icon active switch off' onclick='UserCenterQueryServlet.updateStatus("+cur.id+",1)'></div>"));
+                        }
+
+
+                        for (var key in cur) {
+                            if (key == 'status') {
+                                if (cur[key] == 1) {
+                                    row.find("[name=" + key + "]").html('<span style="color:#03a9f5">开启</span>');
+                                }
+                                else {
+                                    row.find("[name=" + key + "]").html('<span class="empha">关闭</span>');
+                                }
+                            }
+                            else
+                            {
+                                row.find("[name=" + key + "]").html(cur[key]);
+                            }
+                        }
+
+                        done.find(".common-table tbody").append(row);
+                    }
+
+                },
+                function()
+                {
+                    failure.show();
+                }
+        );
+    }
+};
+
+var UserFollowProjectServlet={
+    root:null,
+    init:function(){
+
+        if(UserFollowProjectServlet.root==null)
+        {
+            UserFollowProjectServlet.root=$("div[name=UserFollowProjectServlet]")
+        }
+
+        return UserFollowProjectServlet;
+    },
+    add:function()
+    {
+        G_PopWnd.dialog("关注新游戏", $("[name=UserFollowProjectAddServlet]"), "",0,'<div class="pop_wnd_tips">*关注新游戏后：我们需要进行游戏相关的信息核对，并进行数据抓取、分析工作，需要2-3天，请耐心等待客服联系</div>', 1);
+    },
+    UserFollowProjectAddServlet:function()
+    {
+        var key="UserFollowProjectAddServlet";
+
+        var project_name=$("[name="+key+"]").find("[name=project_name]").val();
+
+        if(project_name=="")
+        {
+            G_PopWnd.error("请填写游戏名称");
+            return;
+        }
+
+        var project_type=$("[name="+key+"]").find("[name=project_type]:checked").attr('project_type');
+
+        MyPost(G_CGI_URL.oc[key],
+                {
+                    project_name:project_name,
+                    project_type:project_type
+                },ShowLoading,HideLoading,
+                function()
+                {
+                    UserFollowProjectServlet.query();
+                    UserFollowProjectServlet.pop_after_add(project_name);
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+
+    },
+    pop_after_add:function(project_name)
+    {
+        $("[name=UserFollowProjectServlet_PopAfterAdd]").find("[name=project_name]").html(project_name);
+
+        for(var k in G_LOCAL_STORAGE.user.user)
+        {
+            $("[name=UserFollowProjectServlet_PopAfterAdd]").find("[name="+k+"]").html(G_LOCAL_STORAGE.user.user[k]);
+        }
+
+        G_PopWnd.dialog("温馨提示", $("[name=UserFollowProjectServlet_PopAfterAdd]"), "", 0, "", 2);
+    },
+    query:function(){
+        var key="UserFollowProjectServlet";
+
+        var father=UserFollowProjectServlet;
+
+        var done=father.root.find(".done");
+        var loading=father.root.find(".loading");
+        var failure=father.root.find(".failure");
+
+        loading.show();
+        done.hide();
+        failure.hide();
+
+        MyPost(G_CGI_URL.oc[key],
+                {
+                    project_id:0
+                },
+                function()
+                {
+                    done.hide();
+                    failure.hide();
+                    loading.show();
+                },
+                function()
+                {
+                    done.show();
+                    failure.hide();
+                    loading.hide();
+                },
+                function(data)
+                {
+                    var list=data.get_user_proj;
+
+                    var list_user_center=data.get_user_center_follow;
+
+                    var list_get_monitor_task_log_follow=data.get_monitor_task_log_follow;
+
+                    done.find("[name=status0]:gt(0)").remove();
+                    done.find("[name=status1]:gt(0)").remove();
+                    done.find("[name=status_1]:gt(0)").remove();
+
+                    var followed_project_cnt=0;
+
+                    var to_be_followed_project_cnt=0;
+
+                    var status0=done.find("[name=status0]:eq(0)");
+                    var status1=done.find("[name=status1]:eq(0)");
+                    var status_1=done.find("[name=status_1]:eq(0)");
+
+                    for(var i=0; i<list.length; ++i)
+                    {
+                        if(list[i].status==0)
+                        {
+                            to_be_followed_project_cnt++;
+
+                            var _status0=status0.clone().show();
+
+                            for(var k in list[i])
+                            {
+                                if(k=="project_id")
+                                {
+                                    var project_id=list[i][k];
+
+                                    _status0.attr("project_id", project_id);
+                                    _status0.find("[name=project_img]").attr("src", "img/project/"+project_id+".png");
+                                }
+                                else if(k=="follow_time")
+                                {
+                                    var follow_time=list[i][k].split(" ")[0];
+
+                                    _status0.find("[name=estimate_status_time]").html(G_DATE.GetDateByDiffDate(follow_time,2))
+
+                                    _status0.find("[name="+k+"]").html(follow_time);
+                                }
+                                else
+                                {
+                                    _status0.find("[name="+k+"]").html(list[i][k]);
+                                }
+                            }
+
+                            done.append(_status0);
+                        }
+                        else if(list[i].status==1)
+                        {
+                            followed_project_cnt++;
+
+                            var _status1=status1.clone().show();
+
+                            for(var k in list[i])
+                            {
+                                if(k=="project_id")
+                                {
+                                    var project_id=list[i][k];
+
+                                    _status1.attr("project_id", project_id);
+                                    _status1.find("[name=project_img]").attr("src", "img/project/"+project_id+".png");
+                                    _status1.find("[name=forum]").click((function(project_id){return function(){
+                                        JumpUrl("forum.html?project_id="+project_id, true);
+                                    }})(project_id));
+                                    _status1.find("[name=channel]").click((function(project_id){return function(){
+                                        JumpUrl("channel.html?project_id="+project_id, true);
+                                    }})(project_id));
+                                }
+                                else if(k=="follow_time")
+                                {
+                                    _status1.find("[name="+k+"]").html(list[i][k].split(" ")[0]);
+                                }
+                                else
+                                {
+                                    _status1.find("[name="+k+"]").html(list[i][k]);
+                                }
+                            }
+
+                            done.append(_status1);
+                        }
+                        else
+                        {
+                            var _status_1=status_1.clone().show();
+
+                            for(var k in list[i])
+                            {
+                                if(k=="project_id")
+                                {
+                                    var project_id=list[i][k];
+
+                                    _status_1.attr("project_id", project_id);
+                                    _status_1.find("[name=project_img]").attr("src", "img/project/"+project_id+".png");
+                                }
+                                else if(k=="follow_time")
+                                {
+                                    var follow_time=list[i][k].split(" ")[0];
+                                    _status_1.find("[name="+k+"]").html(follow_time);
+                                }
+                                else
+                                {
+                                    _status_1.find("[name="+k+"]").html(list[i][k]);
+                                }
+                            }
+
+                            done.append(_status_1);
+                        }
+                    }
+
+                    $("[name=followed_project_cnt]").html(followed_project_cnt);
+
+                    $("[name=to_be_followed_project_cnt]").html(to_be_followed_project_cnt);
+
+                    for(var i=0; i<list_user_center.length; ++i)
+                    {
+                        var project_id=list_user_center[i].project_id;
+
+                        var item=done.find("[name=status1][project_id="+project_id+"]");
+
+                        if(list_user_center[i].type=="1")
+                        {
+                            item.find("[name=cnt_type_1]").html(list_user_center[i].cnt);
+                        }
+                        else if(list_user_center[i].type=="0")
+                        {
+                            item.find("[name=cnt_type_0]").html(list_user_center[i].cnt);
+                        }
+                    }
+
+                    for(var i=0; i<list_get_monitor_task_log_follow.length; ++i)
+                    {
+                        var project_id=list_get_monitor_task_log_follow[i].project_id;
+
+                        var item=done.find("[name=status1][project_id="+project_id+"]");
+
+                        var task_cnt_yesterday=parseInt(item.find("[name=task_cnt_yesterday]").html());
+
+                        var task_cnt_today=parseInt(item.find("[name=task_cnt_today]").html());
+
+                        var send_time=list_get_monitor_task_log_follow[i].send_time;
+
+                        if(send_time>=G_DATE.GetDate(0))
+                        {
+                            task_cnt_today++;
+                        }
+                        else
+                        {
+                            task_cnt_yesterday++;
+                        }
+
+                        item.find("[name=task_cnt_today]").html(task_cnt_today);
+                        item.find("[name=task_cnt_yesterday]").html(task_cnt_yesterday);
+
+                    }
+
+                },
+                function()
+                {
+                    failure.show();
+                }
+        );
+    }
+};
+
+var ProjectDataSourceServlet={
+    root:null,
+    cur_list:[],
+    query_page:1,
+    query_page_num:0,
+    query_limit:10,
+
+    init:function(){
+
+        if(ProjectDataSourceServlet.root==null)
+        {
+            ProjectDataSourceServlet.root=$("div[name=ProjectDataSourceServlet]")
+        }
+
+        var projects=$(".projects[name=example]").clone().attr("name","for_query");
+
+        ProjectDataSourceServlet.root.find("[name=choose_project].for_query").append(projects.show());
+
+        return ProjectDataSourceServlet;
+    },
+    initAfterGenProjects:function(){
+
+        if(ProjectDataSourceServlet.root==null)
+        {
+            ProjectDataSourceServlet.root=$("div[name=ProjectDataSourceServlet]")
+        }
+
+        var projects=ProjectDataSourceServlet.root.find("[name=for_query]");
+
+        projects.find(".item").click(function(){
+            ProjectDataSourceServlet.query(true);
+        });
+
+        return ProjectDataSourceServlet;
+    },
+    add:function()
+    {
+        var _e=$("[name=ProjectDataSourceAddServlet]");
+
+        var father=ProjectDataSourceServlet;
+
+        var project_name=father.root.find(".projects[name=for_query] .item.chosen").attr("project_name");
+
+        _e.find("[name=choose_project]").html(project_name);
+
+        G_PopWnd.dialog("添加游戏论坛", _e, "", 0, '<div class="pop_wnd_tips">*我们可以为您关注的游戏产品接入更多论坛分析采样数据源，以提供更精确的分析结果</div>',1);
+
+        _e.find("button.confirm").unbind("click").click(function(){
+            ProjectDataSourceServlet.ProjectDataSourceAddServlet();
+        });
+    },
+    update:function(id)
+    {
+        var row=ProjectDataSourceServlet.findInCurList(id);
+
+        var _e=$("[name=ProjectDataSourceUpdateServlet]");
+
+        var father=ProjectDataSourceServlet;
+
+        var project_name=father.root.find(".projects[name=for_query] .item.chosen").attr("project_name");
+
+        _e.find("[name=choose_project]").html(project_name);
+
+        for(var k in row)
+        {
+            var e=_e.find("[name="+k+"]");
+
+            $(e).val(row[k]);
+        }
+
+        G_PopWnd.dialog("修改游戏数据源", _e, "", 0, "", 3);
+
+        _e.find("button.confirm").unbind("click").click(function(){
+            ProjectDataSourceServlet.ProjectDataSourceUpdateServlet(id);
+        });
+
+    },
+    delete:function(id,forum_name)
+    {
+        var father=ProjectDataSourceServlet;
+
+        forum_name="";
+
+        var cur=father.findInCurList(id);
+        if(cur)
+        {
+            forum_name=cur.forum_name;
+        }
+
+        G_PopWnd.confirm("确实要删除数据来源【"+forum_name+"】么？", function(){
+            father.ProjectDataSourceDelServlet(id);
+        })
+    },
+
+    MakeProjectDataSourceUpdateReq:function(id)
+    {
+        var key="ProjectDataSourceAddServlet";
+        var p={};
+
+        if(id)
+        {
+            key="ProjectDataSourceUpdateServlet";
+            p.id=id;
+        }
+
+        var father=ProjectDataSourceServlet;
+        p.project_id=GetProjectId(father.root.find(".projects[name=for_query]"));
+        p.forum_name=$("[name="+key+"] [name=forum_name]").val();
+        p.forum_url=$("[name="+key+"] [name=forum_url]").val();
+
+        return p;
+    },
+    CheckProjectDataSourceAddUptReqValid:function(p)
+    {
+        if(! p.forum_name)
+        {
+            G_PopWnd.error("请填写论坛名称");
+            return false;
+        }
+        if(! p.project_id)
+        {
+            G_PopWnd.error("请选择游戏");
+            return false;
+        }
+        else if(! p.forum_url)
+        {
+            G_PopWnd.error("请填写数据源");
+            return false;
+        }
+
+        return true;
+    },
+    ProjectDataSourceAddServlet:function()
+    {
+        var father=ProjectDataSourceServlet;
+
+        var key="ProjectDataSourceAddServlet";
+
+        var p=father.MakeProjectDataSourceUpdateReq(0);
+
+        if(!father.CheckProjectDataSourceAddUptReqValid(p))
+        {
+            return;
+        }
+
+        MyPost(G_CGI_URL.oc[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    layer.closeAll();
+                    G_PopWnd.good("添加成功");
+                    father.query(false);
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+
+    ProjectDataSourceUpdateServlet:function(id)
+    {
+        var father=ProjectDataSourceServlet;
+
+        var key="ProjectDataSourceUpdateServlet";
+
+        var p=father.MakeProjectDataSourceUpdateReq(id);
+
+        if(!father.CheckProjectDataSourceAddUptReqValid(p))
+        {
+            return;
+        }
+
+        MyPost(G_CGI_URL.oc[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    layer.closeAll();
+                    G_PopWnd.good("修改成功");
+                    father.query(false);
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+    ProjectDataSourceDelServlet:function(id)
+    {
+        var father=ProjectDataSourceServlet;
+
+        var key="ProjectDataSourceDelServlet";
+
+        var p={id:id,project_id:0};
+
+        MyPost(G_CGI_URL.oc[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    G_PopWnd.good("删除成功！");
+                    father.query(false);
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+    findInCurList:function(id)
+    {
+        var father=ProjectDataSourceServlet;
+        for(var i=0; i<father.cur_list.length; ++i)
+        {
+            if(father.cur_list[i].id==id)
+            {
+                return father.cur_list[i];
+            }
+        }
+
+        return null;
+    },
+    query:function(restart_over){
+        var key="ProjectDataSourceServlet";
+
+        var father=ProjectDataSourceServlet;
+
+        var done=father.root.find(".done");
+        var loading=father.root.find(".loading");
+        var failure=father.root.find(".failure");
+
+        loading.show();
+        done.hide();
+        failure.hide();
+
+        if(restart_over)
+        {
+            father.query_page=1;
+            father.query_page_num=0;
+        }
+
+        MyPost(G_CGI_URL.oc[key],
+                {
+                    project_id:GetProjectId(father.root.find(".projects[name=for_query]")),
+                    index : (father.query_page-1)*father.query_limit,
+                    limit : father.query_limit+1
+                },
+                function()
+                {
+                    done.hide();
+                    failure.hide();
+                    loading.show();
+                },
+                function()
+                {
+                    done.show();
+                    failure.hide();
+                    loading.hide();
+                },
+                function(data)
+                {
+
+                    $("[name=data_source_project_cnt]").html(data.data_source_project_cnt);
+
+                    $("[name=data_source_cnt_status_1]").html(data.data_source_cnt_status_1);
+                    $("[name=data_source_cnt_status_0]").html(data.data_source_cnt_status_0);
+
+
+
+                    var list=data.get;
+
+                    father.cur_list=list;
+
+                    done.find(".common-table").find("tr:gt(0)").remove();
+
+                    var total_page_cnt=0;
+                    var maybe_more=true;
+
+                    if(father.query_page_num)
+                    {
+                        maybe_more=false;
+                        total_page_cnt=father.query_page_num;
+                    }
+                    else
+                    {
+                        if(list.length==0)
+                        {
+                            father.query_page_num=father.query_page;
+                            total_page_cnt=father.query_page_num;
+                            maybe_more=false;
+                        }
+                        else if(list.length<=father.query_limit)
+                        {
+                            father.query_page_num=father.query_page;
+                            total_page_cnt=father.query_page_num;
+                            maybe_more=false;
+                        }
+                        else
+                        {
+                            total_page_cnt=father.query_page+1;
+                            maybe_more=true;
+                        }
+                    }
+
+                    GenPageFooter(father.root.find(".page_footer_holder"), total_page_cnt, father.query_page,function(newpage){
+                        father.query_page=newpage;
+                        father.query(false);
+                    }, maybe_more);
+
+
+                    for(var i=0; i<list.length && i<father.query_limit; ++i) {
+                        var cur = list[i];
+
+                        cur.last_update_time = cur.last_update_time.split(".")[0];
+
+                        var row = $("<tr><td name='_id'></td><td name='forum_name'></td><td name='forum_url'></td><td name='last_update_time'></td><td name='status'></td><td></td></tr>")
+
+                        row.find("[name=_id]").html((i+1)+(father.query_page-1)*father.query_limit);
+
+                        row.find("td:last-child").append($("<div class='operate-icon del active' onclick='ProjectDataSourceServlet.delete("+cur.id+")'></div>")).append($("<div class='operate-icon edit active' onclick='ProjectDataSourceServlet.update("+cur.id+")'></div>"));
+
+                        row.css({
+                            'cursor':'auto'
+                        });
+
+                        // 审核成功
+                        if(cur.status==1)
+                        {
+                            row.find("td:last-child").html('');
+                        }
+
+                        for (var key in cur) {
+                            if (key == 'status') {
+                                if (cur[key] == 1) {
+                                    row.find("[name=" + key + "]").html('<span style="color:#03a9f5">审核通过</span>');
+                                }
+                                else if (cur[key] == 0) {
+                                    row.find("[name=" + key + "]").html('待审核');
+                                }
+                                else {
+                                    row.find("[name=" + key + "]").html('<span class="empha">审核未通过</span>');
+                                }
+                            }
+                            else
+                            {
+                                row.find("[name=" + key + "]").html(cur[key]);
+                            }
+                        }
+
+                        done.find(".common-table tbody").append(row);
+                    }
+
+                },
+                function()
+                {
+                    failure.show();
+                }
+        );
+    }
+}
+
+var GasWordsClassifysServlet={
+
+    root:null,
+    cur_list:[],
+    query_page:1,
+    query_page_num:0,
+    query_limit:10,
+    cur_keywords_index_limit_of_classify_id:{},
+    init:function(){
+
+        if(GasWordsClassifysServlet.root==null)
+        {
+            GasWordsClassifysServlet.root=$("div[name=GasWordsClassifysServlet]")
+        }
+
+        var projects=$(".projects[name=example]").clone().attr("name","for_query");
+
+        GasWordsClassifysServlet.root.find("[name=choose_project].for_query").append(projects.show());
+
+        return GasWordsClassifysServlet;
+    },
+    initAfterGenProjects:function(){
+
+        if(GasWordsClassifysServlet.root==null)
+        {
+            GasWordsClassifysServlet.root=$("div[name=GasWordsClassifysServlet]")
+        }
+
+        var projects=GasWordsClassifysServlet.root.find("[name=for_query]");
+
+        projects.find(".item").click(function(){
+            GasWordsClassifysServlet.query(true);
+        });
+
+        return GasWordsClassifysServlet;
+    },
+
+    deleteWord:function(e)
+    {
+        var classify_id=$(e).attr('classify_id');
+        var word_id=$(e).attr('word_id');
+
+        var div=$("[name=GasWordsServlet][classify_id="+classify_id+"]");
+
+        div.find(".with-delete").removeClass("with-delete");
+
+        div.find(".delete").remove();
+
+        var keyword=$(e).html();
+
+        $(e).addClass("with-delete").append($('<span class="delete" title="删除关键词" onclick="GasWordsClassifysServlet.GasWordsDelServlet(this)">×</span>').attr('classify_id', classify_id).attr('word_id', word_id).attr('keyword',keyword));
+    },
+
+    GasWordsDelServlet:function(e)
+    {
+        var classify_id=$(e).attr('classify_id');
+        var keyword=$(e).attr('keyword');
+        var word_id=$(e).attr('word_id');
+
+        var father=this;
+
+        G_PopWnd.confirm("确实要删除词汇【"+keyword+"】吗？", function(){
+            MyPost(G_CGI_URL.oc.GasWordsDelServlet,
+                    {
+                        project_id:GetProjectId(father.root.find(".projects[name=for_query]")),
+                        classify_id:classify_id,
+                        word_id:word_id
+                    },
+                    ShowLoading, HideLoading,
+                    function(){
+                        father.root.find("[name=keywords]").find("[word_id="+word_id+"]").remove();
+                        father.cur_keywords_index_limit_of_classify_id[classify_id].index>0 ?
+                        father.cur_keywords_index_limit_of_classify_id[classify_id].index--:0;
+                        var e_number=father.root.find("[name=word_number][classify_id="+classify_id+"]");
+                        word_number=parseInt(e_number.html());
+                        word_number--;
+                        e_number.html(word_number);
+                    },
+                    function(){
+                        G_PopWnd.error("操作失败！");
+                    });
+        });
+    },
+
+    addKeywords:function(classify_id)
+    {
+        var _e=$("[name=GasWordsClassifysAddServlet]");
+
+        var father=GasWordsClassifysServlet;
+
+        var project_name=father.root.find(".projects[name=for_query] .item.chosen").attr("project_name");
+
+        _e.find("[name=choose_project]").html(project_name);
+
+        _e.find("input,textarea").val("");
+
+        _e.find("[name=s_classify_name]").html(father.findInCurList(classify_id).classify_name).show();
+
+        _e.find("[name=classify_name]").val(father.findInCurList(classify_id).classify_name).hide();
+
+        _e.find("button.confirm").unbind('click').click(function(){
+            GasWordsClassifysServlet.GasWordsClassifysAddServlet(classify_id);
+        });
+
+        G_PopWnd.dialog("添加词汇", _e, "", 0, '<div class="pop_wnd_tips">*已有的相同的词汇不会被重复添加~</div>',1);
+    },
+
+
+
+    add:function()
+    {
+        var _e=$("[name=GasWordsClassifysAddServlet]");
+
+        var father=GasWordsClassifysServlet;
+
+        var project_name=father.root.find(".projects[name=for_query] .item.chosen").attr("project_name");
+
+        _e.find("[name=choose_project]").html(project_name);
+
+        _e.find("input,textarea").val("");
+
+        _e.find("[name=classify_name]").show();
+
+        _e.find("[name=s_classify_name]").hide();
+
+        _e.find("button.confirm").unbind('click').click(function(){
+            GasWordsClassifysServlet.GasWordsClassifysAddServlet();
+        });
+
+        G_PopWnd.dialog("添加新分类", _e, "", 0, '<div class="pop_wnd_tips">*您提交的分类和词汇用于提高数据分析结果的准确性和相关度，所以多多益善哦~</div>',1);
+
+    },
+    query_keywords:function(classify_id, e){
+
+        var words_div=$("[name=GasWordsServlet][classify_id="+classify_id+"]");
+
+        words_div.find("[name=more]").unbind('click').click(function(){
+            GasWordsClassifysServlet.query_keywords(classify_id);
+        });
+
+        var keyword=words_div.find("input[name=search]").val();
+
+        words_div.find("button[name=search]").unbind('click').click(function(){
+            GasWordsClassifysServlet.cur_keywords_index_limit_of_classify_id[classify_id].index=0;// 从头开始
+            words_div.find("[name=keywords]").children().remove();
+            GasWordsClassifysServlet.query_keywords(classify_id, null);
+        });
+
+
+
+        if(e)
+        {
+            var _next_row=$(e).closest('div').parent().next('div');
+
+            if($(e).hasClass("chosen"))
+            {
+                $(e).removeClass("chosen");
+                words_div.slideUp();
+                _next_row.css({
+                    'border-top':'1px dashed #dee3eb'
+                });
+                return;
+            }
+            else
+            {
+                words_div.slideDown();
+                _next_row.css({
+                    'border-top':'0px'
+                });
+                $(e).addClass("chosen");
+
+                if(words_div.find("[name=keywords] span").length)
+                {
+                    return;
+                }
+            }
+        }
+
+
+
+        var father=this;
+
+        if(! (classify_id in father.cur_keywords_index_limit_of_classify_id) ) // 不可能出现这种情况
+        {
+            return;
+        }
+
+        var index=father.cur_keywords_index_limit_of_classify_id[classify_id].index;
+        var limit=father.cur_keywords_index_limit_of_classify_id[classify_id].limit;
+
+        var key="GasWordsServlet";
+
+        MyPost(G_CGI_URL.oc[key],
+                {
+                    project_id:GetProjectId(father.root.find(".projects[name=for_query]")),
+                    index : index,
+                    limit : limit,
+                    keyword:keyword,
+                    classify_id:classify_id
+                },
+                ShowLoading,
+                HideLoading,
+                function(data)
+                {
+                    var list=data.get;
+
+                    father.cur_keywords_index_limit_of_classify_id[classify_id].index+=list.length;
+
+                    if(list.length<limit)
+                    {
+                        words_div.find("[name=more]").hide();
+                        words_div.find("[name=nomore]").show();
+                    }
+                    else
+                    {
+                        words_div.find("[name=more]").show();
+                        words_div.find("[name=nomore]").hide();
+                    }
+
+                    for(var i=0; i<list.length; ++i)
+                    {
+                        words_div.find("[name=keywords]").append('<span class="cp" style="display:inline-block;padding:5px;margin:5px" classify_id='+classify_id+' word_id='+list[i].word_id+' onclick="GasWordsClassifysServlet.deleteWord(this)">'+list[i].keyword+'</span>');
+                    }
+
+                },
+                function()
+                {
+                    G_PopWnd.error("加载失败！");
+                }
+        );
+    },
+    query:function(restart_over)
+    {
+        var key="GasWordsClassifysServlet";
+
+        var father=this;
+
+        var done=father.root.find(".done");
+        var loading=father.root.find(".loading");
+        var failure=father.root.find(".failure");
+
+        loading.show();
+        done.hide();
+        failure.hide();
+
+        if(restart_over)
+        {
+            father.query_page=1;
+            father.query_page_num=0;
+        }
+
+        MyPost(G_CGI_URL.oc[key],
+            {
+                project_id:GetProjectId(father.root.find(".projects[name=for_query]")),
+                index : (father.query_page-1)*father.query_limit,
+                limit : father.query_limit+1
+            },
+            function()
+            {
+                done.hide();
+                failure.hide();
+                loading.show();
+            },
+            function()
+            {
+                done.show();
+                failure.hide();
+                loading.hide();
+            },
+            function(data)
+            {
+                $("[name=followed_word_classify_project_number]").html(data.followed_word_classify_project_number);
+
+                $("[name=followed_word_classify_number]").html(data.followed_word_classify_number);
+
+                $("[name=followed_word_number]").html(data.followed_word_number);
+
+                var list=data.get;
+
+                father.cur_list=list;
+
+                father.cur_keywords_index_limit_of_classify_id={};
+
+                for(var i=0; i<list.length; ++i)
+                {
+                    father.cur_keywords_index_limit_of_classify_id[list[i].classify_id]={
+                        index:0,
+                        limit:100
+                    };
+                }
+
+                done.find(".common-table").html("");
+
+                var total_page_cnt=0;
+                var maybe_more=true;
+
+                if(father.query_page_num)
+                {
+                    maybe_more=false;
+                    total_page_cnt=father.query_page_num;
+                }
+                else
+                {
+                    if(list.length==0)
+                    {
+                        father.query_page_num=father.query_page;
+                        total_page_cnt=father.query_page_num;
+                        maybe_more=false;
+                    }
+                    else if(list.length<=father.query_limit)
+                    {
+                        father.query_page_num=father.query_page;
+                        total_page_cnt=father.query_page_num;
+                        maybe_more=false;
+                    }
+                    else
+                    {
+                        total_page_cnt=father.query_page+1;
+                        maybe_more=true;
+                    }
+                }
+
+                GenPageFooter(done.find(".page_footer_holder"), total_page_cnt, father.query_page,function(newpage){
+                    father.query_page=newpage;
+                    father.query(false);
+                }, maybe_more);
+
+
+                for(var i=0; i<list.length && i<father.query_limit; ++i) {
+                    var cur = list[i];
+
+                    cur.last_update_time = cur.last_update_time.split(".")[0];
+
+                    var _id=(i+1)+(father.query_page-1)*father.query_limit;
+
+                    var _row = $("<div style='line-height:56px;height:56px'></div>")
+                            .append($("<span style='width:180px;' class='text-overflow-ellipsis'>"+_id+"、"+cur.classify_name+"</span>"))
+                            .append($("<span style='width:180px;' class='text-overflow-ellipsis font-theme-3'></span>").append($("<span>已添加词汇</span>"))
+                                    .append($("<span class='empha' name='word_number' classify_id="+cur.classify_id+">"+cur.word_number+"</span>"))
+                                    .append($("<span>个</span>")))
+                            .append($("<span style='width:280px;' class='text-overflow-ellipsis font-theme-3'>最后更新时间："+cur.last_update_time+"</span>"))
+                            .append($("<span class='fr'></span>").append($("<span class='cp words-classifys-icon del bl active' style='background-size:20px' onclick='GasWordsClassifysServlet.delete("+cur.classify_id+")'>删除分类</span>"))
+                                    .append($("<span class='cp words-classifys-icon result bl active' style='background-size:20px' onclick='GasWordsClassifysServlet.query_keywords("+cur.classify_id+", this)'>查看词汇</span>"))
+                                    .append($("<span class='cp words-classifys-icon add bl active' style='background-size:20px' onclick='GasWordsClassifysServlet.addKeywords("+cur.classify_id+")'>添加词汇</span>")));
+
+                    var row=$("<div style='border-top:1px dashed #dee3eb;'></div>").append(_row);
+                    row.append($('<div name="GasWordsServlet" classify_id='+cur.classify_id+' style="display:none;margin-top:10px;" ><div style="padding:10px;background-color:#e0e4e8;"><input class="oc-input" placeholder="模糊搜索" name="search"/><button class="confirm" name="search" style="margin-left:20px">搜索</button><span style="font-size:12px">&nbsp;&nbsp;&nbsp;&nbsp;*只支持单个关键词匹配搜索</span></div><div style="border:1px solid #dee3eb;margin-bottom:10px;height:160px;overflow-y:scroll;"><div name="keywords" style="min-height:120px"></div><div name="more" class="cp tc" style="font-size:12px;line-height:40px;">加载更多</div><div name="nomore" style="display:none;width:100%;font-size:12px;line-height:40px" class="tc font-theme-3">没有更多</div></div></div>'));
+
+                    done.find(".common-table").append(row);
+                }
+
+            },
+            function()
+            {
+                failure.show();
+            }
+    );
+    },
+
+
+    delete:function(classify_id,classify_name)
+    {
+        classify_name="";
+
+        var cur=GasWordsClassifysServlet.findInCurList(classify_id);
+        if(cur)
+            classify_name=cur.classify_name;
+
+        G_PopWnd.confirm("确实要删除分类【"+classify_name+"】么？", function(){
+            GasWordsClassifysServlet.GasWordsClassifysDelServlet(classify_id);
+        })
+    },
+    findInCurList:function(classify_id)
+    {
+        for(var i=0; i<GasWordsClassifysServlet.cur_list.length; ++i)
+        {
+            if(GasWordsClassifysServlet.cur_list[i].classify_id==classify_id)
+            {
+                return GasWordsClassifysServlet.cur_list[i];
+            }
+        }
+
+        return null;
+    },
+    GasWordsClassifysDelServlet:function(classify_id)
+    {
+        var key="GasWordsClassifysDelServlet";
+
+        var p={classify_id:classify_id,project_id:0};
+
+        MyPost(G_CGI_URL.oc[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    G_PopWnd.good("删除成功！");
+                    GasWordsClassifysServlet.query(false);
+                },
+                function(data, msg)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+    GasWordsClassifysAddServlet:function(classify_id)
+    {
+        var father=this;
+        var _e=$("[name=GasWordsClassifysAddServlet]");
+        var classify_name=_e.find("[name=classify_name]").val().trim();
+        var keywords=_e.find("[name=keywords]").val().trim().replace(/\s/g, ' ').replace(/\s+/g, ' ');
+
+        var key="GasWordsClassifysAddServlet";
+
+        var ar=keywords.split(" ");
+        var word_number=0;
+        if(ar[0]!="")
+            word_number=keywords.split(" ").length;
+
+        if(word_number==0)
+        {
+            G_PopWnd.error("请输入词汇");
+            return;
+        }
+
+        if(classify_name=="")
+        {
+            G_PopWnd.error("请填写所属分类");
+            return;
+        }
+
+        var p={
+            word_number:word_number,
+            classify_name:classify_name,
+            keywords:keywords,
+            project_id:GetProjectId(father.root.find(".projects[name=for_query]"))
+        };
+
+        if(classify_id)
+        {
+            p.classify_id=classify_id;
+        }
+
+        MyPost(G_CGI_URL.oc[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    layer.closeAll();
+                    G_PopWnd.good("添加成功");
+                    father.query(false);
+                },
+                function(data, msg)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    }
+};
+
+$(onLoad);
+</script>
+</head>
+<body>
+
+
+<div class="projects" name="example" style="position:relative;display:none;width:200px;padding-left:0;border:none">
+    <div class="main-bar oc-input" ><span name="project_name">请选择游戏</span></div>
+    <div class="projects-selector arrow-pop close_when_mouse_down" style="top:40px;right:0;display:none">
+        <div class="top-arrow" style="position:absolute;left:90px"></div>
+        <div class="items">
+            <div class="item chosen"><div class="icon fl"></div>NBA2000</div><div class="item"><div class="icon fl"></div>NBA2000</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="major-w ma">
+
+    <table style="margin-top:32px;width:100%;margin-bottom:32px;min-height:750px">
+        <tbody>
+            <tr>
+                <td class="left-bar" style="vertical-align:top">
+                    <div class="hdr" style="margin-top:10px">首页</div>
+                    <button name="Mid" class="chosen">首页概览</button>
+                    <div class="hdr" >我的配置</div>
+                    <button name="UserFollowProjectServlet">我的游戏</button>
+                    <button name="GasWordsClassifysServlet">游戏词汇</button>
+                    <button name="UserCenterQueryServlet">舆情监控</button>
+                    <button name="ProjectDataSourceServlet">添加论坛</button>
+                    <div class="hdr" >账户信息</div>
+                    <button name="UserServlet">基本资料</button>
+                    <button name="ChangePasswordServlet">修改密码</button>
+                </td>
+                <td style="vertical-align:top;min-height:400px;" class="right-bar">
+                    <div style="margin-left:30px;font-size:14px" name="cont">
+
+                        <div name="Mid">
+                            <table class="w100" style="border:1px solid #dee3eb;">
+                                <tbody>
+                                <tr>
+                                    <td class="tc vt">
+                                        <img class="mid-icon-1" src="img/oc/mid/1_03.png"/>
+                                        <div>已关注<span class="empha with-space" name="followed_project_cnt">0</span>款游戏</div>
+                                        <div class="mid-sub-info">有<span class="empha with-space" name="to_be_followed_project_cnt">0</span>个关注的游戏正在审核中</div>
+                                    </td>
+                                    <td class="tc vt">
+                                        <img class="mid-icon-1" src="img/oc/mid/1_05.png"/>
+                                        <div>已为<span class="empha with-space" name="followed_word_classify_project_number">0</span>款游戏添加<span class="empha with-space" name="followed_word_classify_number">0</span>个分类</div>
+                                        <div class="mid-sub-info">共计<span class="empha with-space" name="followed_word_number">0</span>个词汇</div>
+                                    </td>
+                                    <td class="tc vt">
+                                        <img class="mid-icon-1" src="img/oc/mid/1_07.png"/>
+                                        <div>已配置<span class="empha with-space" name="user_center_cnt">0</span>个监控任务</div>
+                                        <div class="mid-sub-info">共监控<span class="empha with-spacea" name="keywords_cnt">0</span>个关键词</div>
+                                    </td>
+                                    <td class="tc vt">
+                                        <img class="mid-icon-1" src="img/oc/mid/1_09.png"/>
+                                        <div>已为<span class="empha with-space" name="data_source_project_cnt">0</span>款游戏添加<span class="empha with-space" name="data_source_cnt_status_1">0</span>个数据源</div>
+                                        <div class="mid-sub-info">其中<span class="empha with-space" name="data_source_cnt_status_0">0</span>个数据源正在审核中</div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="hdr">管理中心功能概述</div>
+                            <table class="w100 mid">
+                                <tbody>
+                                <tr>
+                                    <td style="padding:20px">
+
+                                        <table class="mid-desc">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img class="mid-icon-2" src="img/oc/mid/1.png" />
+                                                    <div class="tc" style="margin-bottom:6px;"><button class="w100" onclick="$('.left-bar').find('[name=UserFollowProjectServlet]').click()">我要关注游戏</button></div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">我的游戏</div>
+                                                    <div class="desc">您可以申请添加关注的游戏，审核通过后，您可以享受以下服务：</div>
+                                                    <div class="desc">1、查看游戏论坛报表、渠道报表；</div>
+                                                    <div class="desc">2、查看论坛及渠道的评论；</div>
+                                                    <div class="desc">3、添加关键词进行舆情监控；</div>
+                                                    <div class="desc">4、添加多个数据源；</div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                    <td style="padding:20px">
+
+                                        <table class="mid-desc">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img class="mid-icon-2" src="img/oc/mid/2.png" />
+                                                    <div class="tc" style="margin-bottom:6px;"><button class="w100" onclick="$('.left-bar').find('[name=GasWordsClassifysServlet]').click()">我要添加词汇</button></div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">游戏词汇</div>
+                                                    <div class="desc">您可以为您关注的游戏添加词汇及分类词汇，以便我们为您提供更精准的分析结果，更贴合您的需求：</div>
+                                                    <div class="desc">您可以进行如下操作：</div>
+                                                    <div class="desc">1、增、删、改、查分类和词汇；</div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:20px">
+
+                                        <table class="mid-desc">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img class="mid-icon-2" src="img/oc/mid/3.png" />
+                                                    <div class="tc" style="margin-bottom:6px;"><button class="w100" onclick="$('.left-bar').find('[name=UserCenterQueryServlet]').click()">我要添加监控任务</button></div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">舆情监控</div>
+                                                    <div class="desc">您可以配置多个舆情监控任务，进行关键词监控，我们将根据您所设置的推送频率为您推送监控结果：</div>
+                                                    <div class="desc">您可以设置如下内容：</div>
+                                                    <div class="desc">1、监控任务相关信息；</div>
+                                                    <div class="desc">2、设置推动任务的开启状态；</div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                    <td style="padding:20px">
+
+                                        <table class="mid-desc">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img class="mid-icon-2" src="img/oc/mid/4.png" />
+                                                    <div class="tc" style="margin-bottom:6px;"><button class="w100" onclick="$('.left-bar').find('[name=ProjectDataSourceServlet]').click()">我要添加论坛</button></div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">添加论坛</div>
+                                                    <div class="desc">您可以为您关注的游戏添加游戏论坛，有助于我们为您提供更精确，更专业的分析结果，您可以进行如下操作：</div>
+                                                    <div class="desc">您可以进行如下操作：</div>
+                                                    <div class="desc">1、查看游戏对应的论坛；</div>
+                                                    <div class="desc">2、编辑论坛相关信息；</div>
+                                                    <div class="desc">3、删除或新增论坛；</div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div name="UserFollowProjectServlet" style="display:none">
+
+                            <div name="UserFollowProjectServlet_PopAfterAdd" style="display:none;width:400px;font-size:14px;line-height:2em">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尊敬的<span name="nick_name"></span>，您对游戏“<span name="project_name"></span>”的关注申请已经提交，我们将尽快与您核实，请确保您的手机号<span name="mobile"></span>保持通畅。
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;感谢您的支持！</div>
+                                <div class="tc" style="margin-top:10px"><button class="confirm" onclick="layer.closeAll()">关闭</button></div>
+                            </div>
+
+                            <div name="UserFollowProjectAddServlet" style="display:none;width:650px;font-size:14px;line-height:3em">
+                                <table class="pop_add w100">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            游戏名称：
+                                        </td>
+                                        <td>
+                                            <input type="text" placeholder="请输入" class="oc-input" name="project_name" style="width:90%"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            游戏类型：
+                                        </td>
+                                        <td>
+                                            <span style="margin-right:50px" class="radiobox" _attr_name=project_type _attr_val=0 name="project_type" _checked="true">手游</span>
+                                            <span style="margin-right:50px" class="radiobox" _attr_name=project_type _attr_val=1 name="project_type">页游</span>
+                                            <span style="margin-right:50px" class="radiobox" _attr_name=project_type _attr_val=2 name="project_type">端游</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <button class="confirm" onclick="UserFollowProjectServlet.UserFollowProjectAddServlet()">确认提交</button><button style="margin-left:40px" class="cancel" onclick="layer.closeAll()">取消添加</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+
+
+                            <div class="cont-title-bar" style="border:none;">
+                                <span class="font-theme-2">您已经关注了</span><span class="empha" name="followed_project_cnt">0</span><span class="font-theme-2">款游戏</span>&nbsp;&nbsp;<span class="font-theme cp" onclick="UserFollowProjectServlet.query(true)">[刷新]</span>
+                                <span class="fr cp" onclick="UserFollowProjectServlet.add()">+&nbsp;关注游戏</span>
+                            </div>
+                            <div class="loading"></div>
+
+                            <div class="failure"></div>
+
+                            <div name="list" class="done">
+
+                                <table name="status0" class="w100 follow-status" style="display:none">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <img name="project_img" src="img/project/0.png" style="display:block;width:96px;margin:auto"/>
+                                            <span name="project_name" style="line-height:3em">刀塔传奇</span>
+                                        </td>
+                                        <td>
+                                            <div style="line-height:3em"><span class="follow-icon-time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>关注时间：<span name="follow_time">2015-10-13</span>
+                                                <span  class="follow-icon-status" style="margin-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>状态：<span class="empha">审核中</span>
+                                                （预计审核完成时间<span name="estimate_status_time">2015-10-12</span>）
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="style5" style="cursor:auto">暂无服务</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                                <table name="status_1" class="w100 follow-status" style="display:none">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <img name="project_img" src="img/project/0.png" style="display:block;width:96px;margin:auto"/>
+                                            <span name="project_name" style="line-height:3em">刀塔传奇</span>
+                                        </td>
+                                        <td>
+                                            <div style="line-height:3em"><span class="follow-icon-time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>关注时间：2015-10-13
+                                                <span  class="follow-icon-status" style="margin-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>状态：<span class="empha">审核未通过</span>
+                                                （<span name="status_msg">游戏与公司不匹配</span>）
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="style5" style="cursor:auto">暂无服务</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                                <table name="status1" class="w100 follow-status" style="display:none">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <img name="project_img" src="img/project/0.png" style="display:block;width:96px;margin:auto"/>
+                                            <span name="project_name" style="line-height:3em">刀塔传奇</span>
+                                        </td>
+                                        <td>
+                                            <div style="line-height:3em"><span class="follow-icon-task">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>监控任务
+                                                <span class="dashed" style="margin-left:50px">开启<span name="cnt_type_1" class="font-theme" style="font-weight:bold">0</span>个</span><span class="dashed">关闭<span name="cnt_type_0" class="empha-bold">0</span>个</span>
+                                            </div>
+                                            <div style="line-height:3em"><span class="follow-icon-msg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>推送消息
+                                                <span class="dashed" style="margin-left:50px">昨日<span name="task_cnt_yesterday" class="empha-bold">0</span>个</span><span class="dashed">今日<span name="task_cnt_today" class="empha-bold">0</span>个</span>
+                                            </div>
+                                            <div style="line-height:3em"><span class="follow-icon-time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>关注时间：<span name="follow_time">2015-10-13</span>
+                                                <span  class="follow-icon-status" style="margin-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>状态：正常使用
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="style4" style="margin-bottom:10px" name="forum">查看论坛报表</button><br/>
+                                            <button class="style4" style="margin-top:10px" name="channel">查看渠道评论</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <div name="UserServlet" style="display:none;margin-top:30px">
+                            <table style="line-height:40px;">
+                                <tbody>
+                                <tr><td class="tr">公司名称：</td><td name="company_name"></td></tr>
+                                <tr><td class="tr">真实姓名：</td><td name="nick_name"></td></tr>
+                                <tr><td class="tr">手机号码：</td><td name="mobile"></td></tr>
+                                <tr><td class="tr">企业邮箱：</td><td name="email"></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div name="ChangePasswordServlet" style="display:none;margin-top:30px">
+                            <table style="line-height:40px;">
+                                <tbody>
+                                <tr><td class="tr">旧密码：</td><td><input name="_old_password" class="oc-input" type="password" /></td></tr>
+                                <tr><td class="tr">新密码：</td><td><input name="_password" class="oc-input" type="password" /></td></tr>
+                                <tr><td class="tr">确认新密码：</td><td><input name="_password_confirm" class="oc-input" type="password" /></td></tr>
+                                <tr><td ></td><td><button onclick="ChangePasswordServlet()" class="confirm" style="margin-top:5px">提交</button></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div name="GasWordsClassifysServlet" style="display:none;">
+                            <div name="GasWordsClassifysAddServlet" style="display:none;line-height:4em;font-size:14px;margin-bottom:4px;">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td style="width:120px">所属游戏：</td>
+                                        <td><span name="choose_project"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>所属分类：</td>
+                                        <td><input name="classify_name" class="oc-input" style="width:200px" placeholder="例如：角色人物"/><span name="s_classify_name" style="width:200px"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: top;">添加词汇：</td>
+                                        <td><textarea name="keywords" class="oc-input"  style="width:500px;height:150px;margin-top:20px;" placeholder="请输入词汇，以空格分割"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="line-height:5em"><button class="confirm">保存添加</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="cancel" onclick="layer.closeAll()">取消添加</button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div  name="list" style="min-height:120px">
+
+                                <div class="cont-title-bar">
+                                    <span name="choose_project"  class="fl for_query" style="padding-top:12px;"></span>
+                                    <span class="fr cp" onclick="GasWordsClassifysServlet.add()">+&nbsp;添加词汇分类</span>
+                                </div>
+
+                                <div class="done" style="margin-top:10px">
+                                    <div class="common-table"></div>
+                                    <div class="page_footer_holder"></div>
+                                </div>
+                                <div class="loading"></div>
+                                <div class="failure"></div>
+
+                            </div>
+                            <div class="hint tc">*通过添加游戏的专有词汇，可以帮助系统更准确，更全面地理解玩家反馈的信息，从而使得我们为您提供更优质的数据分析服务。</div>
+                        </div>
+
+                        <div name="ProjectDataSourceServlet" style="display:none;">
+                            <div name="ProjectDataSourceAddServlet" style="display:none;line-height:4em;font-size:14px;margin-bottom:4px;">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td style="width:120px">所属游戏：</td>
+                                        <td><span name="choose_project"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>论坛名称：</td>
+                                        <td><input name="forum_name" class="oc-input" style="width:200px" placeholder="例如：百度贴吧"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>论坛地址：</td>
+                                        <td><input name="forum_url" class="oc-input"  style="width:500px" placeholder="例如：http://tieba.baidu.com/xxx?xxx"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="line-height:5em"><button class="confirm">保存添加</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="cancel" onclick="layer.closeAll()">取消添加</button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div name="ProjectDataSourceUpdateServlet" style="display:none;line-height:4em;font-size:14px;margin-bottom:4px">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td style="width:120px">选择业务：</td>
+                                        <td><span name="choose_project"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>数据源名称：</td>
+                                        <td><input name="forum_name" class="oc-input" style="width:200px"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>数据源地址：</td>
+                                        <td><input name="forum_url" class="oc-input"  style="width:500px"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="line-height:5em"><button class="confirm">保存修改</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="cancel" onclick="layer.closeAll()">取消修改</button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div  name="list">
+
+                                <div class="cont-title-bar">
+                                    <span name="choose_project"  class="fl for_query" style="padding-top:12px;"></span>
+                                    <span class="fr cp" onclick="ProjectDataSourceServlet.add()">+&nbsp;添加论坛</span>
+                                </div>
+
+                                <div class="done">
+                                    <table class="w100 common-table">
+                                        <tr>
+                                            <th style="text-align:left;text-indent: 10px;width:50px">编号</th>
+                                            <th style="width:120px">论坛名称</th>
+                                            <th>论坛链接</th>
+                                            <th style="width:180px">最后修改时间</th>
+                                            <th style="width:60px">任务状态</th>
+                                            <th style="width:80px">操作</th>
+                                        </tr>
+                                    </table>
+                                    <div class="page_footer_holder"></div>
+                                </div>
+                                <div class="loading">
+
+                                </div>
+                                <div class="failure">
+
+                                </div>
+
+                            </div>
+
+                            <div class="hint tc">*ThinkingGame平台抓取了游戏行业的主流论坛，如果您所关注的论坛不在其中，请您添加论坛信息，以便于我们能够提供更全面的数据服务。</div>
+                        </div>
+
+                        <div name="UserCenterQueryServlet" style="display:none;">
+                            <div  name="list">
+                                <div class="cont-title-bar">
+                                    <span class="fl font-theme-2">舆情监控任务</span><span class="font-theme fl cp" onclick="UserCenterQueryServlet.query(true)">&nbsp;&nbsp;[刷新]</span><div class="question-mark fl cp" onclick="UserCenterQueryServlet.explain()" style="margin-top:16px;margin-left:10px;">?</div>
+                                    <div class="fl" name="explain" style="width:0;overflow:hidden;margin-left:10px;"><div style="width:640px;color:#a0a8af;font-weight:normal">您可以定制推送消息发送到邮箱，图表化数据可以让您快速了解所关注的关键词助您发现问题。</div></div>
+                                    <span class="fr cp" onclick="UserCenterQueryServlet.add()">+&nbsp;添加新任务</span>
+                                </div>
+
+                                <div class="done">
+                                    <table class="w100 common-table">
+                                        <tr>
+                                            <th style="text-align:left;text-indent: 10px;width:50px">编号</th>
+                                            <th>所属游戏</th>
+                                            <th>任务监控名称</th>
+                                            <th>关注词汇</th>
+                                            <th>最后推送时间</th>
+                                            <th style="width:60px">任务状态</th>
+                                            <th style="width:140px">操作</th>
+                                        </tr>
+                                    </table>
+                                    <div class="page_footer_holder"></div>
+                                </div>
+                                <div class="loading">
+
+                                </div>
+                                <div class="failure">
+
+                                </div>
+
+                            </div>
+                            <div name="UserCenterAddServlet" style="display:none">
+                                <div class="cont-title-bar">
+                                    <span class="fl">添加监控任务</span>
+                                </div>
+                                <table class="pop_add bc w100" style="margin-top:20px">
+                                    <tbody>
+                                    <tr><td><span class="empha">*</span>选择产品：</td><td name="choose_project"></td></tr>
+                                    <tr><td><span class="empha">*</span>任务名称：</td><td><input name="email_title" class="oc-input" type=text placeholder="如：游戏bug监控" style="width:400px"/></td></tr>
+                                    <tr><td><span class="empha">*</span>接收邮箱：</td><td><textarea placeholder="多个邮箱用空格隔开" class="oc-input" name="email_addr" style="width:400px"></textarea></td></tr>
+                                    <tr><td><span class="empha">*</span>关注词汇：</td><td><textarea placeholder="如：bug 不好玩 难 (多个关键词用空格隔开)" class="oc-input" name="keywords" style="width:400px"></textarea></td></tr>
+                                    <tr><td><span class="empha">*</span>发送日期：</td>
+                                        <td name="send_day_of_week">
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=2 _checked="true">星期一</span>
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=3 _checked="true">星期二</span>
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=4 _checked="true">星期三</span>
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=5 _checked="true">星期四</span>
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=6 _checked="true">星期五</span>
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=7>星期六</span>
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week  _attr_val=1>星期日</span>
+                                        </td></tr>
+                                    <tr><td><span class="empha">*</span>推送时间：</td>
+                                        <td>
+                                            <div style="margin-bottom:0.5em">
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=0>00:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=1>01:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=2>02:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=3>03:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=4>04:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=5>05:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=6>06:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=7>07:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=8>08:00</span>
+                                            </div>
+
+                                            <div style="margin-bottom:0.5em">
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=9>09:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=10>10:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=11>11:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=12>12:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=13>13:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=14>14:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=15>15:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=16>16:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=17>17:00</span>
+                                            </div>
+
+
+                                            <div style="margin-bottom:0.5em">
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=18>18:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=19>19:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=20>20:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=21>21:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=22>22:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=23>23:00</span>
+                                                <span class="checkbox" onclick="UserCenterQueryServlet.AllSend_hour_of_dayClick(this)" name=all_send_hour_of_day>全选/不选</span>
+                                            </div>
+
+
+
+
+                                        </td>
+                                    </tr>
+                                    </tr><tr><td><span class="empha">*</span>按需推送：</td>
+                                        <td>
+                                            <div style="margin-bottom:10px;color:#a9a9a9">若您选择了按需推送，为了避免无效邮件对您造成消息困扰，我们将只在您关注的词汇出现的情况下进行邮件推送。</div>
+                                            <span class="radiobox" _attr_name=ignore_empty _attr_val=1 name="ignore_empty" _checked="true">是</span>
+                                            <span class="radiobox" _attr_name=ignore_empty _attr_val=0 name="ignore_empty">否</span>
+                                        </td>
+                                    </tr>
+                                    <tr><td><span class="empha">*</span>开启状态：</td>
+                                        <td>
+                                            <span class="radiobox" _attr_name=status _attr_val=1 name="status" _checked="true">开启</span>
+                                            <span class="radiobox" _attr_name=status _attr_val=0 name="status">关闭</span>
+                                        </td>
+                                    <tr><td></td>
+                                        <td style="padding-top:50px">
+                                            <button class="confirm">确认提交</button><button onclick="UserCenterQueryServlet.cancelAdd()" class="cancel" style="margin-left:30px;">取消添加</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div name="UserCenterUpdateServlet" style="display:none"></div>
+
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

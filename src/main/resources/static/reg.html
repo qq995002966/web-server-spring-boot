@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+<title>ThinkingGame 注册</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="ThinkingGame,ThinkingData,数数信息,游戏舆情,玩家论坛,游戏渠道,游戏口碑,玩家反馈,数据服务,大数据">
+<meta name="description" content="ThinkingGame游戏舆情分析服务平台；提供全面的游戏玩家舆论统计分析服务。">
+<link rel="stylesheet" type="text/css" href="css/root.min.css" />
+<style>
+
+button
+{
+    font-size:14px;
+}
+
+.reg-box
+{
+    border-radius:3px;width:800px;margin:auto;
+    background:#ffffff;
+    text-align: left;
+}
+
+.hdr
+{
+    width:800px;
+    margin:auto;
+    color:#ffffff;
+    font-size:14px;
+}
+
+.reg-box .hdr
+{
+    background:#f2f4f5;line-height:3em;text-indent: 10px;
+    border-radius:3px 3px 0 0 ;
+    border-bottom: 1px solid #dee3e8;
+    font-size:14px;
+    width:100%;
+    color:#838e99;
+}
+
+    .reg-box .content
+    {
+        padding:25px 40px;
+        font-size:14px;
+        line-height:2em;
+        background:transparent url(http://image.thinkinggame.cn/img/reg/bg1.png) no-repeat right top;
+        background-size:45%;
+    }
+
+    .project-selector
+    {
+        width:85px;
+        height:85px;
+        cursor: pointer;
+        background-size:contain;
+        float:left;
+        margin-right:20px;
+        text-align: center;
+        line-height:130px;
+        border:1px solid transparent;
+        border-radius: 3px;
+    }
+
+    .project-selector:hover
+    {
+        border:1px solid #03a9f5;
+    }
+
+        .project-selector.type1
+        {
+            background: transparent url(http://image.thinkinggame.cn/img/reg/normal1.png) no-repeat center center;
+        }
+
+        .project-selector.type1.chosen
+        {
+            background: transparent url(http://image.thinkinggame.cn/img/reg/current1.png) no-repeat center center;
+            color:#03a9f5;
+        }
+
+
+    .project-selector.type2
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/reg/normal2.png) no-repeat center center;
+    }
+
+    .project-selector.type2.chosen
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/reg/current2.png) no-repeat center center;
+        color:#03a9f5;
+    }
+
+
+    .project-selector.type3
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/reg/normal3.png) no-repeat center center;
+    }
+
+    .project-selector.type3.chosen
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/reg/current3.png) no-repeat center center;
+        color:#03a9f5;
+    }
+
+
+    .project-selector.type4
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/reg/normal4.png) no-repeat center center;
+    }
+
+    .project-selector.type4.chosen
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/reg/current4.png) no-repeat center center;
+        color:#03a9f5;
+    }
+
+
+    .project-selector.type5
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/reg/normal5.png) no-repeat center center;
+    }
+
+    .project-selector.type5.chosen
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/reg/current5.png) no-repeat center center;
+        color:#03a9f5;
+    }
+
+
+
+    .cus_select
+    {
+        appearance:none;
+        -webkit-appearance: none;
+        height: 32px;
+        border: 1px solid #b2beca;
+        border-radius: 3px;
+        width: 252px;
+        text-indent: 10px;
+        background:transparent url(http://image.thinkinggame.cn/img/project/down.png) no-repeat 96% center;
+    }
+
+    .hvd:hover
+    {
+        background-color:#f9f9f9;
+    }
+
+    .eye
+    {
+        width:64px;
+        height:64px;
+        position: absolute;
+        left:8px;
+        top:0;
+        border-radius: 10px;
+        opacity:.8;-ms-filter:alpha(opacity=80);filter:alpha(opacity=80)
+    }
+
+    .eye:hover
+    {
+        background: #cccccc url(http://image.thinkinggame.cn/img/reg/4/eye_b.png) no-repeat center center;
+        background-size: 32px;
+        border:1px solid #03a9f5;
+    }
+
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+<script type="text/javascript" src="js/layer/layer.js" ></script>
+<script type="text/javascript" src="js/store.min.js" ></script>
+<script type="text/javascript" src="js/func.js" ></script>
+<script src="http://api.geetest.com/get.php"></script>
+<script>
+
+$(function(){
+    var url = GetUrlPara('reg');
+    if(url == ''){
+        window.location.href = 'register.html';
+        return false;
+    }else if(url == "5"){
+        window.location.href = 'find.html';
+        return false;
+    }
+})
+function onLoad()
+{
+    InitCheckbox();
+    InitRadiobox();
+
+    $('[name=reg1] [name=password]').keyup(function(event){
+        var key_code = (event.keyCode ? event.keyCode : event.which);
+
+        if(key_code == '13')
+        {
+            _submit();
+        }
+    });
+
+    var reg=GetUrlPara('reg');
+
+    if(reg=="") // 注册
+    {
+        InitGt();
+    }
+    else if(reg=="5") // 修改密码
+    {
+        InitGt("div_gt_embed_reg7");
+    }
+
+    AdjustInCenter();
+
+    if(reg=="5")
+    {
+        ShowReg5();
+    }
+}
+
+function InitGt(id)
+{
+    try
+    {
+        $.get(G_CGI_URL.geetest.StartCaptchaServlet, null, function(config) {
+
+            config= $.parseJSON(config);
+
+            if(config)
+            {
+                window.gt_captcha_obj = new window.Geetest({
+                    gt : config.gt,
+                    challenge : config.challenge,
+                    product : 'float',
+                    offline : !config.success
+                });
+
+                id = (!id) ? '#div_gt_embed' : '#'+id
+
+                gt_captcha_obj.appendTo(id);
+
+                //Ajax request demo,if you use submit form ,then ignore it
+                gt_captcha_obj.onSuccess(function() {
+                    //geetest_ajax_results()
+                });
+            }
+        });
+    }
+    catch (e)
+    {
+
+    }
+}
+
+function RefreshGt()
+{
+    gt_captcha_obj && gt_captcha_obj.refresh();
+}
+
+
+
+
+var g_count_down=0;
+
+function StartCountDown()
+{
+    if(g_count_down)
+        clearInterval(g_count_down);
+
+    $("[name=get_verify_code]").hide();
+    $("[name=wait_verify_code]").show();
+    $("[name=wait_verify_code]").html("60秒后重试");
+
+
+    g_count_down=setInterval(function(){
+
+        var e = $("[name=wait_verify_code]");
+
+        if(e.is(":visible"))
+        {
+            var html= e.html();
+            var i=parseInt(html);
+            if(i>0)
+            {
+                i--;
+            }
+            else
+            {
+                $("[name=get_verify_code]").show();
+                $("[name=wait_verify_code]").hide();
+            }
+            e.html(i+"秒后重试");
+        }
+
+    },1000);
+}
+
+function GetVerifyCode()
+{
+    var mobile_or_email = $("[name=mobile_or_email]:visible").val().trim();
+
+    if(!IsMobile(mobile_or_email) && !IsValidEmail(mobile_or_email))
+    {
+        G_PopWnd.error("请输入正确的手机号或邮箱！");
+        return;
+    }
+
+
+    var _post={mobile_or_email : mobile_or_email};
+
+    MyPost(G_CGI_URL.auth.CheckMobileUsedServlet,
+            _post,
+            null,null,
+            function(data)
+            {
+                if(!gt_captcha_obj || !gt_captcha_obj.getValidate())
+                {
+                    G_PopWnd.error("请滑动验证！");
+                    return;
+                }
+
+                var _post={mobile_or_email : mobile_or_email};
+
+                _post = $.extend(_post, gt_captcha_obj.getValidate());
+
+                MyPost(G_CGI_URL.auth.SendSmsCodeServlet,
+                        _post,
+                        ShowLoading,HideLoading,
+                        function(data)
+                        {
+                            if(IsValidEmail(_post.mobile_or_email))
+                            {
+                                G_PopWnd.good("验证码已发送到您的邮箱！");
+                            }
+                            else
+                            {
+                                G_PopWnd.good("验证码已发送到您的手机！");
+                            }
+
+                            StartCountDown();
+
+                            RefreshGt();
+
+                        },
+                        function(data, msg, code){
+
+                            $("[name=get_verify_code]").show();
+                            $("[name=wait_verify_code]").hide();
+
+                            if(!msg)
+                            {
+                                msg="发送短信验证码失败！";
+                            }
+
+                            RefreshGt();
+
+                            G_PopWnd.error(msg);
+                        });
+
+            },
+            function(data, msg, code){
+                if(!msg)
+                {
+                    msg="发送短信验证码失败！";
+                }
+
+                RefreshGt();
+
+                G_PopWnd.error(msg);
+            });
+}
+
+function GetVerifyCodeOfRenewPassword(verify_type)
+{
+    var _post={user_id : g_reg5_user.user_id, renew_password:1, verify_type:verify_type};
+
+    if(!gt_captcha_obj || !gt_captcha_obj.getValidate())
+    {
+        G_PopWnd.error("请滑动验证！");
+        return;
+    }
+
+    _post = $.extend(_post, gt_captcha_obj.getValidate());
+
+
+    MyPost(G_CGI_URL.auth.SendSmsCodeServlet,
+            _post,
+        null,null,
+        function(data)
+        {
+            G_PopWnd.good("验证码已发送！请注意查收");
+
+            StartCountDown();
+
+            RefreshGt();
+        },
+        function(data, msg, code){
+
+            $("[name=get_verify_code]").show();
+            $("[name=wait_verify_code]").hide();
+
+            if(!msg)
+            {
+                msg="发送短信验证码失败！";
+            }
+
+            RefreshGt();
+
+            G_PopWnd.error(msg);
+        });
+}
+
+function _submit()
+{
+    if($("[name=password]:visible").val()!=$("[name=password_confirm]").val())
+    {
+        G_PopWnd.error("两次密码不一致");
+        return;
+    }
+
+    if($("[name=password]:visible").val().length<6)
+    {
+        G_PopWnd.error("密码至少六位");
+        return;
+    }
+
+    var mobile_or_email = $("[name=mobile_or_email]:visible").val();
+
+
+    if(!IsMobile(mobile_or_email) && !IsValidEmail(mobile_or_email))
+    {
+        G_PopWnd.error("请输入正确的手机号或邮箱！");
+        return;
+    }
+
+    if(!$("[name=verify_code]:visible").val())
+    {
+        G_PopWnd.error("请输入验证码！");
+        return;
+    }
+
+    if($(".checkbox").attr("_checked")!="true")
+    {
+        G_PopWnd.error("请勾选并同意隐私和服务条款！");
+        return;
+    }
+
+    var _post={mobile_or_email : mobile_or_email, password:$("[name=password]:visible").val(),
+        verify_code:$("[name=verify_code]:visible").val()};
+
+    MyPost(G_CGI_URL.auth.Reg1Servlet,
+            _post,
+            ShowLoading,HideLoading,
+            function(data)
+            {
+                G_PopWnd.good("注册成功，即将跳转到登录页",function(){
+                    JumpUrl('login.html?mobile_or_email='+_post.mobile_or_email);
+                });
+            },
+            function(data, msg, code){
+                if(!msg)
+                {
+                    msg="注册失败！";
+                }
+
+                G_PopWnd.error(msg);
+            });
+}
+
+
+function ResetPasswordServlet()
+{
+    if($("[name=password]:visible").val()!=$("[name=password_confirm]:visible").val())
+    {
+        G_PopWnd.error("两次密码不一致");
+        return;
+    }
+
+    if($("[name=password]:visible").val().length<6)
+    {
+        G_PopWnd.error("密码至少六位");
+        return;
+    }
+
+    if(!$("[name=verify_code]:visible").val())
+    {
+        G_PopWnd.error("请输入验证码！");
+        return;
+    }
+
+    MyPost(G_CGI_URL.auth.ResetPasswordServlet,
+            {user_id : g_reg5_user.user_id, password:$("[name=password]:visible").val(),
+            verify_code:$("[name=verify_code]:visible").val()},
+            ShowLoading,HideLoading,
+            function(data)
+            {
+                G_PopWnd.good("密码修改成功，跳转至登录页", function(){
+                    JumpUrl('login.html');
+                });
+            },
+            function(data, msg, code){
+                if(!msg)
+                {
+                    msg="修改密码失败！";
+                }
+
+                G_PopWnd.error(msg);
+            });
+}
+
+function ShowReg5()
+{
+    $("[name^=reg]").hide();
+    $("[name=reg5]").show();
+}
+
+function ShowReg6()
+{
+    $("[name^=reg]").hide();
+    $("[name=reg6]").show();
+}
+
+
+function ShowReg7(type)
+{
+    $("[name^=reg]").hide();
+    $("[name=reg7]").show();
+    $("[name^=d_]").hide();
+    $("[name=d_"+type+"]").show();
+
+    $("[name=reg7] [name=get_verify_code]").unbind("click").click(function(){
+        GetVerifyCodeOfRenewPassword(type);
+    })
+}
+
+
+
+var g_reg5_user=null;
+
+function _reg5()
+{
+    var mobile_or_email=$("[name=mobile_or_email]:visible").val();
+
+    if(mobile_or_email=="")
+    {
+        G_PopWnd.error("请填写账号");
+        return;
+    }
+
+    MyPost(G_CGI_URL.auth.Reg5Servlet,
+            {
+                mobile_or_email : mobile_or_email
+            },
+            ShowLoading,HideLoading,
+            function(data)
+            {
+                g_reg5_user=data.get;
+
+                $("[name=reg7] [name=mobile]").html(g_reg5_user.mobile);
+                $("[name=reg7] [name=email]").html(g_reg5_user.email);
+
+                if(g_reg5_user.email.trim()=="") // 没有邮箱注册
+                {
+                    ShowReg7("mobile");
+                }
+                else if(g_reg5_user.mobile.trim()=="") // 没有手机注册
+                {
+                    ShowReg7("email");
+                }
+                else
+                {
+                    ShowReg6();
+                }
+            },
+            function(data, msg, code)
+            {
+                if(!msg)
+                {
+                    msg="操作失败！";
+                }
+
+                G_PopWnd.error(msg);
+            });
+}
+
+
+
+$(onLoad);
+</script>
+</head>
+<body style="background-image: url(http://image.thinkinggame.cn/img/reg/bg.png)">
+<div style="display: table-cell; vertical-align: middle; text-align: center" name="adjustInCenter">
+
+
+<img src="http://image.thinkinggame.cn/img/llogo2.png" style="display:block;margin-bottom:40px;width:200px" class="ma"/>
+
+<div class="login-w" style="background-color:#ffffff;margin:auto;border-radius:3px;text-align: left" name="reg1">
+    <div class="_pop_box-body">
+        <div style="padding-top:10px;padding-bottom:10px">
+            <div class="login-input-div" style="margin-bottom:25px">
+                <input placeholder="手机号 / 邮箱" name="mobile_or_email" type="text" style="float:left;margin-left:15px;"/>
+            </div>
+
+            <div class="login-input-div" style="margin-bottom:25px">
+                <input placeholder="密码，至少六位" type="password" name="password" style="float:left;margin-left:15px;"/>
+            </div>
+            <div class="login-input-div" style="margin-bottom:25px">
+                <input placeholder="确认密码" type="password" name="password_confirm" style="float:left;margin-left:15px;"/>
+            </div>
+            <div id="div_gt_embed" style="width:100%; margin-bottom:25px"></div>
+
+            <table class="w100" style="margin-bottom:25px;">
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="login-input-div" style="width:140px">
+                            <input placeholder="验证码" name="verify_code" style="float:left;margin-left:15px;width:120px"/>
+                        </div>
+                    </td>
+                    <td style="width:20px"></td>
+                    <td>
+                        <button class="w100" style="line-height:32px;background-color:#83b934;font-size:14px;" name="get_verify_code" onclick="GetVerifyCode()">获取验证码</button>
+                        <button class="w100" style="line-height:32px;display:none;background-color:#f7f7f7;font-size:14px;color:#666666;border:1px solid #ededed" name="wait_verify_code">60秒后重新获取</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div style="">
+                <span class="checkbox" style="font-size:12px" _checked="true">我已阅读并同意&nbsp;</span><span style="font-size:12px"><a href="license.html" target="_blank" class="font-theme-2">隐私策略及服务条款</a></span>
+            </div>
+            <button class="login-submit cp" style="margin-top:31px" onclick="_submit()">注册</button>
+
+            <div class="tc" style="margin-top:20px;font-size:12px;">已有账号？&nbsp;<a href="login.html" target="_blank" class="font-theme">请登录</a></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div name="reg5" class="reg-box" style="display:none;width:400px">
+    <div class="hdr">重置密码</div>
+    <div class="content">
+        <div>请输入登录账号：</div>
+        <div class="login-input-div" style="width:100%;margin-top:15px;">
+            <input placeholder="手机号 / 邮箱" name="mobile_or_email" style="float:left;margin-left:15px;width:200px"/>
+        </div>
+        <div><button class="login-submit cp ma" style="margin-top:30px;margin-bottom:15px" onclick="_reg5()">下一步</button></div>
+    </div>
+</div>
+
+<div name="reg6" class="reg-box" style="width:400px;padding-bottom:20px;display: none">
+    <div class="hdr">重置密码</div>
+    <div class="content">
+            <div>您正在进行重置密码操作，请选择重置方式：</div>
+        <div class="login-input-div cp" style="width:100%;margin-top:15px;padding-top:1em;padding-bottom:1em;height:auto;" onclick="ShowReg7('mobile')">
+            <table class="w100 hvd">
+                <tbody>
+                <tr>
+                    <td style="width:90px"><div style="background: transparent url(http://image.thinkinggame.cn/img/reg/6/mobile.png) no-repeat center center;background-size:contain;width:90px;height:40px;"></div></td>
+                    <td><span style="line-height:2em;display:block">通过手机短信验证码</span><span style="line-height:2em;display:block;color:#c0c4c8">使用您绑定的手机号码</span></td>
+                    <td style="width:80px"><div style="background: transparent url(http://image.thinkinggame.cn/img/reg/6/arrow.png) no-repeat center center;background-size:contain;width:80px;height:30px;"></div></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="login-input-div cp" style="width:100%;margin-top:30px;padding-top:1em;padding-bottom:1em;height:auto;" onclick="ShowReg7('email')">
+            <table class="w100 hvd">
+                <tbody>
+                <tr>
+                    <td style="width:90px"><div style="background: transparent url(http://image.thinkinggame.cn/img/reg/6/email.png) no-repeat center center;background-size:contain;width:90px;height:30px;"></div></td>
+                    <td><span style="line-height:2em;display:block">通过邮箱验证码</span><span style="line-height:2em;display:block;color:#c0c4c8">您已认证的企业邮箱</span></td>
+                    <td style="width:80px"><div style="background: transparent url(http://image.thinkinggame.cn/img/reg/6/arrow.png) no-repeat center center;background-size:contain;width:80px;height:30px;"></div></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div name="reg7" class="reg-box" style="display:none;width:400px">
+    <div class="hdr">重置密码</div>
+    <div class="content">
+        <div name="d_mobile">您绑定的手机号码是<span name="mobile"></span>，请验证：</div>
+        <div name="d_email" style="display: none">您注册的邮箱是<span name="email"></span>，请验证：</div>
+        <div id="div_gt_embed_reg7" style="width:100%;margin-top:20px;"></div>
+        <table class="w100" style="margin-bottom:25px;margin-top:30px">
+            <tbody>
+            <tr>
+                <td>
+                    <div class="login-input-div" style="width:160px">
+                        <input placeholder="验证码" name="verify_code" style="float:left;margin-left:15px;width:120px"/>
+                    </div>
+                </td>
+                <td style="width:20px"></td>
+                <td>
+                    <button class="w100" style="line-height:32px;background-color:#83b934;font-size:14px;" name="get_verify_code">获取验证码</button>
+                    <button class="w100" style="line-height:32px;display:none;background-color:#f7f7f7;font-size:14px;color:#666666;border:1px solid #ededed" name="wait_verify_code">60秒后重新获取</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="login-input-div" style="width:100%;margin-top:20px;">
+            <input placeholder="新密码，至少6位" name="password" type="password" style="float:left;margin-left:15px;width:200px"/>
+        </div>
+        <div class="login-input-div" style="width:100%;margin-top:25px;">
+            <input placeholder="确认新密码" name="password_confirm" type="password" style="float:left;margin-left:15px;width:200px"/>
+        </div>
+        <div><button class="login-submit cp ma" style="margin-top:30px;margin-bottom:15px" onclick="ResetPasswordServlet()">确认重置</button></div>
+    </div>
+</div>
+
+
+</div>
+</body>
+</html>

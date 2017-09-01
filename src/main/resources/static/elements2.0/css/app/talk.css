@@ -1,0 +1,166 @@
+@charset "utf-8";
+@import url("common.css");
+*{ font-family: "Microsoft Yahei","STHeitiSC-Light","Arial",sans-serif; }
+body{ background-color: #E9E9E9;font-size: 12px; color: #555555}
+h1,h2,dl,dt,dd,ul,li,p,form{ margin: 0; padding: 0}
+input[type=text]{ font-size: 12px}
+.c_colorG{ color: #679F37}
+.b_colorR{ color:#FF8B59}
+.c_colorGS{ color: #9FBF59}
+.c_colorH{ color:#A9A9A9}
+.c_colorHS{ color:#E3E5E7}
+.c_colorB{ color:#2DA5DF}
+.c_marginTB10{ margin-top: 10px; margin-bottom: 10px}
+.c_marginB10{ margin-bottom: 10px}
+.c_marginB20{ margin-bottom: 20px}
+.c_marginB30{ margin-bottom: 30px}
+.c_marginTop20{ margin-top: 20px}
+.c_marginTop10{ margin-top: 10px}
+.c_padding30{ padding: 30px}
+.c_padding20{ padding: 20px}
+.c_paddingTB20{ padding: 20px}
+.c_padding10{ padding: 10px}
+.c_paddingB20{ padding-bottom: 20px}
+.c_paddingLR20{ padding: 0 20px}
+.c_paddingLR30{ padding: 0 30px}
+.c_hidden{ overflow: hidden}
+.c_relative{ position: relative}
+.c_cursor{ cursor: pointer}
+.c_none{ display: none}
+.c_boderRadius{ border-radius: 5px}
+.c_floatLeft{ float: left}
+.c_floatRight{ float: right}
+.c_marginAuto{ margin: 0 auto}
+.c_maxWidth{ width: 1175px; position: relative; }
+.c_bgWhite{ background-color: #ffffff}
+.c_shadow1{-webkit-box-shadow: 0 2px 3px #D6D6D6;-moz-box-shadow: 0 2px 3px #D6D6D6;box-shadow: 0 2px 3px #D6D6D6; }
+.c_shadow2{-webkit-box-shadow: 5px 5px 0px #D9D9D9;-moz-box-shadow:5px 5px 0px #D9D9D9;box-shadow: 5px 5px 0px #D9D9D9;}
+.c_img{ background: url("../img/common.png") no-repeat}
+.c_border{border: 1px solid #E5E5E5}
+.c_borderT{border-top: 1px solid #E5E5E5}
+.c_borderL{border-left: 1px solid #E5E5E5}
+.c_borderB{border-bottom: 1px solid #E5E5E5}
+.c_lineThrough{ text-decoration: line-through}
+a{ color: #555555}
+a:link,a:visited{ color: #555555}
+a:hover{ color: #679F37; text-decoration: none}
+.moreLink:link,.moreLink:visited{ color: #679F37}
+.moreLink:hover{ color: #2DA5DF; text-decoration: none}
+.sourceLink:link,.sourceLink:visited{ color: #ccc}
+.sourceLink:hover{ color: #ccc; text-decoration: none}
+.c_loading{ width: 100%; height: 100%; position: relative}
+.c_loading img{ position: absolute; top: 46%; left: 46%}
+.c_empty{ width: 100%; height: 100%; position: relative; text-align: center; padding-top: 20px}
+#page{margin-top: 30px;}
+#page .page-list {margin-top: 30px;width: 715px; margin: 0 auto; text-align: center}
+#page .page-list li {display: inline-block;color: #afafaf;}
+#page .page-list li .page-num {color: #606060;width: 35px;height: 35px;line-height: 35px;text-align: center;display: inline-block;border-radius: 4px;cursor: pointer;}
+#page .page-list li .num-selected {background: #69a039;color: #fff;}
+#page .page-list li button {border: 1px solid #e9e9e9;border-radius: 4px;width: 72px;height: 34px;background: #fff;color: #ababab;margin: 0 25px;cursor: pointer;}
+#gameDropChoose{ height: 36px; border-radius: 4px;border: 1px solid #e8e8e8; width: 240px; position: relative; cursor: pointer}
+#gameDropChoose p{ line-height: 36px; position: relative; text-indent: 45px; margin: 0; padding: 0}
+#gameDropChoose p img{width: 30px;height: 30px;border-radius: 4px;position: absolute;top: 2px; left:5px;}
+#gameDropChoose p i{ position: absolute; right: 10px; top: 11px; display: block}
+#gameDropChoose .gameDropPop{ width: 240px; position: absolute; top: 35px; background-color: #F4F4F4; border: 1px solid #e5e5e5; left: -1px; z-index: 5; display: none}
+#gameDropChoose .gameDropPop .gameDropSearch{ height: 36px; position: relative; }
+#gameDropChoose .gameDropPop .gameDropSearch i{ position: absolute; left: 10px; top: 12px; z-index: 1}
+#gameDropChoose .gameDropPop .gameDropSearch input{ height: 35px;width: 234px;line-height: 35px;text-indent: 25px;border: 0; position: absolute; top: 0;left: 0}
+#gameDropChoose .gameDropPop ul{ list-style: none; display: block; max-height: 180px; overflow: auto; overflow-x: hidden}
+#gameDropChoose .gameDropPop ul li{ height: 36px;line-height: 36px;text-indent: 10px}
+#gameDropChoose .gameDropPop ul li:hover{background-color: #9FBF59;color: #fff;cursor: pointer}
+#gameDropChoose .gameDropPop ul .gameDropNone{ height: 36px; line-height: 36px; text-indent: 10px; display: none}
+#gameDropChoose .gameDropPop ul .gameDropAdd{ height: 36px; line-height: 36px; text-indent: 10px;}
+body .layerCheck-class .layui-layer-btn{text-align: center; padding-bottom: 40px; padding-top: 20px}
+body .layerCheck-class .layui-layer-btn .layui-layer-btn0{background:#5CB85C; border: 0; line-height: 26px}
+body .layerCheck-class .layui-layer-btn .layui-layer-btn1{line-height: 26px}
+#talk input[type=file] {filter: alpha(opacity=0);-moz-opacity: 0;opacity: 0;cursor: pointer;}
+#talk .tk_qq_icon{     width: 18px;
+    height: 20px;
+    position: relative;
+    background-position: -639px 0;
+    top: 13px;}
+#talk .bs_reupload{ background-color: #ffffff; border: 0; cursor: pointer; position: relative}
+#talk .bs_reupload *{cursor: pointer}
+#talk .tk_how{ text-align: center; font-size: 14px;}
+#talk .up_progress{width:412px;height:274px;color: #838e99;background-color:#ffffff;font-size:14px;}
+#talk .up_progress-bar{width:272px;height:8px;background-color:#838e99;border-radius:3px;margin-left:auto;margin-right:auto;}
+#talk .up_progress-bar .qq{width:10px;height:8px;background-color:#03a9f5;border-radius:3px;}
+#talk .up_percent{padding-top:90px;padding-bottom:10px; text-align: center}
+#talk .up_notice{padding-top:30px; text-align: center}
+#talk .tk_setup{ width:530px;padding:16px 30px 16px 40px;}
+#talk .tk_setup .date-range{ height: 25px; border: 1px solid #CCCCCC;width: 420px;display: block; line-height: 25px;z-index: 2; position: absolute; cursor: pointer}
+#talk .tk_setup .tk_setup_title{ padding-top: 10px; font-size: 14px}
+#talk .tk_setup .tk_date_area{ height: 30px}
+#talk .tk_setup .tk_date_area i{position: absolute; right: 45px;top: 7px;}
+#talk .tk_setup .tk_fast_choose span{ cursor: pointer}
+#talk_result .tk_rt_info{ height: 55px; line-height: 55px}
+#talk_result .tk_rt_info .tk_rt_name{ width: 600px; text-indent: 50px}
+#talk_result .tk_rt_info .tk_rt_name i{ width: 18px; height: 20px; background-position: -639px 0; position: absolute; left: 20px; top: 18px}
+#talk_result .tk_rt_info .tk_rt_time{ width: 340px}
+#talk_result .tk_rt_title{ height: 30px;}
+#talk_result .tk_rt_title h3{ font-size: 16px; text-indent: 20px; border-left: 3px solid #03A9F5; padding: 0; margin: 0}
+#talk_result .tk_rt_half{ width: 450px}
+#talk_result .tk_rt_half_title{ height: 40px; line-height: 40px; text-align: center; font-size: 14px}
+#talk_result .tk_rt_half_chart{width: 450px; height: 300px;}
+#talk_result .tk_rt_half_word{width: 450px; height: 250px;}
+#talk_result .tk_rt_half_word a:hover{ background-color: #00b7ee; color: #ffffff; border-radius: 5px; cursor: pointer}
+#talk_result .tk_rt_choose{ margin-top:20px;height: 35px; text-align: center; line-height: 35px}
+#talk_result .tk_rt_half .lt_fmPlWPos{color:#679F37;}
+#talk_result .tk_rt_half .lt_fmPlWNeg{color: #E88B80;}
+#talk_result .tk_rt_keywords{ height: 400px; width: 920px}
+#talk_result .tk_rt_topic{ height: 355px; width: 920px}
+#talk_result .tk_rt_topic_more{ height: 35px; line-height: 35px; text-align: center}
+#talk_result .tk_rt_topic_man_top{ height: 340px}
+#talk_result .tk_rt_topic_man_top_info{ width: 210px; height: 340px; background-position: 0 0}
+#talk_result .tk_rt_topic_man_top_info .tk_rt_number{ position: absolute; top:77px; left: 62px; color: #ffffff; font-size: 30px}
+#talk_result .tk_rt_topic_man_top_info .tk_rt_user{ position: absolute; top: 190px; left: 35px; line-height: 30px; font-size: 14px}
+#talk_result .tk_rt_topic_man_top_list{ width: 705px; height: 322px; background-position: 0 0; border: 1px solid #E1E4E8; margin-top: 9px; border-left: 0}
+#talk_result .tk_rt_topic_man_top_list .tk_rt_topic_man_detail_width{ width:510px; height: 320px; }
+#talk_result .tk_rt_topic_man_list ul{ list-style: none;}
+#talk_result .tk_rt_topic_man_list ul li{ background: url("../../img/talk.jpg") no-repeat; position:relative;width: 290px; height: 154px; background-position: -213px -262px; float: left; margin-right: 20px; margin-top: 30px}
+#talk_result .tk_rt_topic_man_list ul .liNoMargin{ margin-right: 0}
+#talk_result .tk_rt_topic_man_list ul li .tk_rt_number{ position: absolute; top: 38px; left: 35px; font-size: 16px;}
+#talk_result .tk_rt_topic_man_list ul li .tk_rt_user{ position: absolute; left: 100px; top: 27px; line-height: 20px}
+#talk_result .tk_rt_topic_man_list ul li .tk_rt_detail{position: absolute; top: 100px; left: 10px; width: 290px; text-align: center; line-height: 53px}
+#talk_result_s .tk_rts_topic .tk_rts_list{ width: 500px;}
+#talk_result_s .tk_rts_topic .tk_rts_border{border: 1px solid #E1E4E8; background-color: #F9F9F9; border-radius: 3px}
+#talk_result_s .tk_rts_topic .tk_rts_list ul{ list-style: none}
+#talk_result_s .tk_rts_topic .tk_rts_list ul li{ height: 78px; padding-top: 20px; border-bottom: 1px solid #E1E4E8; position: relative; cursor: pointer}
+#talk_result_s .tk_rts_topic .tk_rts_detail{ width: 570px;}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area{ overflow: auto; overflow-x: hidden; word-break: break-all;height: 490px;}
+#talk_result_s .tk_rts_topic .tk_rts_list ul li .tk_rts_lt_cal{ width: 55px; height: 55px; overflow: hidden; position: absolute; left: 25px; top: 25px; text-align: center; line-height: 65px; font-size: 14px;}
+#talk_result_s .tk_rts_topic .tk_rts_list ul li .tk_rts_lt_cal_off{ background-position: -269px -180px}
+#talk_result_s .tk_rts_topic .tk_rts_list ul li .tk_rts_lt_cal_on{ background-position: -211px -180px}
+#talk_result_s .tk_rts_topic .tk_rts_list ul li .tk_rts_lt_info{ left: 105px; top: 30px; width: 390px; position: absolute;color: #a7abae;}
+#talk_result_s .tk_rts_topic .tk_rts_list ul li .tk_rts_lt_info span{ height: 30px; font-size: 14px; width: 350px; white-space: nowrap;text-overflow: ellipsis;overflow: hidden; display: block; color: #555555}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dl{margin-bottom: 20px;
+    min-height: 65px;
+    overflow: hidden;}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dt{ line-height: 35px; font-weight: normal}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd { }
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd i{ display: block; height: 40px; width: 40px;  background-position: -326px -180px;}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd span{ border: 1px solid #E1E4E8; background: #ffffff; padding:6px; line-height: 25px; position: relative; border-radius: 3px; max-width: 450px;word-break: break-all}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd .mg_left{ margin-left: 20px;}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd .mg_right{ margin-right: 20px;}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd .ar_left{ width: 8px; height: 13px; background-position: -213px -242px; position: absolute; left: -7px}
+#talk_result_s .tk_rts_topic .tk_rts_detail .tk_rts_detail_area dd .ar_right{ width: 8px; height: 13px;background-position: -226px -243px;position: absolute; right: -7px}
+.tk_top_img{ background: url("../../img/talk.jpg") no-repeat}
+.tk_rt_topic_man_detail{padding:10px; word-break: break-all;height: 490px;}
+#bs_user .tk_rt_topic_man_detail {
+    width: 585px;
+    height: 460px;
+    overflow: auto;
+}
+.tk_rt_topic_man_detail dl{ border-bottom: 1px dashed #E1E4E8}
+.tk_rt_topic_man_detail dl dt{ height: 30px; line-height: 30px; color: #a7abae; font-weight: normal}
+.tk_rt_topic_man_detail dl dd{ line-height: 25px; padding-bottom: 10px}
+.tk_rt_topic_man_more{ text-align: center; height: 40px; line-height: 40px}
+.tk_rt_topic_man_keyword{ width: 170px; background-color: #f9f9f9; border-left: 1px solid  #E1E4E8;height: 475px !important;}
+.tk_rt_topic_man_arrow{ width: 10px; height: 20px; background-position: -211px -156px; position: absolute; left: -10px; top: 150px}
+.tk_rt_topic_man_keyword_list{ line-height: 30px; font-size: 14px; text-align: center; padding-top: 60px}
+
+
+#MRight .m_show_title .m_soWork>div.btn {
+    background-color: #237bd0;
+    border-color: #237bd0;
+}

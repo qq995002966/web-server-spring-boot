@@ -1,0 +1,180 @@
+div#joinUs div.position-banner {
+  margin-top: -525px;
+}
+div#joinUs div.position-banner ul li {
+  height: 745px;
+}
+div#joinUs div.position-banner ul li a img {
+  position: relative;
+  z-index: -1;
+}
+div#joinUs div.position-banner ul li > span {
+  font-size: 15px;
+  color: #fff;
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  bottom: 70px;
+  position: absolute;
+  width: 1450px;
+  left: 50%;
+  margin-left: -725px;
+}
+div#joinUs div.position-banner div.position-des {
+  position: absolute;
+  top: 0;
+  padding: 100px 220px 0 220px;
+  color: #fff;
+  /*width: 1450px;*/
+}
+div#joinUs div.position-banner div.position-des > h2 {
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 35px;
+  font-weight: normal;
+}
+div#joinUs div.position-banner div.position-des > p {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 50px;
+  line-height: 25px;
+}
+div#joinUs div.position-banner div.position-des div.mar-r {
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+div#joinUs div.position-banner div.position-des div.work-duty {
+  float: left;
+  width: 700px;
+}
+div#joinUs div.position-banner div.position-des div.work-duty > h2 {
+  font-size: 20px;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  font-weight: normal;
+}
+div#joinUs div.position-banner div.position-des div.work-duty p {
+  line-height: 25px;
+  color: #cdcdcd;
+  font-size: 14px;
+}
+div#joinUs div.position-summary {
+  width: 98%;
+  margin: 0 auto;
+  background-color: #fff;
+  position: relative;
+  top: -525px;
+}
+span.post-positon {
+    position: absolute;
+    bottom: -80px;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+}
+
+div#joinUs div.position-summary div.ps-content {
+  padding: 50px 120px;
+}
+div#joinUs div.position-summary div.ps-content h2 {
+  font-size: 20px;
+  padding-bottom: 15px;
+  font-weight: normal;
+}
+div#joinUs div.position-summary div.ps-content p {
+  font-size: 15px;
+  line-height: 25px;
+}
+div#joinUs div.position-summary div.ps-content div.position-title {
+  font-size: 20px;
+  padding-bottom: 15px;
+  color: #b8b8b8;
+  border-bottom: 1px solid #a9a9a9;
+  margin: 40px 0 20px 0;
+}
+div#joinUs div.position-summary div.ps-content div.position-title a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #237bd0;
+  float: right;
+  position: relative;
+  bottom: -10px;
+}
+div#joinUs div.position-summary div.ps-content ul li {
+  font-size: 15px;
+  display: inline-block;
+  margin-right: 45px;
+  line-height: 30px;
+  width: 180px;
+}
+div#joinUs div.join-bg {
+  position: relative;
+  width: 100%;
+  height: 1058px;
+}
+div#joinUs div.join-bg div.partner-header h2 {
+  font-size: 35px;
+  text-align: center;
+  padding: 175px 0 50px 0;
+  font-weight: normal;
+}
+div#joinUs div.join-bg div.partner-header p {
+  font-size: 20px;
+  text-align: center;
+  line-height: 35px;
+}
+div#joinUs div.join-bg div.bg-text-change {
+  margin-top: 70px;
+}
+div#joinUs div.join-bg div.bg-text-change p {
+  font-size: 15px;
+  line-height: 20px;
+}
+div#joinUs div.change-image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: auto;
+  height: 1058px;
+  background-repeat: no-repeat;
+}
+
+.p-a {
+  background: url(../images/join/1.jpg) no-repeat 100%;
+}
+
+.p-b {
+  background: url(../images/join/2.jpg) no-repeat 100%;
+}
+
+.p-c {
+  background: url(../images/join/3.jpg) no-repeat 100%;
+}
+
+.p-d {
+  background: url(../images/join/4.jpg) no-repeat 100%;
+}
+
+.p-e {
+  background: url(../images/join/5.jpg) no-repeat 100%;
+}
+
+.p-f {
+  background: url(../images/join/6.jpg) no-repeat 100%;
+}
+
+.p-g {
+  background: url(../images/join/7.jpg) no-repeat 100%;
+}
+
+.p-h {
+  background: url(../images/join/8.jpg) no-repeat 100%;
+}
+
+div.pro-list-img {
+  width: 1175px;
+  margin: 0 auto;
+}

@@ -1,0 +1,277 @@
+@import url("common.css");
+body {
+  background: #fff;
+}
+
+li {
+  list-style: none;
+}
+
+.help-container .help-tab-content>div>ul {
+  width: 1175px;
+  margin: 0 auto;
+    border: 1px solid #e5e5e5;
+  padding: 0 50px;
+  margin-bottom: 50px;
+
+}
+
+.header-img {
+  margin-top: 50px;
+  background: #f2f4f5;
+}
+
+.header-img div {
+  width: 1175px;
+  margin: 0 auto;
+}
+
+.header-img  img {
+  width: 100%;
+}
+
+.help-tabs  {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 50px;
+}
+
+.help-tabs ul {
+  width: 860px;
+  margin: 0 auto;
+}
+
+.help-tabs ul li {
+  list-style: none;
+  display: inline-block;
+  font-size: 16px;
+  color: #a9a9a9;
+  text-align: center;
+  height: 70px;
+  line-height: 70px;
+  width: 150px;
+  cursor: pointer;
+  margin-left: 200px;
+}
+
+.help-tabs ul li.help-tab-selected {
+  color: #03a9f5;
+    border-bottom: 2px solid #03a9f5;
+}
+
+.help-tabs ul li:first-child {
+  margin-left: 0;
+}
+
+
+.help-tab-content>div>ul li {
+    padding-top: 0px;
+    padding-bottom: 45px;
+    border-top: 1px dashed #dee3eb;
+}
+
+.help-tab-content>div>ul li:first-child {
+  border-top: none;
+}
+
+.help-tab-content .products li span {
+    font-size: 18px;
+    color: #596776;
+    display: block;
+    margin-left: 150px;
+}
+
+.help-tab-content .products li p {
+    font-size: 14px;
+    margin-top: 20px;
+    color: #a7abae;
+    margin-left: 150px;
+    line-height: 30px;
+}
+
+.help-tab-content .products li img {
+
+  position: relative;
+  top: 50px;
+  left: 50px;
+}
+
+
+.help-tab-content {
+    height: 1550px;
+    overflow: hidden;
+ }
+
+.help-tab-content>div {
+   height: 3000px;
+}
+
+/* å…³äºŽæˆ‘ä»¬ç­‰ */
+.about {
+  background: #d6e0ea;
+}
+
+.about-container {
+ 
+  color: #838e99;
+}
+
+.about-container .about-us {
+   width: 1175px;
+  margin: 0 auto;
+}
+
+.about-container .title {
+  color: #03a9f5;
+    font-size: 26px;
+    padding-top: 80px;
+    display: block;
+    text-align: center;
+}
+
+.title-line {
+      border-bottom: 1px solid #d3d8da;
+    height: 28px;
+    width: 468px;
+    margin: auto;
+    display: block;
+}
+
+.title-exp {
+      color: #bbb;
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: center;
+    display: block;
+}
+
+.title-line:before {
+  content: 'O';
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  color: #ccc;
+  position: relative;
+  top: 18px;
+  background: #fff;
+  left: 49%;
+}
+
+.about-us .content li {
+  position: relative;
+}
+
+.about-us .content li img {
+  position: absolute;
+}
+
+.about-us .content li p {
+      margin-bottom: 40px;
+    font-size: 14px;
+    line-height: 2em;
+    margin-left: 120px;
+}
+
+.about-us .content li span {
+  font-size: 16px;
+  margin-left: 120px;
+}
+
+.about-us .content {
+  margin-top: 60px;
+}
+
+.join-us {
+  background: #f2f4f5;
+  padding-bottom: 100px;
+}
+
+.join-us .title-line:before {
+  background:  #f2f4f5;
+}
+
+.join-us .content {
+  overflow: hidden;
+  width: 1175px;
+  margin: 0 auto;
+}
+
+.join-us .content>ul {
+      padding: 32px 40px;
+    border: 1px solid #ebeced;
+    background-color: #ffffff;
+    width: 468px;
+    height: 555px;
+    margin-top: 38px;
+    float: left;
+}
+
+.join-us .content>ul.right {
+  float: right;
+}
+
+.join-us .job-title {
+  font-size: 14px;
+    color: #ffffff;
+    background-color: #7e92a7;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 3px;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: inline-block;
+}
+
+.join-us .job-des {
+  font-size: 14px;
+    margin-top: 30px;
+    line-height: 28px;
+}
+
+.contact-us {
+  width: 1175px;
+  margin: 0 auto;
+  overflow: h;
+}
+
+.contact-us .content .content-list {
+  overflow: hidden;
+  padding-bottom: 100px;
+}
+
+.contact-us .content .content-list li {
+  width: 290px;
+  height: 234px;
+  float: left;
+  position: relative;
+}
+
+.contact-us .content .content-list li span {
+  display: block;
+  text-align: center;
+  color: #bbb;
+    font-size: 14px;
+    lien-height: 28px;
+    width: 235px;
+    margin: 15px auto 0;
+}
+
+.contact-us .content .content-list li img {
+   /* position: absolute; */
+   position: relative;
+   left: 50%;
+   margin-left: -40px;
+   margin-top: 90px;
+}
+
+.contact-us .content .content-list li span.txt-title {
+      margin-top: 16px;
+    color: #666;
+    font-size: 16px;
+}
+
+/* 百度地图 */
+ .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+ div#dituContent {
+    height: 420px;
+}

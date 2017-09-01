@@ -1,0 +1,94 @@
+
+
+.search-result
+{
+    width:970px;
+}
+
+.search-result [name=list]
+{
+    width:100%;
+    margin-top:30px;
+    font-size:12px;
+    color:#838e99;
+}
+/*
+
+.search-result [name=list] th
+{
+    background-color: #e1e6ea;
+    color:#596776;
+}
+
+.search-result [name=list] th,.search-result [name=list] td
+{
+    border-left:none;
+    border-right:none;
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+    line-height:44px;
+    font-size:14px;
+}
+
+.search-result [name=list] td:first-child
+{
+    text-align:left;
+    text-indent:10px;
+}
+
+.search-result [name=list] td:not(:first-child)
+{
+    text-align:center;
+}
+
+.search-result [name=list] tr:not(:first-child):nth-child(odd)
+{
+    background-color: #fcfcfc;
+}
+
+.search-result [name=list] tr:not(:first-child):hover
+{
+    cursor: pointer;
+    background-color:#f5f5f5;
+}
+
+.search-result [name=list] tr:not(:first-child):nth-child(odd):hover
+{
+    background-color: #f0f0f0;
+}
+
+.search-result [name=list] td:first-child
+{
+    color:#596776;
+}
+*/
+
+.order-by .icon
+{
+    background: transparent url(http://image.thinkinggame.cn/img/chart/order.png) no-repeat center center;
+    background-size:contain;
+}
+
+.order-by .icon.desc
+{
+    background: transparent url(http://image.thinkinggame.cn/img/chart/desc.png) no-repeat center center;
+}
+.order-by .icon.asc
+{
+    background: transparent url(http://image.thinkinggame.cn/img/chart/asc.png) no-repeat center center;
+}
+
+.filter {
+    background: transparent url(http://image.thinkinggame.cn/img/chart/filter2.png) no-repeat left center;
+    background-size: 1.1em;
+    width: 7.2em;
+    display: inline-block;
+    cursor: pointer;
+    text-align: right;
+}
+
+.filter_wnd
+{
+    font-size:12px;
+}
+

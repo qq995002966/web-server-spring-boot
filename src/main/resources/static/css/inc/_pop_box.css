@@ -1,0 +1,23 @@
+
+._pop_box-header
+{
+    height:58px;
+    font-size:14px;
+    background-color:#f2f4f5;
+    color:#03a9f5;
+    line-height:58px;
+    text-indent:30px;
+    border-bottom:1px solid #dee3e8;
+    border-radius:3px 3px 0 0 ;
+}
+
+._pop_box-header .close
+{
+    color:#a7acb0;
+}
+
+._pop_box-body
+{
+    border-top:none;
+    padding:14px 30px 14px 30px;
+}

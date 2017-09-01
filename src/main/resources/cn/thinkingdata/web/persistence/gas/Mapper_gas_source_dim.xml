@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.gas.Mapper_gas_source_dim">
+	<resultMap type="cn.thinkingdata.web.domain.gas.Do_gas_source_dim" id="persistence">
+		<result property="id" column="id"/>
+		<result property="source_type" column="source_type"/>
+		<result property="source_desc" column="source_desc"/>
+		<result property="rank" column="rank"/>
+	</resultMap>
+
+	<select id="getAll" resultMap="persistence">
+		select * from gas_new.gas_source_dim
+	</select>
+	
+	
+</mapper>

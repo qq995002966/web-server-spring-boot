@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.gas.Mapper_gas_projects">
+	<resultMap type="cn.thinkingdata.web.domain.gas.Do_gas_projects" id="persistence">
+		<result property="project_id" column="project_id"/>
+		<result property="project_name" column="project_name"/>
+		<result property="pinyin" column="pinyin"/>
+		<result property="status" column="status"/>
+		<result property="hot_score" column="hot_score"/>
+	</resultMap>
+
+	<select id="getAll" resultType="cn.thinkingdata.web.domain.gas.Do_gas_projects">
+		select a.*,ifnull(b.detail_type_desc,'') detail_type_desc from gas_new.gas_projects a
+		left outer join
+		gas_new.project_detail_type_dim b
+		on a.detail_type=b.detail_type
+		where a.status=1
+	</select>
+	
+	<select id="getProjectById" parameterType="int" resultType="cn.thinkingdata.web.domain.gas.Do_gas_projects">
+		select a.*,b.detail_type_desc from gas_new.gas_projects a,gas_new.project_detail_type_dim b where a.project_id=#{project_id} and a.detail_type=b.detail_type
+	</select>
+	
+	<select id="getCnt" resultType="int">
+		select count(*) from gas_new.gas_projects where status=1
+	</select>
+	
+	<select id="getSome" resultMap="persistence">
+		select * from gas_new.gas_projects where status=1 limit #{index},#{limit}
+	</select>
+	
+	<select id="getProjectIdListByGameType" resultType="int">
+		select project_id from gas_new.gas_projects where status=1 and game_type like "%"#{game_type}"%"
+	</select>
+	
+	<select id="getProjectIdListByDetailType" resultType="int">
+		select project_id from gas_new.gas_projects where status=1 and detail_type=#{detail_type}
+	</select>
+
+	<select id="getProjectByAppId" resultType="int">
+		select project_id from gas_new.gas_apps apps where app_key=#{app_id}
+	</select>
+</mapper>

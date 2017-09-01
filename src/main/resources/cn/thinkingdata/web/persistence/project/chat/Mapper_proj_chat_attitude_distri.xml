@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.chat.Mapper_proj_chat_attitude_distri">
+
+	<resultMap type="cn.thinkingdata.web.domain.project.chat.Do_proj_chat_attitude_distri" id="get">
+		<result property="info_id" column="info_id"/>
+		<result property="attitude_score" column="attitude_score"/>
+		<result property="post_num" column="post_num"/>
+	</resultMap>
+
+	<select id="get" resultMap="get">
+		select * from gas_new.proj_chat_attitude_distri where info_id=#{info_id} and agg_code=1 and info_id in (select info_id from gas_new.gas_chat_info where user_id=#{user_id})
+	</select>
+	
+	<select id="getJustByInfoId" resultMap="get">
+		select * from gas_new.proj_chat_attitude_distri where info_id=#{info_id} and agg_code=1 
+	</select>
+	
+	
+	
+</mapper>

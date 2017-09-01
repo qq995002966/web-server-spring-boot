@@ -1,0 +1,30 @@
+.user-center
+{
+    font-size:14px;
+    line-height:42px;
+    width:100px;
+    text-indent:30px;
+    border-radius:3px;
+    z-index: 50;
+    right:-10px;
+    top:60px;
+    position:absolute;
+}
+
+.user-center div:hover
+{
+    cursor:pointer;
+    color:#2E2D3C;
+}
+
+.user-center .me
+{
+    background:transparent url(http://image.thinkinggame.cn/img/usercenter/me.png) no-repeat 10px center;
+    background-size:16px;
+}
+
+.user-center .logout
+{
+    background:transparent url(http://image.thinkinggame.cn/img/usercenter/logout.png) no-repeat 10px center;
+    background-size:16px;
+}

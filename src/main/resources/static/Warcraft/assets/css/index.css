@@ -1,0 +1,1373 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.margin-bottom {
+  bottom: 45%;
+  background: rgba(0,0,0,0.4) !important;
+}
+
+input[type="text"], input[type="password"] {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 0;
+}
+
+span.tab-title {
+  color: #e5b02d;
+  font-size: 0.65rem;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  line-height: 1.4rem;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.spanwhite {
+  color: #ffffff;
+  font-size: 0.5rem;
+}
+
+.spanyellow {
+  color: #e5b02d;
+  font-size: 0.5rem;
+}
+
+.yellowb {
+  color: #594412 !important;
+}
+
+span.title-des {
+  color: #e5b02d;
+  font-size: 0.65rem;
+  position: absolute;
+  top: -0.3rem;
+  z-index: 2;
+  width: 76%;
+  margin: 0 auto;
+  padding: 0 5%;
+  text-align: center;
+}
+
+p.title-des {
+  color: #e5b02d;
+  font-size: 0.5rem;
+  text-align: center;
+}
+
+p.bold {
+  font-weight: bold;
+}
+
+p {
+  font-size: 0.5rem;
+  color: #ffffff;
+  line-height: 0.8rem;
+}
+
+p.text-align {
+  text-align: center;
+  font-size: 0.5rem;
+}
+
+p.mtop {
+  margin-top: 1rem;
+}
+
+img.title {
+  width: 46%;
+  position: absolute;
+  left: 50%;
+  margin-left: -23%;
+  top: -0.7rem;
+}
+
+div.pop-case {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 11;
+}
+div.pop-case div#falseInfor {
+  height: 4.5rem;
+  margin-top: -2.75rem;
+}
+div.pop-case div#falseInfor div.button-all {
+  width: 7.8rem;
+  position: relative;
+  left: 50%;
+  margin-left: -3.9rem;
+}
+div.pop-case div.pop-content {
+  width: 60%;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 8% 5% 5% 5%;
+  min-height: 4rem;
+  border-radius: 0.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -35%;
+  margin-top: -5rem;
+}
+div.pop-case div.pop-content button.pop-btn {
+    width: 3.4rem;
+    height: 1.2rem;
+    border-radius: 3rem;
+    position: relative;
+    border: none;
+    background: #e5b02d;
+    color: #ffffff;
+    margin-top: 0.5rem;
+    font-size: 0.5rem;
+    left: 50%;
+    margin-left: -1.7rem;
+}
+div.pop-case div.pop-content button.pop-btn a {
+  color: #ffffff;
+  text-decoration: none;
+}
+div.pop-case div.pop-content button.recieve {
+  left: 50%;
+  margin-left: -1.75rem;
+}
+div.pop-case div.pop-content button.startgame {
+  background: #c60031;
+  margin-right: 0.5rem;
+}
+div.pop-case div.pop-content span {
+  display: block;
+  background: #ffffff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  margin-left: -25%;
+  margin-top: -0.4rem;
+  text-align: center;
+}
+div.pop-case div.pop-content div.border-p {
+  border: 0.05rem solid #c5c5c5;
+}
+div.pop-case div.pop-content div.border-p p {
+  color: #000000;
+  padding: 0.5rem;
+  font-size: 0.6rem;
+  line-height: 0.9rem;
+  text-align: center;
+  min-height: 1rem
+}
+
+div.pop-case div.pop-content div.border-p textarea {
+    height: 2rem;
+    /*resize: none;*/
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border: 0.05rem dashed #a3a3a3;
+    font-size: 0.5rem;
+    color: #594412;
+    width: 100% !important;
+    /* left: 50%; */
+    margin-left: -1.5%
+     -webkit-appearance: none;
+}
+
+ul.login-list div.login-bottom-text {
+  font-size: 0.5rem;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+ul.login-list div.login-bottom-text a {
+  color: #e5b02d;
+  text-decoration: none;
+}
+ul.login-list li {
+  position: relative;
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  font-size: 0.6rem;
+  border: none;
+  height: 1.3rem;
+  margin-top: 0.2rem;
+  border-radius: 3rem;
+  background: #ffffff;
+}
+ul.login-list li button.sent-word {
+  background: #e5b02d;
+  font-size: 0.5rem;
+  border: none;
+  border-radius: 2rem;
+  height: 1rem;
+  position: absolute;
+  right: 0;
+  margin-top: -1rem;
+  display: block;
+  padding: 0 0.5rem;
+  margin-right: 0.3rem;
+  top: 50%;
+  margin-top: -0.5rem;
+}
+ul.login-list li i.input-icon {
+  background: url(../images/login.jpg) no-repeat;
+  width: 0.7rem;
+  height: 0.6rem;
+  position: absolute;
+  display: block;
+  top: 50%;
+  margin-top: -0.2rem;
+  background-size: 100%;
+  margin-left: 0.6rem;
+}
+ul.login-list li i.pass-icon {
+  background-position: 0 -0.7rem;
+}
+ul.login-list li i.confirmpass-icon {
+  background-position: 0 -1.35rem;
+}
+ul.login-list li i.word-icon {
+  background-position: 0 -2rem;
+}
+ul.login-list li input {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+  font-size: 0.5rem;
+  border: none;
+  height: 1rem;
+  padding-left: 8%;
+  border-radius: 3rem;
+  padding-top: 0.15rem;
+}
+
+div.header {
+  height: 15%;
+  width: 100%;
+  background: url(../images/header-bg.png) no-repeat;
+  background-size: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+div.header a.logo img {
+  width: 4rem;
+  position: relative;
+  top: 0.3rem;
+  left: 0.5rem;
+}
+div.header a.url {
+  text-decoration: none;
+  font-size: 0.4rem;
+  font-weight: bold;
+  color: #3f86e3;
+  float: right;
+  position: relative;
+  top: 0.8rem;
+  right: 0.5rem;
+}
+
+div.footer.single-btn {
+  height: 22%;
+}
+div.footer.single-btn .footer-btn div.btn-center {
+  position: relative;
+  left: 50%;
+  margin-left: -2rem;
+}
+
+div.footer {
+  background: url(../images/f-bg.jpg) no-repeat;
+  background-size: 100%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 23%;
+  /*height: 5.5rem;*/
+}
+div.footer .footer-btn {
+  width: 12rem;
+  margin: 0 auto;
+  margin-top: 0.9rem;
+}
+div.footer .footer-btn div.clause {
+  background: url(../images/clause.png) no-repeat;
+  background-size: 100%;
+  width: 3rem;
+  height: 3.05rem;
+  position: relative;
+}
+div.footer .footer-btn div.start {
+  background: url(../images/start.png) no-repeat;
+  background-size: 100%;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 0.5rem;
+}
+div.footer .footer-btn div.hero {
+  background: url(../images/hero.png) no-repeat;
+  background-size: 100%;
+  width: 3rem;
+  height: 3.05rem;
+  position: relative;
+}
+div.footer .footer-btn .btn {
+  display: inline-block;
+}
+div.footer .footer-btn .btn a.line {
+  line-height: 3.05rem;
+  color: #e5b02d;
+  font-size: 0.65rem;
+  font-weight: bold;
+  text-align: center;
+}
+div.footer .footer-btn .btn a {
+  color: #e5b02d;
+  font-size: 0.65rem;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  line-height: 4rem;
+}
+
+div.content {
+  height: 100%;
+  overflow: hidden;
+}
+
+div.fight-section {
+  height: 100%;
+}
+
+div.home-section {
+  background: url(../images/home-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 10%;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+div.home-section div.progress-bar {
+  position: fixed;
+  bottom: 21%;
+}
+div.home-section div.progress-bar img {
+  width: 100%;
+}
+div.home-section div#Curtain {
+  display: none;
+}
+div.home-section div.rate-pop {
+  background: url(../images/text-bg.png) no-repeat;
+  background-size: 100%;
+  width: 70%;
+  margin: 0 auto;
+  height: 45%;
+  margin-top: 1.8rem;
+  padding: 7% 5% 18% 5%;
+  position: relative;
+}
+div.home-section div.hero ul#combatList ul li {
+  margin-top: 0.1rem;
+  overflow: hidden;
+}
+div.home-section div.hero ul#combatList ul li img {
+  width: 1rem;
+  float: left;
+  position: relative;
+  top: 50%;
+  margin-top: 0.1rem;
+}
+div.home-section div.hero ul#combatList ul li span {
+  line-height: 1.2rem;
+}
+div.home-section div.hero ul#combatList ul li span.userid {
+  float: left;
+  margin-left: 5%;
+}
+div.home-section div.hero ul#combatList ul li span.uservalue {
+  float: right;
+}
+div.home-section div.hero ul#combatList ul li.bottom-head {
+  border-bottom: 0.05rem solid #e5b02d;
+}
+div.home-section div.hero ul#combatList ul li.bottom-head span.txt-right {
+  text-align: right;
+}
+div.home-section div.hero ul#combatList ul li.bottom-head span {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.65rem;
+  line-height: 1rem;
+}
+div.home-section div.hero ul#combatvalue ul li.des-head {
+  margin-top: 0.5rem;
+}
+div.home-section div.hero ul#combatvalue ul li.des-head span {
+  position: relative;
+  top: -0.7rem;
+  left: 1rem;
+}
+div.home-section div.hero ul#combatvalue ul li {
+  line-height: 0.6rem;
+}
+div.home-section div.hero ul#combatvalue ul li img {
+  width: 15%;
+}
+div.home-section div.hero ul#combatvalue ul li span.spanwhite {
+  width: 60%;
+  display: inline-block;
+}
+div.home-section div.collect {
+  background: url(../images/text-bl.png) no-repeat;
+  background-size: 100%;
+}
+div.home-section div.collect ul#reward img {
+  width: 100%;
+  margin: 0rem 0;
+  position: relative;
+  left: 50%;
+  margin-left: -45%;
+}
+div.home-section div.collect ul#reward p {
+  text-align: left;
+}
+div.home-section div.collect ul#reward h2 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.6rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+
+
+
+div.home-section div.collect ul#reward  li.text-content > img {
+  width: 90%;
+}
+
+div.home-section div.collect ul#reward  h2 {
+  color: #fff;
+  font-size: 0.6rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1rem;
+    /*margin-bottom: -1rem;*/
+}
+div.home-section div.collect ul#reward div.wrap-text  {
+  position: relative;
+  margin-top: -15rem;
+  margin-bottom: 6rem;
+}
+
+div.home-section div.collect ul#reward div.wrap-text div.wrap-top {
+  position: relative;
+  top: 1.6rem;
+}
+div.home-section div.collect ul#reward div.wrap-text div.wrap-top> img {
+  float: left;
+}
+
+div.home-section div.collect ul#reward div.wrap-text div.wrap-mid span {
+  width: 2rem;
+    display: inline-block;
+    position: relative;
+    top: 2rem;
+}
+
+div.home-section div.collect ul#reward div.wrap-text div.wrap-bottom {
+      position: relative;
+    top: 5.7rem;
+}
+
+div.home-section div.collect ul#reward div.wrap-text div.wrap-mid span:first-child {
+  margin-right: 6.7rem;
+}
+
+div.home-section div.collect ul#reward div.wrap-text  p {
+      font-size: 0.4rem;
+    text-align: center;
+    line-height: 1.5rem;
+    position: relative;
+    color: #fff;
+    top: 0.3rem;
+}
+
+ div.home-section div.collect ul#reward div.wrap-text  span {
+      font-size: 0.3rem;
+    text-align: center;
+    position: relative;
+    color: #fff;
+}
+
+div.home-section div.collect ul#reward div.wrap-text  img {
+  width: 2rem;
+}
+
+
+
+
+
+
+
+div.home-section div.collect ul#mechanism  li.text-content > img {
+  width: 100%;
+}
+
+div.home-section div.collect ul#mechanism  h2 {
+  color: #fff;
+  font-size: 0.6rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1rem;
+    /*margin-bottom: -1rem;*/
+}
+div.home-section div.collect ul#mechanism div.wrap-text  {
+  position: relative;
+  margin-top: -15rem;
+  margin-bottom: 6rem;
+}
+div.home-section div.collect ul#mechanism div.wrap-text div.wrap-top> img {
+  float: left;
+}
+
+div.home-section div.collect ul#mechanism div.wrap-text div.wrap-mid span {
+  width: 2rem;
+    display: inline-block;
+    position: relative;
+    top: 2rem;
+}
+
+div.home-section div.collect ul#mechanism div.wrap-text div.wrap-bottom {
+      position: relative;
+    top: 4.5rem;
+}
+
+div.home-section div.collect ul#mechanism div.wrap-text div.wrap-mid span:first-child {
+  margin-right: 6.7rem;
+}
+
+div.home-section div.collect ul#mechanism div.wrap-text  p {
+      font-size: 0.4rem;
+    text-align: center;
+    line-height: 2rem;
+    position: relative;
+    color: #fff;
+    top: 0.3rem;
+}
+
+ div.home-section div.collect ul#mechanism div.wrap-text  span {
+      font-size: 0.3rem;
+    text-align: center;
+    position: relative;
+    color: #fff;
+}
+
+div.home-section div.collect ul#mechanism div.wrap-text  img {
+  width: 2rem;
+}
+
+
+
+div.home-section div.collect ul#mechanism {
+  display: none;
+}
+
+
+
+
+div.home-section div.collect ul.tab-content li.text-content, div.home-section div.collect ul#reward li.text-content, div.home-section div.collect ul#combatList li.text-content {
+  height: 12.5rem;
+  overflow: hidden;
+  overflow-y: scroll;
+  margin-top: 0.3rem;
+}
+div.home-section div.collect ul.tab-change {
+  width: 100%;
+  margin-top: -1.6rem;
+}
+div.home-section div.collect ul.tab-change li {
+  display: inline-block;
+  width: 47%;
+  position: relative;
+}
+div.home-section div.collect ul.tab-change li img {
+  width: 100%;
+}
+
+.error {
+  height: 1rem;
+  font-size: 0.5rem;
+  color: #e52d2d;
+  position: absolute;
+  top: 1.4rem;
+  left: 0.5rem;
+}
+
+.fight-section {
+  position: relative;
+}
+.fight-section div.sliderbg {
+  background: green;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: 2;
+}
+.fight-section div.slider-top {
+  top: 0;
+  bottom: 50%;
+  background: url(../images/contain-bg.jpg);
+  width: 100%;
+}
+.fight-section div.slider-top img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.fight-section div.slider-bottom {
+  top: 50%;
+  bottom: 0;
+  background: url(../images/contain-bg.jpg);
+  width: 100%;
+}
+.fight-section div.slider-bottom img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  transform: rotate(180deg);
+}
+.fight-section div.slider-top.animation {
+  animation: up 2s 1 normal;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation: up 2s 1 normal;
+  -webkit-animation-delay: 1s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation: up 2s 1 normal;
+  -moz-animation-delay: 1s;
+  -moz-animation-fill-mode: forwards;
+  -o-animation: up 2s 1 normal;
+  -o-animation-delay: 1s;
+  -o-animation-fill-mode: forwards;
+}
+.fight-section div.slider-bottom.animation {
+  animation: down 2s 1 normal;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation: down 2s 1 normal;
+  -webkit-animation-delay: 1s;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation: down 2s 1 normal;
+  -moz-animation-delay: 1s;
+  -moz-animation-fill-mode: forwards;
+  -o-animation: down 2s 1 normal;
+  -o-animation-delay: 1s;
+  -o-animation-fill-mode: forwards;
+}
+.fight-section div.content-bg {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: url(../images/login-bg.jpg) no-repeat;
+  background-position: center;
+}
+.fight-section div.content-bg div.fortribal {
+  display: none;
+  height:  100%;
+}
+.fight-section div.content-bg div.fortribal img {
+     position: relative;
+    top: 50%;
+    left: 50%;
+    /* margin-top: 50%; */
+    /* margin-left: -30%; */
+    z-index: 1;
+    width: 10rem;
+    margin-left: -5rem;
+    /* height: 10rem; */
+    height: 10rem;
+    margin-top: -5rem;
+}
+.fight-section div.content-bg div.login-input {
+  background: url(../images/text-bg.png) no-repeat;
+  background-size: 100%;
+  width: 68%;
+  margin: 0 auto;
+  padding: 7%;
+  position: relative;
+  top: 50%;
+  margin-top: -38%;
+}
+.fight-section div.content-bg div.login-input div.start {
+  background: url(../images/start.png) no-repeat;
+  background-size: 100%;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 0.5rem;
+  position: relative;
+  left: 50%;
+  margin-left: -2rem;
+  top: -0.5rem;
+}
+.fight-section div.content-bg div.login-input div.start  #loginBtn a {
+  color: #e5b02d;
+  font-size: 0.65rem;
+  display: block;
+ padding: 40% 0;
+ text-decoration: none;
+}
+.fight-section div.content-bg div.login-input div.start  #loginBtn {
+  color: #e5b02d;
+  font-size: 0.65rem;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  border: none;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  margin-top:  -50%;
+  position: absolute;
+  background: none;
+  left: 50%;
+  margin-left: -50%
+}
+.fight-section div.content-bg div.login-input > ul.login-list li.checkbox-part {
+  background: none;
+}
+.fight-section div.content-bg div.login-input > ul.login-list > li {
+  position: relative;
+  margin-top: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+.fight-section div.content-bg div.login-input > ul.login-list > li input#checkLogin {
+  width: 0rem;
+  border-radius: 0.2rem;
+  position: absolute;
+  left: 0.2rem;
+  top: 0rem;
+  height: 0rem;
+}
+.fight-section div.content-bg div.login-input > ul.login-list > li label:before {
+  content: "";
+  background: url(../images/checkbox.png) no-repeat;
+  background-size: 200%;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 0rem;
+  left: 0.2rem;
+}
+.fight-section div.content-bg div.login-input > ul.login-list > li input#checkLogin:checked + label:before {
+  content: "";
+  background: url(../images/checkbox.png) no-repeat;
+  background-size: 200%;
+  background-position: -1.05rem 0;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+}
+.fight-section div.content-bg div.login-input > ul.login-list > li span.gray-text {
+  color: #808080;
+  font-size: 0.5rem;
+  position: relative;
+  z-index: 2;
+  top: 0.2rem;
+  left: 1.5rem;
+}
+.fight-section div.content-bg div.login-input > ul.login-list > li span.regis-btn {
+  display: block;
+  background: #e5b02d;
+  width: 2.5rem;
+  border-radius: 1rem;
+  height: 1rem;
+  padding: 0 0.25rem;
+  line-height: 1rem;
+  position: absolute;
+  right: 0;
+  margin-right: 0.2rem;
+  top: 0rem;
+}
+.fight-section div.content-bg div.login-input > ul.login-list > li span.regis-btn a {
+  text-decoration: none;
+  font-size: 0.5rem;
+  text-align: center;
+  color: #000000;
+  display: block;
+}
+
+@keyframes up {
+  from {
+    bottom: 50%;
+  }
+  to {
+    bottom: 80%;
+  }
+}
+@keyframes down {
+  from {
+    top: 50%;
+  }
+  to {
+    top: 80%;
+  }
+}
+@-webkit-keyframes up {
+  from {
+    bottom: 50%;
+  }
+  to {
+    bottom: 80%;
+  }
+}
+@-webkit-keyframes down {
+  from {
+    top: 50%;
+  }
+  to {
+    top: 80%;
+  }
+}
+@-moz-keyframes up {
+  from {
+    bottom: 50%;
+  }
+  to {
+    bottom: 80%;
+  }
+}
+@-moz-keyframes down {
+  from {
+    top: 50%;
+  }
+  to {
+    top: 80%;
+  }
+}
+@-o-keyframes up {
+  from {
+    bottom: 50%;
+  }
+  to {
+    bottom: 80%;
+  }
+}
+@-o-keyframes down {
+  from {
+    top: 50%;
+  }
+  to {
+    top: 80%;
+  }
+}
+.startfight-section {
+  background: url(../images/bg2.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+.startfight-section div.fl-b {
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  color: #e5b02d;
+  padding: 2% 0;
+  position: fixed;
+  bottom: 23%;
+  width: 100%;
+}
+.startfight-section div.fl-b h2 {
+  font-size: 0.5rem;
+  font-weight: bold;
+}
+.startfight-section #startFight {
+  width: 86%;
+  margin: 0 auto;
+  padding: 22% 5% 10% 5%;
+}
+.startfight-section #startFight img.code {
+  width: 40%;
+  position: relative;
+  margin-left: -20%;
+  left: 50%;
+  margin-top: 0.3rem;
+}
+.startfight-section #startFight div.left {
+  margin-right: 2%;
+}
+.startfight-section #startFight > div {
+  width: 49%;
+  float: left;
+  position: relative;
+  background: url(../images/text-bgs.png) no-repeat;
+  background-size: 100%;
+  height: 7rem;
+}
+.startfight-section #startFight > div > span.start-title-des {
+  text-align: center;
+  color: #e5b02d;
+  font-size: 0.65rem;
+  width: 100%;
+  position: absolute;
+  top: -0.25rem;
+  z-index: 1;
+}
+.startfight-section #startFight > div > img {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  margin-left: -40%;
+  top: -0.5rem;
+}
+.startfight-section #startFight > div ul {
+  margin-top: 1rem;
+  padding: 0 8% 5% 8%;
+}
+
+.startfight-section #startFight > div ul.left li {
+    line-height: 1.2rem;
+}
+
+.startfight-section #startFight > div ul li span {
+  /*display: block;*/
+  line-height: 0.6rem;
+}
+
+div.home-section.register {
+  background: url(../images/bg3.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+div.home-section.register div.rate-pop.curtain {
+  background: url(../images/text-bl.png) no-repeat;
+  background-size: 100%;
+}
+
+ul.login-list div.login-bottom-text {
+  font-size: 0.5rem;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+ul.login-list div.login-bottom-text a {
+  color: #e5b02d;
+  text-decoration: none;
+}
+ul.login-list li {
+  position: relative;
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  font-size: 0.6rem;
+  border: none;
+  height: 1.3rem;
+  margin-top: 0.2rem;
+  border-radius: 3rem;
+  background: #ffffff;
+}
+ul.login-list li.validation {
+  /*background: none;*/
+}
+ul.login-list li button.sent-word {
+  background: #e5b02d;
+  font-size: 0.5rem;
+  border: none;
+  border-radius: 2rem;
+  height: 1rem;
+  position: absolute;
+  right: 0;
+  margin-top: -1rem;
+  display: block;
+  padding: 0 0.5rem;
+  margin-right: 0.3rem;
+  top: 50%;
+  margin-top: -0.5rem;
+}
+ul.login-list li i.input-icon {
+  background: url(../images/login.jpg) no-repeat;
+  width: 0.7rem;
+  height: 0.6rem;
+  position: absolute;
+  display: block;
+  top: 50%;
+  margin-top: -0.3rem;
+  background-size: 100%;
+  margin-left: 0.6rem;
+}
+ul.login-list li i.pass-icon {
+  background-position: 0 -0.7rem;
+}
+ul.login-list li i.confirmpass-icon {
+  background-position: 0 -1.35rem;
+}
+ul.login-list li i.word-icon {
+  background-position: 0 -2rem;
+}
+ul.login-list li input {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+  font-size: 0.5rem;
+  border: none;
+  height: 1rem;
+  padding-left: 8%;
+  border-radius: 3rem;
+  padding-top: 0.15rem;
+}
+
+div.footer-no-btn {
+  background: url(../images/f-bg.jpg) no-repeat;
+  height: 50%;
+  position: fixed;
+  bottom: 0;
+  width: 86%;
+  padding: 0 7%;
+}
+
+li#bs_copy_link {
+  position: relative;
+  top: 0.5rem;
+  line-height: 0.5rem !important;
+}
+
+li#bs_copy_link  span.spanwhite {
+  text-align: center;
+}
+
+span.t-rank-bg{
+    display: block;
+  background: #e5b02d;
+  border-radius: 3rem;
+  height: 1.2rem;
+  width: 4rem;
+  color: #fff;
+  position: relative;
+  left: 50%;
+  margin-left: -2rem;
+  top: 1rem;
+  text-align: center;
+  line-height: 1.2rem !important;
+  margin-top: -0.5rem;
+}
+
+
+div.footer-no-btn p.spanyellow {
+  font-size: 0.6rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+div.footer-no-btn ul.select-list li {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+div.footer-no-btn ul.select-list li span.spanyellow a {
+  display: block;
+  text-decoration: none;
+}
+div.footer-no-btn ul.select-list li span.spanwhite {
+  width: 80%;
+  display: block;
+  line-height: 0.8rem;
+}
+div.footer-no-btn ul.select-list li span.icon-list {
+  font-size: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  top: 50%;
+  margin-top: -1.4rem;
+}
+div.footer-no-btn ul.select-list li span.clause {
+  background: url(../images/clause.png) no-repeat;
+  background-size: 100%;
+}
+div.footer-no-btn ul.select-list li span.start {
+  background: url(../images/start.png) no-repeat;
+  background-size: 100%;
+}
+div.footer-no-btn ul.select-list li span.hero {
+  background: url(../images/hero.png) no-repeat;
+  background-size: 100%;
+}
+
+div.home-section.register div.curtain div.curtain-content div {
+  margin-top: 4.5rem;
+}
+div.home-section.register div.curtain div.curtain-content div > span {
+  font-size: 0.65rem;
+  text-align: center;
+  display: block;
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+div.home-section.register div.curtain div.curtain-content div > span span.userid {
+  margin-left: 0.5rem;
+}
+div.home-section.register div.curtain div.curtain-content img {
+  position: absolute;
+  width: 4rem;
+  left: 50%;
+  margin-left: -2rem;
+  top: 1rem;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  cursor: pointer;
+}
+
+span#bs_qr_code {
+    position: relative;
+    left: 50%;
+    width: 5rem;
+    margin-left: -2.5rem;
+    top: 0.2rem;
+    z-index: 2
+}
+
+button#regBtn {
+    color: #e5b02d;
+  font-size: 0.65rem;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  border: none;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  /*margin-top: -50%;*/
+  /*position: absolute;*/
+  background: none;
+  /*left: 50%;*/
+  /*margin-left: -50%;*/
+}
+
+div#Collect  div.start , div#Hero div.start{
+  background-position:  0 -4rem;
+}
+
+div#Collect  div.hero, div#Hero div.clause, div#Registerpart div.clause,div#Registerpart div.hero {
+  background-position:  0 -3.05rem;
+}
+
+div#Startfight  div.clause,  div#Startfight  div.hero {
+   background-position:  0 -3.05rem;
+}
+
+div#div_gt_embed  .gt_holder .gt_guide_tip {
+     cursor: default;
+    position: absolute;
+    /* left: 56px; */
+    font-size: 0.3rem  !important;
+    color: #486c80;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    /* height: 28px; */
+    /* line-height: 28px !important; */
+    text-align: center;
+    width: 7rem;
+    height: 1rem;
+    left: 0.5rem;
+    top: 50%;
+    margin-top: -0.5rem;
+    }
+div#div_gt_embed .gt_holder .gt_slider {
+    height: 1rem;
+    /* padding-top: 1rem; */
+    width: 8rem;
+    background-position: 0 0;
+    position: relative;
+    left: 0.2rem;
+    overflow: visible;
+    border-radius: 1rem;
+    top: 0.15rem;
+}
+
+/*  div#div_gt_embed  .gt_holder .gt_slider_knob {
+  width: 1.6rem;
+  height:  1.6rem;
+}
+
+  div#div_gt_embed   .gt_holder .gt_ajax_tip.ready {
+  width: 1rem;
+  height: 1rem;
+}*/
+
+  div#div_gt_embed .gt_holder.float .gt_widget {
+  width: 100%;
+  margin: 0 auto;
+}
+
+button#bs_join_team {
+  color: #e5b02d;
+  font-size: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  border: none;
+  width: 3.5rem;
+  height: 100%;
+  top: 50%;
+  margin-top:  -50%;
+  position: absolute;
+  background: none;
+  left: 50%;
+  margin-left: -1.75rem;
+}
+
+
+i.question-icon {
+  background: url(../images/question.png) no-repeat;
+  width: 0.6rem;
+  height: 1.2rem;
+  background-size: 100%;
+    position: absolute;
+    right: 0.6rem;
+    top: 0.6rem;
+}
+
+img.pop-pic {
+    width: 10rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 13rem;
+    margin-left: -4.5rem;
+    margin-top: -5rem;
+}
+
+div#longInfor p {
+    font-size: 0.5rem;
+    text-align: left;
+}
+div#longInfor {
+    height: 16rem;
+    position: absolute;
+    top: 50%;
+    margin-top: -9rem;
+    font-size: 0.5rem;
+    line-height: 1rem;
+}
+
+div#longInfor div#bs_pop_qrcode {
+    margin-top: 0rem;
+}
+
+div#longInfor div.border-p b {
+    font-weight: bold;
+    color:#e5b02d;
+}
+
+div#longInfor div#bs_pop_qrcode canvas {
+    position: relative;
+    left: 50%;
+    margin-left: -40px;
+}
+
+div#longInfor div.border-p p {
+    padding: 0;
+}
+
+div#longInfor div.border-p {
+    padding: 0.5rem
+}
+
+p.mb {
+    margin-bottom: 1rem !important;
+}
+
+/*div#RegisterPart {
+  width: 82%;
+}*/
+
+/*# sourceMappingURL=index.css.map */

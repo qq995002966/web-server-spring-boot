@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.sys.Mapper_game_sys_analyse_config">
+    <resultMap id="GameSysAnalyseConfigResult" type="cn.thinkingdata.web.domain.user.custom.inner.sys.Do_game_sys_analyse_config" >
+        <id column="chart_id" property="chart_id"/>
+        <result property="game_id" column="game_id"/>
+        <result property="menu" column="menu"/>
+        <result property="menu_ico" column="menu_ico"/>
+        <result property="sub_menu" column="sub_menu"/>
+        <result property="table_name" column="table_name"/>
+        <result property="chart_name" column="chart_name"/>
+        <result property="chart_order" column="chart_order"/>
+        <result column="form_type" property="form_type" typeHandler="cn.thinkingdata.web.handler.EnumChartFormHandler"/>
+        <result property="sql_template" column="sql_template"/>
+        <result property="delete_flag" column="delete_flag"/>
+        <result property="create_time" column="create_time"/>
+        <result property="update_time" column="update_time"/>
+        <result property="chart_explain" column="chart_explain"/>
+    </resultMap>
+    <select id="findMenuConfigByGameId" resultMap="GameSysAnalyseConfigResult">
+        select * from inner_game.game_sys_analyse_config where delete_flag = 0 and game_id=#{game_id} order by chart_order
+    </select>
+    <select id="findMenuConfigByGameIdAndMenu" resultMap="GameSysAnalyseConfigResult">
+        select * from inner_game.game_sys_analyse_config where delete_flag = 0 and game_id=#{game_id} and sub_menu=#{menu} order by chart_order
+    </select>
+    <select id="findMenuConfigByChartId" resultMap="GameSysAnalyseConfigResult">
+        select * from inner_game.game_sys_analyse_config where delete_flag = 0 and chart_id=#{chart_id}
+    </select>
+</mapper>

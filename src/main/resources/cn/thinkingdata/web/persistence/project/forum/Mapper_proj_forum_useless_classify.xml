@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.forum.Mapper_proj_forum_useless_classify">
+
+	<select id="getFourmUselessClassifyListByProjectDateSpan" resultType="cn.thinkingdata.web.domain.project.forum.Do_proj_forum_useless_classify">
+		select info_id,max(forum_name) forum_name,useless_classify,sum(useless_num) useless_num from gas_new.proj_forum_useless_classify 
+		where project_id=#{project_id} and data_date between #{start_date} and #{end_date} group by info_id,useless_classify
+	</select>
+
+	
+</mapper>

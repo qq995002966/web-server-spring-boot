@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.baidu.Mapper_baidu_global_profile_stat">
+	<resultMap type="cn.thinkingdata.web.domain.baidu.Do_baidu_global_profile_stat" id="persistence">
+		<result property="project_id"                 column="project_id"/>
+		<result property="total_num"                  column="total_num"/>
+		<result property="sex_distri"                 column="sex_distri"/>
+		<result property="province_distri"            column="province_distri"/>
+		<result property="interest_classifies_distri" column="interest_classifies_distri"/>
+		<result property="active_class_distri"        column="active_class_distri"/>
+		<result property="influence_level_distri"     column="influence_level_distri"/>
+		<result property="complain_num"               column="complain_num"/>
+		<result property="complain_rate_distri"       column="complain_rate_distri"/>
+		<result property="trash_user_num"             column="trash_user_num"/>
+		<result property="high_pay_user_num"          column="high_pay_user_num"/>
+		<result property="high_charm_user_num"        column="high_charm_user_num"/>
+		<result property="lost_user_num"              column="lost_user_num"/>
+		<result property="project_rank_distri"        column="project_rank_distri"/>
+		<result property="active_class_post_distri"   column="active_class_post_distri"/>
+		<result property="influence_level_replied_distri"        column="influence_level_replied_distri"/>
+	</resultMap>
+
+	<select id="getProjectGlobalProfile" parameterType="int" resultMap="persistence">
+		select * from gas_new.baidu_global_profile_stat	where project_id=#{project_id}
+	</select>
+	<select id="getProjectGlobalProfileList" resultMap="persistence">
+		select project_id,total_num,sex_distri,province_distri,interest_classifies_distri,active_class_distri,influence_level_distri,complain_num,trash_user_num,high_pay_user_num,high_charm_user_num,lost_user_num,active_class_post_distri,influence_level_replied_distri from gas_new.baidu_global_profile_stat
+	</select>
+	
+</mapper>

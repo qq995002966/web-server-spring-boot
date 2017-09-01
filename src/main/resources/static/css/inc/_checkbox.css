@@ -1,0 +1,53 @@
+
+.checkbox
+{
+    cursor:pointer;
+    display:inline-block;
+}
+
+.checkbox .off {
+    content: '';
+    width: 16px;
+    display:inline-block;
+    background: transparent url(http://image.thinkinggame.cn/img/checkbox/checkbox_off.png) no-repeat center center;
+    background-size:contain;
+}
+
+.checkbox .off:hover {
+    content: '';
+    width: 16px;
+    display:inline-block;
+    background: transparent url(http://image.thinkinggame.cn/img/checkbox/checkbox_hover.png) no-repeat center center;
+    background-size:contain;
+}
+
+.checkbox .on {
+    content: '';
+    width: 16px;
+    display:inline-block;
+    background:transparent url(http://image.thinkinggame.cn/img/checkbox/checkbox_on.png) no-repeat center center;
+    background-size:contain;
+}
+
+.radiobox
+{
+    cursor:pointer;
+    display:inline-block;
+}
+
+.radiobox .off {
+    content: '';
+    width: 16px;
+    display:inline-block;
+    background:transparent url(http://image.thinkinggame.cn/img/checkbox/radio_off.png) no-repeat center center;
+    background-size:contain;
+}
+
+
+.radiobox .on {
+    content: '';
+    width: 16px;
+    display:inline-block;
+    background:transparent url(http://image.thinkinggame.cn/img/checkbox/radio_on.png) no-repeat center center;
+    background-size:contain;
+}

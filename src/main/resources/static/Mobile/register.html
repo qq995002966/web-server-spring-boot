@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!--script(src='../app/mobile.js')-->
+    <!-- 强制国产浏览器使用 webkit 内核渲染-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" user-scalable="no" content="width=device-width" initial-scale="1.0" maximum-scale="1.0">
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="ThinkingData,ThinkingGame,数数信息,游戏舆情,游戏口碑,数据服务,大数据">
+    <meta name="description" content="ThinkingData Home">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <!-- IE 浏览器运行最新的渲染模式下-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- build:css assets/css/style.css-->
+    <link href="assets/css/m-index.css" rel="stylesheet">
+    <script src="http://api.geetest.com/get.php"></script>
+    <!-- endbuild-->
+    <title>Thinking Game Mobile</title>
+</head>
+
+<body style="background: #efefed;">
+    <div class="header mheader register-header">
+        <span class="backup" style="cursor: pointer"><</span>
+        <span class="register-text">注册账号</span>
+        <a id="toggle">
+            <div class="menu-button m-menu-btn"></div>
+        </a>
+        <div class="full-page-nav-box">
+            <div class="full-page-nav">
+                <ul class="m-navlist">
+                    <li><a href="index.html" class="nav">首页</a></li>
+                    <li><a class="nav">产品</a>
+                        <ul class="togglenav show">
+                            <li><a href="guide.html">行业指南</a></li>
+                            <li><a href="light.html">游戏灯塔</a></li>
+                            <li><a href="gamepic.html">游戏图谱</a></li>
+                            <li><a href="media.html">媒体搜索</a></li>
+                        </ul>
+                    </li>
+                    <li><a>公司  </a>
+                        <ul class="togglenav hide">
+                            <li><a href="about.html">关于我们</a></li>
+                            <li><a href="join.html">加入我们</a></li>
+                            <li><a href="partners.html">合作伙伴</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="button-wrap">
+                <button class="login-btn"><a href="login.html">登录     </a></button>
+                <button class="register-btn"><a href="register.html">注册   </a></button>
+            </div>
+            <div class="hadlogin"><img src="assets/images/mobile/user_icon.png"></div>
+        </div>
+    </div>
+    <!-- pop弹框 -->
+    <div class="r-pop-case">
+      <div class="r-pop-content">
+         <p>提示</p>
+         <p class="remind-text">请输入正确的11位手机号码</p>
+         <button class="confirm-btn">好的</button>
+      </div>
+    </div>
+    <div class="register-content">
+        <ul class="tab-progress">
+            <li class="selected">1 输入手机号</li>
+            <li>2 输入验证码</li>
+            <li>3 设置密码</li>
+        </ul>
+        <div id="step0">
+            <div class="phone-input">
+                <input type="text" placeholder="请输入您的手机号" name="mobile" maxlength="11">
+            </div>
+            <div class="check-box">
+                <input type="checkbox">
+                <span>我已阅读并同意<b>《thinkinggame用户协议》</b></span>
+            </div>
+        </div>
+        <div id="step1" style="display: none">
+            <div class="phone-input" id="div_gt_embed">
+                <input type="text" placeholder="请点击获取验证码并输入" name="captcha" maxlength="6"><button id="captchaCheck">获取验证码</button>
+            </div>
+        </div>
+        <div id="step2" style="display: none">
+            <div class="phone-input">
+                <input type="password" placeholder="设置密码" name="password">
+            </div>
+            <div class="phone-input">
+                <input type="password" placeholder="确认密码" name="passwordCheck">
+            </div>
+        </div>
+        <div class="get">
+            <button id="btnCheck" class="commit-btn">提交手机号码</button>
+        </div>
+           <div class="register-now">
+            <span>已有账号？<a href="login.html">立即登录</a></span>
+        </div>
+    </div>
+    <!-- lib-->
+    <!-- build:js app/lib.js-->
+    <!-- <script src="../node_modules/jquery/jquery.min.js"></script> -->
+    <!-- plugin-->
+    <script src="app/plugins/jquery-1.9.1.min.js"></script>
+    <script src="app/plugins/touch.js"></script>
+    <script src="app/plugins/scrollShow.js"></script>
+    <script src="app/plugins/slider.js"></script>
+    <script src="app/plugins/fontsize.js"></script>
+    <script src="../elements/js/api.js"></script>
+    <!-- endbuild-->
+    <!-- app-->
+    <!-- build:js app/app.js-->
+    <script src="app/header.js"></script>
+    <script src="app/mobile-home.js"></script>
+    <script src="app/platform.js"></script>
+    <script src="app/mobile-about.js"></script>
+    <script src="app/mobile-join.js"></script>
+    <script src="app/register.js"></script>
+    <!-- endbuild-->
+</body>
+
+</html>

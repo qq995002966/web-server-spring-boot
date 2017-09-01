@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!--script(src='../app/mobile.js')-->
+    <!-- 强制国产浏览器使用 webkit 内核渲染-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-statue-bar-sytle" content="balck-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="keywords" content="ThinkingData,ThinkingGame,数数信息,游戏舆情,游戏口碑,数据服务,大数据">
+    <meta name="description" content="ThinkingData Home">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <!-- IE 浏览器运行最新的渲染模式下-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- build:css assets/css/style.css-->
+    <link href="assets/css/index.css" rel="stylesheet">
+    <script src="http://api.geetest.com/get.php"></script>
+    <!-- endbuild-->
+    <title>Warcraft</title>
+</head>
+
+<body>
+    <div class="header">
+        <a class="logo"><img src="assets/images/logo.png"></a><a class="url"> www.thinkinggame.cn</a></div>
+    <div class="home-section register">
+        <div class="rate-pop curtain" id="RegisterPart"><span class="title-des"> 联军登记</span><img src="assets/images/title-bg.png" class="title">
+            <p> 联军的英雄们，面对你们的工作，ThinkingGame为你提供千款游戏玩家行为数据挖掘套装，真正有效的游戏运营工具让你事半功倍。
+</p>
+            <p class="text-align spanyellow">立即完成信息登记，获取你的数据分析装备</p>
+            <div class="login-input">
+                <ul class="login-list">
+                    <li><i class="input-icon"></i>
+                        <input type="text" placeholder="联军成员手机号" name="username" class="phonenum">
+                    </li>
+                    <li><i class="input-icon pass-icon"></i>
+                        <input type="password" placeholder="确认进入密码" name="userpass" class="password">
+                    </li>
+                    <li><i class="input-icon confirmpass-icon"></i>
+                        <input type="password" placeholder="再次确认密码" name="passcheck" class="confirm-password">
+                    </li>
+                    <li id="div_gt_embed"><i class="input-icon word-icon"></i>
+                        <input type="text" placeholder="联军士兵验证码" name="usercode" class="word">
+                        <button class="sent-word" id="captchaCheck"> 获取口令 </button>
+                    </li>
+                    <div class="login-bottom-text"><span>已有ThinkingGame.cn的账户，<a href="login.html?t=s">立即登录 </a></span></div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-btn" id="Registerpart">
+            <i class="question-icon"></i>
+            <div class="btn clause"> <a href="collect.html" class="line btn-text yellowb">游戏奖励</a></div>
+            <div class="btn start invitation ">
+                 <button class="btn-text" id="regBtn">确认登记</button> 
+            </div>
+            <div class="btn hero"> <a href="hero.html" class="line btn-text  yellowb">英雄榜</a></div>
+        </div>
+    </div>
+    <div id="bs_pop"></div>
+    <!-- lib-->
+    <!-- build:js app/lib.js-->
+    <script src="app/plugins/jquery-1.9.1.min.js"></script>
+    <!-- plugin-->
+    <script src="app/plugins/fontsize.js"></script>
+    <script src="app/plugins/zepto.min.js"></script>
+    <script src="app/plugins/touch.js"></script>
+    <!-- endbuild-->
+    <!-- app-->
+    <!-- build:js app/app.js-->
+    <script src="app/home.js"></script>
+    <script src="app/register.js"></script>
+    <!-- endbuild-->
+</body>
+
+</html>

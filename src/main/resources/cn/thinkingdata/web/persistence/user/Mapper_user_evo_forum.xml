@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.Mapper_user_evo_forum">
+	<resultMap type="cn.thinkingdata.web.domain.user.evo.Do_user_evo_forum"  id="persistence">
+		<result property="user_id" column="user_id"/>
+		<result property="project_id" column="project_id"/>
+		<result property="forum_name" column="forum_name"/>
+		<result property="forum_url" column="forum_url"/>
+		<result property="status" column="status"/>
+		<result property="last_update_time" column="last_update_time"/>
+	</resultMap>
+
+
+	<select id="get" resultMap="persistence">
+		select * from user_evo_forum where project_id=#{project_id} and (user_id=#{user_id} or user_id=0) and delete_flag=0 limit #{index}, #{limit}
+	</select>
+	
+	<select id="getProjectCnt" resultType="hashmap">
+		select count(distinct(project_id)) as project_cnt from user_evo_forum where project_id!=0 and user_id=#{user_id}
+	</select>
+	
+	<select id="getDataSourceCntOfStatus1" resultType="hashmap">
+		select count(*) as data_source_cnt from user_evo_forum where project_id!=0 and status=1 and user_id=#{user_id}
+	</select>
+	
+	
+	<select id="getDataSourceCntOfStatus0" resultType="hashmap">
+		select count(*) as data_source_cnt from user_evo_forum where project_id!=0 and status=0 and user_id=#{user_id}
+	</select>
+	
+	<update id="delete" >
+		update user_evo_forum set delete_flag=1,last_update_time=now() where id=#{id} and user_id=#{user_id}
+	</update>
+	
+	
+	<update id="update"  parameterType="cn.thinkingdata.web.domain.project.Do_project_data_source" >
+		update user_evo_forum set forum_name=#{forum_name}, forum_url=#{forum_url}, last_update_time=now() where id=#{id} and user_id=#{user_id}
+	</update>
+	
+	<update id="add"  parameterType="cn.thinkingdata.web.domain.project.Do_project_data_source" >
+		insert into user_evo_forum set forum_name=#{forum_name}, forum_url=#{forum_url}, last_update_time=now(), user_id=#{user_id}, project_id=#{project_id}
+	</update>
+	
+</mapper>

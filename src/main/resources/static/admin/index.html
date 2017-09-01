@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ThinkGame后台管理</title>
+	<link rel="stylesheet" type="text/css" href="./css/admin.css">
+	<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../js/layer/layer.js" ></script>
+    <script type="text/javascript" src="../js/func.js" ></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+     //加载修改 增加信息
+    $("#zj").click(function(){
+     
+     G_PopWnd.dialog("标题", $("[name=a123]"));
+
+    });
+
+    //加载公司信息模块
+     $("#gs").click(function(){
+     $(this).css({"background-color":"#e0e0e0"});
+     $(this).siblings().css({"background-color":"#fff"});
+     $(".admin_xinxi_gs").slideToggle("slow");
+     $(".admin_xinxi_gr").slideUp("slow");
+     $(".admin_xinxi_mm").slideUp("slow");
+    
+     $(".title").children("h5").text($(this).text());
+     $(".title h5").css({"color":"red"});
+     $(".admin_mian ul li  h6").text($(this).text());
+     $(".admin_mian ul li h2").text($(this).text());
+     $(".admin_mian ul li h7").text($(this).text());
+    });
+    
+    //加载个人信息模块
+     $("#gr").click(function(){
+     $(this).css({"background-color":"#e0e0e0"});
+     $(this).siblings().css({"background-color":"#fff"});
+     $(".admin_xinxi_gr").slideToggle("slow");
+     $(".admin_xinxi_gs").slideUp("slow");
+     $(".admin_xinxi_mm").slideUp("slow");
+    
+
+     $(".title").children("h5").text($(this).text());
+     $(".title h5").css({"color":"red"});
+     $(".admin_mian ul li  h6").text($(this).text());
+     $(".admin_mian ul li h2").text($(this).text());
+     $(".admin_mian ul li h7").text($(this).text());
+    });
+
+    //加载某某信息模块
+    $("#mm").click(function(){
+     $(this).css({"background-color":"#e0e0e0"});
+     $(this).siblings().css({"background-color":"#fff"});
+     $(".admin_xinxi_mm").slideToggle("slow");
+     $(".admin_xinxi_gr").slideUp("slow");
+     $(".admin_xinxi_gs").slideUp("slow");
+    
+     $(".title").children("h5").text($(this).text());
+     $(".title h5").css({"color":"red"});
+     $(".admin_mian ul li  h6").text($(this).text());
+     $(".admin_mian ul li h2").text($(this).text());
+     $(".admin_mian ul li h7").text($(this).text());
+    });
+
+    
+
+    //加载公司修改信息模块
+    $(".admin_xinxi_gs span").click(function(){
+ 
+     
+     $(".title").children("h5").text($(this).children("h3").text());
+     $(".title h5").css({"color":"red"});
+     $(".admin_mian ul li  h6").text($(this).children("h5").text());
+     $(".admin_mian ul li h2").text($(this).children("h4").text());
+     $(".admin_mian ul li h7").text($(this).children("h3").text());
+     $(".admin_fenye").children().css({"display":"none"});
+
+    });
+
+    //加载个人修改信息模块
+    $(".admin_xinxi_gr span").click(function(){
+ 
+     
+     $(".title").children("h5").text($(this).children("h3").text());
+     $(".title h5").css({"color":"red"});
+     $(".admin_mian ul li  h6").text($(this).children("h5").text());
+     $(".admin_mian ul li h2").text($(this).children("h4").text());
+     $(".admin_mian ul li h7").text($(this).children("h3").text());
+     $(".admin_fenye").children().css({"display":"none"});
+    });
+
+     //加载某某修改信息模块
+    $(".admin_xinxi_mm span").click(function(){
+ 
+     
+     $(".title").children("h5").text($(this).children("h3").text());
+     $(".title h5").css({"color":"red"});
+     $(".admin_mian ul li  h6").text($(this).children("h5").text());
+     $(".admin_mian ul li h2").text($(this).children("h4").text());
+     $(".admin_mian ul li h7").text($(this).children("h3").text());
+     $(".admin_fenye").children().css({"display":"none"});
+    });
+    });  
+	</script>
+</head>
+<body>
+	<div class="admin_warp">
+		<div class="admin_head">
+			<div class="logo"></div>
+			<ul>
+				<li id="gs"><a href="javascript:void(0)">公司信息</a></li>
+				<li id="gr"><a href="javascript:void(0)">个人信息</a></li>
+				<li id="mm"><a href="javascript:void(0)">某某信息</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="admin_xinxi_gs"><span><img src="../img/project/120.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/119.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/118.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/117.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/116.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/115.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/114.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/113.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/112.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/111.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/110.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/109.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/108.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/107.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/106.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/105.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/104.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/103.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/102.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/101.png"/><h3>波克游戏</h3><h4>120</h4><h5>波克游戏手机游戏</h5></span><span><img src="../img/project/120.png"/><h3>FAFA</h3><h4>110</h4><h5>FAFA手机、网页，客户端游戏</h5></span><span><img src="../img/project/99.png"/><h3>波克游戏</h3><h4>100</h4><h5>波克游戏手机游戏</h5></span></div>
+
+
+	<div class="admin_xinxi_gr"><span><h3>个人信息</h3><h4>1</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>个人</h4><h5>个人信息公司</h5></span><span><h3>个人信息</h3><h4>16</h4><h5>个人信息公司</h5></span></div>
+
+
+	<div class="admin_xinxi_mm"><span><h3>某某信息</h3><h4>1</h4><h5>某某信息公司</h5></span><span><h3>某某信息</h3><h4>1</h4><h5>某某信息公司</h5></span><span><h3>某某信息</h3><h4>1</h4><h5>某某信息公司</h5></span><span><h3>某某信息</h3><h4>1</h4><h5>某某信息公司</h5></span><span><h3>某某信息</h3><h4>1</h4><h5>某某信息公司</h5></span><span><h3>某某信息</h3><h4>1</h4><h5>某某信息公司</h5></span><span><h3>某某信息</h3><h4>1</h4><h5>某某信息公司</h5></span><span><h3>某某信息</h3><h4>1</h4><h5>某某信息公司</h5></span><span><h3>某某信息</h3><h4>1</h4><h5>某某信息公司</h5></span><span><h3>某某信息</h3><h4>1</h4><h5>某某信息公司</h5></span><span><h3>某某信息</h3><h4>1</h4><h5>某某信息公司</h5></span><span><h3>某某信息</h3><h4>17</h4><h5>某某信息公司17</h5></span></div>
+
+	<div class="admin_mian">
+		 <div class="title"><h5>信息修改</h5><h6>相关信息</h6></div>
+		<ul>
+			<li><h2>1</h2><h6>上海火溶网络技术有限公司</h6><span id="zj"><a href="javascript:void(0)">增加</a></span><span id="sc"><a href="javascript:void(0)">删除</a></span><span id="xg"><a href="javascript:void(0)">修改</a></span></li>		
+													
+		</ul>
+		<div class="admin_fenye"><span><a href="javascript:void(0)">上一页</a></span><span><a href="javascript:void(0)">下一页</a></span><input><span><a href="javascript:void(0)">跳转</a></span></div>
+	</div>
+
+		<div name="a123" style="display:none">
+			<h1>修改</h1>
+			<input>
+			<span>修改</span>
+		</div>
+
+
+	<div class="admin_xg_warp">
+		<div class="admin_xg">
+			<h1>修改</h1>
+			<input>
+			<span>修改</span>
+		</div>
+	</div>
+	<div class="admin_zj_warp">
+		<div class="admin_zj">
+			<h1>增加</h1>
+			<input>
+			<span>增加</span>
+		</div>
+	</div>
+	<div class="admin_foot">@THINKING GAME All Rights Reserved.  数数信息科技（上海）有限公司  沪ICP备15030552</div>
+</body>
+</html>

@@ -1,0 +1,584 @@
+div.banner-home {
+  width: 100%;
+  background-color: #ccc;
+  margin-top: 5px;
+}
+
+div#searchPart {
+  width: 890px;
+  margin: 0 auto;
+  margin-top: -50px;
+  position: relative;
+}
+div#searchPart i.search-b {
+  background: url(../images/search-b.png) no-repeat;
+  width: 80px;
+  height: 40px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+div#searchPart input {
+  width: 868px;
+  padding-left: 20px;
+  border: 1px solid #e4e4e4;
+  border-radius: 18px;
+  height: 46px;
+  color: #a5a5a5;
+  font-size: 14px;
+  outline: none;
+}
+div#searchPart button {
+  width: 80px;
+  height: 40px;
+  border: 1px solid #e4e4e4;
+  border-radius: 15px;
+  background-color: #fff;
+  right: -90px;
+  top: 4px;
+  position: absolute;
+  cursor: pointer;
+}
+
+div.list-wrap {
+  width: 1124px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+div.list-wrap ul.pro-list {
+  margin-top: 35px;
+  width: 1161px;
+  margin-bottom: 42px;
+  overflow: hidden;
+}
+div.list-wrap ul.pro-list li {
+  width: 348px;
+  height: 400px;
+  border: 1px solid #e4e4e4;
+  float: left;
+  margin-right: 37px;
+}
+div.list-wrap ul.pro-list li span {
+  display: block;
+  margin-top: 40px;
+}
+div.list-wrap ul.pro-list li span a {
+  color: #3475d0;
+  text-decoration: none;
+  font-size: 15px;
+  text-align: center;
+  display: block;
+}
+div.list-wrap ul.pro-list li p {
+  font-size: 10px;
+  color: #aaaaaa;
+  padding: 27px 17px;
+  line-height: 20px;
+}
+
+div.other-list > ul {
+  height: 495px;
+  width: 1170px;
+  margin: 0 auto;
+}
+div.other-list > ul > li {
+  width: 390px;
+  height: 495px;
+  background: #2dcd70;
+  float: left;
+  position: relative;
+}
+.other-list ul li>a {
+    position: absolute;
+    /* background: #fff; */
+    bottom: 18px;
+    width: 250px;
+    height: 20px;
+    left: 50%;
+    margin-left: -125px;
+}
+div.other-list > ul > li:first-child {
+  background: #3399dc;
+}
+div.other-list > ul > li:last-child {
+  background: #2b2c36;
+}
+div.other-list h1 {
+  color: #333;
+  font-size: 33px;
+  text-align: center;
+  margin-bottom: 86px;
+  margin-top: 86px;
+}
+
+div.partner-list span a {
+  text-decoration: none;
+  font-size: 15px;
+  color: #1e66cb;
+  display: block;
+  text-align: center;
+  margin-top: 50px;
+}
+div.partner-list h1 {
+  color: #333;
+  font-size: 33px;
+  text-align: center;
+  margin: 70px 0;
+}
+
+div.home-footer {
+  background-color: #1e2734;
+  height: 387px;
+  margin-top: 50px;
+}
+div.home-footer div.home-icon-wrap {
+  width: 1045px;
+  margin: 0 auto;
+}
+div.home-footer div.home-icon-wrap ul {
+  width: 1110px;
+}
+div.home-footer div.home-icon-wrap ul li {
+  width: 157px;
+  height: 177px;
+  float: left;
+  margin-right: 65px;
+  text-align: center;
+  color: #fff;
+}
+div.home-footer div.home-icon-wrap ul li h4 {
+  font-weight: normal;
+  font-size: 18px;
+  padding: 22px 0;
+}
+div.home-footer div.home-icon-wrap ul li p {
+  font-size: 14px;
+}
+div.home-footer h1 {
+  font-size: 35px;
+  color: #fff;
+  text-align: center;
+  padding: 55px 0;
+  font-weight: normal;
+}
+
+div#aboutUs div.about-banner ul#marquee li a img {
+  float: right;
+  position: relative;
+  right: 300px;
+}
+div#aboutUs div.about-banner ul#marquee li div.total-width {
+  position: absolute;
+  left: 50%;
+  margin-left: -587.5px;
+  top: 0;
+}
+div#aboutUs div.about-banner ul#marquee li div.total-width div.person-des {
+  font-size: 20px;
+  width: 485px;
+  position: absolute;
+  top: 170px;
+  left: 0;
+}
+div#aboutUs div.about-banner ul#marquee li div.total-width div.person-des h4 {
+  font-weight: normal;
+}
+div#aboutUs div.about-banner ul#marquee li div.total-width div.person-des p {
+  line-height: 35px;
+  margin-top: 30px;
+}
+div#aboutUs div.about-banner ul#marquee li div.total-width img.person {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+div#aboutUs div.thinker {
+  position: relative;
+  margin-bottom: 50px;
+}
+div#aboutUs div.thinker img {
+  width: 510px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+div#aboutUs div.thinker div.thinker-des {
+  width: 580px;
+}
+div#aboutUs div.thinker div.thinker-des h2 {
+  font-size: 35px;
+  color: #000;
+  text-align: left;
+  font-weight: normal;
+  padding: 35px 0;
+}
+div#aboutUs div.thinker div.thinker-des p {
+  font-size: 20px;
+  line-height: 35px;
+  text-align: left;
+}
+div#aboutUs div.thinker div.thinker-des span a {
+  font-size: 12px;
+  color: #237bd0;
+  text-decoration: none;
+  display: block;
+  margin-top: 40px;
+}
+div#aboutUs div.approve {
+  background: url(../images/aboutus/cardbg.jpg) center no-repeat;
+  width: 100% !important;
+}
+div#aboutUs div.approve h2 {
+  padding-top: 100px !important;
+}
+div#aboutUs div.approve div.card-wrap ul {
+  width: 875px;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+div#aboutUs div.approve div.card-wrap ul li {
+  width: 335px;
+  height: 220px;
+  padding: 35px 10px 0 10px;
+  box-shadow: -10px 10px rgba(0, 0, 0, 0.09);
+  margin-bottom: 40px;
+  background: #fff;
+  position: relative;
+  margin-left: 40px;
+  margin-right: 40px;
+  display: inline-block;
+}
+div#aboutUs div.approve div.card-wrap ul li h4 {
+  font-size: 20px;
+  line-height: 35px;
+  margin-left: 90px;
+}
+div#aboutUs div.approve div.card-wrap ul li span {
+  font-size: 20px;
+  line-height: 35px;
+  margin-left: 90px;
+}
+div#aboutUs div.approve div.card-wrap ul li p {
+  font-size: 20px;
+  line-height: 35px;
+  text-align: left;
+  margin-top: 35px;
+}
+div#aboutUs div.approve div.card-wrap ul li img {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+}
+div#aboutUs div.about-des {
+  width: 1160px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+div#aboutUs div.about-des > img {
+  margin-top: 80px;
+  position: relative;
+  left: 50%;
+  margin-left: -587.5px;
+}
+div#aboutUs div.about-des h2 {
+  font-size: 35px;
+  color: #000;
+  text-align: center;
+  padding: 35px 0;
+  font-weight: normal;
+}
+div#aboutUs div.about-des p {
+  font-size: 20px;
+  line-height: 35px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+div#aboutUs div.top-banner {
+  background: url(../images/aboutus/about1.jpg) no-repeat;
+  background-size: 100%;
+  height: 800px;
+}
+div#aboutUs div.top-banner h2 {
+  font-size: 35px;
+  text-align: center;
+  color: #fff;
+  padding-top: 35px;
+  font-weight: normal;
+}
+div#aboutUs div.top-banner p {
+  font-size: 20px;
+  color: #fff;
+  line-height: 35px;
+  text-align: center;
+  width: 1140px;
+  position: relative;
+  left: 50%;
+  margin-left: -570px;
+  margin-top: 50px;
+}
+div#aboutUs div.top-banner span a {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  margin-top: 120px;
+}
+div#aboutUs div.top-banner > img {
+  width: 175px;
+  position: relative;
+  left: 50%;
+  margin-left: -87px;
+  padding-top: 180px;
+}
+
+.per-a {
+  background: url(../images/aboutus/1.jpg) no-repeat;
+}
+
+.per-b {
+  background: url(../images/aboutus/2.jpg) no-repeat;
+}
+
+.per-c {
+  background: url(../images/aboutus/3.jpg) no-repeat;
+}
+
+.per-d {
+  background: url(../images/aboutus/4.jpg) no-repeat;
+}
+
+.per-e {
+  background: url(../images/aboutus/5.jpg) no-repeat;
+}
+
+div#partnerPart {
+  background: url(../images/pbg.jpg) no-repeat;
+  height: 760px;
+  background-size: 100%;
+}
+div#partnerPart div.header-des h2 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: normal;
+  padding-top: 175px;
+  padding-bottom: 50px;
+}
+div#partnerPart div.header-des p {
+  font-size: 20px;
+  text-align: center;
+  line-height: 35px;
+}
+div#partnerPart div.partner-content {
+  width: 98%;
+  margin: 0 auto;
+  background: #fff;
+  margin-top: 50px;
+}
+div#partnerPart div.partner-content div.partner-list {
+  width: 60%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+div#partnerPart div.partner-content div.partner-list img {
+  width: 1175px;
+  position: relative;
+  left: 50%;
+  margin-left: -587.5px;
+}
+div#partnerPart div.partner-content div.partner-list h2 {
+  font-size: 25px;
+  padding: 50px 0 30px 0;
+  color: #424242;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #a9a9a9;
+}
+
+div.banner-detail {
+  height: 505px;
+  width: 100%;
+  background-color: #ccc;
+}
+
+div#joinUs div.position-banner {
+  margin-top: -525px;
+}
+div#joinUs div.position-banner ul li {
+  height: 745px;
+}
+div#joinUs div.position-banner ul li a img {
+  position: relative;
+  z-index: -1;
+}
+div#joinUs div.position-banner ul li > span {
+  font-size: 15px;
+  color: #fff;
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  bottom: 70px;
+  position: absolute;
+  width: 1450px;
+  left: 50%;
+  margin-left: -725px;
+}
+div#joinUs div.position-banner div.position-des {
+  position: absolute;
+  top: 0;
+  padding: 100px 220px 0 220px;
+  color: #fff;
+  /*width: 1450px;*/
+}
+div#joinUs div.position-banner div.position-des > h2 {
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 35px;
+  font-weight: normal;
+}
+div#joinUs div.position-banner div.position-des > p {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 50px;
+  line-height: 25px;
+}
+div#joinUs div.position-banner div.position-des div.mar-r {
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+div#joinUs div.position-banner div.position-des div.work-duty {
+  float: left;
+  width: 700px;
+}
+div#joinUs div.position-banner div.position-des div.work-duty > h2 {
+  font-size: 20px;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  font-weight: normal;
+}
+div#joinUs div.position-banner div.position-des div.work-duty p {
+  line-height: 25px;
+  color: #cdcdcd;
+  font-size: 14px;
+}
+div#joinUs div.position-summary {
+  width: 98%;
+  margin: 0 auto;
+  background-color: #fff;
+  position: relative;
+  top: -525px;
+}
+span.post-positon {
+    position: absolute;
+    bottom: -80px;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+}
+
+div#joinUs div.position-summary div.ps-content {
+  padding: 50px 120px;
+}
+div#joinUs div.position-summary div.ps-content h2 {
+  font-size: 20px;
+  padding-bottom: 15px;
+  font-weight: normal;
+}
+div#joinUs div.position-summary div.ps-content p {
+  font-size: 15px;
+  line-height: 25px;
+}
+div#joinUs div.position-summary div.ps-content div.position-title {
+  font-size: 20px;
+  padding-bottom: 15px;
+  color: #b8b8b8;
+  border-bottom: 1px solid #a9a9a9;
+  margin: 40px 0 20px 0;
+}
+div#joinUs div.position-summary div.ps-content div.position-title a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #237bd0;
+  float: right;
+  position: relative;
+  bottom: -10px;
+}
+div#joinUs div.position-summary div.ps-content ul li {
+  font-size: 15px;
+  display: inline-block;
+  margin-right: 45px;
+  line-height: 30px;
+  width: 180px;
+}
+div#joinUs div.join-bg {
+  position: relative;
+  width: 100%;
+  height: 1058px;
+}
+div#joinUs div.join-bg div.partner-header h2 {
+  font-size: 35px;
+  text-align: center;
+  padding: 175px 0 50px 0;
+  font-weight: normal;
+}
+div#joinUs div.join-bg div.partner-header p {
+  font-size: 20px;
+  text-align: center;
+  line-height: 35px;
+}
+div#joinUs div.join-bg div.bg-text-change {
+  margin-top: 70px;
+}
+div#joinUs div.join-bg div.bg-text-change p {
+  font-size: 15px;
+  line-height: 20px;
+}
+div#joinUs div.change-image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: auto;
+  height: 1058px;
+  background-repeat: no-repeat;
+}
+
+.p-a {
+  background: url(../images/join/1.jpg) no-repeat 100%;
+}
+
+.p-b {
+  background: url(../images/join/2.jpg) no-repeat 100%;
+}
+
+.p-c {
+  background: url(../images/join/3.jpg) no-repeat 100%;
+}
+
+.p-d {
+  background: url(../images/join/4.jpg) no-repeat 100%;
+}
+
+.p-e {
+  background: url(../images/join/5.jpg) no-repeat 100%;
+}
+
+.p-f {
+  background: url(../images/join/6.jpg) no-repeat 100%;
+}
+
+.p-g {
+  background: url(../images/join/7.jpg) no-repeat 100%;
+}
+
+.p-h {
+  background: url(../images/join/8.jpg) no-repeat 100%;
+}
+
+div.pro-list-img {
+  width: 1175px;
+  margin: 0 auto;
+}

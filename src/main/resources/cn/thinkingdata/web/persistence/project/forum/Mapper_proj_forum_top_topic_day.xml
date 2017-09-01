@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.forum.Mapper_proj_forum_top_topic_day">
+
+	<select id="getTopicDistriListByProjectDateSpan" resultType="cn.thinkingdata.web.domain.project.forum.Do_proj_forum_top_topic_day">
+		select topic_id,GROUP_CONCAT(topic_word_list SEPARATOR ' ') topic_word_list,sum(post_num) post_num,sum(positive_num) positive_num,sum(negative_num) negative_num,sum(user_num) user_num from gas_new.proj_forum_top_topic_day
+		where project_id=#{project_id} and data_date between #{start_date} and #{end_date} group by topic_id order by post_num desc limit #{index},#{limit}
+	</select>
+	<select id="getTopicDistriTotalByProjectDateSpan" resultType="double">
+		select sum(post_num) post_num from gas_new.proj_forum_top_topic_day
+		where project_id=#{project_id} and data_date between #{start_date} and #{end_date}
+	</select>
+</mapper>

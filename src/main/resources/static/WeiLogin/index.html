@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 强制国产浏览器使用 webkit 内核渲染-->
+    <!--script(src='app/mobile.js')-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-statue-bar-sytle" content="balck-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="keywords" content="ThinkingData,ThinkingGame,数数信息,游戏舆情,游戏口碑,数据服务,大数据">
+    <meta name="description" content="ThinkingData Home">
+    <!-- build:css assets/css/style.css-->
+    <link href="css/loaders.css" rel="stylesheet" media="screen" type="text/css" />
+    <link href="css/index.css" rel="stylesheet" media="screen" type="text/css" />
+    <!-- endbuild-->
+    <title>ThinkingGame</title>
+</head>
+
+<body style="background:url(img/bg.png) repeat;">
+<!-- 开始登记 -->
+    <section class="content" >
+        <header>
+            <img src="img/logo.png" alt="">
+            <h2>最专业的游戏数据挖掘平台</h2>
+        </header>
+        <ul class="form">
+            <p class="errorMessage"></p>
+            <li class="phone after">
+                <img class="icon-list" src="img/1.png" alt="">
+                <input id="phoneNum" type="text" placeholder="手机号" name="phone" maxlength="11">
+            </li>
+            <li class="qq after">
+                <img class="icon-list" src="img/2.png" alt="">
+                <input id="qNum" type="text" placeholder="QQ号" name="qq" maxlength="25">
+            </li>
+            <li class="company">
+                <img class="icon-list" src="img/3.png" alt="">
+                <input id="companyName" type="text" placeholder="公司名" name="company" maxlength="25">
+            </li>
+            <li class="position">
+               <img class="icon-list" src="img/4.png" alt="">
+                <select name="jobTitle">
+                    <option value="" selected="selected">职位</option>
+                    <option value="0">公司高管</option>
+                    <option value="1">游戏制作人</option>
+                    <option value="2">游戏运营</option>
+                    <option value="3">市场人员</option>
+                    <option value="4">商务人员</option>
+                    <option value="5">游戏策划</option>
+                    <option value="6">开发工程师</option>
+                    <option value="7">游戏测试</option>
+                    <option value="8">美术/UI/动画</option>
+                    <option value="9">音乐/音效</option>
+                    <option value="10">行政/人力</option>
+                    <option value="11">投资</option>
+                    <option value="12">销售</option>
+                    <option value="13">客服</option>
+                    <option value="14">其他</option>
+                </select>
+            </li>
+            <button class="register" id="regBtn">登记</button>
+        </ul>
+    </section>
+
+    <!-- 登记成功 -->
+    <section class="content success" style="display:none">
+        <header>
+           <span class="load-logo"></span>
+           <p>登记成功</p>
+            <h2>正在为您跳转到ThinkingGame.cn</h2>
+        </header>
+        <!-- loading animation -->
+        <div class="loader-inner ball-beat">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </section>
+</body>
+<!-- plugin-->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/fontsize.js"></script>
+<script src="../elements/js/api.js"></script>
+<script src="js/function.js"></script>
+
+</html>

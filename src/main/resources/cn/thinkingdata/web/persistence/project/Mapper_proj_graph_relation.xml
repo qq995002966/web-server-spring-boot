@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.Mapper_proj_graph_relation">
+	<select id="getRelatedProjectList" resultType="cn.thinkingdata.web.domain.project.Do_proj_graph_relation">
+		select * from gas_new.proj_graph_relation where project_id in
+		<foreach item="project_id" index="index" collection="project_ids" open="("
+				 separator="," close=")">
+			#{project_id}
+		</foreach>
+		and relate_index &lt; #{max_index} order by project_id,relate_index
+	</select>
+</mapper>

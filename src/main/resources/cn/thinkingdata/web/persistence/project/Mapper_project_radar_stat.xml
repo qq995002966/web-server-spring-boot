@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.Mapper_project_radar_stat">
+
+    <resultMap type="cn.thinkingdata.web.domain.project.Do_project_radar_stat" id="persistence">
+        <result property="project_id" column="project_id"/>
+        <result property="user_num" column="user_num"/>
+        <result property="user_rank" column="user_rank"/>
+        <result property="post_num" column="post_num"/>
+        <result property="post_rank" column="post_rank"/>
+        <result property="negative_rate" column="negative_rate"/>
+        <result property="negative_rank" column="negative_rank"/>
+        <result property="stable_rank" column="stable_rank"/>
+        <result property="useless_rate" column="useless_rate"/>
+        <result property="useless_rank" column="useless_rank"/>
+        <result property="appstore_order" column="appstore_order"/>
+        <result property="useless_rank" column="useless_rank"/>
+        <result property="appstore_rank" column="appstore_rank"/>
+    </resultMap>
+
+    <select id="getGameAvg" resultType="java.util.HashMap">
+        SELECT  COUNT(*) AS total,game_type,AVG(user_rank) AS user_rank ,AVG(post_rank) post_rank, AVG(negative_rank) negative_rank,AVG(stable_rank) stable_rank,AVG(useless_rank) useless_rank ,AVG(appstore_rank) appstore_rank FROM gas_new.project_radar_stat c JOIN
+        (
+            SELECT project_id,a.game_type FROM(
+                SELECT project_id,LEFT(game_type,1) AS game_type FROM gas_new.gas_projects
+            ) a
+            JOIN
+            (
+                SELECT LEFT(game_type,1) AS game_type FROM gas_new.gas_projects WHERE project_id =  #{project_id}
+            ) b ON a.game_type = b.game_type
+        ) d ON c.project_id = d.project_id
+    </select>
+
+    <select id="getGameRadar" resultMap="persistence">
+        SELECT * FROM gas_new.project_radar_stat WHERE project_id = #{project_id}
+    </select>
+
+</mapper>

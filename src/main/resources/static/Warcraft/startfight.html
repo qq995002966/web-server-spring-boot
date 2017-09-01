@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <!--script(src='../app/mobile.js')-->
+    <!-- 强制国产浏览器使用 webkit 内核渲染-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-statue-bar-sytle" content="balck-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="keywords" content="ThinkingData,ThinkingGame,数数信息,游戏舆情,游戏口碑,数据服务,大数据">
+    <meta name="description" content="ThinkingData Home">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <!-- IE 浏览器运行最新的渲染模式下-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- build:css assets/css/style.css-->
+    <link href="assets/css/index.css" rel="stylesheet">
+    <!-- endbuild-->
+    <title>玩游戏，赢Mac</title>
+  </head>
+  <body>
+    <div class="header"> <a class="logo"><img src="assets/images/logo.png"></a><a class="url"> www.thinkinggame.cn</a></div>
+    <div class="startfight-section">
+      <div id="startFight" class="rate-pop">
+        <div class="left"><span class="start-title-des">我的战斗值</span><img src="assets/images//title-bg.png">
+          <ul></ul>
+        </div>
+        <div class="right"><span class="start-title-des">团队战斗值</span><img src="assets/images//title-bg.png">
+          <ul></ul>
+        </div>
+        <span id="bs_qr_code"></span>
+      </div>
+      <div class="fl-b"><span class="spanyellow">邀请好友扫一扫募兵码,填写信息即可完成 thinkinggame.cn 注册可获1DPS，如果好友再邀请其他好友，可再获得9DPS</span>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-btn" id="Startfight">
+          <i class="question-icon"></i>
+        <!-- <div class="btn start invitation btn-center"><a class="btn-text" id="bs_copy_btn">发出邀请</a></div> -->
+        <div class="btn clause"> <a href="collect.html" class="line btn-text yellowb">游戏奖励</a></div>
+        <div class="btn start invitation"><a class="btn-text" id="bs_copy_btn">提升战力</a></div>
+        <div class="btn hero"> <a href="hero.html" class="line btn-text  yellowb">英雄榜</a></div>
+      </div>
+    </div>
+    <div id="bs_pop"></div>
+    <input type="hidden" name="inviteToken">
+    <!-- lib-->
+    <!-- build:js app/lib.js-->
+    <script src="app/plugins/jquery-1.9.1.min.js"></script>
+    <!-- plugin-->
+    <script src="app/plugins/fontsize.js"></script>
+    <script src="app/plugins/zepto.min.js"></script>
+    <script src="app/plugins/touch.js"></script>
+    <!-- endbuild-->
+    <!-- app-->
+    <!-- build:js app/app.js-->
+    <script src="../elements/js/jquery.qrcode.min.js"></script>
+    <script src="app/home.js"></script>
+    <script src="app/fight.js"></script>
+    <!-- endbuild-->
+  </body>
+</html>

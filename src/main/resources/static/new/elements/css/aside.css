@@ -1,0 +1,410 @@
+body{
+  font-family: "Microsoft Yahei","STHeitiSC-Light","Arial",sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+
+.fl li {
+  float: left;
+}
+
+.aside-wrap {
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  background-color: #fff;
+  -webkit-background-clip: content;
+  border-radius: 2px;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: .3s;
+  animation-duration: .3s;
+  overflow: hidden;
+}
+
+.aside-header {
+      height: 58px;
+    font-size: 14px;
+    background-color: #f2f4f5;
+    color: #689f38;
+    line-height: 58px;
+    text-indent: 30px;
+    border-bottom: 1px solid #dee3e8;
+    border-radius: 3px 3px 0 0;
+}
+
+.normal-question {
+  border-top: 0;
+    padding: 14px 30px;
+    height: 400px;
+}
+
+.normal-question li p {
+      padding-left: 15px;
+    color: #bbb;
+    margin-top: 15px;
+    display: none;
+}
+
+.normal-question>li {
+  padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #d3d3d3;
+}
+
+.normal-question>li span {
+  color: #838e99;
+}
+
+.aside-wrap .close-pop {
+  font-size: 25px;
+    margin-right: 18px;
+    color: #a7acb0;
+    float: right;
+    cursor: pointer;
+}
+
+.normal-question>li .arrow {
+    float: right;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: url(../img/aside/arrow-q.png) no-repeat;
+}
+
+.normal-question>li .arrow-op {
+  background-position: 0 -20px;
+}
+
+/* 改进计划 */
+.plan {
+  padding: 14px 30px;
+  height: 500px;
+}
+
+.plan .tab {
+  /* overflow: hidden; */
+  width: 625px;
+  margin: 0 auto;
+  padding-left: 0;
+  margin-bottom: 60px;
+}
+
+.plan .tab>li {
+    height: 40px;
+    line-height: 40px;
+    width: 206px;
+    text-align: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    position: relative;
+    color: #838e99;
+    border-left: 0;
+}
+
+.plan .tab>li:first-child {
+  border-left: 1px solid #ccc;
+}
+
+.plan .tab>li.tab-selected {
+  background: #689f38;
+  color: #fff;
+  border: 1px solid #689f38;
+}
+
+.plan .tab>li i.triganle-icon {
+  background: url(../img/aside/triganle.png) no-repeat;
+  width: 20px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  top: 38px;
+  left: 93px;
+}
+
+.plan>div {
+      background: #ffffd7;
+    text-align: left;
+    line-height: 1.5em;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.plan .tab-content {
+  padding-left: 10px;
+}
+.plan .tab-content textarea{ line-height: 30px}
+
+.plan .tab-content  li label {
+  margin-right: 20px;
+}
+
+.plan .tab-content  li label:before {
+   content: " ";
+    background: url(../img/personal/radio.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    background-position: -16px 0;
+    display: inline-block;
+    right: 55px;
+    top: 2px;
+    cursor: pointer;
+}
+
+.plan .tab-content>li  input[type="radio"] {
+  margin-right: 8px;
+  outline: none;
+}
+
+.plan .tab-content>li  input[type="radio"]:focus {
+  outline: none;
+}
+
+.plan .tab-content>li  input[type="radio"]:checked + label:before  {
+    background-position: 0px 0;
+}
+
+.plan .tab-content>li {
+      color: #838e99;
+      line-height: 45px;
+      position: relative;
+      margin-bottom: 10px;
+}
+
+.plan .tab-content li span {
+    color: #838e99;
+    width: 90px;
+    display: inline-block;
+}
+
+.plan .tab-content li  textarea {
+      width: 400px;
+      height: 160px;
+      border: 1px solid #b2b2b2;
+      border-radius: 4px;
+      resize: none;
+      padding: 0 10px;
+      position: absolute;
+      top: 0px;
+      left: 94px;
+}
+
+.plan .tab-content li>input.search-input {
+    width: 236px;
+    height: 36px;
+    line-height: 36px;
+    border: 1px solid #b2b2b2;
+    border-radius: 3px;
+    font-size: 13px;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+
+.commit-btn {
+      color: #fff;
+      background-color: #689f38;
+      border: 0;
+      border-radius: 3px;
+      padding: 10px 20px;
+      font-size: 14px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+}
+
+
+/* dropdown */
+
+#dropDown p {
+ width: 235px;
+ height: 36px;
+ line-height: 36px;
+ border: 1px solid #b2b2b2;
+ border-radius: 3px;
+ font-size: 13px;
+ border-radius: 4px;
+ padding-left: 10px;
+  cursor: pointer;
+}
+
+div#dropDown ul {
+  width:184px; 
+  background:#e8f5fe; 
+  margin-top:2px; 
+  border:1px solid #a9c9e2; 
+  position:absolute; 
+  display: none;
+}
+
+#dropDown ul li {
+  height: 36px;
+  line-height: 36px;
+  text-indent: 10px;
+  margin-left: -10px;
+}
+
+#dropDown ul li a {
+  display:block;
+  color: #838E99;
+  text-decoration:none;
+  border-top: 1px solid #e5e5e5;
+  font-size: 13px;
+}
+
+#dropDown>p>img {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  position: relative;
+  top: -2px;
+  margin-right: 10px;
+}
+
+#dropDown ul li a:hover {
+  background: #679F37;
+  color: #FFFFFF;
+}
+
+div#selectWrap {
+    position: absolute;
+    left: 95px;
+    top: 10px;
+}
+
+div#dropDown ul {
+    display: none;
+    width: 236px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    line-height: 28px;
+    padding-left: 10px;
+    background: #F4F4F4;
+    z-index: 2;
+    position: relative;
+    top: -11px;
+}
+
+.drop-icon {
+  background: url(../img/personal/drop.png) no-repeat;
+  display: block;
+  width: 7px;
+  height: 4px;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+}
+
+.search-icon {
+  background: url(../img/search.png) no-repeat;
+  display: block;
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 12px;
+  background-size: 80%;
+}
+
+#dropDown ul input {
+   width: 233px;
+   border: none;
+   padding-left: 38px;
+   height: 36px;
+   line-height: 36px;
+   margin-left: -10px;
+   font-size: 13px;
+}
+
+.tab-content>li>a {
+   color: #c7c9c9;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #c7c9c9;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+
+.plan .tab-content>li .input-list input {
+    height: 36px;
+    width: 365px;
+    line-height: 36px;
+    border: 1px solid #b2b2b2;
+    font-size: 13px;
+    padding-left: 10px;
+    border-radius: 4px;
+}
+
+.input-list {
+    position: relative;
+    left: 100px;
+    top: -39px;
+}
+
+.plan .tab-content>li .input-list input:first-child {
+  width: 108px;
+}
+
+#addGameword, #addGamefrom {
+  display: none;
+}
+
+.aside-icon {
+  background: url(../img/aside/title-icon.png) no-repeat;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 18px;
+  left: 35px;
+  float: left;
+  margin-right: 10px;
+}
+
+.plan-title {
+  background-position: 0 0 ;
+}
+
+.question-title {
+  background-position: -40px 0;
+}
+
+.opinion-title {
+  background-position: -20px 0;
+}
+
+.opinion {
+  height: 470px;
+}
+
+.opinion .tab-content li textarea {
+  width: 600px;
+  left: 0;
+  height: 290px;
+  line-height: 30px;
+}
+
+.opinion  .tab-content li label:before {
+    content: " ";
+    background: url(../img/personal/radio.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    background-position: -16px 0;
+    display: inline-block;
+    right: 82px;
+    top: 2px;
+    cursor: pointer;
+}
+.planArea{ background-color: #ffffff;font-size: 14px}
+.wordArea{float:left; width: 200px; line-height: 80px; margin-left: 20px}
+.wordArea2{float:left; width: 200px; line-height: 80px; margin-left: 100px}
+.wordLeft{ color:#ff3e06;}
+.worButton{float: right; margin-right: 40px}
+.worButton2{float: right; margin-right: 140px}
+.worButton3{margin-left: 250px}
+.notice{ font-size: 12px}
+#dropDown ul li{ cursor: pointer}
+#dropDown ul li:hover{ background-color: #9FBF59; color: #ffffff}

@@ -1,0 +1,369 @@
+@charset "UTF-8";
+/**********************************************首页*/
+div.banner-home {
+  width: 100%;
+  background-color: #192839;
+  height: 560px; }
+  div.banner-home #marquee {
+    background: #192839; }
+    div.banner-home #marquee li {
+      height: 560px;
+      background: #192839; }
+      div.banner-home #marquee li a {
+        display: block;
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        color: #fff; }
+        div.banner-home #marquee li a i {
+          float: right;
+          display: block;
+          width: 485px;
+          height: 500px;
+          background: #ccc; }
+        div.banner-home #marquee li a .des {
+          margin-top: 190px;
+          padding-left: 40px; }
+          div.banner-home #marquee li a .des h3 {
+            font-size: 23px;
+            font-weight: normal;
+            margin-bottom: 20px; }
+          div.banner-home #marquee li a .des h2 {
+            font-size: 40px;
+            font-weight: normal; }
+          div.banner-home #marquee li a .des .tf-btn-union {
+            margin-top: 40px; }
+            div.banner-home #marquee li a .des .tf-btn-union button {
+              margin-right: 15px; }
+    div.banner-home #marquee li.center a .des {
+      margin-top: 70px;
+      text-align: center; }
+    div.banner-home #marquee li.center a img {
+      width: 740px;
+      height: 210px;
+      position: relative;
+      left: 50%;
+      margin-left: -370px;
+      margin-top: 40px; }
+
+.tf-quick-nav {
+  background: #121f2c;
+  height: 230px; }
+  .tf-quick-nav ul li {
+    float: left;
+    position: relative;
+    height: 230px;
+    width: 293px;
+    border-left: 1px solid #333; }
+    .tf-quick-nav ul li:first-child {
+      border-left: none; }
+    .tf-quick-nav ul li a {
+      display: block;
+      text-decoration: none;
+      text-align: center;
+      color: #fff;
+      height: 100%; }
+      .tf-quick-nav ul li a img {
+        height: 115px; }
+      .tf-quick-nav ul li a h3 {
+        font-size: 23px;
+        margin-bottom: 16px;
+        font-weight: normal; }
+      .tf-quick-nav ul li a p {
+        color: #808080; }
+    .tf-quick-nav ul li:hover {
+      background: #1a4477;
+      transition: all 0.2s;
+      position: relative;
+      top: -8px;
+      padding-bottom: 8px; }
+      .tf-quick-nav ul li:hover a img {
+        margin-top: 8px; }
+
+.tf-user-list .content ul {
+  width: 900px;
+  margin: 0 auto; }
+  .tf-user-list .content ul li {
+    display: inline-block;
+    position: relative;
+    width: 250px;
+    height: 230px;
+    border-left: 1px solid #ccc;
+    margin: 0 15px;
+    margin-top: 130px;
+    padding-left: 15px; }
+    .tf-user-list .content ul li:nth-child(even) {
+      position: relative;
+      top: -130px; }
+    .tf-user-list .content ul li i.tf-circle-list {
+      display: block;
+      position: relative;
+      left: -21px;
+      border: 1px solid #ccc;
+      background: #ebeaec;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%; }
+    .tf-user-list .content ul li h4 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #333;
+      font-weight: normal; }
+    .tf-user-list .content ul li p {
+      color: #8a8a8a;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 40px; }
+
+.tf-solving-plan .plan-list {
+  height: 330px; }
+  .tf-solving-plan .plan-list li {
+    float: left;
+    width: 350px;
+    height: 300px;
+    padding: 20px;
+    text-align: center; }
+    .tf-solving-plan .plan-list li a {
+      text-decoration: none;
+      display: block; }
+      .tf-solving-plan .plan-list li a img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 40px; }
+      .tf-solving-plan .plan-list li a h4 {
+        font-size: 23px;
+        color: #333;
+        font-weight: normal;
+        margin-bottom: 25px; }
+      .tf-solving-plan .plan-list li a p {
+        font-size: 15px;
+        color: #7f7f7f;
+        line-height: 22px; }
+    .tf-solving-plan .plan-list li:hover {
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); }
+
+.tf-partner .tf-main-btn {
+  display: block;
+  position: relative;
+  left: 50%;
+  margin-left: -48px;
+  margin-top: 40px;
+  margin-bottom: 40px; }
+  .tf-partner .tf-main-btn:hover {
+    background: #ccc;
+    color: #333; }
+
+/***************************************数据中心**/
+.tf-data-system {
+  background: #0f1521; }
+  .tf-data-system .tf-block-title h3 {
+    color: #fff; }
+  .tf-data-system .plan-list li a h4 {
+    color: #fff; }
+
+/*************************************解决方案*/
+.tf-our-advantage .tf-min-content {
+  width: 1140px;
+  margin: 0 auto; }
+  .tf-our-advantage .tf-min-content .tf-block-title {
+    margin-bottom: 60px; }
+  .tf-our-advantage .tf-min-content .block {
+    width: 260px; }
+    .tf-our-advantage .tf-min-content .block h3 {
+      font-size: 23px;
+      color: #333;
+      margin-bottom: 15px;
+      font-weight: normal; }
+    .tf-our-advantage .tf-min-content .block p {
+      font-size: 15px;
+      color: #8a8a8a;
+      line-height: 25px; }
+    .tf-our-advantage .tf-min-content .block:nth-child(odd) {
+      margin-left: 870px; }
+
+.tf-scene .step-list {
+  position: relative;
+  width: 1130px;
+  margin: 0 auto;
+  margin-top: 40px; }
+  .tf-scene .step-list b {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 11px;
+    display: block;
+    height: 1px;
+    background: #ccc; }
+    .tf-scene .step-list b:before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: #ccc;
+      float: left;
+      position: relative;
+      border-radius: 50%;
+      top: -2px; }
+    .tf-scene .step-list b:after {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: #ccc;
+      float: right;
+      position: relative;
+      border-radius: 50%;
+      top: -2px; }
+  .tf-scene .step-list span {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    font-size: 12px;
+    color: #333;
+    width: 65px;
+    text-align: center;
+    background: #f9f9f9; }
+    .tf-scene .step-list span:before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: #ccc;
+      float: left;
+      position: relative;
+      border-radius: 50%;
+      top: 5px; }
+    .tf-scene .step-list span:after {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: #ccc;
+      float: right;
+      position: relative;
+      border-radius: 50%;
+      top: 5px; }
+  .tf-scene .step-list span.s-a {
+    margin-left: 195px; }
+  .tf-scene .step-list span.s-b {
+    margin-left: 280px; }
+  .tf-scene .step-list span.s-c {
+    margin-left: 260px; }
+
+.tf-scene ul {
+  width: 1130px;
+  margin: 0 auto;
+  margin-top: 40px; }
+  .tf-scene ul li {
+    display: inline-block;
+    position: relative;
+    width: 170px;
+    height: 350px;
+    padding: 20px;
+    margin: 0 5px;
+    background: #fff;
+    border: 1px solid #ccc;
+    text-align: center; }
+    .tf-scene ul li h3 {
+      font-size: 23px;
+      color: #333;
+      margin-bottom: 20px;
+      font-weight: normal; }
+    .tf-scene ul li p {
+      font-size: 15px;
+      color: #8a8a8a;
+      line-height: 20px; }
+    .tf-scene ul li div {
+      position: absolute;
+      bottom: 40px; }
+      .tf-scene ul li div span {
+        font-size: 12px;
+        color: #8a8a8a;
+        margin: 0 5px; }
+        .tf-scene ul li div span:nth-child(even) {
+          position: relative;
+          top: -15px; }
+  .tf-scene ul .p-b div {
+    bottom: 55px; }
+  .tf-scene ul .p-c div {
+    bottom: 100px; }
+  .tf-scene ul .p-d div {
+    bottom: 160px; }
+  .tf-scene ul .p-e div {
+    bottom: 190px; }
+
+.tf-customer {
+  padding-bottom: 0; }
+  .tf-customer ul {
+    width: 1135px;
+    margin: 0 auto;
+    margin-top: 40px; }
+    .tf-customer ul li {
+      display: inline-block;
+      width: 230px;
+      height: 140px;
+      padding: 60px 20px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      background: #fff;
+      margin: 0 5px; }
+      .tf-customer ul li h3 {
+        font-size: 17px;
+        color: #333;
+        font-weight: normal;
+        margin-bottom: 10px; }
+      .tf-customer ul li p {
+        font-size: 14px;
+        color: #8a8a8a; }
+      .tf-customer ul li img {
+        width: 180px;
+        height: 70px;
+        margin-bottom: 20px; }
+
+.tf-game-consult {
+  padding-bottom: 0; }
+  .tf-game-consult .list {
+    background: #192839; }
+    .tf-game-consult .list ul {
+      width: 1175px;
+      margin: 0 auto;
+      margin-top: 40px;
+      overflow: hidden; }
+      .tf-game-consult .list ul li {
+        float: left;
+        width: 195px;
+        height: 255px;
+        padding: 60px 20px;
+        background: #3a4b5f;
+        text-align: center;
+        color: #fff; }
+        .tf-game-consult .list ul li img {
+          width: 100px;
+          height: 100px;
+          margin-bottom: 40px; }
+        .tf-game-consult .list ul li h3 {
+          font-size: 23px;
+          margin-bottom: 20px;
+          font-weight: normal; }
+        .tf-game-consult .list ul li p {
+          font-size: 15px;
+          line-height: 25px; }
+
+.tf-product-consult {
+  padding-bottom: 0; }
+  .tf-product-consult ul li {
+    display: inline-block;
+    width: 240px;
+    height: 250px;
+    padding: 60px 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 0 5px; }
+    .tf-product-consult ul li img {
+      width: 100px;
+      height: 100px; }
+    .tf-product-consult ul li h3 {
+      font-size: 23px;
+      color: #333;
+      font-weight: normal;
+      margin-bottom: 20px;
+      margin-top: 40px; }
+    .tf-product-consult ul li p {
+      font-size: 16px;
+      color: #8a8a8a;
+      line-height: 25px; }

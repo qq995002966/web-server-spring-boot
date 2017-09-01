@@ -1,0 +1,65 @@
+.footer
+{
+    background: #7e92a7;
+    font-size:12px;
+    height:130px;
+    width:100%;
+}
+
+.footer .in
+{
+    position:relative;
+    height:130px;
+}
+
+.footer .help
+{
+    height:80px;
+    line-height:80px;
+    color:#ffffff;
+}
+
+.footer .help span
+{
+    display:inline-block;
+    margin:0 10px 0 10px;
+    cursor:pointer;
+    transition:color 0.3s;
+    -moz-transition:color 0.3s; /* Firefox 4 */
+    -webkit-transition:color 0.3s; /* Safari and Chrome */
+}
+
+.footer .help span:hover
+{
+    color:#e5e9ed;
+    cursor:pointer;
+}
+
+
+.footer .right
+{
+    color:#b2beca;
+}
+
+.footer .top
+{
+    width:70px;
+    height:56px;
+    background:#6a7c90 url(http://image.thinkinggame.cn/img/banners/top.png) no-repeat center 10px;
+    background-size:30%;
+    color:#ffffff;
+    font-size:12px;
+    top:0;
+    right:0;
+    position:absolute;
+    border-radius:3px;
+    transition:background-color 0.3s;
+    -moz-transition:background-color 0.3s; /* Firefox 4 */
+    -webkit-transition:background-color 0.3s; /* Safari and Chrome */
+}
+
+.footer .top:hover
+{
+    background-color:#66778a;
+    cursor:pointer;
+}

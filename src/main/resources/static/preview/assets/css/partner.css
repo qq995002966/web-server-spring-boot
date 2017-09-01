@@ -1,0 +1,47 @@
+
+
+div#partnerPart {
+  background: url(../images/pbg.jpg) no-repeat;
+  height: 760px;
+  background-size: 100%;
+}
+div#partnerPart div.header-des h2 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: normal;
+  padding-top: 175px;
+  padding-bottom: 50px;
+}
+div#partnerPart div.header-des p {
+  font-size: 20px;
+  text-align: center;
+  line-height: 35px;
+}
+div#partnerPart div.partner-content {
+  width: 98%;
+  margin: 0 auto;
+  background: #fff;
+  margin-top: 50px;
+}
+div#partnerPart div.partner-content div.partner-list {
+  width: 60%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+div#partnerPart div.partner-content div.partner-list img {
+  width: 1175px;
+  position: relative;
+  left: 50%;
+  margin-left: -587.5px;
+}
+div#partnerPart div.partner-content div.partner-list h2 {
+  font-size: 25px;
+  padding: 50px 0 30px 0;
+  color: #424242;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #a9a9a9;
+}
+
+

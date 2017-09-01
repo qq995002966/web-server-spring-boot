@@ -1,0 +1,408 @@
+@import "../lib/bootstrap.min.css";
+@import "common.css";
+@import "front.css";
+.padding-20 {
+    padding: 20px;
+}
+
+b.color-red {
+    color: #dd4b39;
+}
+b.color-green {
+    color: #91c356;
+}
+
+#guideLinePart {
+    width: 1175px;
+    margin: 0 auto;
+    margin-top: 108px;
+}
+
+.tf-block-part:last-child {
+    margin-bottom: 20px;
+}
+
+.tf-block-part >.content {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.tf-block-part  .guide-part-a {
+    height: 570px;
+}
+
+.tf-block-part .guide-part-a .tf-tab-change-btn {
+    margin-top: 10px;
+    float: right;
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+}
+
+.tf-block-part  .guide-part-d  {
+ height:  1000px;
+}
+
+.tf-block-part .guide-part-e {
+    height: 600px;
+}
+
+.tf-block-part>h3 {
+    font-size: 17px;
+    color: #0c1018;
+    font-weight: bold;
+    margin-bottom: 20px;
+    position: relative;
+    cursor: pointer;
+     width: 300px;
+}
+
+.tf-block-part>h3:hover .tip-box-show{
+    display: block;
+}
+
+.tf-block-part .content .tf-tab-change-block {
+    /*overflow: hidden;*/
+    height: 172px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tf-block-part .content .tf-tab-change-block li {
+    width: 230px;
+    height: 171px;
+    float: left;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    position: relative;
+    cursor: pointer;
+}
+
+.tf-block-part .content .tf-tab-change-block li span {
+    display: block;
+    color: #989898;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.tf-block-part .content .tf-tab-change-block li span b {
+    color: #343434;
+    margin-left: 10px;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.tf-block-part .content .tf-tab-change-block li.selected {
+border-top: 2px solid #237bd0;
+    border-bottom: 1px solid #fff;
+    height: 172px;
+}
+
+.tf-block-part .content .tf-tab-change-block li p {
+    color: #3b3b3b;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.tf-block-part .content .tf-tab-change-block li h4 {
+    font-size: 30px;
+    /*font-weight: bold;*/
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.tf-block-part .content .tf-tab-change-block li h4 + b {
+    position: absolute;
+    right: 20px;
+    margin-top: 15px;
+        font-size: 13px;
+    font-weight: normal;
+}
+
+.tf-block-part .content  .tf-graph-part {
+    height: 330px;
+    width: 1135px;
+    margin: 20px;
+    margin-bottom: 60px;
+}
+
+#bs_trend_chart {
+    height: 330px !important;
+}
+
+div#bs_map_chart {
+    height: 430px;
+    width: 498px;
+}
+
+#guideLinePart  .fr {
+    float: right;
+}
+
+.tf-block-half-width {
+    float: left;
+}
+
+.tf-block-half-width .content {
+    height: 580px;
+    width: 578px;
+    display: inline-block;
+}
+
+/*数据解读*/
+.data-read i {
+    width: 43px;
+    height: 43px;
+    background-position: -169px -48px;
+    display: block;
+    position: absolute;
+    background: url(../../img/common.png) no-repeat;
+}
+
+.data-read {
+    position: absolute;
+    bottom: 60px;
+}
+
+.data-read  .des {
+    margin-left: 63px;
+}
+
+.data-read  .des p {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+.data-read  .des span {
+    font-size: 14px;
+    color: #434343;
+}
+
+.data-read  .des span a {
+    color: #237bd0;
+}
+
+.data-read  .des span a:hover {
+    text-decoration: underline;
+    color: #3064ac;
+    cursor: pointer;
+}
+
+#guideLinePart  .player-complain .content {
+    height: 827px;
+}
+
+/*活跃玩家游戏类型分布*/
+ span.tab-title {
+    display: inline-block;
+    position: relative;
+    top: -30px;
+    margin-right: 10px;
+}
+
+ .tf-tab-change-btn {
+    overflow: hidden;
+    border-radius: 3px;
+    /*width: 210px;*/
+    border: 1px solid #d2d2d2;
+    margin-bottom: 20px;
+    display: inherit;
+    /* position: absolute; */
+    display: inline-block;
+    margin-right: 30px;
+}
+
+ .tf-tab-change-btn li {
+    float: left;
+    width: 52px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-left: 1px solid #d2d2d2;
+    cursor: pointer;
+}
+
+ .tf-tab-change-btn li:hover {
+    background-color: #237bd0;
+    color: #fff;
+    border: 1px solid #237bd0;
+}
+ .tf-tab-change-btn li:first-child {
+    border-left: none;
+}
+
+ .tf-tab-change-btn li.selected {
+    background-color: #237bd0;
+    color: #fff;
+    border: 1px solid #237bd0;
+}
+
+.tf-block-half-width table.game-style {
+    width: 100%;
+    text-align: center;
+    border: 1px solid #ccc;
+    /* margin-top: 36px; */
+}
+
+.tf-block-half-width table.game-style thead {
+    background-color: #ebebed;
+    border-bottom: 1px solid #ccc;
+}
+
+.tf-block-half-width table.game-style thead th {
+    height: 42px;
+    text-align: center;
+}
+
+.tf-block-half-width table.game-style tbody tr {
+    border-top: 1px solid #ccc;
+    height: 35px;
+}
+
+ td.color-green {
+    color: #689f38;
+}
+ td.color-red {
+    color: #dd4b39;
+}
+
+.tf-block-half-width table.game-style tbody tr td:first-child {
+background: #f0f1f3;
+    border-right: 1px solid #ccc;
+    font-size: 15px;
+    color: #555557;
+    position: relative;
+    text-align: left;
+    width: 110px;
+}
+
+.tf-block-half-width table.game-style tbody tr:nth-child(even) {
+    background: #f0f1f3;
+}
+
+.tf-block-half-width table.game-style tbody tr:first-child {
+    border-top: none;
+}
+
+.tf-block-half-width table.game-style tbody tr:hover {
+    background: #e6f3fb;
+    cursor: default;
+}
+
+.tf-block-half-width table.game-style tbody tr:hover td {
+    background: #e6f3fb;
+    cursor: default;
+}
+
+.tf-block-half-width table.game-style tbody tr:hover  .tf-block-half-width table.game-style tbody tr td:first-child {
+    background: #d6e0ea;
+}
+
+.tf-block-half-width table.game-style tbody tr td:first-child i {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    /*background-color: #ddd;*/
+    border-radius: 50%;
+    margin-right: 8px;
+    margin-left: 10px;
+}
+
+.game-type-color0 { background: #8ea5e1;}
+.game-type-color1 { background-color: #3daae3;}
+.game-type-color2 { background-color: #2ed383;}
+.game-type-color3 { background-color: #8b5c9b;}
+.game-type-color4 { background-color: #f3d049;}
+.game-type-color5 { background-color: #476cd0;}
+.game-type-color6 { background-color: #3fa553;}
+.game-type-color7 { background-color: #524a89;}
+.game-type-color8 { background-color: #ec644c;}
+.game-type-color9 { background-color: #423872;}
+.game-type-color10 { background-color: #38973f;}
+.game-type-color11 { background-color: #3153d6;}
+
+
+
+
+/*游戏类型分布*/
+.tf-block-part .content .gamestyle-distribute {
+    height: 450px;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+.tf-block-part .content .gamestyle-distribute canvas {
+    cursor: default;
+}
+
+table.game-style-dis {
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    margin-bottom: 107px;
+} 
+
+table.game-style-dis th {
+    height: 47px;
+    line-height: 47px;
+    font-size: 14px;
+    border:1px solid #ccc;
+    background-color: #ebebed;
+}
+
+table.game-style-dis thead th i {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 8px;
+    margin-left: 10px;
+    position: relative;
+    top: 3px;
+}
+
+table.game-style-dis tr {
+    height: 70px;
+}
+
+table.game-style-dis tr:nth-child(even) {
+    background-color: #ebebed;
+}
+
+table.game-style-dis tr td {
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+table.game-style-dis tr  td:first-child {
+        background-color: #ebebed;
+        width: 70px;
+}
+
+table.game-style-dis  tr:hover {
+    background: #e6f3fb;
+    cursor: default;
+}
+
+table.game-style-dis tr:hover td {
+    background: #e6f3fb;
+}
+
+.appstore-distribute {
+    height: 330px;
+    /* margin-top: 54px; */
+    margin-bottom: 114px;
+}
+
+.href-page-list {
+    height: 508px;
+}
+.bs_change_number{ height: 31px;}
+.bs_change_number .mt-number-animate{ line-height:31px; height: 28px;/*设置数字显示高度*/; font-size: 30px;/*设置数字大小*/ overflow: hidden; display: inline-block; position: relative; }
+.bs_change_number .mt-number-animate .mt-number-animate-dom{ width: 18px;/*设置单个数字宽度*/ text-align: center; float: left; position: relative; top: 0;}
+.bs_change_number .mt-number-animate .mt-number-animate-dom .mt-number-animate-span{ width: 100%; float: left;font-size: 30px; color: #333}
+

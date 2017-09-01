@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.Mapper_user_custom_service">
+	<resultMap type="cn.thinkingdata.web.domain.user.custom.Do_user_custom_service" id="persistence">
+		<result property="user_id" column="user_id"/>
+		<result property="service_type" column="service_type"/>
+		<result property="project_id" column="project_id"/>
+		<result property="try_tag" column="try_tag"/>
+		<result property="service_status" column="service_status"/>
+		<result property="final_date" column="final_date"/>
+		<result property="remaining_days" column="remaining_days"/>
+		<result property="use_format" column="use_format"/>
+	</resultMap>
+
+	<insert id="insertTry"  parameterType="cn.thinkingdata.web.domain.user.custom.Do_user_custom_service">
+		insert into user_custom_service (user_id,service_type,try_tag,service_status,final_date) values (#{user_id},#{service_type},1,#{service_status},#{final_date})
+		ON DUPLICATE KEY update try_tag=1,service_status=#{service_status},final_date=#{final_date}
+	</insert>
+
+	<select id="getByUserId" resultMap="persistence">
+		select s.*,use_format from (select *, datediff(final_date,curdate()) as remaining_days from user_custom_service where user_id=#{user_id}) s join custom_service_dim c on s.service_type = c.service_type where c.service_type!=7 order by (case when s.service_type in (3) then '2001-01-01' else final_date end)  limit #{index},#{limit}
+	</select>
+
+	<select id="getTotalByUserId" resultType="int">
+		select COUNT(*) from (select *, datediff(final_date,curdate()) as remaining_days from user_custom_service where user_id=#{user_id}) s join custom_service_dim c on s.service_type = c.service_type where c.service_type!=7
+	</select>
+
+
+	<select id="getCustomService" resultType="java.util.HashMap">
+		select s.*,use_format,service_name from (select service_type,try_tag,service_status,create_time,update_time,final_date,remain_times,project_id, datediff(final_date,curdate()) as remaining_days from user_custom_service where user_id=#{user_id}) s join custom_service_dim c on s.service_type = c.service_type
+	</select>
+
+	<select id="getCustomServiceByUserAndTypeAndProject" resultMap="persistence">
+		select *, datediff(final_date,curdate()) as remaining_days from user_custom_service where user_id=#{user_id} and service_type=#{service_type} and project_id=#{project_id} and report_id=#{report_id}
+	</select>
+
+	<update id="updateCustomService" parameterType="cn.thinkingdata.web.domain.user.custom.Do_user_custom_service">
+		update user_custom_service set try_tag=#{try_tag},service_status=#{service_status},final_date=#{final_date}
+		where user_id=#{user_id} and service_type=#{service_type}
+	</update>
+
+	<insert id="insertUpdateCustomService"  parameterType="cn.thinkingdata.web.domain.user.custom.Do_user_custom_service">
+		insert into user_custom_service (user_id,service_type,try_tag,service_status,final_date,remain_times,project_id,report_id) values (#{user_id},#{service_type},1,#{service_status},#{final_date},#{remain_times},#{project_id},#{report_id})
+		ON DUPLICATE KEY update try_tag=#{try_tag},service_status=#{service_status},final_date=#{final_date},remain_times=#{remain_times}
+	</insert>
+
+	<update id="reduceServiceTimes">
+		update user_custom_service set remain_times=remain_times-1 where user_id=#{user_id} and service_type=#{service_type} and project_id=#{project_id}
+	</update>
+
+</mapper>

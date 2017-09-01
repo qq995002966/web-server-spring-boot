@@ -1,0 +1,20 @@
+.chat-icon
+{
+    width:20px;
+    height:20px;
+    margin-left:15px;
+    float:left;
+}
+
+.chat-icon.qq
+{
+    background:transparent url(http://image.thinkinggame.cn/img/chat/qq2.png) no-repeat center center;
+    background-size:contain;
+
+}
+
+.chat-icon.we-chat
+{
+    background:transparent url(http://image.thinkinggame.cn/img/chat/wechat2.png) no-repeat center center;
+    background-size:contain;
+}

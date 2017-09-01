@@ -1,0 +1,332 @@
+@import "../lib/jquery.bxslider.css";
+@import "base.css";
+@import "common.css";
+@import "front.css";
+
+/*.sigma-content {
+    width: 1175px;
+    margin: 0 auto;
+}
+
+div.sigma-content>div {
+    position: relative;
+}
+
+div.sigma-content>div>img {
+    width: 1175px;
+    vertical-align: bottom;
+}
+
+.sigma-content > div > a {
+    display: block;
+    position: absolute;
+    right: 100px;
+    height: 48px;
+    width: 158px;
+    top: 32px;
+}
+
+.sigma-content > div > a.last-href {
+    top: 235px;
+    right: 305px;
+}*/
+
+
+/*sigma1*/
+
+div.sigma-content {
+    margin-top: 45px;
+}
+
+div.sigma-content div p {
+    font-size: 14px;
+    color: #999;
+    line-height: 20px;
+}
+
+div.sigma-content div ul li h2 {
+    font-size: 24px;
+    color: #191919;
+}
+
+div.sigma-content  div.header-banner  {
+        background: url(http://image.thinkinggame.cn/img/2.0/sigma/banner.jpg) no-repeat;
+  height: 510px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+div.sigma-content  div.header-banner  div.banner-des {
+    width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    margin-top: -95px;
+    left: 50%;
+    margin-left: -360px;
+}
+
+div.sigma-content  div.header-banner  div.banner-des b {
+    font-size: 12px;
+    position: relative;
+    top: -20px;
+}
+
+div.sigma-content  div.header-banner  div.banner-des p {
+    color: #fff;
+}
+
+div.sigma-content  div.header-banner  div.banner-des h2 {
+    font-size: 37px;
+    margin-bottom: 45px;
+}
+
+div.sigma-content  div.header-banner  div.banner-des  p {
+    font-size: 14px;
+    line-height: 35px;
+}
+
+div.sigma-content div.des-line {
+    color: #fff;
+    height: 113px;
+    padding: 22px 0;
+    padding-left: 5%;
+    width: 1175px;
+    margin: 0 auto;
+}
+
+div.sigma-content div.des-line h1 {
+    width: 1175px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    font-size: 35px;
+}
+
+div.sigma-content div.des-line p {
+    width: 1175px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #fff;
+}
+
+div.sigma-content div.line-one {
+    background-color: #19222f;
+}
+
+div.sigma-content div.line-two {
+    background-color: #3363b1;
+}
+
+div.sigma-content div.line-three {
+    background-color: #0f735e;
+}
+
+div.sigma-content div.line-four {
+    background-color: #431f5e;
+}
+
+div.sigma-content div.inner-game {
+    width: 1175px;
+    margin: 0 auto;
+       padding: 70px 95px 30px 95px;
+    overflow: hidden;
+}
+
+div.sigma-content div.inner-game div.img-des  {
+    display: inline-block;
+    text-align: center;
+        position: relative;
+    top: -45px;
+}
+
+div.sigma-content div.inner-game div.img-des h2 {
+    margin: 40px 0 10px 0;
+}
+
+div.sigma-content div.inner-game ul {
+    float: right;
+}
+
+div.sigma-content div.inner-game ul li {
+    width: 490px;
+    height: 110px;
+    /*border: 1px solid #b8b8b8;*/
+    margin-bottom: 22px;
+}
+
+div.sigma-content div.inner-game ul li img {
+    width: 59px;
+    height: 100%;
+    float: left;
+    margin-right: 20px;
+}
+
+div.sigma-content div.inner-game ul li h5 {
+    font-size: 17px;
+    color: #3d3d3d;
+    font-weight: bold;
+    margin-top: 22px;
+}
+
+div.sigma-content div.inner-game ul li  p {
+    padding-right: 10px;
+}
+
+
+div.sigma-content div.href-bt  ul li {
+    padding-bottom: 50px;
+    height: 606px;
+}
+
+div.sigma-content div.out-game ul {
+    width: 1022px;
+    margin: 0 auto;
+    margin: 45px auto;
+    overflow: hidden;
+}
+
+div.sigma-content div.out-game ul li {
+    width: 313px;
+    border: 1px solid #b8b8b8;
+    float: left;
+    margin: 0 12.5px;
+    min-height: 430px;
+}
+
+div.sigma-content div.out-game ul li img {
+    width: 312px;
+}
+
+div.sigma-content div.out-game ul li h2 {
+    margin: 30px 0 20px 0;
+    padding: 0 25px;
+}
+
+div.sigma-content div.out-game ul li p {
+    padding: 0 25px;
+    margin-bottom: 35px;
+}
+
+div.sigma-content div.out-game ul li a {
+    padding: 0 25px;
+    display: block;
+    color: #5188e8;
+}
+
+div.sigma-content div.out-game ul li a:before {
+    content: '▪';
+    color: #5188e8;
+    margin-right: 5px;
+}
+
+div.sigma-content div.out-game ul li a:hover {
+    /*text-decoration: none;*/
+    color: #5188e8;
+}
+
+
+div.sigma-content div.extra-infor {
+    padding: 46px 0;
+}
+
+div.sigma-content div.extra-infor ul {
+    width: 1018px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+div.sigma-content div.extra-infor ul li {
+    width: 316px;
+    height: 150px;
+    border: 1px solid #b8b8b8;
+    float: left;
+    margin: 10px;
+}
+
+div.sigma-content div.extra-infor ul li img {
+    width: 45px;
+    height: 100%;
+    float: left;
+    margin-right: 12px;
+}
+
+div.sigma-content div.extra-infor ul li h2 {
+    margin: 23px 0;
+}
+
+div.sigma-content div.extra-infor ul li p {
+    padding-right: 10px;
+}
+
+div.sigma-content  div.plan {    
+    background-color: #251232;
+    margin-bottom: -50px;
+    color: #fff;
+}
+
+div.sigma-content div.plan div.plan-des {
+    height: 365px;
+    width: 1175px;
+    margin: 0 auto;
+    color: #251232;
+}
+
+div.sigma-content div.plan div.plan-des img {
+    width: 182px;
+    margin-bottom: 38px;
+    height: 105px;
+}
+
+div.sigma-content div.plan div.plan-des ul {
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+div.sigma-content div.plan div.plan-des ul li {
+    float: left;
+}
+
+div.sigma-content div.plan div.plan-des ul li  a {
+    width: 162px;
+    height: 45px;
+    background: #fff;
+    display: block;
+    text-align: center;
+    line-height: 45px;
+    font-size: 16px;
+    color: #431f5e;
+    border-radius: 20px;
+    position: relative;
+    left: 50%;
+    margin-left: -81px;
+    margin-top: 45px;
+}
+
+div.sigma-content div.plan div.plan-des ul li h1 {
+    font-size: 33px;
+    margin-bottom: 12px;
+}
+
+div.sigma-content div.plan div.plan-des ul li h4 {
+    font-size: 23px;
+    margin-bottom: 30px;
+}
+
+div.sigma-content div.plan div.plan-des ul li  span {
+    font-size: 17px;
+    color: #fff;
+    line-height: 30px;
+}
+
+div.sigma-content div.plan div.plan-des ul li.href {
+    width: 655px;
+    text-align: center;
+    float: right;
+}
+
+div.sigma-content div.plan div.plan-des ul li  a:hover {
+    text-decoration: none;
+}

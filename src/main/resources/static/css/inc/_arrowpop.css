@@ -1,0 +1,30 @@
+.arrow-pop {
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20px #cccccc;
+    z-index:99;
+    position:absolute;
+    width:970px;
+}
+
+
+.top-arrow
+{
+    margin-top:-15px;
+    width:15px;
+    height:15px;
+    background: transparent url(http://image.thinkinggame.cn/img/chart/top-arrow.png) no-repeat center bottom;
+    background-size:contain;
+}
+
+.left-arrow {
+    width: 20px;
+    height: 20px;
+    background: transparent url(http://image.thinkinggame.cn/img/chart/top-arrow2.png) no-repeat center bottom;
+    background-size: contain;
+    -o-transform:rotate(270deg);
+    -ms-transform:rotate(270deg);
+    -moz-transform:rotate(270deg);
+    -khtml-transform:rotate(270deg);
+    transform:rotate(270deg);
+}

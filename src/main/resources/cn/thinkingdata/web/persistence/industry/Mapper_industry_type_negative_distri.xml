@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.industry.Mapper_industry_type_negative_distri">
+
+
+	<select id="getNegTotalDistriList" resultType="cn.thinkingdata.web.domain.industry.Do_industry_type_negative_distri">
+		select * from gas_new.industry_type_negative_distri order by platform,(case when detail_type='全用户' then '' else detail_type end)
+	</select>
+	
+	<select id="getNegDetailDistriList" resultType="cn.thinkingdata.web.domain.industry.Do_industry_type_negative_distri_detail">
+		select * from gas_new.industry_type_negative_distri_detail where platform=#{platform} and detail_type=#{detail_type} order by hot_index
+	</select>
+	
+</mapper>

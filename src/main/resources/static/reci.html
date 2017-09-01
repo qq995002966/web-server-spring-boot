@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>热词定制</title>
+<link rel="stylesheet" type="text/css" href="css/root.min.css" />
+<style>
+
+
+    .right-bar textarea
+    {
+        height:96px;
+    }
+
+    [name=ChangePasswordServlet] td
+    {
+        padding-bottom:10px;
+    }
+
+    .cont-title-bar
+    {
+        line-height:50px;
+        height:50px;
+        color:#03a9f5;
+        font-size:14px;
+    }
+
+    .question-mark
+    {
+        width:14px;height:14px;font-size:12px;text-align:center;color:#a0a8af;border:2px solid #a0a8af;border-radius:14px;
+        line-height:14px;
+    }
+
+
+    .pop_add td
+    {
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+
+    .pop_add td:first-child
+    {
+        vertical-align: top;
+        width:6em;
+        text-align:right;
+        padding-right:10px;
+    }
+
+    table.mid>tbody>tr>td
+    {
+        border:1px solid #dee3eb;
+    }
+
+    table.mid-desc>tbody>tr>td
+    {
+        vertical-align:top;
+    }
+
+    table.mid-desc>tbody>tr>td:first-child
+    {
+        padding-right:20px;
+    }
+
+
+    table.mid-desc button
+    {
+        color:#03a9f5;
+        border:1px solid #dee3eb;
+        background:transparent;
+        font-size:14px;
+        line-height:2.5em;
+    }
+
+    table.mid-desc button:hover
+    {
+        color:#009ee6;
+        font-weight:bold;
+    }
+
+
+    .loading,.failure
+    {
+        height:400px;
+    }
+
+    input.reci
+    {
+        display: block;
+        width:204px;
+        margin-bottom:15px;
+    }
+
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <script type="text/javascript" src="js/layer/layer.js" ></script>
+    <script type="text/javascript" src="js/store.min.js" ></script>
+    <script type="text/javascript" src="js/func.js" ></script>
+<script>
+
+function onLoad()
+{
+    G_MENU.AddMenuFooter();
+
+    FitMenuTextCenter('');
+
+    InitDoneLoadingFailure();
+
+    G_LOGIN.CheckLoginServlet(LoginDone,PopLogin,true);
+
+}
+
+function LoginDone()
+{
+    if(IsDemoUser())
+    {
+        PopLogin();
+        return;
+    }
+
+    UserCustomKeywordsQueryServlet.init().query(true);
+
+    InitCheckbox();
+
+    InitRadiobox();
+}
+
+var UserCustomKeywordsQueryServlet={
+    root:null,
+    init:function(){
+
+        if(UserCustomKeywordsQueryServlet.root==null)
+        {
+            UserCustomKeywordsQueryServlet.root=$("div[name=UserCustomKeywordsQueryServlet]")
+        }
+
+        var add=$("[name=InsertCustomKeywordsServlet]");
+
+        g_tiny_choose_game.attach(add.find("[name=choose_project]"), G_LOCAL_STORAGE.LastChosenProjectId(), function(project_id, project_name){
+
+        });
+
+        var html=add.html();
+
+        var upt=$("[name=UserCustomKeywordsUpdateServlet]");
+
+        upt.html(html);
+
+        add.find("button.confirm").click(function(){
+            UserCustomKeywordsQueryServlet.InsertCustomKeywordsServlet();
+        });
+
+
+        upt.find("button.cancel").unbind('click').html('取消修改').click(function(){
+            UserCustomKeywordsQueryServlet.cancelUpdate();
+        });
+
+        upt.find("button.confirm").unbind('click');
+
+        UserCustomKeywordsQueryServlet.root.find(".checkbox").css({
+            'min-width':'80px',
+            'margin-bottom':'10px'
+        });
+        UserCustomKeywordsQueryServlet.root.find(".radiobox").css({
+            'min-width':'80px'
+        });
+
+
+
+
+        var add_projects=$(".projects[name=example]").clone().attr("name","for_add");
+
+        $("[name=InsertCustomKeywordsServlet] [name=choose_project]").append(add_projects.show());
+
+
+        var update_projects=$(".projects[name=example]").clone().attr("name","for_update");
+
+        $("[name=UserCustomKeywordsUpdateServlet] [name=choose_project]").append(update_projects.show());
+
+        return UserCustomKeywordsQueryServlet;
+    },
+    explain:function(){
+        var e=UserCustomKeywordsQueryServlet.root.find("[name=explain]");
+        if(e.width()==0)
+        {
+            e.animate({
+                width:'640px'
+            });
+        }
+        else
+        {
+            e.animate({
+                width:'0'
+            });
+        }
+    },
+    add:function()
+    {
+        G_PopWnd.dialog("添加热词配置", $("[name=InsertCustomKeywordsServlet]"), "", 0, 0, 1);
+    },
+    findInCurList:function(id)
+    {
+        for(var i=0; i<UserCustomKeywordsQueryServlet.cur_list.length; ++i)
+        {
+            if(UserCustomKeywordsQueryServlet.cur_list[i].id==id)
+            {
+                return UserCustomKeywordsQueryServlet.cur_list[i];
+            }
+        }
+
+        return null;
+    },
+    update:function(id)
+    {
+        var row=UserCustomKeywordsQueryServlet.findInCurList(id);
+
+        var arr=row.custom_keywords.split(" ");
+
+        $("[name=UserCustomKeywordsUpdateServlet] td[name=choose_project]").parent().remove();
+
+        G_PopWnd.dialog("修改热词配置——"+row.project_name, $("[name=UserCustomKeywordsUpdateServlet]"), "", 0, 0, 3);
+
+        var arr_dom=$("input[name=custom_keywords]:visible").val("");
+
+        for(var i=0; i<arr.length && i<arr_dom.length; ++i)
+        {
+            $(arr_dom[i]).val(arr[i]);
+        }
+
+        $("[name=UserCustomKeywordsUpdateServlet] button.confirm").unbind("click").click(function(){
+            UserCustomKeywordsQueryServlet.UserCustomKeywordsUpdateServlet(id);
+        });
+
+    },
+    graph:function(id)
+    {
+        var row=UserCustomKeywordsQueryServlet.findInCurList(id);
+
+        JumpUrl("forum.html?project_id="+row.project_id+"#anchor_0", true);
+
+        return;
+    },
+    delete:function(id,project_name)
+    {
+        G_PopWnd.confirm("确实删除【"+project_name+"】的监控热词么？", function(){
+            UserCustomKeywordsQueryServlet.DeleteCustomKeywordsServlet(id);
+        })
+    },
+    DeleteCustomKeywordsServlet:function(id)
+    {
+        var key="DeleteCustomKeywordsServlet";
+
+        var p={id:id};
+
+        MyPost(G_CGI_URL.custom_keywords[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    G_PopWnd.good("删除成功！");
+                    UserCustomKeywordsQueryServlet.query(false);
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+    MakeUserCenterAddUpdateReq:function(key, id)
+    {
+        var father=$("[name="+key+"]");
+
+        var p={};
+
+        p.custom_keywords = $.map(father.find("[name=custom_keywords]"), function(data){
+            return $(data).val().split(" ").join("");
+        }).join(" ").split("\n").join("").split("\r").join("").split("\t").join("").replace(/\s+/g, ' ').trim();
+
+        p.project_id=father.find("[name=choose_project] .main-bar").attr("project_id");
+
+        id && (p.id=id);
+
+        return p;
+    },
+
+    CheckUserCenterAddUptReqValid:function(p)
+    {
+        if(! p.project_id && !p.id)
+        {
+            G_PopWnd.error("请选择游戏");
+            return false;
+        }
+
+        if(! p.custom_keywords)
+        {
+            G_PopWnd.error("请至少填写一个关注热词");
+            return false;
+        }
+
+        return true;
+
+
+    },
+
+    UserCustomKeywordsUpdateServlet:function(id)
+    {
+        var father=UserCustomKeywordsQueryServlet;
+
+        var key="UserCustomKeywordsUpdateServlet";
+
+        var p=father.MakeUserCenterAddUpdateReq(key, id);
+
+        if(!father.CheckUserCenterAddUptReqValid(p))
+        {
+            return;
+        }
+
+        MyPost(G_CGI_URL.custom_keywords[key],
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    G_PopWnd.good("修改成功");
+                    father.cancelUpdate();
+                    father.query(false);
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+
+    InsertCustomKeywordsServlet:function()
+    {
+        var father=UserCustomKeywordsQueryServlet;
+
+        var key="InsertCustomKeywordsServlet";
+
+        var p=father.MakeUserCenterAddUpdateReq(key);
+
+        if(!father.CheckUserCenterAddUptReqValid(p))
+        {
+            return;
+        }
+
+        MyPost(G_CGI_URL.custom_keywords.InsertCustomKeywordsServlet,
+                p,ShowLoading,HideLoading,
+                function()
+                {
+                    father.cancelAdd();
+                    father.query(true);
+                    G_PopWnd.good("添加成功");
+                },
+                function(data, msg, code)
+                {
+                    G_PopWnd.error("操作失败！"+msg);
+                }
+        );
+    },
+    cancelAdd:function()
+    {
+        layer.closeAll();
+    },
+    cancelUpdate:function()
+    {
+        layer.closeAll();
+    },
+    query_limit:10,
+    query_page_num:0,
+    query_page:1,
+    cur_list:[],
+    query:function(restart_over){
+
+        var key="UserCustomKeywordsQueryServlet";
+
+        var father=UserCustomKeywordsQueryServlet;
+
+        var done=father.root.find(".done");
+        var loading=father.root.find(".loading");
+        var failure=father.root.find(".failure");
+
+        loading.show();
+        done.hide();
+        failure.hide();
+
+        if(restart_over)
+        {
+            father.query_page=1;
+            father.query_page_num=0;
+        }
+
+        MyPost(G_CGI_URL.custom_keywords.GetCustomKeywordsServlet,
+                {
+                    index : (father.query_page-1)*father.query_limit,
+                    limit : father.query_limit+1
+                },
+                function()
+                {
+                    done.hide();
+                    failure.hide();
+                    loading.show();
+                },
+                function()
+                {
+                    done.show();
+                    failure.hide();
+                    loading.hide();
+                },
+                function(data)
+                {
+                    var list=data.get;
+
+                    father.cur_list=list;
+
+                    done.find(".common-table").find("tr:gt(0)").remove();
+
+
+                    var total_page_cnt=0;
+                    var maybe_more=true;
+
+                    if(father.query_page_num)
+                    {
+                        maybe_more=false;
+                        total_page_cnt=father.query_page_num;
+                    }
+                    else
+                    {
+                        if(list.length==0)
+                        {
+                            father.query_page_num=father.query_page;
+                            total_page_cnt=father.query_page_num;
+                            maybe_more=false;
+                        }
+                        else if(list.length<=father.query_limit)
+                        {
+                            father.query_page_num=father.query_page;
+                            total_page_cnt=father.query_page_num;
+                            maybe_more=false;
+                        }
+                        else
+                        {
+                            total_page_cnt=father.query_page+1;
+                            maybe_more=true;
+                        }
+                    }
+
+                    GenPageFooter(father.root.find(".page_footer_holder"), total_page_cnt, father.query_page,function(newpage){
+                        father.query_page=newpage;
+                        father.query(false);
+                    }, maybe_more);
+
+
+                    for(var i=0; i<list.length && i<father.query_limit; ++i) {
+                        var cur = list[i];
+
+                        cur.modify_datetime = cur.modify_datetime.split(".")[0];
+
+                        cur.project_name=G_LOCAL_STORAGE.GetProjectName(cur.project_id);
+
+                        var row = $("<tr><td name='_id'></td><td name='project_name'></td><td name='custom_keywords'></td><td name='modify_datetime'></td><td></td></tr>")
+
+                        row.find("[name=_id]").html((i+1)+(father.query_page-1)*father.query_limit);
+
+                        row.find("td:last-child")
+                                .append($("<div class='operate-icon graph active' title='查看热词趋势' onclick='window.location.href=\"light.html?g="+cur.project_id+"\"'></div>"))
+                                .append($("<div class='operate-icon del active' onclick='UserCustomKeywordsQueryServlet.delete("+cur.id+",\""+cur.project_name+"\")'></div>"))
+                                .append($("<div class='operate-icon edit active' onclick='UserCustomKeywordsQueryServlet.update("+cur.id+")'></div>"));
+
+                        row.css({
+                            'cursor':'auto'
+                        });
+
+
+                        for (var key in cur) {
+                            row.find("[name=" + key + "]").html(cur[key]);
+                        }
+
+                        done.find(".common-table tbody").append(row);
+                    }
+
+                },
+                function()
+                {
+                    failure.show();
+                }
+        );
+    }
+};
+
+$(onLoad);
+</script>
+</head>
+<body style="background-color:#f5f5f5;">
+
+<div class="service_banner"><span class="large_text">热词定制</span><br/><span>热词随意切换.爆点实时掌握</span></div>
+
+<div name="UserCustomKeywordsQueryServlet" class="major-w ma" style="background: #ffffff;border-radius: 3px;min-height:600px;">
+    <div  name="list" style="margin:25px 35px;">
+        <div class="cont-title-bar">
+            <span class="fl font-theme-2" style="font-weight: bold;">已设置热词列表</span><span class="font-theme fl cp" onclick="UserCustomKeywordsQueryServlet.query(true)">&nbsp;&nbsp;[刷新]</span><div class="question-mark fl cp" onclick="UserCustomKeywordsQueryServlet.explain()" style="margin-top:16px;margin-left:10px;">?</div>
+            <div class="fl" name="explain" style="width:0;overflow:hidden;margin-left:10px;"><div style="width:640px;color:#a0a8af;font-weight:normal">每款游戏有5个默认热词：活动、bug、问题、建议、充值。您可以修改为您关注的任意5个词汇。</div></div>
+            <span class="fr cp" onclick="UserCustomKeywordsQueryServlet.add()">+&nbsp;添加配置</span>
+        </div>
+
+        <div class="done">
+            <table class="w100 common-table">
+                <tr>
+                    <th style="text-align:left;text-indent: 10px;width:50px">编号</th>
+                    <th style="width:300px">所属游戏</th>
+                    <th>关注词汇</th>
+                    <th style="width:200px">最后操作时间</th>
+                    <th style="width:120px">操作</th>
+                </tr>
+            </table>
+            <div class="page_footer_holder"></div>
+
+
+
+        </div>
+        <div class="loading">
+
+        </div>
+        <div class="failure">
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<div name="InsertCustomKeywordsServlet" style="display:none;width:400px;font-size: 14px;">
+    <table class="pop_add bc w100">
+        <tbody>
+        <tr><td><span class="empha">*</span>选择产品：</td><td name="choose_project"></td></tr>
+        <tr><td><span class="empha">*</span>设置热词：</td>
+            <td>
+                <input name="custom_keywords" class="oc-input reci" placeholder="热词1" value="活动" type=text/>
+                <input name="custom_keywords" class="oc-input reci" placeholder="热词2" value="bug" type=text/>
+                <input name="custom_keywords" class="oc-input reci" placeholder="热词3" value="问题" type=text/>
+                <input name="custom_keywords" class="oc-input reci" placeholder="热词4" value="建议" type=text/>
+                <input name="custom_keywords" class="oc-input reci" placeholder="热词5" value="充值" type=text/>
+            </td>
+        </tr>
+        <tr><td></td>
+            <td style="padding-bottom:20px;">
+                <button class="confirm">确认提交</button><button onclick="UserCustomKeywordsQueryServlet.cancelAdd()" class="cancel" style="margin-left:30px;">取消添加</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div name="UserCustomKeywordsUpdateServlet" style="display:none;width:400px;font-size: 14px;"></div>
+
+
+<div style="height:30px;"></div>
+
+</body>
+</html>

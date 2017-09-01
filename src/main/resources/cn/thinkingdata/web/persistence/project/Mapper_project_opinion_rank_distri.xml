@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.project.Mapper_project_opinion_rank_distri">
+
+
+    <select id="getProjectOpinionRankList" resultType="cn.thinkingdata.web.domain.project.Do_project_opinion_rank_distri">
+        select * from gas_new.project_opinion_rank_distri where project_id = #{project_id} and data_date between #{start_date}  and #{end_date}
+    </select>
+
+    <select id="getProjectOpinionRankByProjectId" resultType="cn.thinkingdata.web.domain.project.Do_project_opinion_rank_distri">
+        select * from gas_new.project_opinion_rank_distri where project_id = #{project_id} and data_date > DATE_SUB(now(),INTERVAL 7 DAY) order by data_date desc limit 1
+    </select>
+
+    <select id="getProjectOpinionRankByProjectIdAndDate" resultType="cn.thinkingdata.web.domain.project.Do_project_opinion_rank_distri">
+        select * from gas_new.project_opinion_rank_distri where project_id = #{project_id} and data_date = #{data_date}
+    </select>
+
+    <select id="getLatestProjectOpinionRank" resultType="java.lang.String">
+        select data_date from gas_new.project_opinion_rank_distri where data_date > DATE_SUB(now(),INTERVAL 30 DAY) order by data_date desc limit 1
+    </select>
+</mapper>

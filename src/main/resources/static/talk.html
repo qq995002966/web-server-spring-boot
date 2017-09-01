@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>聊天分析-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/datarange/dateRange.css">
+    <link rel="stylesheet" type="text/css" href="plugins/datarange/lq.datetimepick.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/talk.css">
+       <link rel="stylesheet" type="text/css" href="elements/css/TGWebstyle.css">
+</head>
+<body>
+<div class="container-flud">
+    <div class="c_maxWidth c_marginAuto">
+        <div id="MLeft" class="c_floatLeft c_hidden u_height"></div>
+        <div id="MRight" class="c_floatRight c_hidden u_height">
+            <div class="mr_head">
+                <div class="mr_area">
+                    <div class="mr_h_left c_floatLeft">
+                        <h1>聊天分析</h1>
+                        <div class="mr_h_tab">
+                            <ul>
+                                <li class="liOn">历史分析</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="c_padding20" id="talk">
+                <div class="m_show_title c_marginB20">
+                    <div class="m_sIntro">提示：我们仅对聊天结果做分析和展示，不会截取任何隐私内容，请放心使用。<span class="c_cursor">【如何导出QQ聊天记录？】</span></div>
+                    <div class="m_soWork"><div type="button" class="btn btn-success tk_upload_btn tg-main-btn"><i class="glyphicon glyphicon-plus"></i> 上传QQ聊天记录</div></div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mr_show_table c_bgWhite c_boderRadius">
+                    <div id="bs_list"></div>
+                    <div id="page">
+                        <ul class="page-list"></ul>
+                    </div>
+                </div>
+
+                <div class="up_progress c_none">
+                    <div class="up_percent">45%</div>
+                    <div class="up_progress-bar">
+                        <div class="qq"></div>
+                    </div>
+                    <div class="up_notice">正在上传中...</div>
+                </div>
+
+                <div class="tk_setup c_none">
+                    <div class="c_marginB30 tk_setup_title">请选择您希望解析聊天记录的时间段：</div>
+                    <div class="c_marginB20 c_relative tk_date_area">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        <span class="date-range c_boderRadius" id="dc1"></span>
+                        <input id="db1" type="hidden">
+                        <input id="de1" type="hidden">
+                    </div>
+                    <div class="tk_fast_choose c_marginB30">
+                        快速选择：　<span data-t="1">近一年</span>　|　<span data-t="2">近六月</span>　|　<span data-t="3">近三月</span>　|　<span data-t="4">近一月</span>　|　<span data-t="5">近一周</span>　|　<span data-t="6">今天</span>
+                    </div>
+                    <div style="text-align: center">
+                        <button type="button" class="btn btn-sm btn-info">确认</button>　<button type="button" class="btn btn-sm btn-default">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/webuploader/webuploader.min.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="plugins/datarange/lq.datetimepick.js"></script>
+<script type="text/javascript" src="plugins/datarange/dateRange.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/center.js"></script>
+<script type="text/javascript" src="elements/js/talk.js"></script>

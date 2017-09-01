@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>潜在流失用户定位-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/jquery.gridly/stylesheets/jquery.gridly.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/insidelost.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/TGWebstyle.css">    
+</head>
+<body>
+<div class="container-flud">
+    <div class="c_maxWidth c_marginAuto">
+        <div id="MLeft" class="c_floatLeft c_hidden u_height"></div>
+        <div id="MRight" class="c_floatRight c_hidden u_height">
+            <div class="mr_head">
+                <div class="mr_area">
+                    <div class="mr_h_left c_floatLeft c_relative">
+                        <h1>潜在流失玩家定位</h1>
+                        <div class="mr_h_tab">
+                            <ul>
+                                <li class="liOn">玩家列表</li>
+                                <li>玩家群体特征 <i class="glyphicon glyphicon-triangle-bottom"></i></li>
+                                <li>定制报告</li>
+                            </ul>
+                        </div>
+                        <ul id="optionSelect" class="c_none"></ul>
+                    </div>
+                    <div class="mr_h_right c_floatRight mr_h_face">
+                        <div id="bs_game_choose"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="inLost-content" id="insidelist">
+                <div class="chart-part">
+                    <ul class="cp-l">
+                        <li class="title"></li>
+                        <div id="bs_chart_pie"></div>
+                    </ul>
+                    <ul class="cp-r">
+                        <li class="title"></li>
+                        <div id="bs_chart_line"></div>
+                    </ul>
+                </div>
+                <div class="choice-part"></div>
+                <div class="download-data">
+                    <button> <i class="glyphicon glyphicon-save"></i>下载数据</button>
+                </div>
+                <div class="table-part">
+                    <table>
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <ul class="page-list"></ul>
+            </div>
+            <div class="c_padding20 insidelost c_none" id="insidechart">
+                <div class="il_active gridly c_relative"></div>
+            </div>
+            <div class="c_padding20 insidelost c_none" id="insidepdf">
+                <iframe src="" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="100%" height=100% id="iframepdf"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/echart/echarts.min.js"></script>
+<script type="text/javascript" src="plugins/echart/macarons.js"></script>
+<script type="text/javascript" src="plugins/jquery.gridly/javascripts/jquery.gridly.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/center.js"></script>
+<script type="text/javascript" src="elements/js/chart.js"></script>
+<script type="text/javascript" src="elements/js/insidelost.js"></script>

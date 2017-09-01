@@ -1,0 +1,64 @@
+div.property-pop {
+    width: 1050px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+div.property-content {
+    height: 416px;
+    width: 1040px;
+    overflow-y: auto;
+}
+div.property-pop .pro-header {
+    background-color: #e9ecf3;
+    color: #5f5f5f;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0px 40px;
+    font-weight: bold;
+}
+
+div.property-pop .pro-header .close-pop {
+    float: right;
+    cursor: pointer;
+}
+
+div.property-pop div.pro-content {
+    padding: 20px 40px;
+}
+
+div.property-pop div.pro-content h1 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #787878;
+    margin-bottom: 15px;
+}
+
+div.property-pop div.pro-content ul li  {
+    background-color:  #e9ecf3;
+    border: 1px solid #e5e5e5;
+    padding: 20px 15px;
+    list-style: none;
+    color: #787878;
+    font-size: 13px;
+}
+
+div.property-pop div.pro-content ul li span {
+    line-height: 30px;
+    margin-right: 35px;
+    display: inline-block;
+}
+
+div.property-pop div.pro-content ul li span b {
+    margin: 0 3px;
+}
+
+div.property-pop  div.btn {
+    border-top: 1px solid #e5e5e5;
+    width: 100%;
+    margin-top: 30px;
+}
+
+div.property-pop  div.btn button {
+    margin: 10px 0;
+}

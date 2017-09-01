@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.Mapper_user_evo_words">
+
+	<resultMap type="cn.thinkingdata.web.domain.user.evo.Do_user_evo_words" id="map">
+		<result property="id" column="id"/>
+		<result property="user_id" column="user_id"/>
+		<result property="project_id" column="project_id"/>
+		<result property="classify_name" column="classify_name"/>
+		<result property="word" column="word"/>
+		<result property="data_time" column="data_time"/>
+	</resultMap>
+	
+	
+	<insert id="add" useGeneratedKeys="true" parameterType="java.util.List">  
+	    insert ignore into user_evo_words (project_id,word,user_id, classify_name)   
+	    values  
+	    <foreach collection="list" item="item" separator="," >  
+	        (#{item.project_id},#{item.word},#{item.user_id},#{item.classify_name})  
+	    </foreach>  
+	</insert> 
+	
+	
+</mapper>

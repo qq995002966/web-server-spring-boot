@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit">
+<title>改进计划</title>
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="plugins/datarange/dateRange.css">
+<link rel="stylesheet" type="text/css" href="plugins/datarange/lq.datetimepick.css">
+<link rel="stylesheet" type="text/css" href="plugins/wordcloud/wcloud.css">
+<link rel="stylesheet" type="text/css" href="elements/css/aside.css">
+</head>
+<body>
+    <div class="aside-wrap">
+        <div class="aside-header">
+            <span class="aside-icon plan-title"></span>
+            <span>改进计划</span>
+            <span class="close-pop">×</span>
+        </div>
+        <div class="aside-content">
+        <!--     <ul class="normal-question">
+                <li>
+                    <span class="que">1、我想看的游戏为什么找不到？</span>
+                    <span class="arrow">∧</span>
+                    <p>目前我们添加了500多款游戏，如果您没有搜索到关注的游戏，可能是暂时没有添加到平台上，欢迎您使用申请添加游戏功能将游戏提交到平台，我们会尽快进行处理。</p>
+                </li>
+
+                 <li>
+                    <span class="que">2、我想看的游戏为什么找不到？</span>
+                    <span class="arrow">∧</span>
+                    <p>目前我们添加了500多款游戏，如果您没有搜索到关注的游戏，可能是暂时没有添加到平台上，欢迎您使用申请添加游戏功能将游戏提交到平台，我们会尽快进行处理。</p>
+                </li>
+            </ul> -->
+
+            <div class="plan">
+                <ul class="tab fl">
+                    <li class="tab-selected" href="#addNewgame">申请添加新游戏<i class="triganle-icon"></i></li>
+                    <li href="#addGameword">添加游戏词汇<i></i></li>
+                    <li href="#addGamefrom">添加参考数据源<i></i></li>
+                </ul>
+
+                <div>* 添加新游戏后，我们需要进行游戏相关信息核对，并进行数据抓取、分析工作，需要2~3天时间，   请耐心等待或联系客服。</div>
+                <!-- 添加新游戏 -->
+                <ul class="tab-content" id="addNewgame">
+                    <li>
+                        <span>游戏类型:</span>
+                         <input  name="gamestyle" type="radio" value="shou" id="Shou" />手游 
+                        <label for="Shou"></label> 
+                        
+                        <input  name="gamestyle" type="radio" value="ye" id="Ye" />页游
+                        <label for="Ye"></label> 
+
+                        <input  name="gamestyle" type="radio" value="duan" id="Duan" />端游
+                        <label for="Duan"></label> 
+                    </li>
+                    <li>
+                        <span>游戏名称:</span>
+                        <input type="text" value="请填写游戏名称" class="search-input">
+                    </li>
+                     <li style="padding-bottom: 150px;">
+                        <span>游戏简介:</span>
+                        <textarea name="" onblur="if(this.value == ''){this.value = '例如：游戏开发商，官网链接等介绍信息(不超过100字)'; }" 
+                            onfocus="if(this.value == '例如：游戏开发商，官网链接等介绍信息(不超过100字)'){this.value ='';}">例如：游戏开发商，官网链接等介绍信息(不超过100字)</textarea>
+                    </li>
+                </ul>
+
+                <!-- 添加游戏词汇 -->
+                <ul class="tab-content" id="addGameword">
+                    <li>
+                        <span>选择游戏:</span>
+                        <div id="selectWrap">
+                          <div id="dropDown">
+                              <p><img src="elements/img/game_icon.png" alt="">刀塔传奇</p>
+                              <i class="drop-icon"></i>
+                              <ul>
+                                 <i class="search-icon"></i>
+                                 <input value="输入关键词查找" class="search-input">
+                                 <li><a href="#" rel="1">刀塔传奇</a></li>
+                                 <li><a href="#" rel="2">啪啪三国</a></li>
+                                 <li><a href="#" rel="3">啪啪三国</a></li>
+                                 <li><a href="#" rel="4">啪啪三国</a></li>
+                                 <li><a href="#" rel="5">啪啪三国</a></li>
+                              </ul>
+                          </div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>词汇分类:</span>
+                        <input type="text" value="请填写游戏名称" class="search-input">
+                    </li>
+                     <li style="padding-bottom: 170px;">
+                        <span>添加词汇:</span>
+                        <textarea name="" onblur="if(this.value == ''){this.value = '请输入游戏词汇类别(如任务、技能、进阶等)'; }" 
+                            onfocus="if(this.value == '请输入游戏词汇类别(如任务、技能、进阶等)'){this.value ='';}">请输入游戏词汇类别(如任务、技能、进阶等)</textarea>
+                    </li>
+                </ul>
+
+                <!-- 添加参考数据源 -->
+               <ul class="tab-content" id="addGamefrom">
+                    <li>
+                        <span>选择游戏:</span>
+                        <div id="selectWrap">
+                          <div id="dropDown">
+                              <p><img src="elements/img/game_icon.png" alt="">刀塔传奇</p>
+                              <i class="drop-icon"></i>
+                              <ul>
+                                 <i class="search-icon"></i>
+                                 <input value="输入关键词查找" class="search-input">
+                                 <li><a href="#" rel="1">刀塔传奇</a></li>
+                                 <li><a href="#" rel="2">啪啪三国</a></li>
+                                 <li><a href="#" rel="3">啪啪三国</a></li>
+                                 <li><a href="#" rel="4">啪啪三国</a></li>
+                                 <li><a href="#" rel="5">啪啪三国</a></li>
+                              </ul>
+                          </div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>已有数据源:</span>
+                        <a href="">官方论坛_交流区</a>
+                        <a href="">百度贴吧</a>
+                        <a href="">18183论坛</a>
+                        <a href="">九游论坛</a>
+                        <a href="">360游戏大厅论坛</a>
+                    </li>
+                     <li style="height: 90px;">
+                        <span>申请新数据源:</span>
+                        <div class="input-list">
+                             <input value="如：百度贴吧" class="search-input">
+                             <input value="如：http://tieba.baidu.com/f?kw=刀塔传奇" class="search-input">
+                        </div>
+                        <div class="input-list">
+                            <input value="如：18183论坛" class="search-input">
+                            <input value="如：http://bbs.18183.com/forum-daotachuanqi-1.html" class="search-input">
+                        </div> 
+                    </li>
+                </ul>
+                <button type="" class="commit-btn">确认提交</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/datarange/lq.datetimepick.js"></script>
+<script type="text/javascript" src="plugins/datarange/dateRange.js"></script>
+<script type="text/javascript" src="plugins/wordcloud/wcloud.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/divscroll.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/init.js"></script>
+<script type="text/javascript" src="elements/js/aside.js"></script>

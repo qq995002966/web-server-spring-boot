@@ -1,0 +1,524 @@
+@import "common.css";
+@import "front.css";
+@import "style.css";
+.graph-part {
+    font-size: 12px;
+}
+
+.tf-block h3 {
+    position: relative;
+    width: 326px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    margin: 20px;
+    margin-left: 30px;
+}
+
+.tf-block h3:hover .tip-box-show {
+    display: block;
+}
+
+.tf-block h3 .tip-box-show {
+    position: relative;
+    display: none;
+    top: -15px;
+}
+
+.tf-block h3 .tip-box-show .triangle-up {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 0px;
+    height: 0px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid rgba(55, 60, 71, 0.9);
+}
+
+.tf-block h3 .tip-box-show .tip-box-content {
+    position: absolute;
+    cursor: auto;
+    z-index: 1000;
+    background: rgba(55, 60, 71, 0.9);
+    color: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: left;
+    font-size: 12px;
+    top: 28px;
+    text-shadow: none;
+    line-height: 20px;
+    width: 300px;
+}
+
+.tf-boxshadow {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tf-guide-ss {
+    width: 1155px;
+    margin: 0 auto;
+}
+
+.tf-guide-ss .tf-block .guide-trend {
+    height: 600px;
+    overflow: hidden;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab {
+    float: left;
+    height: 100%;
+    width: 310px;
+    background: #f8f8f8;
+    overflow: hidden;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li {
+    padding: 20px 50px;
+    padding-left: 70px;
+    border-top: 1px solid #ccc;
+    cursor: pointer;
+    height: 160px;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li:first-child {
+    border-top: none;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #878787;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li p b {
+    color: #515151;
+    margin-left: 5px;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li .title {
+    margin-bottom: 0;
+    margin-left: -20px;
+    color: #444;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li >div {
+    margin: 30px 0;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li div b {
+    display: block;
+    font-size: 25px;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li div i {
+    float: right;
+    position: relative;
+    top: -30px;
+    font-style: normal;
+    font-size: 12px;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li div i.positive {
+    color: #71bc33;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li div i.negative {
+    color: #f33f57;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li:hover {
+    position: relative;
+    z-index: 3;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    background: #fff;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li:hover + li {
+    border-top: none;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li.selected {
+    position: relative;
+    z-index: 3;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    background: #fff;
+}
+
+.tf-guide-ss .tf-block .guide-trend .left-tab li.selected + li {
+    border-top: none;
+}
+
+.tf-guide-ss .tf-block .guide-trend .graph-part {
+    position: relative;
+    z-index: 2;
+    margin-left: 310px;
+    height: 560px;
+    padding: 20px;
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tf-guide-ss .tf-block .guide-trend .graph-part .tf-tab-change-btn {
+    float: right;
+    position: absolute;
+    right: 20px;
+    z-index: 2;
+}
+
+.tf-guide-ss .tf-block .guide-trend .graph-part .tf-tab-change-btn li {
+    float: left;
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    border-left: none;
+}
+
+.tf-guide-ss .tf-block .guide-trend .graph-part .tf-tab-change-btn li:first-child {
+    border-left: 1px solid #ccc;
+}
+
+.tf-guide-ss .tf-block .guide-trend .graph-part .tf-tab-change-btn li.selected {
+    background: #237bd0;
+    color: #fff;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute {
+    height: 559px;
+    overflow: hidden;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .graph-part {
+    float: left;
+    height: 100%;
+    width: 600px;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list {
+    height: 100%;
+    margin-left: 620px;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list * {
+    cursor: default;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li {
+    height: 62px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li > div {
+    padding-top: 12px;
+    padding-bottom: 13px;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li > div span,
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li > div .title .des b {
+    color: #9b9b9b;
+    font-size: 13px;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li .content {
+    margin-left: 240px;
+    padding-right: 20px;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li .content p {
+    width: 275px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 2px;
+    font-size: 13px;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li .title {
+    float: left;
+    height: 35px;
+    background: #f8f8f8;
+    width: 200px;
+    padding-left: 20px;
+    margin-top: 2px;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li .title img {
+    float: left;
+    width: 35px;
+    height: 35px;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li .title .des {
+    margin-left: 50px;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li .title .des span,
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li .title .des b {
+    display: block;
+    width: 135px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li .title .des b {
+    margin-top: 2px;
+    font-size: 13px;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li:first-child .title {
+    margin-top: 0;
+    padding-bottom: 15px;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li:hover {
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid #ccc;
+}
+
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li.selected {
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid #ccc;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute {
+    position: relative;
+    height: 755px;
+    overflow: hidden;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left {
+    float: left;
+    width: 350px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left .tab-change {
+    height: 35px;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left .tab-change li {
+    float: left;
+    width: 70px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    background: #f8f8f8;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left .tab-change li:hover {
+    background: #f33f57;
+    color: #fff;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left .tab-change li.selected {
+    background: #f33f57;
+    color: #fff;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left .list li {
+    height: 60px;
+    cursor: pointer;
+    background: linear-gradient(to right, #f35365, #e14151);
+    color: #fff;
+    line-height: 60px;
+    padding-left: 20px;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left .list li .left-part {
+    float: left;
+    width: 150px;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left .list li .left-part span,
+.tf-guide-ss .tf-block .complain-player-distribute .left .list .activity-player-distribute .post-list li .left-part .title .des b,
+.tf-guide-ss .tf-block .activity-player-distribute .post-list .complain-player-distribute .left .list li .left-part .title .des b,
+.tf-guide-ss .tf-block .complain-player-distribute .left .list .activity-player-distribute .post-list li .title .des .left-part b,
+.tf-guide-ss .tf-block .activity-player-distribute .post-list .complain-player-distribute .left .list li .title .des .left-part b {
+    float: left;
+    font-size: 14px;
+    margin-right: 10px;
+    width: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left .list li .left-part i {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left .list li .rate-wrap {
+    margin-left: 150px;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left .list li .rate-wrap .rate {
+    float: right;
+    width: 30%;
+    height: 60px;
+    background: #ebeaec;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left .list li:hover {
+    position: relative;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .left .list li.selected {
+    position: relative;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute div#bs_complain_chart {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .graph-part {
+    position: absolute;
+    padding: 20px;
+    padding-top: 20px;
+    padding-left: 8px;
+    top: 0px;
+    right: 20px;
+    left: 370px;
+    bottom: 50px;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .x-img {
+    position: absolute;
+    bottom: 40px;
+    left: 414px;
+}
+
+.tf-guide-ss .tf-block .complain-player-distribute .y-img {
+    position: absolute;
+    left: 366px;
+    bottom: 67px;
+    /*height: 690px;*/
+}
+
+.tf-guide-ss .game-style-distribute {
+    height: 460px;
+    padding: 20px;
+}
+
+.tf-guide-ss .game-style-distribute {
+    font-size: 12px;
+}
+
+.tf-guide-ss .game-style-distribute .graph-part {
+    position: relative;
+    height: 500px;
+}
+
+.tf-guide-ss .appstore-list-distribute {
+    height: 530px;
+    margin-bottom: 20px;
+}
+
+.tf-guide-ss .appstore-list-distribute .graph-part {
+    position: relative;
+    height: 480px;
+    padding-top: 50px;
+}
+
+.tf-guide-ss .appstore-list-distribute .graph-part .b_loading {
+    position: absolute;
+}
+
+.tf-guide-ss .appstore-list-distribute .tab-change {
+    position: relative;
+    z-index: 2;
+    top: 20px;
+    left: 20px;
+}
+
+.tf-guide-ss .appstore-list-distribute .tab-change span,
+.tf-guide-ss .appstore-list-distribute .tab-change .tf-block .activity-player-distribute .post-list li .title .des b,
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li .title .des .appstore-list-distribute .tab-change b {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.tf-guide-ss .appstore-list-distribute .tab-change ul li {
+    float: left;
+    border: 1px solid #ccc;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    border-left: none;
+    cursor: pointer;
+}
+
+.tf-guide-ss .appstore-list-distribute .tab-change ul li:first-child {
+    border-left: 1px solid #ccc;
+}
+
+.tf-guide-ss .appstore-list-distribute .tab-change ul li:hover {
+    color: #fff;
+    background: #237bd0;
+}
+
+.tf-guide-ss .appstore-list-distribute .tab-change ul li.selected {
+    background: #237bd0;
+    color: #fff;
+}
+
+.tf-guide-ss .appstore-list-distribute .tab-change ul + span,
+.tf-guide-ss .appstore-list-distribute .tab-change .tf-block .activity-player-distribute .post-list li .title .des ul + b,
+.tf-guide-ss .tf-block .activity-player-distribute .post-list li .title .des .appstore-list-distribute .tab-change ul + b {
+    margin-left: 20px;
+}
+
+.bs_change_number {
+    height: 31px;
+}
+
+.bs_change_number .mt-number-animate {
+    line-height: 31px;
+    height: 28px;
+    /*设置数字显示高度*/
+    ;
+    font-size: 30px;
+    /*设置数字大小*/
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+}
+
+.bs_change_number .mt-number-animate .mt-number-animate-dom {
+    width: 18px;
+    /*设置单个数字宽度*/
+    text-align: center;
+    float: left;
+    position: relative;
+    top: 0;
+}
+
+.bs_change_number .mt-number-animate .mt-number-animate-dom .mt-number-animate-span {
+    width: 100%;
+    float: left;
+    font-size: 30px;
+    color: #333
+}

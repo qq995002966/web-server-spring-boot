@@ -1,0 +1,444 @@
+ <!DOCTYPE html >
+<html lang="zh-CN">
+
+<head>
+    <title>ThinkingGame 游戏数据挖掘服务平台--运营分析</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"-->
+    <meta name="renderer" content="webkit">
+    <meta property="qc:admins" content="505435440764016316771556367" />
+    <meta name="keywords" content="ThinkingGame,ThinkingData,数数信息,游戏舆情,玩家论坛,游戏渠道,游戏口碑,玩家反馈,数据服务,大数据">
+    <meta name="description" content="ThinkingGame游戏数据分析服务平台；提供一站式全方位的玩家行为数据分析服务。">
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/common.css">
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/newfooter.css">
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/newheader.css">
+    <!--<link rel="stylesheet" type="text/css" href="elements2.1/css/app/style.css">-->
+
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/searchresult.css">
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/guide_ss.css">
+
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/newcommon.css">
+    <link rel="stylesheet" type="text/css" href="elements2.1/css/app/newstyle.css">
+    <!--<link rel="stylesheet" type="text/css" href="elements2.1/css/app/datacenter.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="elements2.1/css/app/solution.css">-->
+    <!--<script type="text/javascript" src="elements2.1/js/lib/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="elements2.1/js/lib/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="elements2.1/js/function.js"></script>-->
+</head>
+
+<body>
+    <div id="NewheaderPart" class="min-width">
+        <div class="header-wrap total-width ">
+            <div class="navbar fl">
+                <a href="index.html"><i class="h-logo c-img"></i></a>
+                <ul>
+                    <li>产品
+                        <div class="navbar-list">
+                            <i class="border-top"></i>
+                            <ul>
+                                <li><a href="intelligent.html">智能分析</a></li>
+                                <li><a href="datacenter.html">数据中心</a></li>
+                                <li><a href="radar.html">舆情雷达</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="solving">解决方案
+                         <div class="navbar-list">
+                            <i class="border-top"></i>
+                            <ul>
+                                <li><a href="solution.html">数据解决方案平台</a></li>
+                                <li><a href="analysissolution.html">数据分析解决方案</a></li>
+                                <li><a href="yuqingsolution.html">舆情分析解决方案</a></li>
+                                <li><a href="gameconsult.html"> 专业服务</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>数据洞察
+                         <div class="navbar-list">
+                            <i class="border-top"></i>
+                            <ul>
+                                <li><a href="">行业分析</a></li>
+                                <li><a href="">媒体透视</a></li>
+                                <li><a href="">游戏图谱</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>关于我们
+                         <div class="navbar-list">
+                            <i class="border-top"></i>
+                            <ul>
+                                <li><a href="">公司介绍</a></li>
+                                <li><a href="">加入我们</a></li>
+                                <li><a href="">合作伙伴</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="login-part fr">
+                <ul>
+                    <li>
+                        <form method="get" action="search.html">
+                            <input type="text" name="k" value="搜索游戏、游戏资讯">
+                            <button type="submit" class="search-icon"></button></form>
+                        </form>
+                        <li>
+                            <button class="login-btn">进入控制台</button>
+                        </li>
+                        <li>
+                            <button class="reg-btn">查看DEMO</button>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+ <style>
+.tf-mask {
+    position: absolute;
+    background: #237bd0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0;
+    -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tf-mask h3 {
+    margin-top: 150px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.tf-mask a {
+    width: 100px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #fff;
+    color: #fff;
+    line-height: 30px;
+    font-size: 12px;
+    margin-left: -50px;
+    position: relative;
+    left: 50%;
+}
+
+.data-analysis li.boxshadow {
+    position: relative;
+    cursor: pointer;
+}
+
+.data-analysis li.boxshadow:hover .tf-mask {
+    opacity: 0.95;
+    }
+
+ </style>
+
+<!-- banner部分 -->
+<div class="single-banner min-width">
+    <div class="wrap-des">
+        <div>
+            <h3>极往知来的运营分析</h3>
+            <p>凭借数据挖掘技术，运营分析能够100%准确获取各项运营指标，发现指标中隐藏的问题，并结合游戏定制化分析结果，进一步找出导致运营问题的具体原因</p>
+            <a href="" class="blue-button">申请开通</a>
+            <a href="" class="gray-button">查看Demo</a>
+        </div>
+    </div>
+</div>
+<!-- 产品特点 -->
+<div class="tf-three">
+    <div class="ul-wrap">
+        <h3>  用智能分析结果支持决策 提升游戏竞争力</h3>
+        <ul class="playerusage">
+            <li>
+                <img src="  " alt="">
+                <div class="des">
+                    <h3>运营指标监测毫厘不差</h3>
+                    <p> 与数据不够准确的SDK接入方式相比，我们采用对玩家行为日志进行数据挖掘的方式，这种方式具备指标记录准确无误、可监测维度更全面等优势</p>
+                </div>
+            </li>
+            <li>
+                <img src="  " alt="">
+                <div class="des">
+                    <h3>揭示更真实的运营状态</h3>
+                    <p> 借助机器学习技术，能够从基础的运营指标中，发现暗藏的问题，例如新增玩家中付费意愿高的优质玩家比例，活跃玩家中流失风险高的玩家比例等</p>
+                </div>
+            </li>
+            <li>
+                <img src="  " alt="">
+                <div class="des">
+                    <h3>深入游戏场景的分析点</h3>
+                    <p> 在基础的核心数据分析外，我们还针对每一款游戏提供可自定义的监测场景，根据游戏业务需求，监测游戏关卡体验、虚拟币消耗产出、活动效果等</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 核心数据分析 -->
+<div class="data-analysis block-gray">
+    <div class="wrap">
+        <h3>  核心数据分析 </h3>
+        <p> 监测毫厘不差的运营数据 深度解读数据中的真实价值</p>
+        <ul>
+            <li class=" boxshadow">
+                <img src=" elements2.1/img/usageanalysis/3-1.jpg " alt="">
+                <div class="des">
+                    <h3> 玩家分析</h3>
+                    <p> 追踪不同玩家群体的关键数据，深入分析不同玩家群体中的潜在流失玩家、潜在付费玩家构成，协助运营人员更好的掌握游戏当前的真实运营情况</p>
+                </div>
+            </li>
+            <li class=" boxshadow">
+                <img src="  elements2.1/img/usageanalysis/3-2.jpg " alt="">
+                <div class="des">
+                    <h3> 留存/流失分析</h3>
+                    <p> 全面检测游戏日常运营中的留存率、流失率等关键指标，方便运营人员时刻掌握游戏运营状况</p>
+                </div>
+                <div class="tf-mask">
+                    <h3>留存/流失分析</h3>
+                    <a href="">查看demo</a>
+                </div>
+            </li>
+            <li class=" boxshadow">
+                <img src="  elements2.1/img/usageanalysis/3-3.jpg " alt="">
+                <div class="des">
+                    <h3> 付费分析</h3>
+                    <p> 围绕玩家的付费行为，了解玩家的付费渗透、付费习惯，掌握游戏的收入结构。协助运营人员更好的设计游戏的运营活动，有效提升付费渗透率</p>
+                </div>
+            </li>
+            <li class=" boxshadow">
+                <img src="  elements2.1/img/usageanalysis/3-4.jpg " alt="">
+                <div class="des">
+                    <h3> 渠道分析</h3>
+                    <p> 针对游戏分发渠道进行多维度数据监测，准确判断各渠道的数量、质量、收入等关键指标</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 游戏定制化分析功能介绍 -->
+<div class="smart-tool usageanalysis-tab">
+    <div class="wrap">
+        <h3>  游戏定制化分析 </h3>
+        <p> 结合游戏运营场景自定义分析维度 深入分析游戏各项业务</p>
+        <ul class="tf-tab-change">
+            <li href="#partA" class="selected">关卡驻留分析</li>
+            <li href="#partB">成长进度分析</li>
+            <li href="#partC">核心玩法分析</li>
+            <li href="#partD">虚拟消费分析</li>
+            <li href="#partE">英雄分析</li>
+            <li href="#partF">社交分析</li>
+        </ul>
+        <div class="tf-tab-change-content">
+            <div class="content" id="partA">
+                <div class="des">
+                    <h3>改善不合理的关卡有效提升留存</h3>
+                    <p>通过对关卡驻留人数、胜率、首次挑战通过率等指标进行分析，以合理调整关卡难度，减少玩家因挫败或缺乏挑战导致流失</p>
+                    <a href="">查看DEMO</a>
+                </div>
+                <img src="elements2.1/img/tab/2.1.png" alt="">
+            </div>
+            <div class="content" id="partB">
+                <div class="des">
+                    <h3>掌握玩家游戏进度 延长玩家生命周期</h3>
+                    <p>留意不同关卡及不同活跃天数的玩家特征，发现玩家对游戏内容的疲惫期，改善游戏内容以延长游戏成长期和成熟期</p>
+                    <a href="">查看DEMO</a>
+                </div>
+                <img src="elements2.1/img/tab/2.2.png" alt="">
+            </div>
+            <div class="content" id="partC">
+                <div class="des">
+                    <h3>细微分析每一项玩法、任务、页面</h3>
+                    <p>深入游戏的每一个场景，分析玩家在每个任务、竞技场中的表现，以及每个页面的到访情况，有效提升玩家的体验</p>
+                    <a href="">查看DEMO</a>
+                </div>
+                <img src="elements2.1/img/tab/2.3.png" alt="">
+            </div>
+            <div class="content" id="partD">
+                <div class="des">
+                    <h3>掌握提升游戏付费率的关键要素</h3>
+                    <p>分析游戏中的投入产出，掌握经济规律、玩家充值习惯、热销物品及不同等级玩家的消费偏好，才能准确刺激玩家消费</p>
+                    <a href="">查看DEMO</a>
+                </div>
+                <img src="elements2.1/img/tab/2.4.png" alt="">
+            </div>
+            <div class="content" id="partE">
+                <div class="des">
+                    <h3>了解玩家对不同英雄的喜好度</h3>
+                    <p>通过对比英雄经验分配、出场次数、出场率、PVP组队排名、PVP最高进度，针对玩家的个性偏好优化英雄设计</p>
+                    <a href="">查看DEMO</a>
+                </div>
+                <img src="elements2.1/img/tab/2.5.png" alt="">
+            </div>
+            <div class="content" id="partF">
+                <div class="des">
+                    <h3>深度分析公会及公会活动</h3>
+                    <p>观察游戏中的公会数、公会参与人数、公会活跃度等，能够更深入分析玩家在游戏中的活跃度，找出玩家中有影响力的公会</p>
+                    <a href="">查看DEMO</a>
+                </div>
+                <img src="elements2.1/img/tab/2.6.png" alt="">
+            </div>            
+        </div>
+    </div>
+</div>
+<!-- 五重防护 -->
+<div class="circle-double">
+    <div class="wrap">
+        <h3>五重防护 保障数据安全</h3>
+        <p> 自主研发的安全防护体系 为数据安全保驾护航</p>
+        <ul class="big-circle">
+            <li class="a">
+                <img src="" alt="">
+                <h3> 高速传输通道</h3>
+                <p>基于UDP的自研安全通道</p>
+            </li>
+            <li class="b">
+                <img src="" alt="">
+                <h3> 安全白名单</h3>
+                <p>只有白名单IP才有访问权限</p>
+            </li>
+            <li class="c">
+                <img src="" alt="">
+                <h3> 加密传输</h3>
+                <p>采用SSL防窃听加密传输层</p>
+            </li>
+            <li class="d">
+                <img src="" alt="">
+                <h3> 安全隔离机制</h3>
+                <p>强力抵御黑客攻击</p>
+            </li>
+            <li class="e">
+                <img src="" alt="">
+                <h3> 加密存储</h3>
+                <p>隐私数据加密存储</p>
+            </li>
+        </ul>
+        <ul class=" small-circle">
+            <li class="f">
+                <img src="" alt="">
+                <h3> 最安全的游戏数据服务平台</h3>
+            </li>
+            <li>
+                <a href="   ">申请接入</a>
+                <a href="   ">查看接入文档</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 合作伙伴 -->
+<div class="tf-three tf-partner">
+    <div class="ul-wrap">
+        <h3>他们正在使用玩家画像开展个性化运营</h3>
+    </div>
+</div>
+<!-- 底部跳转页面 -->
+<div class="href-page-list">
+    <div class="black-top">
+    </div>
+    <div class="gray-bottom">
+        <ul>
+            <li>
+                <a href="radar.html">
+                    <div class="top-img img-a">
+                        舆情雷达
+                    </div>
+                    <div class="mask-hover"></div>
+                    <img src="  " alt="">
+                    <div class="des">
+                        <h3>知己知彼的舆情雷达</h3>
+                        <p> 极往，依托数据挖掘及时解读玩家行为，确保运营数据毫厘不差；知来，通过机器学习技术定位游戏系统中的关键利润点、导致流失的不合理设定等</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="professional.html">
+                    <div class="top-img img-a">
+                        专业服务
+                    </div>
+                    <div class="mask-hover"></div>
+                    <img src="  " alt="">
+                    <div class="des">
+                        <h3>思以智胜的专业服务</h3>
+                        <p> 知己，强大的自然语言技术能够轻松解读过亿玩家反馈，追踪玩家舆情变化；知彼，全面掌控千款热门游戏的游戏口碑、玩家画像、活动效果等</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="playerusage.html">
+                    <div class="top-img img-a">
+                        玩家分析
+                    </div>
+                    <div class="mask-hover"></div>
+                    <img src="  " alt="">
+                    <div class="des">
+                        <h3>知微知彰的玩家运营</h3>
+                        <p> 由ThinkingGame的专业数据分析师，结合人工智能技术所提供的专业服务，让游戏开发者、运营企业创造出基于人工智能技术设计和运营的优秀游戏</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="NewFooterPart">
+	<div class="wrap">
+		<div class="fl">
+			<ul>
+				<li class="title">产品</li>
+				<li><a href="">智能分析</a></li>
+				<li><a href="">数据中心</a></li>
+				<li><a href="">舆情雷达</a></li>
+				<li><a href="">SigamaTM系统</a></li>
+			</ul>
+			<ul>
+				<li class="title">解决方案</li>
+				<li><a href=""> Thinker 数据解决方案</a></li>
+				<li><a href="">游戏数据分析解决方案</a></li>
+				<li><a href="">游戏舆情分析解决方案</a></li>
+				<li><a href="">游戏专项咨询服务</a></li>
+			</ul>
+			<ul>
+				<li class="title">数据洞察</li>
+				<li><a href="">行业分析</a></li>
+				<li><a href="">媒体透视</a></li>
+				<li><a href="">游戏图谱</a></li>
+			</ul>
+			<ul>
+				<li class="title">关于我们</li>
+				<li><a href="">公司介绍</a></li>
+				<li><a href="">加入我们</a></li>
+				<li><a href="">合作伙伴</a></li>
+				<li><a href="">媒体报道</a></li>
+			</ul>
+		</div>
+		<div class="fr">
+			<img src="elements2.1/img/f-logo.png" alt="">
+			<h3>数数信息科技（上海）有限公司</h3>
+			<div class="code-wrap">
+				<img src="elements2.1/img/code.jpg" alt="">
+				<ul>
+					<li><img src="elements2.1/img/f-service.png" alt="">在线客服</li>
+					<li><img src="elements2.1/img/f-email.png" alt="">service@thinkingdata.cn</li>
+					<li><img src="elements2.1/img/f-address.png" alt="">上海市长宁区中山西路999号1203室</li>
+				</ul>
+			</div>
+			<p>2015-2016 THINKINGGAME.CN 版权所有 沪ICP备 15030552号</p>
+		</div>
+	</div>
+
+</div>
+<!-- footer部分 -->
+<script type="text/javascript" src="elements2.1/js/lib/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="elements2.1/js/lib/jquery.bxslider.js"></script>
+<!-- <script type='text/javascript' src='elements2.1/js/lib/jquery.particleground.min.js'></script> -->
+<script type='text/javascript' src='elements2.1/js/lib/particles.min.js'></script>
+<!--<script src="http://cdn.dowebok.com/134/js/scrollReveal.js"></script>-->
+<script type="text/javascript" src="elements2.1/js/function.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+@import url("common.css");
+body {
+    background: #fff;
+}
+
+li{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.article-tab {
+    width: 1175px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.article-tab li {
+    display: inline-block;
+    color: #414141;
+    width: 100px;
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.article-tab .ts_slider {
+    position: absolute;
+    top: 29px;
+    width: 100px;
+    height: 2px;
+    background-color: #679F37;
+    left: 0;
+}
+
+.article-active-tab {
+    border-bottom: 2px solid #689f38;
+}
+
+.article-list-content {
+    width: 1175px;
+    margin: 0 auto;
+}
+
+.article-list-header-tip li {
+    line-height: 30px;
+}
+
+.article-list-header-tip {
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 15px;
+}
+
+.article-list-header-tip .result-num {
+    color: #b0b0b0;
+}
+
+.article-list-header-tip .result-num span {
+    margin:0 5px;
+}
+
+.article-list-header-tip li span {
+    color: #689f38;
+}
+
+.article-list-tip-name {
+    font-size: 14px;
+}
+
+.article-detail-list {
+    margin: 0 20px;
+}
+
+.detail-content {
+    margin: 35px 0;
+    margin-bottom: 60px;
+}
+
+
+.detail-content img {
+    width: 60px;
+    height: 60px;
+    float: left;
+    position: relative;
+    top: 5px;
+     border-radius: 50%;
+}
+
+.detail-right {
+     margin-left: 90px;
+ }
+.detail-right-no-icon {
+    margin-left: 0px;
+}
+
+.detail-right .article-title {
+     font-size: 16px;
+     display: inline-block;
+     white-space: nowrap;
+     text-overflow: ellipsis;
+     overflow: hidden;
+     color: #606163;
+     font-weight: bold;
+ }
+
+.detail-right .detail-infor {
+    color: #a9a9a9;
+}
+
+.detail-right li {
+    line-height: 25px;
+}
+
+.detail-right p {
+    margin-top: 10px;
+    border-top: 1px solid #e6e6e6;
+    padding-top: 10px;
+    color: #505050;
+    line-height: 20px;
+}
+
+.detail-infor span {
+    margin: 0px 5px;
+}
+
+.detail-infor .article-date {
+    float: right;
+}
+
+.detail-right .readall {
+    color: #689f38;
+    margin-left: 10px;
+}
+
+.article-readall a {
+       color: #a9a9a9;
+}
+
+.article-list-content .page-list {
+    width: 715px;
+    margin: 0 auto;
+}
+
+.article-list-content .page-list li {
+    display: inline-block;
+    color: #afafaf;
+}
+
+.article-list-content .page-list li .page-num {
+    color: #606060;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.article-list-content .page-list li .num-selected {
+    background: #69a039;
+    color: #fff;
+}
+
+.article-list-content .page-list li button {
+    border: 1px solid #e9e9e9;
+    border-radius: 4px;
+    width: 72px;
+    height: 34px;
+    background: #fff;
+    color: #ababab;
+    margin: 0 25px;
+    cursor: pointer;
+}
+
+#resultGamestyle .detail-content {
+    margin-bottom: 90px;
+}
+
+#resultGamestyle .detail-content img {
+    width: 120px;
+    height: 120px;
+    margin-right: 40px;
+    border-radius: 6px;
+    margin-top: -20px;
+}
+
+#resultGamestyle .detail-right .game-title {
+    font-size: 24px;
+    font-weight:bold;
+}
+
+#resultGamestyle .detail-right .check-gamepic a {
+    color:#a9a9a9;
+}
+
+#resultGamestyle .detail-right i {
+    background-position: -295px 0;
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    margin: 0 8px 0 30px;
+}
+
+#resultGamestyle .detail-right .detail-infor span {
+    color: #555;
+}
+
+#resultGamestyle .detail-right .detail-infor b {
+    font-weight:normal;
+    width: 65px;
+    display: inline-block;
+}
+
+span.check-gamepic {
+    position: relative;
+    top: -5px;
+}
+span.check-gamepic a{cursor: pointer}

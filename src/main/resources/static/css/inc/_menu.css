@@ -1,0 +1,137 @@
+.menu
+{
+    border-bottom: 1px solid #dee3eb;
+    background-color: #ffffff;
+    padding-bottom:1px;
+}
+.menu .bar
+{
+    width:1170px;
+    height:70px;
+    margin:auto;
+    position:relative;
+}
+.menu .bar>table
+{
+    height:70px;
+}
+.menu .bar .logo
+{
+    background:transparent url(http://image.thinkinggame.cn/img/logo.png) no-repeat center center;
+    background-size:contain;
+    width:290px;
+
+}
+.menu .bar .login
+{
+    width:168px;
+    font-size:12px;
+}
+
+.menu .bar .login-logo
+{
+    margin-left:6px;
+    margin-right:6px;
+}
+
+.menu .bar .login-logo.status_lt_0
+{
+    background:transparent url(http://image.thinkinggame.cn/img/menu/status_lt_0.png) no-repeat center center;
+    background-size:contain;
+}
+
+.menu .bar .login-logo.status_eq_0
+{
+    background:transparent url(http://image.thinkinggame.cn/img/menu/status_eq_0.png) no-repeat center center;
+    background-size:contain;
+}
+
+.menu .bar .login-logo.status_eq_1
+{
+    background:transparent url(http://image.thinkinggame.cn/img/menu/status_eq_1.png) no-repeat center center;
+    background-size:contain;
+}
+
+.menu .bar .login-logo.status_gt_1
+{
+    background:transparent url(http://image.thinkinggame.cn/img/menu/status_gt_1.png) no-repeat center center;
+    background-size:contain;
+}
+
+.menu .bar .login_yes
+{
+    background-color: #03a9f5;
+    border-radius: 5px;
+    height:30px;
+    color:#ceeaf6;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+}
+
+.menu .bar .login_no_login
+{
+    width:65px;
+    height:31px;
+    line-height:31px;
+    border:1px solid #7e92a7;
+    border-radius:5px;
+    display: inline-block;
+    text-align:center;
+    cursor:pointer;
+}
+
+.menu .bar .login_no_reg
+{
+    width:75px;
+    height:31px;
+    line-height:31px;
+    border:1px solid #03a9f5;
+    border-radius:5px;
+    display: inline-block;
+    text-align:center;
+    color:#ceeaf6;
+    background-color: #03a9f5;
+    margin-left:10px;
+    cursor:pointer;
+}
+
+
+.menu .bar .login .sp:hover
+{
+    cursor:pointer;
+    color:#ffffff;
+}
+
+.menu .submenu
+{
+    text-align: center;
+    color:#596776;
+    font-size:16px;
+    width:138px;
+    cursor:pointer;
+}
+
+.menu .submenu>div
+{
+    line-height:70px;
+}
+
+.menu .submenu.chosen
+{
+    color: #03a9f5;
+}
+
+.menu .submenu:hover
+{
+    color:#03a9f5;
+}
+
+.menu .bar-slider
+{
+    width:80px;
+    height:2px;
+    background: #03a9f5;
+    position: absolute;
+    bottom:-1px;
+}

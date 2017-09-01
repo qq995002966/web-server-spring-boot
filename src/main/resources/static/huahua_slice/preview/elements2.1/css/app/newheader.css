@@ -1,0 +1,190 @@
+#NewheaderPart {
+  height: 70px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #0f151e;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); }
+  #NewheaderPart + div {
+    padding-top: 70px; }
+  #NewheaderPart div.header-wrap {
+    padding: 30px 0;
+    width: 70%;
+    width: 1175px;
+    margin: 0 auto; }
+    #NewheaderPart div.header-wrap div.navbar .h-logo {
+      width: 194px;
+      height: 29px;
+      position: absolute;
+      top: 18px;
+      background: url(../../img/tf-h-logo.png) no-repeat; }
+    #NewheaderPart div.header-wrap div.navbar > ul {
+      margin-left: 178px;
+      line-height: 70px;
+      height: 70px;
+      position: absolute;
+      top: 0; }
+      #NewheaderPart div.header-wrap div.navbar > ul > li {
+        position: relative;
+        font-size: 14px;
+        float: left;
+        margin-left: 40px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 15px; }
+        #NewheaderPart div.header-wrap div.navbar > ul > li:hover .navbar-list ul {
+          display: block; }
+        #NewheaderPart div.header-wrap div.navbar > ul > li:hover .navbar-list .border-top {
+          width: 85px; }
+        #NewheaderPart div.header-wrap div.navbar > ul > li:first-child {
+          margin-left: 60px; }
+        #NewheaderPart div.header-wrap div.navbar > ul > li .navbar-list {
+          position: absolute;
+          width: 140px;
+          left: 50%;
+          margin-left: -70px; }
+          #NewheaderPart div.header-wrap div.navbar > ul > li .navbar-list ul {
+            display: none;
+            position: relative;
+            top: -12px; }
+            #NewheaderPart div.header-wrap div.navbar > ul > li .navbar-list ul li {
+              height: 40px;
+              line-height: 40px;
+              background: #111b27; }
+              #NewheaderPart div.header-wrap div.navbar > ul > li .navbar-list ul li:last-child {
+                padding-bottom: 12px; }
+              #NewheaderPart div.header-wrap div.navbar > ul > li .navbar-list ul li:first-child {
+                padding-top: 12px; }
+              #NewheaderPart div.header-wrap div.navbar > ul > li .navbar-list ul li a {
+                text-decoration: none;
+                color: #fff;
+                display: block;
+                text-align: center; }
+                #NewheaderPart div.header-wrap div.navbar > ul > li .navbar-list ul li a:hover {
+                  background: #0f3e6c;
+                  transition: all 0.5s; }
+          #NewheaderPart div.header-wrap div.navbar > ul > li .navbar-list .border-top {
+            position: relative;
+            z-index: 2;
+            display: block;
+            width: 0px;
+            height: 3px;
+            background: #0f3e6c;
+            border-radius: 2p;
+            margin: 0 auto;
+            margin-bottom: 8px;
+            transition: all 0.5s ease 0s; }
+      #NewheaderPart div.header-wrap div.navbar > ul li.solving .navbar-list {
+        width: 170px;
+        margin-left: -85px; }
+    #NewheaderPart div.header-wrap div.login-part {
+      position: relative;
+      top: -10px; }
+      #NewheaderPart div.header-wrap div.login-part ul li {
+        float: left;
+        position: relative;
+        font-size: 12px; }
+        #NewheaderPart div.header-wrap div.login-part ul li .search-icon {
+          background: url(../../img/search-top.jpg) no-repeat;
+          width: 22px;
+          height: 22px;
+          position: absolute;
+          right: 5px;
+          top: 5px; }
+        #NewheaderPart div.header-wrap div.login-part ul li input {
+          width: 168px;
+          height: 25px;
+          border: 1px solid #eeeeee;
+          border-radius: 8px;
+          margin-right: 43px;
+          outline: none;
+          padding-left: 10px; }
+        #NewheaderPart div.header-wrap div.login-part ul li button {
+          border: none;
+          background-color: #0f151e;
+          padding: 0px 20px;
+          height: 30px;
+          border-radius: 4px;
+          color: #fff;
+          font-size: 12px;
+          outline: none;
+          cursor: pointer;
+          transition: all 0.3s; }
+        #NewheaderPart div.header-wrap div.login-part ul li input[type="text"] {
+          height: 39px;
+          border: none;
+          background: #142130;
+          border-radius: 6px;
+          line-height: 39px;
+          padding-left: 15px;
+          width: 191px;
+          position: relative;
+          top: -4px;
+          margin-right: 15px;
+          color: #fff; }
+        #NewheaderPart div.header-wrap div.login-part ul li button.reg-btn {
+          background-color: #0f151e;
+          border: 1px solid #fff;
+          color: #fff; }
+          #NewheaderPart div.header-wrap div.login-part ul li button.reg-btn:hover {
+            background-color: #fff;
+            color: #0f151e;
+            transition: all 0.3s; }
+        #NewheaderPart div.header-wrap div.login-part ul li button.login-btn {
+          margin-right: 15px;
+          border: 1px solid #fff; }
+          #NewheaderPart div.header-wrap div.login-part ul li button.login-btn:hover {
+            background-color: #fff;
+            color: #0f151e; }
+        #NewheaderPart div.header-wrap div.login-part ul li span {
+          color: #323a46;
+          padding: 0 10px;
+          cursor: pointer; }
+          #NewheaderPart div.header-wrap div.login-part ul li span:first-child {
+            border-right: 1px solid #686e76; }
+
+.L-btn {
+  float: left;
+  margin-left: 209px; }
+  .L-btn span {
+    font-size: 17px;
+    color: #333;
+    cursor: pointer; }
+
+.b_empty .des {
+  width: 520px;
+  margin: 0 auto;
+  margin-top: 150px;
+  margin-bottom: 150px; }
+  .b_empty .des p {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 15px; }
+  .b_empty .des span {
+    color: #237bd0;
+    font-weight: bold;
+    font-size: 20px;
+    display: inline-block;
+    margin-bottom: 55px; }
+  .b_empty .des img {
+    position: relative;
+    top: 20px;
+    margin-right: 60px;
+    display: inline-block; }
+  .b_empty .des button {
+    width: 100px;
+    height: 30px;
+    background: #237bd0;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    left: 50%;
+    margin-left: -50px; }
+    .b_empty .des button:hover {
+      background: #3064ac;
+      color: #fff; }

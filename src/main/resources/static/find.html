@@ -1,0 +1,64 @@
+ <!DOCTYPE html >
+<html lang="zh-CN">
+
+<head>
+    <title>重置密码-ThinkingGame智能化游戏运营服务平台</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="ThinkingGame,ThinkingData,数数信息,游戏舆情,玩家论坛,游戏渠道,游戏口碑,玩家反馈,数据服务,大数据">
+    <meta name="description" content="ThinkingGame游戏数据分析服务平台；提供一站式全方位的玩家行为数据分析服务。">
+    <link rel="stylesheet" type="text/css" href="elements2.0/css/app/login.css">
+    <script src="http://api.geetest.com/get.php"></script>
+</head>
+
+<body>
+    <div id="headerPart" class="min-width"></div>
+    <div class="lr-content  password-content">
+        <a href="acdetail.html" class="hreef"></a>
+        <div class="blank-wrap pass-login">
+            <div class="blank-content first-step">
+                <ul>
+                    <li><h3>请输入登录账号</h3></li>
+                    <li class="input-blank"><i class="lr-icon"></i>
+                        <input type="text" placeholder="手机号" name="username" maxlength="11">
+                        <div class="error-text"></div>
+                    </li>
+                    <li >
+                        <button id="bs_next_btn">下一步</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="blank-content second-step b_none">
+                <ul>
+                    <li><h3>您正在为<b id="bs_mobile"></b>重置密码，请验证</h3></li>
+                    <li class="slide-part">
+                        <div id="div_gt_embed" style="width:100%;"></div>
+                    </li>
+                    <li class="input-blank">
+                        <i class="lr-icon pass-icon"></i>
+                        <input type="text" placeholder="验证码" name="usercode" maxlength="6">
+                        <span class="get-code" id="bs_sms_send">获取验证码</span>
+                        <div class="error-text"></div>
+                    </li>
+                    <li class="input-blank"><i class="lr-icon pass-icon"></i>
+                        <input type="password" placeholder="设置登录密码，密码至少六位" name="userpass" maxlength="30">
+                        <div class="error-text"></div>
+                    </li>
+                    <li class="input-blank"><i class="lr-icon pass-icon"></i>
+                        <input type="password" placeholder="请再次输入您的密码" name="passcheck" maxlength="30">
+                        <div class="error-text"></div>
+                    </li>
+                    <li >
+                        <button class="connection-phone" id="bs_find_btn">确认重置</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="LoginFooterPart"></div>
+    <script data-main="elements2.0/js/app/find" src="elements2.0/js/require.js"></script>
+</body>
+
+</html>
+

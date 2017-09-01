@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.order.Mapper_user_order">
+
+	<insert id="insertUserOrder" parameterType="cn.thinkingdata.web.domain.order.Do_user_order" useGeneratedKeys="true"  keyProperty="id" >
+		insert into user_order (user_id,order_id,order_type,item_unit_id,project_list,total_price,coupon_id,coupon_price,pay_price,pay_channel,status)
+		values (#{user_id},#{order_id},#{order_type},#{item_unit_id},#{project_list},#{total_price},#{coupon_id},#{coupon_price},#{pay_price},#{pay_channel},#{status})
+	</insert>
+
+	<select id="isUserBuyedItem" resultType="int">
+		select 1 flag from user_order a,user_order_item b where a.user_id=#{user_id} and b.user_id=#{user_id} and a.status=2 and b.item_id=#{item_id} and a.order_id=b.order_id limit 1
+	</select>
+		
+	<select id="getOrderByOrderId" parameterType="string" resultType="cn.thinkingdata.web.domain.order.Do_user_order">
+		select * from user_order where order_id=#{order_id}
+	</select>
+
+	<select id="getOrderDescByOrderId" parameterType="string" resultType="java.util.HashMap">
+		SELECT item_name,user_id,order_id,order_type,project_num,project_list,total_price,coupon_id,coupon_price,pay_price,DATE_FORMAT(pay_time,'%Y-%m-%d %T') as pay_time,DATE_FORMAT(create_time,'%Y-%m-%d %T') as create_time,pay_channel,status,invoice_id from (select * from user_order where order_id=#{order_id}) o join
+		(
+			select item_name,u.item_unit_id item_unit_id from item i join item_unit u on i.item_id = u.item_id
+		) t on o.item_unit_id = t.item_unit_id
+	</select>
+
+	<select id="getOrderById"  resultType="cn.thinkingdata.web.domain.order.Do_user_order">
+		select order_id,order_type,item_unit_id,project_num,project_list,total_price,coupon_id,coupon_price,pay_price,pay_channel,DATE_FORMAT(create_time,'%Y-%m-%d %T') as create_time,DATE_FORMAT(update_time,'%Y-%m-%d %T') as update_time,pay_time,status,invoice_id from user_order where id=#{id}
+	</select>
+
+	<select id="getOrderByUserId"  resultType="java.util.HashMap">
+		select order_id,item_name,unit_name,project_num,project_list,order_type,DATE_FORMAT(create_time,'%Y-%m-%d %T') as create_time,DATE_FORMAT(pay_time,'%Y-%m-%d %T') as pay_time,pay_channel,status,pay_price,invoice_id from (select * from user_order where user_id = #{user_id}) o join
+		(
+		select item_name,u.item_unit_id item_unit_id ,unit_name from item i join item_unit u on i.item_id = u.item_id
+		) t on o.item_unit_id = t.item_unit_id
+		order by create_time desc
+		limit #{index},#{limit}
+	</select>
+
+	<update id="orderPaySuccess" parameterType="cn.thinkingdata.web.domain.order.Do_user_order">
+		update user_order set pay_time=#{pay_time},status=#{status},transaction_no=#{transaction_no} where order_id=#{order_id}
+	</update>
+
+	<update id="cancelOrder" parameterType="cn.thinkingdata.web.domain.order.Do_user_order">
+		update user_order set status=#{status} where order_id=#{order_id}
+	</update>
+
+	<update id="printInvoice" parameterType="cn.thinkingdata.web.domain.order.Do_user_order">
+		update user_order set invoice_id=#{invoice_id} where order_id=#{order_id}
+	</update>
+	
+	<select id="getUserOrderCount" parameterType="int" resultType="int">
+		select count(1) from (select * from user_order where user_id = #{user_id}) o join
+		(
+		select item_name,u.item_unit_id item_unit_id ,unit_name from item i join item_unit u on i.item_id = u.item_id
+		) t on o.item_unit_id = t.item_unit_id
+	</select>
+	
+	<update id="updateOrderChargeInfo">
+		update user_order set pay_channel=#{pay_channel},charge_no=#{charge_no} where order_id=#{order_id}
+	</update>
+	
+	<select id="getOrderByChargeNo" resultType="cn.thinkingdata.web.domain.order.Do_user_order">
+		select * from user_order where charge_no=#{charge_no}
+	</select>
+</mapper>

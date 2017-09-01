@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.Mapper_user_recommend_projects">
+	
+	<resultMap type="cn.thinkingdata.web.domain.user.Do_user_recommend_projects"  id="persistence">
+		<result property="user_id" column="user_id"/>
+		<result property="project_id" column="project_id"/>
+		<result property="score" column="score"/>
+	</resultMap>
+	
+	<select id="getByUserId"  resultMap="persistence">
+		select * from user_recommend_projects where user_id=#{user_id} order by score desc
+	</select>
+
+	<select id="getRecommendByUserId"  resultMap="persistence">
+		select * from user_recommend_projects where user_id=#{user_id} order by score desc limit #{index},#{limit}
+	</select>
+
+	<insert id="insertUserRecomProjects" parameterType="cn.thinkingdata.web.domain.user.Do_user_recommend_projects">
+		insert ignore into user_recommend_projects (user_id,project_id,score) values (#{user_id},#{project_id},#{score})
+	</insert>
+	
+</mapper>

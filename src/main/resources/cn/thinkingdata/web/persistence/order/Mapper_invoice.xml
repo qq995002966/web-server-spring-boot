@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.order.Mapper_invoice">
+		
+	<select id="getInvoiceInfo"  resultType="cn.thinkingdata.web.domain.order.Do_invoice">
+		select * from invoice where user_id=#{user_id}
+	</select>
+
+	<select id="getInvoiceInfoByOrderId"  resultType="cn.thinkingdata.web.domain.order.Do_invoice">
+		select order_id,user_id,title,name,content,phone,address,postcode,status,DATE_FORMAT(create_time,'%Y-%m-%d %T') as create_time from invoice where order_id=#{order_id}
+	</select>
+
+	<insert id="insertInvoice" parameterType="cn.thinkingdata.web.domain.order.Do_invoice" useGeneratedKeys="true"  keyProperty="invoice_id" >
+		insert into invoice (order_id,user_id,title,name,content,phone,address,postcode,status)
+		values (#{order_id},#{user_id},#{title},#{name},#{content},#{phone},#{address},#{postcode},#{status})
+	</insert>
+</mapper>

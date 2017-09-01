@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.operation.Mapper_pay_user_pay_method_distri">
+
+    <select id="getPayUserPayMethodListByGameIdAndDate" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_pay_user_pay_method_distri">
+        select game_id,pay_method,sum(pay_amount) pay_amount,sum(pay_times) pay_times  from inner_game.pay_user_pay_method_distri where game_id = #{game_id} and data_date between #{start_date} and #{end_date} group by pay_method order by pay_amount desc
+    </select>
+
+</mapper>

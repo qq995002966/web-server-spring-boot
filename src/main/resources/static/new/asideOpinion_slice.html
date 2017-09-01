@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit">
+<title>意见反馈</title>
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="plugins/datarange/dateRange.css">
+<link rel="stylesheet" type="text/css" href="plugins/datarange/lq.datetimepick.css">
+<link rel="stylesheet" type="text/css" href="plugins/wordcloud/wcloud.css">
+<link rel="stylesheet" type="text/css" href="elements/css/aside.css">
+</head>
+<body>
+    <div class="aside-wrap">
+        <div class="aside-header">
+            <span class="aside-icon opinion-title"></span>
+            <span>意见反馈</span>
+            <span class="close-pop">×</span>
+        </div>
+        <div class="aside-content">
+            <div class="plan opinion">
+                <!-- 添加新游戏 -->
+                <ul class="tab-content" id="addNewgame">
+                    <li>
+                         <input  name="opinion" type="radio" value="shou" id="user" />用户体验 
+                        <label for="user"></label> 
+                        
+                        <input  name="opinion" type="radio" value="ye" id="use" />功能使用
+                        <label for="use"></label> 
+
+                        <input  name="opinion" type="radio" value="duan" id="call" />bug反馈
+                        <label for="call"></label> 
+                    </li>
+                     <li style="padding-bottom: 290px;">
+                        <textarea name="" onblur="if(this.value == ''){this.value = '您的反馈对我们很重要！我们将竭诚为您解决(不超过1000字)'; }" 
+                            onfocus="if(this.value == '您的反馈对我们很重要！我们将竭诚为您解决(不超过1000字)'){this.value ='';}">您的反馈对我们很重要！我们将竭诚为您解决(不超过1000字)</textarea>
+                    </li>
+                </ul>
+                <button type="" class="commit-btn">确认提交</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/datarange/lq.datetimepick.js"></script>
+<script type="text/javascript" src="plugins/datarange/dateRange.js"></script>
+<script type="text/javascript" src="plugins/wordcloud/wcloud.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/divscroll.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/init.js"></script>
+<script type="text/javascript" src="elements/js/aside.js"></script>

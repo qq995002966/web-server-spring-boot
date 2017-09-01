@@ -1,0 +1,66 @@
+#had-login {
+	position: relative;
+	width: 145px;
+	float: right;
+	/* margin-top: 20px; */
+	top: -60px;
+	left: 60px;
+}
+
+#had-login>img {
+	width: 38px;
+    height: 38px;
+}
+
+#had-login>i {
+    display: block;
+    right: 0;
+    top: 15px;
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    color: #8BC34A;
+    cursor: pointer;
+    left: 48px;
+}
+
+#had-login .login-list {
+	position: absolute;
+	width: 108px;
+	margin-left: 0;
+	left: -38px;
+	top: 50px;
+}
+
+#had-login .login-list li {
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+	color: #555555;
+	background: #fff;
+	font-size: 14px;
+}
+
+#had-login .login-list li:first-child {
+	background: #8BC34A;
+	color: #fff;
+}
+
+#had-login .login-list li:first-child:hover {
+	background: #8BC34A;
+	color: #fff;
+}
+
+#had-login .login-list li:hover {
+	background: #eee;
+}
+
+#had-login .login-list .login-icon{
+	background: url(../img/login-list.png) no-repeat;
+	display: block;
+	width: 11px;
+	height: 7px;
+	position: relative;
+	top: -40px;
+	left: 52px;
+}

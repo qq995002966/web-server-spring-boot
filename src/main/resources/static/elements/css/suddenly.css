@@ -1,0 +1,20 @@
+@import url("center.css");
+#bs_game_choose {color: #555;margin-top: 30px;margin-left: 40px; }
+#bs_game_choose .gameDropCurrent{/* color: #ffffff */background-color: #fff;}
+#bs_game_choose .gameDropCurrent p {
+	line-height: 34px;
+}
+#bs_game_choose .gameDropAdd{ color:#0070D2}
+
+#suddenly .sd_chart{ height: 550px}
+#suddenly .sd_chart_title{ height: 35px; position: relative}
+#suddenly .sd_chart_title h3{position: absolute;left: 0;top: 5px;height: 35px;font-size: 16px;padding: 0;margin: 0;font-weight: bold;display: block;width: 200px;}
+#suddenly .sd_chart_title button{ position: absolute ;right: 0; top: 0;background-color:#237bd0;border-color:#237bd0;}
+#suddenly .sd_chart_area{ width: 930px; height: 470px}
+
+#suddenly_s{ width:600px; height: 380px; overflow: hidden; font-size: 14px}
+#suddenly_s dl{ height: 45px; clear: both}
+#suddenly_s dl dt{ width: 100px; float: left; line-height: 36px; font-weight: normal}
+#suddenly_s dl dd{ float: left; line-height: 36px}
+#suddenly_s dl dd input[type="text"]{width: 400px;border: 1px solid #e8e8e8;margin: 2px;height:36px;outline: 0;border-radius: 0px;padding-left:10px;font-size: 13px;}
+#suddenly_s .bs_level_choose a{ cursor: pointer}

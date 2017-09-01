@@ -1,0 +1,96 @@
+@charset "utf-8";
+@import url("center.css");
+div#Report  div.report-part {
+	border: 1px solid #e4e4e4;
+	margin-bottom: 10px;
+}
+div.report-part h2 {
+	font-size: 18px;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #737373;
+}
+
+div.report-part ul {
+	margin-left: 20px;
+	margin-right: 40px;
+}
+
+div.report-part ul li:first-child {
+	border-top: none;
+	margin-top: 20px;
+}
+
+div.report-part ul li  {
+	list-style: none;
+	min-height: 310px;
+	border-top: 1px solid #e4e4e4;
+	position: relative;
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+
+div.report-part ul li  img {
+	position: absolute;
+	width: 200px;
+}
+
+div.report-part ul li  p {
+	margin-left: 220px;
+	color: #696969;
+	font-size: 13px;
+	line-height: 30px;
+	/* padding-bottom: 20px; */
+}
+
+div.report-part ul li  p.title {
+	font-size: 16px;
+	color: #434343;
+	font-weight: bold;
+	margin-bottom: 15px;
+	/* margin-top: 30px; */
+}
+
+div.report-part ul li button {
+	background: #196bbd;
+	border: none;
+	border-radius: 35px;
+	height: 30px;
+	width: 100px;
+	position: absolute;
+	top: 235px;
+	/* left: 50%; */
+	margin-left: 50px;
+}
+
+div.report-part ul.read-online li a {
+	color: #fff;
+	font-size: 15px;
+	background: #196bbd;
+	border: none;
+	border-radius: 35px;
+	height: 30px;
+	width: 100px;
+	position: absolute;
+	top: 250px;
+	/* left: 50%; */
+	margin-left: 50px;
+	display: inline-block;
+	text-align: center;
+	line-height: 30px;
+}
+
+div.report-part ul.buy-now li button {
+	background: none;
+	border: 1px solid #196bbd;
+	height: 28px;
+}
+
+div.report-part ul.buy-now li button a {
+	color: #196bbd ;
+	font-size: 15px;
+}
+div.report-part ul.read-online{ min-height: 200px}
+div.report-part ul.buy-now{ min-height: 200px}

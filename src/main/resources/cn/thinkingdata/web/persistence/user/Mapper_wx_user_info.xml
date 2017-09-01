@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.Mapper_wx_user_info">
+
+	<insert id="insertUpdateWXUserInfo" parameterType="cn.thinkingdata.web.domain.user.Do_wx_user_info"  useGeneratedKeys="true" keyProperty="id">
+		insert into wx_user_info (openid,unionid,nickname,sex,province,city,country,headimgurl) values
+		(#{openid},#{unionid},#{nickname},#{sex},#{province},#{city},#{country},#{headimgurl})
+		ON DUPLICATE KEY update nickname=#{nickname},sex=#{sex},province=#{province},city=#{city},country=#{country},headimgurl=#{headimgurl}
+	</insert>
+
+	<select id="getWXNickName" resultType="map">
+		select nickname,headimgurl from wx_user_info where unionid=#{open_id}
+	</select>
+		
+</mapper>

@@ -1,0 +1,48 @@
+.login-w
+{
+    width:355px;
+    text-align: left;
+}
+
+
+.login-input-div
+{
+    border-radius:3px;
+    border:1px solid #b2beca;
+    font-size:14px;
+    height:30px;
+}
+
+.login-input-div .logo
+{
+    background:transparent url(http://image.thinkinggame.cn/img/login/user.png) no-repeat center center;
+    background-size:20px 20px;
+    width:30px;
+    height:30px;
+    float:left;
+}
+.login-input-div .logo.password
+{
+    background:transparent url(http://image.thinkinggame.cn/img/login/password.png) no-repeat center center;
+    background-size:20px 20px;
+}
+
+.login-input-div input
+{
+    border:none;
+    outline: none;
+    width:250px;
+    height:20px;
+    margin-top:5px;
+    float:right;
+    margin-right:12px;
+    font-size:12px;
+    color:#838e99;
+}
+
+.login-submit
+{
+    height:32px;
+    line-height:32px;
+    width:100%;
+}

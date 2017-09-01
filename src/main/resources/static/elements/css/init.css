@@ -1,0 +1,74 @@
+@charset "utf-8";
+*{ font-family: "Microsoft Yahei","STHeitiSC-Light","Arial",sans-serif; }
+body{ background-color: #E9E9E9;font-size: 12px; color: #555555}
+h1,h2,dl,dt,dd,ul,li,p,form{ margin: 0; padding: 0}
+input[type=text]{ font-size: 12px}
+.c_colorG{ color: #679F37}
+.c_colorR{ color:#FF8B59}
+.c_colorGS{ color: #9FBF59}
+.c_colorH{ color:#A9A9A9}
+.c_colorHS{ color:#E3E5E7}
+.c_colorB{ color:#2DA5DF}
+.c_marginTB10{ margin-top: 10px; margin-bottom: 10px}
+.c_marginB10{ margin-bottom: 10px}
+.c_marginB20{ margin-bottom: 20px}
+.c_marginB30{ margin-bottom: 30px}
+.c_marginTop20{ margin-top: 20px}
+.c_marginTop10{ margin-top: 10px}
+.c_padding30{ padding: 30px}
+.c_padding20{ padding: 20px}
+.c_paddingTB20{ padding: 20px}
+.c_padding10{ padding: 10px}
+.c_paddingB20{ padding-bottom: 20px}
+.c_paddingLR20{ padding: 0 20px}
+.c_paddingLR30{ padding: 0 30px}
+.c_hidden{ overflow: hidden}
+.c_relative{ position: relative}
+.c_cursor{ cursor: pointer}
+.c_none{ display: none}
+.c_boderRadius{ border-radius: 5px}
+.c_floatLeft{ float: left}
+.c_floatRight{ float: right}
+.c_marginAuto{ margin: 0 auto}
+.c_maxWidth{ width: 1175px; position: relative; }
+.c_bgWhite{ background-color: #ffffff}
+.c_shadow1{-webkit-box-shadow: 0 2px 3px #D6D6D6;-moz-box-shadow: 0 2px 3px #D6D6D6;box-shadow: 0 2px 3px #D6D6D6; }
+.c_shadow2{-webkit-box-shadow: 5px 5px 0px #D9D9D9;-moz-box-shadow:5px 5px 0px #D9D9D9;box-shadow: 5px 5px 0px #D9D9D9;}
+.c_img{ background: url("../img/common.png") no-repeat}
+.c_border{border: 1px solid #E5E5E5}
+.c_borderT{border-top: 1px solid #E5E5E5}
+.c_borderL{border-left: 1px solid #E5E5E5}
+.c_borderB{border-bottom: 1px solid #E5E5E5}
+.c_lineThrough{ text-decoration: line-through}
+a{ color: #555555}
+a:link,a:visited{ color: #555555}
+a:hover{ color: #679F37; text-decoration: none}
+.moreLink:link,.moreLink:visited{ color: #679F37}
+.moreLink:hover{ color: #2DA5DF; text-decoration: none}
+.sourceLink:link,.sourceLink:visited{ color: #ccc}
+.sourceLink:hover{ color: #ccc; text-decoration: none}
+.c_loading{ width: 100%; height: 100%; position: relative}
+.c_loading img{ position: absolute; top: 46%; left: 46%}
+.c_empty{ width: 100%; height: 100%; position: relative; text-align: center; padding-top: 20px}
+#page{margin-top: 30px;}
+#page .page-list {margin-top: 30px;width: 715px; margin: 0 auto; text-align: center}
+#page .page-list li {display: inline-block;color: #afafaf;}
+#page .page-list li .page-num {color: #606060;width: 35px;height: 35px;line-height: 35px;text-align: center;display: inline-block;border-radius: 4px;cursor: pointer;}
+#page .page-list li .num-selected {background: #69a039;color: #fff;}
+#page .page-list li button {border: 1px solid #e9e9e9;border-radius: 4px;width: 72px;height: 34px;background: #fff;color: #ababab;margin: 0 25px;cursor: pointer;}
+#gameDropChoose{ height: 36px; border-radius: 4px;border: 1px solid #e8e8e8; width: 240px; position: relative; cursor: pointer}
+#gameDropChoose p{ line-height: 36px; position: relative; text-indent: 45px; margin: 0; padding: 0}
+#gameDropChoose p img{width: 30px;height: 30px;border-radius: 4px;position: absolute;top: 2px; left:5px;}
+#gameDropChoose p i{ position: absolute; right: 10px; top: 11px; display: block}
+#gameDropChoose .gameDropPop{ width: 240px; position: absolute; top: 35px; background-color: #F4F4F4; border: 1px solid #e5e5e5; left: -1px; z-index: 5; display: none}
+#gameDropChoose .gameDropPop .gameDropSearch{ height: 36px; position: relative; }
+#gameDropChoose .gameDropPop .gameDropSearch i{ position: absolute; left: 10px; top: 12px; z-index: 1}
+#gameDropChoose .gameDropPop .gameDropSearch input{ height: 35px;width: 234px;line-height: 35px;text-indent: 25px;border: 0; position: absolute; top: 0;left: 0}
+#gameDropChoose .gameDropPop ul{ list-style: none; display: block; max-height: 180px; overflow: auto; overflow-x: hidden}
+#gameDropChoose .gameDropPop ul li{ height: 36px;line-height: 36px;text-indent: 10px}
+#gameDropChoose .gameDropPop ul li:hover{background-color: #9FBF59;color: #fff;cursor: pointer}
+#gameDropChoose .gameDropPop ul .gameDropNone{ height: 36px; line-height: 36px; text-indent: 10px; display: none}
+#gameDropChoose .gameDropPop ul .gameDropAdd{ height: 36px; line-height: 36px; text-indent: 10px;}
+body .layerCheck-class .layui-layer-btn{text-align: center; padding-bottom: 40px; padding-top: 20px}
+body .layerCheck-class .layui-layer-btn .layui-layer-btn0{background:#5CB85C; border: 0; line-height: 26px}
+body .layerCheck-class .layui-layer-btn .layui-layer-btn1{line-height: 26px}

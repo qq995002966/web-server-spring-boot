@@ -1,0 +1,30 @@
+@charset "utf-8";
+@import url("common.css");
+#find{ width: 355px; height: 495px; margin: 0 auto}
+#find .lg_position{position: absolute; top: 50%;}
+#find .lg_position_t1{margin-top: -235px; }
+#find .lg_position_t2{margin-top: -325px; }
+#find .lg_logo{ height: 133px; width: 228px; margin: 20px auto 0 auto; background-position: 0 -487px; cursor: pointer}
+#find .lg_zone{ width: 355px; margin: 0 auto}
+#find .lg_zone_h1{height: 400px; }
+#find .lg_zone_h2{height: 590px; }
+#find .lg_title{ height: 35px; background-color:#F2F4F5; line-height: 35px; font-size: 14px; color: #838e99; text-align: center}
+#find .lg_info{ height: 35px; line-height: 35px; font-size: 14px}
+#find .lg_area{ height: 35px; position: relative; padding-left: 40px}
+#find .lg_area i{ position: absolute; top:3px; left: 5px; width: 27px; height: 27px}
+#find .lg_area input{ border: 1px solid #ffffff; margin:2px; height: 30px;outline:0; }
+#find .lg_area .la_length{ width: 250px;}
+#find .lg_area .la_length2{ width: 100px;}
+#find .la_length3{ width: 125px;}
+#find .lg_check{ height: 35px;position: relative; }
+#find .lg_check .lg_ckBtn{ width: 350px}
+#find .lg_check .lg_ckForget{ width: 130px; text-align: right}
+#find .lg_union{ height: 35px; margin-top: 20px}
+#find .lg_union i{ height: 16px;width: 15px; display: block; position: absolute; left: 0}
+#find .lg_union .i_qq{ background-position: -443px -50px}
+#find .lg_union span{ padding-left:20px; position: relative}
+#find p{ height: 30px; line-height: 30px; text-align: center; display: block; font-size: 12px}
+#find .lg_area .i_user{ background-position: -549px -146px }
+#find .lg_area .i_password{ background-position: -576px -146px}
+#find .lg_area .i_rewrite{ background-position: -604px -146px}
+#find .lg_area .lg_button{ width: 85px; height: 30px; position: absolute; right: 0; top: 0; background-color: #00B1FF; color: #FFFFFF; border: 1px solid #FFFFFF}

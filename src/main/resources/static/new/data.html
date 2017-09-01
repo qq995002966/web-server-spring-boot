@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>数据中心-ThinkingGame</title>
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/datarange/dateRange.css">
+    <link rel="stylesheet" type="text/css" href="plugins/datarange/lq.datetimepick.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/common.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/datacenter.css">
+</head>
+<body>
+    <div class="data-content">
+        <span class="dataicon close-icon"></span>
+        <div class="search c_relative">
+            <img src="elements/img/logo_g.png" alt="">
+            <span class="text">数据中心</span>
+            <span><input type="text" name="data_keywords" class="text-input" placeholder="请输入关键词"></span>
+            <span class="dataicon c_cursor"></span>
+        </div>
+        <ul class="data-content-header">
+            <li class="data-search-type c_relative">
+                <div class="td_slider"></div>
+                <ul>
+                    <span class="liOn" data-t="1">论坛搜索</span>
+                    <span data-t="2">渠道评论</span>
+                    <span data-t="3">媒体报道</span>
+                </ul>
+            </li>
+            <div id="data-lm1">
+                <li class="data-from"></li>
+                <li class="data-sort data-same singleselect">
+                    <b>排序:</b>
+                    <span class="data-span-selected">最新发布</span>
+                    <span>最多回复</span>
+                </li>
+                <li class="data-time data-same singleselect c_relative">
+                    <b>日期:</b>
+                    <span class="data-span-selected">最近7天</span>
+                    <span>最近2周</span>
+                    <span>最近2月</span>
+                    <span>最近3月</span>
+                    <div class="data_fmDate">
+                        <div class="dt_fmChoose c_boderRadius c_border" >
+                            <div class="dt_fmShow" id="dc1"></div>
+                            <span class="dt_fmBtn"><i class="c_img"></i></span>
+                            <input id="db1" type="hidden">
+                            <input id="de1" type="hidden">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+            </div>
+            <div id="data-lm2" class="c_none">
+                <li class="data-from"></li>
+                <li class="data-time data-same singleselect c_relative">
+                    <b>日期:</b>
+                    <span class="data-span-selected">最近7天</span>
+                    <span>最近2周</span>
+                    <span>最近2月</span>
+                    <span>最近3月</span>
+                    <div class="data_fmDate">
+                        <div class="dt_fmChoose c_boderRadius c_border" >
+                            <div class="dt_fmShow" id="dc2"></div>
+                            <span class="dt_fmBtn"><i class="c_img"></i></span>
+                            <input id="db2" type="hidden">
+                            <input id="de2" type="hidden">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+            </div>
+            <div id="data-lm3" class="c_none">
+                <li class="data-time data-same singleselect c_relative">
+                    <b>日期:</b>
+                    <span class="data-span-selected">最近7天</span>
+                    <span>最近2周</span>
+                    <span>最近2月</span>
+                    <span>最近3月</span>
+                    <div class="data_fmDate">
+                        <div class="dt_fmChoose c_boderRadius c_border" >
+                            <div class="dt_fmShow" id="dc3"></div>
+                            <span class="dt_fmBtn"><i class="c_img"></i></span>
+                            <input id="db3" type="hidden">
+                            <input id="de3" type="hidden">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+            </div>
+        </ul>
+
+        <div class="data-list-content data-list-content_top1" id="data-lc1">
+            <ul class="data-content-left">
+                <ul class="list-content">
+                    <ul class="article-list"></ul>
+                </ul>
+                <ul class="page-list"></ul>
+            </ul>
+            <ul class="data-content-right"></ul>
+        </div>
+
+        <div class="data-list-content data-list-content_top2 dc_app c_none  c_relative" id="data-lc2">
+            <ul class="dc-list-content"></ul>
+            <ul class="page-list">
+                <li class="page-num-total">共 <b>100</b> 页</li>
+                <li>
+                    <span class="prev page-op"></span>
+                    <span class="page-num">第<input type="text" value="2">页</span>
+                    <span class="next page-op"></span>
+                </li>
+                <li>
+                    <span class="confirm"><button type="">确定</button></span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="data-list-content data-list-content_top3 c_none" id="data-lc3">
+            <ul class="data-content-left">
+                <ul class="list-content">
+                    <ul class="article-list"></ul>
+                </ul>
+                <ul class="page-list"></ul>
+            </ul>
+            <ul class="data-content-right dc_article"></ul>
+        </div>
+    </div>
+
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/datarange/lq.datetimepick.js"></script>
+<script type="text/javascript" src="plugins/datarange/dateRange.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/divscroll.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/init.js"></script>
+<script type="text/javascript" src="elements/js/datacenter.js"></script>
+<script type="text/javascript" src="elements/js/data.js"></script>
+</body>
+</html>

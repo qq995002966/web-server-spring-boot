@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>如何导出</title>
+<link rel="stylesheet" type="text/css" href="css/root.min.css" />
+<style>
+
+    .cont td
+    {
+        vertical-align: top;
+        line-height: 3em;
+    }
+
+    .cont td:first-child
+    {
+        width:3em;
+    }
+
+    .cont img
+    {
+        display: block;
+        margin-top:20px;
+        margin-bottom: 60px;
+    }
+
+    .num
+    {
+        display: inline-block;
+        color:#ffffff;
+        background-color:#83b934;
+        text-align: center;
+        width:2em;
+        line-height: 2em;
+        border-radius: 2em;
+        margin-left:-1em;
+    }
+
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+<script type="text/javascript" src="js/layer/layer.js" ></script>
+<script type="text/javascript" src="js/store.min.js" ></script>
+<script type="text/javascript" src="js/func.js" ></script>
+<script>
+
+function onLoad()
+{
+    G_MENU.AddMenuFooter();
+
+    FitMenuTextCenter('');
+
+    G_LOGIN.CheckLoginServlet(null, null);
+}
+
+$(onLoad);
+</script>
+</head>
+<body style="background:#f5f5f5">
+
+<div class="major-w block ma " style="margin-bottom:2em;">
+
+    <div class="tc font-theme" style="line-height: 5em;font-size:1.2em">如何导出QQ聊天记录？</div>
+
+    <div class="ma" style="width:80%;border-left:1px dotted #e1e4e8;margin-top:1em;margin-bottom:1em;">
+
+        <table class="cont">
+            <tbody>
+            <tr>
+                <td><span class="num">1</span></td><td>打开QQ消息管理器，如下图：<img src="http://image.thinkinggame.cn/img/qqhow/1.png"/></td>
+            </tr>
+            <tr>
+                <td><span class="num">2</span></td><td>打开群消息列表，选择您要导出聊天记录的群，右键点击群名，选择“导出消息记录”，如下图：<img src="http://image.thinkinggame.cn/img/qqhow/2.png"/></td>
+            </tr>
+            <tr>
+                <td><span class="num">3</span></td><td>打开群消息列表，选择您要导出聊天记录的群，右键点击群名，选择“导出消息记录”，如下图：<img src="http://image.thinkinggame.cn/img/qqhow/3.png"/></td>
+            </tr>
+            <tr>
+                <td><span class="num">4</span></td><td>上述文件保存类型选择为txt并保存后，保存过程如下：<img src="http://image.thinkinggame.cn/img/qqhow/4.png"/></td>
+            </tr>
+            <tr>
+                <td><span class="num">5</span></td><td>保存完成后，即可在桌面上看到您保存的txt格式的聊天记录：<img src="http://image.thinkinggame.cn/img/qqhow/5.png"/></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

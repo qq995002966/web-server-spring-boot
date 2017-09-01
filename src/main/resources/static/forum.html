@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    window.location.href='light.html';
+</script>
+    <title>ThinkingGame 游戏论坛</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="ThinkingGame,ThinkingData,数数信息,游戏舆情,玩家论坛,游戏渠道,游戏口碑,玩家反馈,数据服务,大数据">
+    <meta name="description" content="ThinkingGame智能化游戏运营服务平台，提供全面的游戏玩家舆论统计分析服务。">
+    <link rel="stylesheet" type="text/css" href="css/dateRange.css" />
+    <link rel="stylesheet" type="text/css" href="css/root.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/lq.datetimepick.css" />
+<style>
+
+body
+{
+    background-color:#f7f7f7;
+}
+
+[name=PopInsertCustomKeywordsServlet] td
+{
+    padding:20px;
+}
+
+[name=PopInsertCustomKeywordsServlet] input
+{
+    text-indent: 8px;height:28px;line-height:28px;
+    border:1px solid #bbbbbb;
+    border-radius:3px;
+    width:100px;
+}
+
+</style>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <script type="text/javascript" src="js/selectUi.js" ></script>
+    <script type="text/javascript" src="js/lq.datetimepick.js" ></script>
+    <script type="text/javascript" src="js/Highcharts-4.1.8/highstock.js" ></script>
+    <script type="text/javascript" src="js/Highcharts-4.1.8/modules/treemap.js" ></script>
+    <script type="text/javascript" src="js/layer/layer.js" ></script>
+    <script type="text/javascript" src="js/store.min.js" ></script>
+    <script type="text/javascript" src="js/func.js" ></script>
+    <script type="text/javascript" src="js/chart.js" ></script>
+    <script type="text/javascript" src="js/date/dateRange.js" ></script>
+<script>
+
+
+
+function InitTopicDate()
+{
+    var start=G_DATE.GetDate(-7);
+
+    var end=G_DATE.GetDate(-1);
+
+    $("[name=ForumForumTopTopicsServlet]").find("input[name=data_date_start]").val(start);
+    $("[name=ForumForumTopTopicsServlet]").find("input[name=data_date_end]").val(end);
+
+    start=G_DATE.GetDate(-8);
+
+    end=G_DATE.GetDate(-2);
+
+    $("[name=ForumUselessForumPostNumDistributeServlet]").find("input[name=data_date_start]").val(start);
+    $("[name=ForumUselessForumPostNumDistributeServlet]").find("input[name=data_date_end]").val(end);
+
+}
+
+
+function onLoad()
+{
+    G_MENU.AddMenuFooter(1);
+
+    InitProjectTabClick(function(){
+        $('#chart').show();
+        $('#search').hide();
+    },function(){
+        $('#chart').hide();
+        $('#search').show();
+    });
+
+
+    InitDateRange(-7,-1, function(e){
+        $(e).parent().find('.refresh').click();
+    });
+
+    InitTopicDate();
+
+    InitDoneLoadingFailure();
+
+    var _loading=$(".loading[name=ForumQueryPostsServlet]").clone().attr("name","PopForumQueryPostsServlet");
+    var _failure=$(".failure[name=ForumQueryPostsServlet]").clone().attr("name","PopForumQueryPostsServlet");
+    var _done=$(".done[name=ForumQueryPostsServlet]").clone().attr("name","PopForumQueryPostsServlet");
+    $("[name=PopForumQueryPostsServlet]").append(_loading).append(_failure).append(_done);
+
+    setInterval(iFrameHeight, 100);
+
+    ClosePopOnEsc();
+
+    G_LOGIN.CheckLoginServlet(DrawCharts, PopLogin);
+
+    floatSide();
+
+    var hash=window.location.hash;
+
+}
+
+function InitForumQueryPostsServlet()
+{
+    G_LOCAL_STORAGE.ForumQueryPostsServlet.page=1;
+    G_LOCAL_STORAGE.ForumQueryPostsServlet.page_num=1;
+
+    $(".done[name=ForumQueryPostsServlet]").hide();
+    $(".hot-keywords .hot-keyword-splitter").remove();
+    $(".hot-keywords .hot-keyword").remove();
+}
+
+function _DrawCharts()
+{
+
+    var project_id=GetProjectId();
+
+    G_LOGIN.GetGasCrawlerInfoAndGasAppsServlet(project_id, function(){
+
+        InitForumQueryPostsServlet();
+        ForumAttitudesGroupDistributeServlet2();
+        ForumKeywordsDistributeServlet();
+
+        setTimeout(function(){
+            ForumKeywordsDistributeServlet(true,
+                    $(".search-bar").find('[name=data_date_start]').val(),
+                    $(".search-bar").find('[name=data_date_end]').val());
+        }, 1100);
+
+        ForumForumPostNumDistributeServlet();
+        ForumUselessForumPostNumDistributeServlet();
+        ForumForumTopTopicsServlet();
+        ForumTermsDateHistogramAggServlet();
+
+
+        $("[name=all_forums]").children().remove();
+
+        var gas_crawler_info=G_LOCAL_STORAGE.user.gas_crawler_info;
+
+        var m={};
+
+        if((project_id in gas_crawler_info))
+        {
+            gas_crawler_info = gas_crawler_info[project_id];
+        }
+        else
+        {
+            gas_crawler_info = [];
+        }
+
+
+        for(var i=0; i<gas_crawler_info.length; ++i)
+        {
+            if(gas_crawler_info[i].status>=0)
+            {
+                m[gas_crawler_info[i].info_id]=gas_crawler_info[i].crawler_name;
+            }
+        }
+
+        for(var info_id in m)
+        {
+            $("[name=all_forums]").append($('<span class="checkbox" style="margin-bottom:10px;min-width:150px" _checked="true" _attr_name=info_id _attr_val='+info_id+'></span>').html(m[info_id]));
+        }
+
+        G_LOCAL_STORAGE.ForumQueryPostsServlet.filter.info_id_list="";
+
+        InitCheckbox();
+
+        setInterval(TryConfirmFilter, 500);
+
+    });
+
+}
+
+function DrawCharts()
+{
+    FixPopProjects(_DrawCharts);
+
+    GetCommProjectId();
+
+    _DrawCharts();
+
+    ShowFilter();
+
+    if(IsFromEmail())
+    {
+        var keyword=decodeURI(GetUrlPara("keyword"));
+        var data_date_start=decodeURI(GetUrlPara("data_date_start")).split(' ')[0];
+        var data_date_end=decodeURI(GetUrlPara("data_date_end")).split(' ')[0];
+
+
+        $(".search-bar .search-input").val(keyword);
+
+        $(".tab.tab2").click();
+
+        if(data_date_start && data_date_end)
+        {
+            $(".search-bar .date-span").html(data_date_start+" 至 "+data_date_end);
+
+            $(".search-bar input[name=data_date_start]").val(data_date_start);
+
+            $(".search-bar input[name=data_date_end]").val(data_date_end);
+
+            $(".search-bar .search-btn").click();
+        }
+
+    }
+
+}
+
+
+
+$(onLoad);
+
+
+
+
+function _loading_e(key)
+{
+    return $(".loading[name="+key+"]");
+}
+function _done_e(key)
+{
+    return $(".done[name="+key+"]");
+}
+function _failure_e(key)
+{
+    return $(".failure[name="+key+"]");
+}
+
+
+
+
+
+function ChartReqComm(key, draw, _data_date_start, _data_date_end, no_chart)
+{
+    var data_date_start=$("[name="+key+"]").find("[name=data_date_start]").val();
+    var data_date_end=$("[name="+key+"]").find("[name=data_date_end]").val();
+    var project_id=GetProjectId();
+
+    if(_data_date_start)
+    {
+        data_date_start=_data_date_start;
+    }
+
+    if(_data_date_end)
+    {
+        data_date_end=_data_date_end;
+    }
+
+    if(data_date_start=="")
+    {
+        G_PopWnd.error("请选择起止时间");
+        return;
+    }
+
+    if(data_date_end=="")
+    {
+        G_PopWnd.error("请选择起止时间");
+        return;
+    }
+
+    if( data_date_start > data_date_end )
+    {
+        G_PopWnd.error("起始时间不能大于结束时间");
+        return;
+    }
+
+
+    if(_loading_e(key).is(":visible") && !no_chart) // 上次请求正在进行中
+        return;
+
+    var p={
+        project_id:project_id,
+        data_date_start:data_date_start,
+        data_date_end:data_date_end
+    };
+
+
+
+    MyPost(G_CGI_URL.forum[key],
+            p,
+            function()
+            {
+                _done_e(key).hide();
+                _failure_e(key).hide();
+                _loading_e(key).show();
+            },
+            function()
+            {
+                _loading_e(key).hide();
+            },
+            function(data)
+            {
+                _done_e(key).show();
+
+                // 没有数据
+                if(key!="ForumTermsDateHistogramAggServlet" && data.get.length==0)
+                {
+                    if(key=="ForumKeywordsDistributeServlet")
+                    {
+                        _done_e(key).find("[name=chart]").empty().append($("<div class='tc' style='font-size:14px;padding-top:150px'>此段时间内无相关数据</div>"));
+                    }
+                    else
+                    {
+                        _done_e(key).empty().append($("<div class='tc' style='font-size:14px;padding-top:170px'>此段时间内无相关数据</div>"));
+                    }
+
+
+                    return;
+                }
+
+                draw(data,data_date_start, data_date_end);
+            },
+            function()
+            {
+                _done_e(key).hide();
+                _failure_e(key).show();
+            }
+    );
+}
+
+
+function ForumAttitudesGroupDistributeServlet()
+{
+    var key="ForumAttitudesGroupDistributeServlet";
+
+    ChartReqComm(key, function(data, data_date_start, data_date_end){
+       // var colors=[ '#7ad7ce','#70c3fe','#fcde62'];
+        var arr=data.get;
+
+
+        //把x轴的日期段统计出来
+        var start_date=data_date_start;
+        var end_date=data_date_end
+        var arr_x=G_DATE.GetDateSpanArr(start_date, end_date);
+
+        // 很好，良好，中性，较差，很差
+        function AttitudeDesc(attitude_score)
+        {
+            var a={
+                '-1':'负面',
+                '0':'中性',
+                '1':'正面'
+            };
+
+            return a[attitude_score+''];
+        }
+
+        var y=[];
+
+        for(var att_score=1; att_score>=-1; --att_score)
+        {
+            y.push({
+                name:AttitudeDesc(att_score),
+                data:[]
+            });
+        }
+
+
+        // 初始化所有的很好，良好，差 的个数都是0
+        for(var i=0; i<y.length; ++i)
+        {
+            for(j=0; j<arr_x.length; ++j)
+            {
+                y[i].data.push(0);
+            }
+        }
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            var which_y=0;
+
+            var s=parseInt(arr[i].attitude_score);
+
+            if(s==-2 || s==-1)
+                which_y=2;
+            else if(s==0)
+                which_y=1;
+            else
+                which_y=0;
+
+
+            var which_date=arr_x.indexOf(arr[i].data_date);
+            if(which_date>=0)
+            {
+                y[which_y].data[which_date]+=arr[i].post_num;
+            }
+        }
+
+        drawChartStackBar( _done_e(key), "帖子数", "", "", arr_x, y, function(e){
+            var group=e.point.series.name;
+
+            var group_sentiment_score={
+                '负面':'-1,-2',
+                '中性':'0',
+                '正面':'1,2'
+            };
+
+            var date=e.point.category;
+
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet._reset();
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_start=date;
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_end=date;
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.sentiment_score=group_sentiment_score[group];
+
+            PopForumQueryPostsServlet(true,e.pageX, e.pageY);
+
+        }, ['#83cc4f','#7bc8ff', '#ff8e8e']);
+    });
+}
+
+function ForumTermsDateHistogramAggServlet()
+{
+    var key="ForumTermsDateHistogramAggServlet";
+
+    ChartReqComm(key, function(data, data_date_start, data_date_end){
+
+
+
+        //把x轴的日期段统计出来
+        var start_date=data_date_start;
+        var end_date=data_date_end;
+        var arr_x=G_DATE.GetDateSpanArr(start_date, end_date);
+        var y=[];
+
+        var rect_len=0;
+
+        g_cur_custom_forum_keywords=[];
+
+        for(var k in data)
+        {
+            rect_len+=k.length*20+20;
+
+            var cur={
+                name:k,
+                data:[]
+            };
+
+            for(var i=0;i<data[k].length; ++i)
+            {
+                cur.data.push(data[k][i][1]);
+            }
+
+            g_cur_custom_forum_keywords.push(k);
+
+            y.push(cur);
+        }
+
+        g_cur_custom_forum_keywords = g_cur_custom_forum_keywords.join(" ");
+
+
+        drawChartStackBar($('.done[name='+key+']'), "帖子数", "", "", arr_x, y, function(e){
+
+            var keywords=e.point.series.name;
+            var date=e.point.category;
+
+
+
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet._reset();
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_start=date;
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_end=date;
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.keywords=keywords;
+
+            PopForumQueryPostsServlet(true,e.pageX, e.pageY);
+
+        }, null, "spline");
+
+        var right= ($("[name="+key+"].done").width()-rect_len-200)/2;
+
+        $("[name="+key+"].done").append($('<button class="refresh" style="position:absolute;bottom:16px;width:80px;line-height:28px;height:28px;right:'+right+'px" onclick="InsertCustomKeywordsServlet()">更改词汇</button>'));
+
+    });
+}
+
+function ForumAttitudesGroupDistributeServlet2()
+{
+    var key="ForumAttitudesGroupDistributeServlet2";
+
+    ChartReqComm(key, function(data, data_date_start, data_date_end){
+        var colors=['#83cc4f', '#ff8e8e'];
+
+        var arr=data.get;
+
+
+        //把x轴的日期段统计出来
+        var start_date=data_date_start;
+        var end_date=data_date_end;
+
+        // 正面，负面
+        function AttitudeDesc(attitude_score)
+        {
+            var a={
+                '-1':'负面',
+                '1':'正面'
+            };
+
+            return a[attitude_score+''];
+        }
+
+        var y=[];
+
+        for(var att_score=1; att_score>=-1; --att_score)
+        {
+            // 中性的不显示
+            if(att_score==0)
+            {
+                continue;
+            }
+
+            y.push({
+                name:AttitudeDesc(att_score),
+                data:[]
+            });
+        }
+
+
+        var max_data_date='';
+
+        var min_data_date='9999-99-99';
+
+        for(var i=0; i<arr.length; ++i) {
+
+
+            if (arr[i].data_date > max_data_date) {
+                max_data_date = arr[i].data_date;
+            }
+
+            if (arr[i].data_date < min_data_date) {
+                min_data_date = arr[i].data_date;
+            }
+        }
+
+        var arr_x=G_DATE.GetDateSpanArr(min_data_date, max_data_date);
+
+        // 初始化所有的很好，良好，差 的个数都是0
+        for(var i=0; i<y.length; ++i)
+        {
+            for(j=0; j<arr_x.length; ++j)
+            {
+                y[i].data.push(0);
+            }
+        }
+
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            var which_y=0;
+
+            if(arr[i].data_date>max_data_date)
+            {
+                max_data_date = arr[i].data_date;
+            }
+
+            if(arr[i].data_date<min_data_date)
+            {
+                min_data_date = arr[i].data_date;
+            }
+
+
+            var s=parseInt(arr[i].attitude_score);
+
+            if(s==-2 || s==-1)
+                which_y=1;
+            else if(s==0)
+                continue;
+            else
+                which_y=0;
+
+            var which_date=arr_x.indexOf(arr[i].data_date);
+            if(which_date>=0)
+            {
+                y[which_y].data[which_date]+=arr[i].post_num;
+            }
+        }
+
+
+
+        drawChartStackBar($('.done[name='+key+']'), "帖子数", "", "", arr_x, y, function(e){
+            var group=e.point.series.name;
+
+            var group_sentiment_score={
+                '负面':'-1,-2',
+                '正面':'1,2'
+            };
+
+            var date=e.point.category;
+
+
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet._reset();
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_start=date;
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_end=date;
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.sentiment_score=group_sentiment_score[group];
+
+            PopForumQueryPostsServlet(true,e.pageX, e.pageY);
+
+        }, colors, "spline");
+    });
+}
+
+function ForumKeywordsDistributeServlet(no_chart, data_date_start, data_date_end)
+{
+    var key="ForumKeywordsDistributeServlet";
+
+    ChartReqComm(key, function(data,data_date_start, data_date_end){
+        var arr=data.get;
+
+        var arr_x=[];
+
+        var arr_y=[];
+
+        var map_cnt_keyword={};
+
+        var arr_cnt=[];
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            // 根据不同的出现词频来归类关键词
+            if(!map_cnt_keyword[arr[i].cnt])
+            {
+                map_cnt_keyword[arr[i].cnt]=[arr[i].keyword];
+                arr_cnt.push(arr[i].cnt);
+            }
+            else
+            {
+                map_cnt_keyword[arr[i].cnt].push(arr[i].keyword);
+            }
+
+
+        }
+
+        // 关键词的频率的倒序
+        arr_cnt=arr_cnt.sort(function(a,b){return b-a});
+
+        for(var i=0; i<arr_cnt.length; ++i)
+        {
+            var arr_keywords=map_cnt_keyword[arr_cnt[i]];
+            arr_x=arr_x.concat(arr_keywords);
+            for(var j=0; j<arr_keywords.length; ++j)
+            {
+                arr_y.push(arr_cnt[i]);
+            }
+        }
+
+
+        var max_keywords_cnt=(arr_x.length<5) ? arr_x.length : 5;
+
+        if(no_chart)
+        {
+
+            $('.hot-keyword').remove();
+
+            $('.hot-keyword-splitter').remove();
+
+            for(var i=0; i<max_keywords_cnt; ++i)
+            {
+                var key_word=$("<span>"+arr_x[i]+"</span>").addClass("hot-keyword").click(function(){
+                    $(".search-bar input[name=keywords]").val($(this).html());
+                    ConfirmFilter();
+                });
+
+                $('.hot-keywords').append(key_word);
+
+                if(i<max_keywords_cnt-1)
+                    $('.hot-keywords').append($('<span class="hot-keyword-splitter">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>'));
+            }
+        }
+
+        while(arr_y.length>100)
+        {
+            arr_y.pop();
+            arr_x.pop();
+        }
+
+
+        for(var i=0; i<arr_x.length; ++i)
+        {
+            var keyword=arr_x[i];
+            arr_y[i]={y:arr_y[i],_data_label:keyword};
+            arr_x[i]="热词"+(i+1);
+        }
+
+        if(!no_chart)
+        {
+            drawChart1SerieColumn($('.done[name='+key+']').find("[name=chart]"), "热词指数", "", "", arr_x, arr_y, "", function(e){
+
+                var keyword= e.point._data_label;
+
+                G_LOCAL_STORAGE.PopForumQueryPostsServlet._reset();
+                G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_start=data_date_start;
+                G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_end=data_date_end;
+                G_LOCAL_STORAGE.PopForumQueryPostsServlet.keywords=keyword;
+
+                PopForumQueryPostsServlet(true,e.pageX, e.pageY);
+
+
+            }, true);
+        }
+
+    }, data_date_start, data_date_end,no_chart);
+}
+
+function ForumForumPostNumDistributeServlet()
+{
+    var key="ForumForumPostNumDistributeServlet";
+
+
+    ChartReqComm(key, function(data, data_date_start, data_date_end){
+        var arr=data.get;
+
+
+        //把x轴的日期段统计出来
+        var start_date=data_date_start;
+        var end_date=data_date_end
+
+        // 把所有的论坛的info_id统计出来
+        var info_id_index={};
+
+        var info_id_forum_name={}; // 根据info_id映射到forum_name
+        var forum_name_info_id={}; // 根据forum_name映射到info_id
+
+        var max_data_date='';
+
+        var min_data_date='9999-99-99';
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            if(arr[i].data_date>max_data_date)
+            {
+                max_data_date = arr[i].data_date;
+            }
+
+            if(arr[i].data_date<min_data_date)
+            {
+                min_data_date = arr[i].data_date;
+            }
+
+            info_id_index[arr[i].info_id]=0;
+            info_id_forum_name[arr[i].info_id]=arr[i].forum_name;
+            forum_name_info_id[arr[i].forum_name]=arr[i].info_id;
+        }
+
+
+        var arr_x=G_DATE.GetDateSpanArr(min_data_date, max_data_date);
+
+        var y=[];
+
+        // 根据论坛名称初始化
+        for(var info_id in info_id_forum_name)
+        {
+            y.push({
+                name:info_id_forum_name[info_id],
+                info_id:info_id,
+                data:[]
+            });
+
+            info_id_index[info_id]=y.length-1;
+        }
+
+        // 初始化所有的论坛每天的帖子的个数都是0
+        for(var i=0; i<y.length; ++i)
+        {
+            for(j=0; j<arr_x.length; ++j)
+            {
+                var info_id=y[i].info_id;
+                y[i].data.push({y:0, info_id:info_id});
+            }
+        }
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            var which_y=info_id_index[arr[i].info_id];
+
+            var which_date=arr_x.indexOf(arr[i].data_date);
+            if(which_date>=0)
+            {
+                y[which_y].data[which_date].y+=arr[i].forum_post_num;
+            }
+        }
+
+        drawChartStackBar($('.done[name='+key+']'), "帖子数", "", "", arr_x, y,  function(e){
+
+            var date=e.point.category;
+            var info_id=e.point.info_id;
+
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet._reset();
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_start=date;
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_end=date;
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.info_id_list=info_id;
+
+            PopForumQueryPostsServlet(true,e.pageX, e.pageY);
+
+        })
+    });
+
+}
+
+
+function ForumUselessForumPostNumDistributeServlet()
+{
+    var key="ForumUselessForumPostNumDistributeServlet";
+
+
+    ChartReqComm(key, function(data, data_date_start, data_date_end){
+        var arr=data.get;
+
+
+        //把x轴的日期段统计出来
+        var start_date=data_date_start;
+        var end_date=data_date_end
+
+        // 把所有的论坛的info_id统计出来
+        var info_id_index={};
+
+        var info_id_forum_name={}; // 根据info_id映射到forum_name
+        var forum_name_info_id={}; // 根据forum_name映射到info_id
+
+        var max_data_date='';
+
+        var min_data_date='9999-99-99';
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            if(arr[i].data_date>max_data_date)
+            {
+                max_data_date = arr[i].data_date;
+            }
+
+            if(arr[i].data_date<min_data_date)
+            {
+                min_data_date = arr[i].data_date;
+            }
+
+            info_id_index[arr[i].info_id]=0;
+            info_id_forum_name[arr[i].info_id]=arr[i].forum_name;
+            forum_name_info_id[arr[i].forum_name]=arr[i].info_id;
+        }
+
+
+        var arr_x=G_DATE.GetDateSpanArr(min_data_date, max_data_date);
+
+        var y=[];
+
+        // 根据论坛名称初始化
+        for(var info_id in info_id_forum_name)
+        {
+            y.push({
+                name:info_id_forum_name[info_id],
+                info_id:info_id,
+                data:[]
+            });
+
+            info_id_index[info_id]=y.length-1;
+        }
+
+        // 初始化所有的论坛每天的帖子的个数都是0
+        for(var i=0; i<y.length; ++i)
+        {
+            for(j=0; j<arr_x.length; ++j)
+            {
+                var info_id=y[i].info_id;
+                y[i].data.push({y:0, info_id:info_id});
+            }
+        }
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            var which_y=info_id_index[arr[i].info_id];
+
+            var which_date=arr_x.indexOf(arr[i].data_date);
+            if(which_date>=0)
+            {
+                y[which_y].data[which_date].y+=arr[i].forum_post_num;
+            }
+        }
+
+        drawChartStackBar($('.done[name='+key+']'), "帖子数", "", "", arr_x, y,  function(e){
+
+            var date=e.point.category;
+            var info_id=e.point.info_id;
+
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet._reset();
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_start=date;
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.data_date_end=date;
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.info_id_list=info_id;
+            G_LOCAL_STORAGE.PopForumQueryPostsServlet.useless_classify="已删帖,广告,水贴,垃圾";
+
+            PopForumQueryPostsServlet(true,e.pageX, e.pageY);
+
+        })
+    });
+
+}
+
+
+
+function ForumForumTopTopicsServlet()
+{
+    var key="ForumForumTopTopicsServlet";
+
+    ChartReqComm(key, function(data, data_date_start, data_date_end){
+
+        var arr=data.get;
+
+        var _data=[];
+
+        $("[name=ForumForumTopTopicsServlet] [name=cont] .topic-item").remove();
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            _data.push({
+                        name:arr[i].topic_word_list,
+                        negative_num:arr[i].negative_num,
+                        positive_num:arr[i].positive_num,
+                        y:arr[i].post_num,
+                        topic_id:arr[i].topic_id,
+                        topic_summary:arr[i].topic_summary,
+                        topic_word_list:arr[i].topic_word_list
+                    }
+            );
+        }
+
+
+        drawChartPie($("[name=ForumForumTopTopicsServlet] [name=chart]"), _data,
+
+                function (e)
+                {
+                    return "话题摘要："+ e.point.topic_summary ;
+                }
+                , function(e){
+
+                    var topic_id=e.point.topic_id;
+                    var topic_word_list= e.point.topic_word_list;
+
+                    G_LOCAL_STORAGE.PopForumQueryPostsServlet._reset();
+                    G_LOCAL_STORAGE.PopForumQueryPostsServlet.topic_id=topic_id;
+                    G_LOCAL_STORAGE.PopForumQueryPostsServlet.topic_word_list=topic_word_list;
+
+                    PopForumQueryPostsServlet(true, e.pageX, e.pageY);
+
+                });
+
+
+
+    });
+}
+
+
+function OrderSearch(order_by_field)
+{
+    var is_pop=$("[name=PopForumQueryPostsServlet] .done").is(":visible");
+
+    if(is_pop)
+    {
+        for (var k in G_LOCAL_STORAGE.PopForumQueryPostsServlet.order_by) {
+            if (k == order_by_field) {
+                var last = G_LOCAL_STORAGE.PopForumQueryPostsServlet.order_by[k];
+                if (last == "desc")
+                    last = "asc";
+                else
+                    last = "desc";
+                G_LOCAL_STORAGE.PopForumQueryPostsServlet.order_by[k] = last;
+            }
+            else {
+                G_LOCAL_STORAGE.PopForumQueryPostsServlet.order_by[k] = "";
+            }
+        }
+
+        PopForumQueryPostsServlet(true);
+    }
+    else
+    {
+        for (var k in G_LOCAL_STORAGE.ForumQueryPostsServlet.order_by) {
+            if (k == order_by_field) {
+                var last = G_LOCAL_STORAGE.ForumQueryPostsServlet.order_by[k];
+                if (last == "desc")
+                    last = "asc";
+                else
+                    last = "desc";
+                G_LOCAL_STORAGE.ForumQueryPostsServlet.order_by[k] = last;
+            }
+            else {
+                G_LOCAL_STORAGE.ForumQueryPostsServlet.order_by[k] = "";
+            }
+        }
+
+        ForumQueryPostsServlet(true);
+    }
+}
+
+
+
+
+
+function ForumQueryPostsServlet(start_over)
+{
+    if(start_over)
+    {
+        G_LOCAL_STORAGE.ForumQueryPostsServlet.page=1;
+        G_LOCAL_STORAGE.ForumQueryPostsServlet.page_num=1;
+    }
+
+    var _post=G_LOCAL_STORAGE.ForumQueryPostsServlet._make_post(GetProjectId());
+
+
+    var _loading=$(".loading[name=ForumQueryPostsServlet]");
+    var _failure=$(".failure[name=ForumQueryPostsServlet]");
+    var _done=$(".done[name=ForumQueryPostsServlet]");
+
+
+    // 根据filter来判断哪些按钮应该选中，哪些不用选中
+    var info_id_list=_post.info_id_list.split(',');
+
+
+    $("[name=all_forums]").find(".checkbox").each(function(){
+        DisableCheckbox(this);
+    });
+
+    if(info_id_list[0]=="")
+    {
+        $("[name=all_forums]").find(".checkbox").each(function(){
+            EnableCheckbox(this);
+        });
+    }
+
+    for(var i=0; i<info_id_list.length; ++i)
+    {
+        var info_id=info_id_list[i];
+        EnableCheckbox($("[name=all_forums]").find(".checkbox[_attr_val="+info_id+"]"));
+    }
+
+    G_LOCAL_STORAGE.__ForumQueryPostsServlet(_post, _loading, _failure, _done, null, function(){
+        G_LOCAL_STORAGE.ForumQueryPostsServlet._last_filter = {info_id_list:_post.info_id_list};
+    });
+
+}
+
+function PopForumQueryPostsServlet(start_over, x, y)
+{
+    if(start_over)
+    {
+        G_LOCAL_STORAGE.PopForumQueryPostsServlet.page=1;
+        G_LOCAL_STORAGE.PopForumQueryPostsServlet.page_num=1;
+    }
+
+    var _post=G_LOCAL_STORAGE.PopForumQueryPostsServlet._make_post(GetProjectId());
+
+    var _loading=$(".loading[name=PopForumQueryPostsServlet]");
+    var _failure=$(".failure[name=PopForumQueryPostsServlet]");
+    var _done=$(".done[name=PopForumQueryPostsServlet]");
+
+    if(x || x===0)
+    {
+        var w = $("#chart").width();
+
+        if ((x - $("#chart").offset().left) / w < 0.5) {
+            $(".arrow-pop[name=PopForumQueryPostsServlet]").css({
+                left: "0px",
+                right: "auto"
+            });
+        }
+        else {
+            $(".arrow-pop[name=PopForumQueryPostsServlet]").css({
+                left: "auto",
+                right: "0px"
+            });
+        }
+
+
+        $(".arrow-pop[name=PopForumQueryPostsServlet]").show().css({
+            top: y - $('#chart').offset().top + 8 + 'px'
+        });
+
+        var delta = $(".arrow-pop[name=PopForumQueryPostsServlet]").offset().left - $("#chart").offset().left;
+
+        $(".arrow-pop[name=PopForumQueryPostsServlet] .top-arrow").css({
+            left: (x - $("#chart").offset().left - 8) - delta + 'px',
+            top: '0px'
+        })
+    }
+
+    G_LOCAL_STORAGE.__ForumQueryPostsServlet(_post, _loading, _failure, _done, function(){
+
+    });
+}
+
+function PopFilter(e)
+{
+    $(".filter_wnd").show();
+}
+
+
+
+function TryConfirmFilter()
+{
+    SetCurFilter();
+
+    if(G_LOCAL_STORAGE.ForumQueryPostsServlet._cur_filter==null || G_LOCAL_STORAGE.ForumQueryPostsServlet._last_filter==null) // 尚未初始化
+        return;
+
+    if(G_LOCAL_STORAGE.ForumQueryPostsServlet._equal_filter(G_LOCAL_STORAGE.ForumQueryPostsServlet._last_filter , G_LOCAL_STORAGE.ForumQueryPostsServlet._cur_filter )) // filter没有发生过变化
+        return;
+
+    ConfirmFilter();
+}
+
+function SetCurFilter()
+{
+    var arr=$("[name=all_forums]").find("input:checked");
+    var ret=[];
+    for(var i=0; i<arr.length; ++i)
+    {
+        ret.push($(arr[i]).attr("info_id"));
+    }
+
+    G_LOCAL_STORAGE.ForumQueryPostsServlet.filter.info_id_list=ret.length ? ret.join(",") : "";
+    G_LOCAL_STORAGE.ForumQueryPostsServlet._cur_filter = G_LOCAL_STORAGE.ForumQueryPostsServlet.filter;
+}
+
+
+function ConfirmFilter()
+{
+    SetCurFilter();
+
+    ForumKeywordsDistributeServlet(true,
+            $(".search-bar").find('[name=data_date_start]').val(),
+            $(".search-bar").find('[name=data_date_end]').val());
+
+    ForumQueryPostsServlet(true);
+}
+
+var g_cur_custom_forum_keywords="";
+
+
+function InsertCustomKeywordsServlet()
+{
+    if(IsDemoUser())
+    {
+        PopDemoAlert("请注册账户以查看更多词汇");
+        return;
+    }
+
+    var keywords=g_cur_custom_forum_keywords.split(" ");
+
+    G_PopWnd.dialog("更改词汇", $("[name=PopInsertCustomKeywordsServlet]"), "", 0, "", 3);
+
+    $("[name=PopInsertCustomKeywordsServlet] [name=cus_forum_keywords]").each(function(i){
+        keywords.length>i ? $(this).val(keywords[i]) : $(this).val("");
+    });
+}
+
+function _InsertCustomKeywordsServlet()
+{
+    var keywords= $.map($("[name=PopInsertCustomKeywordsServlet] [name=cus_forum_keywords]"),function(item,index){
+        return $(item).val().split(" ").join("").trim();
+    });
+
+    keywords=keywords.join(" ");
+
+    if(keywords.trim()=="")
+    {
+        G_PopWnd.error("关键词不能为空");
+        return;
+    }
+    var ar=keywords.split(" ");
+    var custom_keywords="";
+    for(var i=0; i<ar.length; ++i)
+    {
+        if(ar[i]=="")
+        {
+            continue;
+        }
+        custom_keywords+=ar[i]+" ";
+    }
+    custom_keywords=custom_keywords.trim();
+
+    var project_id=GetProjectId();
+
+    MyPost(
+            G_CGI_URL.custom_keywords.InsertCustomKeywordsServlet,
+            {project_id:project_id,custom_keywords:custom_keywords},
+            ShowLoading,HideLoading,
+            function()
+            {
+                ForumTermsDateHistogramAggServlet();
+
+                layer.closeAll();
+            },
+            function()
+            {
+                G_PopWnd.good("操作异常，请稍后再试");
+            }
+    )
+}
+
+function ShowFilter()
+{
+    $("[name=filter_content]").slideDown();
+    $("[name=show_filter]").hide();
+    $("[name=hide_filter]").show();
+}
+
+function HideFilter()
+{
+    $("[name=filter_content]").slideUp();
+    $("[name=show_filter]").show();
+    $("[name=hide_filter]").hide();
+}
+
+</script>
+</head>
+<body>
+
+
+
+    <div name="PopInsertCustomKeywordsServlet" style="display:none;">
+
+        <table>
+            <tbody>
+            <tr>
+                <td>
+                    <input name="cus_forum_keywords" placeholder="关键词1"/>
+                </td>
+                <td>
+                    <input name="cus_forum_keywords" placeholder="关键词2"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="cus_forum_keywords" placeholder="关键词3"/>
+                </td>
+                <td>
+                    <input name="cus_forum_keywords" placeholder="关键词4"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input name="cus_forum_keywords" placeholder="关键词5"/>
+                </td>
+                <td><button class="confirm" style="width:100px" onclick="_InsertCustomKeywordsServlet()">保存</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="major-w block ma project">
+        <div class="tab-chosen-bg"></div>
+        <div class="tab chosen"><div class="tab-logo forum-chart"></div>论坛报表</div><div class="tab tab2"><div class="tab-logo forum-search"></div>论坛搜索</div>
+        <div class="fr projects" style="position:relative;">
+            <div class="main-bar"><div class="fl project-icon"></div><span name="project_name">请选择游戏</span></div>
+            <div class="projects-selector arrow-pop close_when_mouse_down" style="top:70px;right:0;display:none;width:800px">
+                <div class="top-arrow" style="position:absolute;right:100px"></div>
+                <div name="holder">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="chart" class="major-w ma" style="position:relative">
+
+
+        <div class="major-w block ma chart">
+            <div class="hdr">
+                <div class="title">论坛帖子数量统计<span class="question-mark cp" onclick="ShowForumChannelTip(this, '统计游戏在各大论坛中的发帖数量.以“天”为单位,默认展示一周内的数据。通过此数据，可以了解游戏热度，以及热门论坛的分布情况。')">?</span></div>
+                <div style="float:right" name="ForumForumPostNumDistributeServlet">
+
+                    <span class="date-range"></span>
+
+                    <div class="refresh" onclick="ForumForumPostNumDistributeServlet()">刷新</div>
+                </div>
+            </div>
+            <div name="ForumForumPostNumDistributeServlet" class="chart-cont done ma"></div>
+            <div name="ForumForumPostNumDistributeServlet" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ForumForumPostNumDistributeServlet" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+
+        <div class="major-w block ma chart">
+            <div class="hdr">
+                <div class="title">无效帖子数量统计<span class="question-mark cp" onclick="ShowForumChannelTip(this, '统计游戏在贴吧、论坛中出现的无效帖，包括广告帖、水帖、已删帖、无用帖等。通过此数据，可以了解无效帖的发布详情，提高论坛管理效率。')">?</span></div>
+                <div style="float:right" name="ForumUselessForumPostNumDistributeServlet">
+
+                    <span class="date-range"></span>
+
+                    <div class="refresh" onclick="ForumUselessForumPostNumDistributeServlet()">刷新</div>
+                </div>
+            </div>
+            <div name="ForumUselessForumPostNumDistributeServlet" class="chart-cont done ma"></div>
+            <div name="ForumUselessForumPostNumDistributeServlet" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ForumUselessForumPostNumDistributeServlet" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+        <div class="major-w block ma chart" style="display:none">
+            <div class="hdr">
+                <div class="title">论坛帖子情感分布<span class="question-mark cp" onclick="ShowForumChannelTip(this, '用情感分析技术，绘制出关于这款游戏产品的玩家情感走势。通过查看用户正、负面情绪走势，可以从宏观上看到用户的反馈情况，当近期有活动、版本更新时，可通过走势及时查看用户反应。点击具体节点可查看用户的反馈内容。')">?</span></div>
+                <div style="float:right" name="ForumAttitudesGroupDistributeServlet">
+                    <input type="text" class="dt-picker" name="data_date_start"/>
+                    -
+                    <input type="text" class="dt-picker" name="data_date_end"/>
+                    <div class="refresh" onclick="ForumAttitudesGroupDistributeServlet()">刷新</div>
+                </div>
+            </div>
+            <div name="ForumAttitudesGroupDistributeServlet" class="chart-cont done ma"></div>
+            <div name="ForumAttitudesGroupDistributeServlet" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ForumAttitudesGroupDistributeServlet" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+        <div class="major-w block ma chart">
+            <div class="hdr">
+                <div class="title">论坛帖子情感走势<span class="question-mark cp" onclick="ShowForumChannelTip(this, '用情感分析技术，绘制出关于这款游戏产品的玩家情感走势。通过查看用户正、负面情绪走势，可以从宏观上看到用户的反馈情况，当近期有活动、版本更新时，可通过走势及时查看用户反应。点击具体节点可查看用户的反馈内容，详细了解舆情内容。')">?</span></div>
+                <div style="float:right" name="ForumAttitudesGroupDistributeServlet2">
+
+                    <span class="date-range"></span>
+
+                    <div class="refresh" onclick="ForumAttitudesGroupDistributeServlet2()">刷新</div>
+                </div>
+            </div>
+            <div name="ForumAttitudesGroupDistributeServlet2" class="chart-cont done ma"></div>
+            <div name="ForumAttitudesGroupDistributeServlet2" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ForumAttitudesGroupDistributeServlet2" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+        <div class="major-w block ma chart">
+            <div class="hdr">
+                <div class="title">论坛帖子热词统计<span class="question-mark cp" onclick="ShowForumChannelTip(this, '挖掘舆论中的热点词汇，依据特定的算法如词频、词的意义和词的属性对词汇打分，合理评判热度。通过查看热词，可以快速定位用户关注较高的方面，从而在运营上进行优化。')">?</span></div>
+                <div style="float:right" name="ForumKeywordsDistributeServlet">
+
+                    <span class="date-range"></span>
+
+                    <div class="refresh" onclick="ForumKeywordsDistributeServlet()">刷新</div>
+                </div>
+            </div>
+            <div name="ForumKeywordsDistributeServlet" class="chart-cont done ma">
+                <div name="chart" style="height:355px">
+
+                </div>
+                <div style="font-size:13px;;line-height:2em;text-indent:61px;" class="font-theme-3">注：热词指数是依据特定的算法对词汇打分，影响参数有词频，词的意义和词的属性。</div>
+            </div>
+            <div name="ForumKeywordsDistributeServlet" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ForumKeywordsDistributeServlet" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+
+        <div class="major-w block ma chart" id="anchor_0">
+            <div class="hdr">
+                <div class="title" name="ForumTermsDateHistogramAggServlet">个人关注热词统计<span class="question-mark cp" onclick="ShowForumChannelTip(this, '展示与热词相关的舆论量走势，用户可以定制专属词汇，获取个性化的分析结果。通过查看热词走势，可以从宏观上快速掌控阶段趋势，优化游戏运营。')">?</span></div>
+                <div style="float:right" name="ForumTermsDateHistogramAggServlet">
+                    <span class="date-range"></span>
+                    <div class="refresh" onclick="ForumTermsDateHistogramAggServlet()">刷新</div>
+                </div>
+            </div>
+            <div name="ForumTermsDateHistogramAggServlet" class="chart-cont done ma" style="position:relative">
+            </div>
+            <div name="ForumTermsDateHistogramAggServlet" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ForumTermsDateHistogramAggServlet" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+        <div class="major-w block ma chart">
+            <div class="hdr">
+                <div class="title">最近七天热门话题<span class="question-mark cp" onclick="ShowForumChannelTip(this, '从海量舆论中提炼出最近一周贴吧、论坛中讨论的热门话题。通过热门话题，可以定量了解用户偏好程度。为游戏策划、营销提供内容和思路。')">?</span></div>
+                <div style="float:right" name="ForumForumTopTopicsServlet">
+                    <input type="text" class="readonly" name="data_date_start" readonly=true/>
+                    -
+                    <input type="text" class="readonly" name="data_date_end" readonly=true/>
+                    <div class="refresh" onclick="ForumForumTopTopicsServlet()">刷新</div>
+                </div>
+            </div>
+            <div name="ForumForumTopTopicsServlet" class="chart-cont done ma" style="margin-top:0px;width:98.5%">
+
+                <!--<table class="w100 bc tc" style="line-height:4em">
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left;text-indent:120px">讨论话题关键词</td>
+                            <td>讨论话题分布图</td>
+                        </tr>
+                    </tbody>
+                </table>-->
+
+                <div name="chart" style="height:430px;"></div>
+
+            </div>
+            <div name="ForumForumTopTopicsServlet" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ForumForumTopTopicsServlet" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+        <div name="PopForumQueryPostsServlet" class="arrow-pop" style="display: none;padding:20px;position:absolute">
+            <div class="top-arrow" style="position:absolute"></div>
+            <span class="fr cp arrow-pop-close" style="font-size:20px;" onclick="$(this).parent().hide();">╳</span>
+        </div>
+
+    </div>
+
+    <div id="search" style="display:none">
+
+        <div class="major-w block ma search">
+
+            <div class="search-bar ma">
+                <input class="search-input" name="keywords" placeholder="请输入关键字搜索"/>
+                <div class="search-btn" onclick="ConfirmFilter()">搜索</div>
+                <div class="search-dt"><span class="date-range larger" start_diff="-7" end_diff="0"></span></div>
+            </div>
+
+            <div class="hot-keywords ma">
+                <span class="filter-box down cp" name="show_filter" onclick="ShowFilter()">显示筛选</span><span class="filter-box up cp" name="hide_filter" onclick="HideFilter()" style="display:none">收起筛选</span>
+            </div>
+
+            <div name="filter_content" style="font-size:13px;width:724px;margin:auto;padding-top:10px;border:1px solid #e1e4e8;display: none">
+                <table class="bc" style="width:700px;margin:auto">
+                    <tbody>
+                    <tr>
+                        <td style="width:70px;vertical-align: top;">
+                            论坛筛选：
+                        </td>
+                        <td style="width:500px;" name="all_forums">
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <div name="ForumQueryPostsServlet" class="chart-cont chart-cont-font loading ma search-result"></div>
+            <div name="ForumQueryPostsServlet" class="chart-cont chart-cont-font failure ma search-result"></div>
+
+            <div name="ForumQueryPostsServlet" class="search-result done ma">
+                <div class="hint tc">为您找到约<span class="empha">1,234</span>个相关帖子</div>
+                <table name="list" class="common-table">
+                    <tbody>
+                    <tr>
+                        <th style="width:420px">标题</th>
+                        <th style="width:10em">帖子来源</th>
+                        <th style="width:6em;cursor:pointer" name="reply_num" class="order-by" onclick="OrderSearch('reply_num');">回帖数&nbsp;&nbsp;<span class="icon">&nbsp;&nbsp;</span></th>
+                        <th style="width:12em">发帖人</th>
+                        <th style="width:12em;cursor:pointer" name="publish_time" class="order-by" onclick="OrderSearch('publish_time');">发帖时间&nbsp;&nbsp;<span class="icon desc">&nbsp;&nbsp;</span></th>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="page_footer_holder"></div>
+            </div>
+
+            <div class="hint tc">*使用论坛帖子搜索功能，您可根据时间段、所选论坛，输入的关键字等条件查询到相关的帖子及评论</div>
+
+        </div>
+
+    </div>
+
+    <div name="js_ForumQueryReplyPostsServlet" style="display:none">
+        <div name="ForumQueryReplyPostsServlet">
+            <div class="title-bar">
+                <div class="title" name="title"></div>
+                <div class="info">
+                    <div><span class="link icon">&nbsp;&nbsp;&nbsp;&nbsp;</span>采集地址：<a name="from_url" target=_blank title="在新窗口中打开"></a></div>
+                    <div><span class="reply_num icon">&nbsp;&nbsp;&nbsp;&nbsp;</span>回复数：<span name="reply_num"></span></div>
+                    <div><span class="reply_time icon">&nbsp;&nbsp;&nbsp;&nbsp;</span>发帖时间：<span name="publish_time"></span></div>
+                </div>
+            </div>
+            <div class="floor-sample" style="display: none">
+                <div class="floor">
+                    <div class="info">
+                        <span class="reply_name icon">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span name="author"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="reply_time icon">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span name="publish_time"></span>
+                        <span name="post_index" class="fr"></span>
+                    </div>
+                    <div class="data" name="content"></div>
+                    <div class="data" name="attach_content"></div>
+                </div>
+            </div>
+            <div class="floors" style="margin-bottom:20px">
+            </div>
+            <div class="more"><button class="small">加载更多<span style="letter-spacing:-1px;margin-left:6px">╲╱</span></button></div>
+            <div class="loading2"><span class="inactive">加载中...</span></div>
+            <div class="done"><span class="inactive">已显示全部</span></div>
+        </div>
+    </div>
+
+
+    <div class="block-margin-h">
+    </div>
+
+</body>
+</html>

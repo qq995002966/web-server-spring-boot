@@ -1,0 +1,203 @@
+<!DOCTYPE html >
+<html lang="zh-CN">
+
+<head>
+    <title>个人中心 - ThinkingGame 游戏数据挖掘服务平台</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="ThinkingGame,ThinkingData,数数信息,游戏舆情,玩家论坛,游戏渠道,游戏口碑,玩家反馈,数据服务,大数据">
+    <meta name="description" content="ThinkingGame智能化游戏运营服务平台,提供一站式全方位的玩家行为数据分析服务。">
+    <link rel="stylesheet" href="elements2.0/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="elements2.0/css/app/background.css">
+    <link rel="stylesheet" href="elements2.0/css/app/front.css">
+    <link rel="stylesheet" href="elements2.0/css/app/backstage.css">
+</head>
+
+<body>
+    <div class="topbar" id="topNav"></div>
+    <div class="mainFullcontent">
+        <!-- 个人中心部分 -->
+        <div class="container-fluid personalcenter-content" id="contentFullPart">
+            <div class="row">
+                <!-- 账户信息 -->
+                <div class=" blockpart col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <h3>账户信息</h3>
+                    <div class="boxshadow p-person-infor">
+                        <div class="top-wrap">
+                            <img src="elements2.0/img/lr/default-pic.jpg	" alt="">
+                            <ul class="des">
+                                <li>
+                                    <b>账户昵称：</b>
+                                    <span>	woeuooweuo@qq.com</span>
+                                    <span class="edit text-blue">修改</span>
+                                    <input type="	text" value="woeuooweuo@qq.com">
+                                    <span class="edit text-blue">确认</span>
+                                </li>
+                                <li>
+                                    <b>登录账号：</b>
+                                    <span>	138***292082</span>
+                                </li>
+                                <li>
+                                    <b>账户状态：</b>
+                                    <span class="text-green">	密码保护中</span>
+                                    <span class="text-red">	存在安全风险，请设置登录密码</span></li>
+                            </ul>
+                        </div>
+                        <div class="infor-content">
+                            <ul class="des">
+                                <li>
+                                    <b>登录密码：</b>
+                                    <span>	安全性高的密码可以使账号更安全。</span>
+                                    <div class="fr">
+                                        <i class="had-approve text-green">√</i>
+                                        <span>已设置</span>
+                                        <button class="tg-assist-btn">修改密码</button>
+                                    </div>
+                                </li>
+                                <li>
+                                    <b>手机绑定：</b>
+                                    <span>	您已绑定了177*****9080,您的手机可以直接用于登录，找回密码。</span>
+                                    <div class="fr">
+                                        <i class="had-fail text-red">!</i>
+                                        <span class="text-red">未绑定</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <b>绑定QQ：</b>
+                                    <span>	您已绑定了QQ号19****019，您可以使用QQ号快捷登录</span>
+                                    <div class="fr">
+                                        <i class="had-approve text-green">√</i>
+                                        <span>已绑定</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <b>绑定微信：</b>
+                                    <span>	您已绑定了微信号laoluo，您可以使用微信快捷登录</span>
+                                    <div class="fr">
+                                        <i class="had-approve text-green">√</i>
+                                        <span>已绑定</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- 基本信息 -->
+                <div class=" blockpart col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <h3>基本信息</h3>
+                    <div class="boxshadow p-base-infor">
+                        <div class="top-wrap">
+                            <img src="elements2.0/img/lr/default-pic.jpg	" alt="">
+                            <ul class="des">
+                                <li>
+                                    <b>企业认证状态：</b>
+                                    <i class="had-approve text-green">√</i>
+                                    <span>已认证</span>
+                                    <i class="had-approving text-gray">√</i>
+                                    <span>待认证</span>
+                                </li>
+                                <li>
+                                    <button class="tg-main-btn">确认修改</button>
+                                    <button class="tg-assist-btn">取消修改</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="infor-content">
+                            <ul class="des">
+                                <li>
+                                    <b>公司名称：</b>
+                                    <span><input type="	text" placeholder="您当前就职的公司">	</span>
+                                    
+                                </li>
+                                <li>
+                                    <b>公司类型：</b>
+                                    <div id="selectWrap">
+                                        <div id="dropDown">
+                                            <p>请选择公司类型</p>
+                                            <i class="drop-icon"></i>
+                                            <ul>
+                                                <li><a href="#">游戏研发</a></li>
+                                                <li><a href="#">渠道</a></li>
+                                                <li><a href="#">发行/运营</a></li>
+                                                <li><a href="#">外包</a></li>
+                                                <li><a href="#">投资</a></li>
+                                                <li><a href="#">第三方服务</a></li>
+                                                <li><a href="#">广告商</a></li>
+                                                <li><a href="#">IP授权方</a></li>
+                                                <li><a href="#">游戏媒体</a></li>
+                                                <li><a href="#">其他</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <b>联系人：</b>
+                                    <span><input type="	text" placeholder="请输入您的真实姓名">   	</span>                                 
+                                </li>
+                                <li>
+                                    <b>工作联系方式：</b>
+                                    <span>	<input type="	text" placeholder="填写您的 QQ号、微信或邮箱">  </span>                                  
+                                </li>
+                                <li>
+                                    <b>公司职位：</b>
+                                    <div id="selectWrap">
+                                        <div id="dropDown">
+                                            <p data-i="0">请选择工作职位</p>
+                                            <i class="drop-icon"></i>
+                                            <ul>
+                                                <li><a href="#">公司高管</a></li>
+                                                <li><a href="#">游戏制作人</a></li>
+                                                <li><a href="#">游戏运营</a></li>
+                                                <li><a href="#">市场人员</a></li>
+                                                <li><a href="#">商务人员</a></li>
+                                                <li><a href="#">游戏策划</a></li>
+                                                <li><a href="#">开发工程师</a></li>
+                                                <li><a href="#">游戏测试</a></li>
+                                                <li><a href="#">美术/UI/动画</a></li>
+                                                <li><a href="#">音乐/音效</a></li>
+                                                <li><a href="#">行政/人力</a></li>
+                                                <li><a href="#">投资</a></li>
+                                                <li><a href="#">销售</a></li>
+                                                <li><a href="#">客服</a></li>
+                                                <li><a href="#">其他</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <b>公司产品：</b>
+                                    <span><input type="	text" placeholder ="请输入贵公司开发或运营的游戏">	</span>
+                                       
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- 基本信息未设置状态 -->
+                <div class=" blockpart col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <h3>基本信息</h3>
+                    <div class="boxshadow p-base-infor">
+                        <div class="top-wrap no-infor">
+                            <img src="elements2.0/img/lr/default-pic.jpg	" alt="">
+                            <ul class="des">
+                                <li>
+                                    <p>为了向您提供更完整的服务</p>
+                                    <p>请进一步完善您的基本信息</p>
+                                </li>
+                                <li>
+                                    <button class="tg-main-btn">完善信息</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="footer" id="footNav"></div>
+</body>
+
+</html>
+<script data-main="elements2.0/js/app/backmain" src="elements2.0/js/require.js"></script>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.Mapper_user_role">
+
+    <select id="getUserRole" resultType="cn.thinkingdata.web.domain.user.Do_user_role">
+        select * from user_role where status=1 and user_role.name=#{name}
+    </select>
+
+</mapper>

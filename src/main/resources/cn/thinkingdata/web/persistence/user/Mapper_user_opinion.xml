@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.Mapper_user_opinion">
+	<resultMap type="cn.thinkingdata.web.domain.user.Do_user_opinion" id="Mapper_user_opinion">
+		<result property="user_id" column="user_id"/>
+		<result property="opinion_type" column="opinion_type"/>
+		<result property="opinion_msg" column="opinion_msg"/>
+		<result property="submit_time" column="submit_time"/>
+	</resultMap>
+	
+	<insert id="insert"  parameterType="cn.thinkingdata.web.domain.user.Do_user_opinion">
+		insert into user_opinion set user_id=#{user_id}, opinion_type=#{opinion_type}, opinion_msg=#{opinion_msg}
+	</insert>
+
+		
+</mapper>

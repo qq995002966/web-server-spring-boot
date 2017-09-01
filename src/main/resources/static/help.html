@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<script>
+    window.location.href='faq.html';
+</script>
+<title>帮助文档-ThinkingGame智能化游戏运营服务平台</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="ThinkingGame,ThinkingData,数数信息,游戏舆情,玩家论坛,游戏渠道,游戏口碑,玩家反馈,数据服务,大数据">
+<meta name="description" content="ThinkingGame智能化游戏运营服务平台，提供全面的游戏玩家舆论统计分析服务。">
+<link rel="stylesheet" type="text/css" href="css/root.min.css" />
+<style>
+
+    .help-titles td
+    {
+        text-align:center;
+        font-size:16px;
+    }
+
+    .help-titles .text
+    {
+        text-align:center;
+        display:inline-block;
+        width:150px;
+        height:69px;
+        cursor: pointer;
+    }
+    .help-titles .text.chosen
+    {
+        color:#03a9f5;
+        border-bottom:2px solid #03a9f5;
+    }
+
+    .help-desc-box
+    {
+        border:1px solid #dee3eb;
+        border-radius:3px;
+        margin-top:45px;
+    }
+
+    .help-desc-box .item
+    {
+        margin-left:52px;
+        margin-right:52px;
+        padding-top:45px;
+        padding-bottom:45px;
+        border-bottom:1px dashed #dee3eb;
+    }
+
+    .help-desc-box .item td:first-child
+    {
+        width:150px;
+    }
+
+    .help-desc-box .item:last-child
+    {
+        border-bottom:none;
+    }
+
+    .help-desc-box .item .text1
+    {
+        font-size:18px;
+        color:#596776;
+    }
+    .help-desc-box .item .text2
+    {
+        font-size:14px;
+        margin-top:20px;
+    }
+
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <script type="text/javascript" src="js/layer/layer.js" ></script>
+    <script type="text/javascript" src="js/store.min.js" ></script>
+    <script type="text/javascript" src="js/func.js" ></script>
+<script>
+function onLoad()
+{
+    G_MENU.AddMenuFooter();
+
+    FitMenuTextCenter('帮助文档');
+
+    G_LOGIN.CheckLoginServlet(null,null,true);
+
+    var hash=window.location.hash;
+
+    if(hash=="#contact")
+    {
+        $("body,html").animate({
+            'scrollTop':2000
+        },500);
+    }
+    else if(hash=="#join")
+    {
+        $("body,html").animate({
+            'scrollTop':1200
+        },500);
+    }
+
+}
+
+function Go1()
+{
+    $("[name=help_items]").animate({
+        'scrollTop':0
+    },500);
+
+    $(".help-titles .chosen").removeClass("chosen");
+    $(".help-titles .text").eq(0).addClass("chosen");
+}
+
+function Go2()
+{
+    $("[name=help_items]").animate({
+        'scrollTop':530
+    },500);
+
+    $(".help-titles .chosen").removeClass("chosen");
+    $(".help-titles .text").eq(1).addClass("chosen");
+}
+
+function Go3()
+{
+    $("[name=help_items]").animate({
+        'scrollTop':1100
+    },500);
+
+    $(".help-titles .chosen").removeClass("chosen");
+    $(".help-titles .text").eq(2).addClass("chosen");
+}
+
+$(onLoad);
+</script>
+</head>
+<body class="index-about">
+
+<div class="bg1">
+    <div class="major-w ma">
+        <img src="http://image.thinkinggame.cn/img/help/bg.png" class="ma" style="width:100%;display:block;"/>
+    </div>
+</div>
+
+<div style="height:70px;border-bottom:1px solid #dee3eb;line-height:70px">
+    <table class="major-w ma help-titles">
+        <tbody>
+            <tr>
+                <td style="width:33.33%">
+                    <div class="text chosen" onclick="Go1()">产品介绍<span style="letter-spacing:-1px;margin-left:10px">╲╱</span></div>
+                </td>
+                <td style="width:33.33%">
+                    <div class="text" onclick="Go2()">服务使用<span style="letter-spacing:-1px;margin-left:10px">╲╱</span></div>
+                </td>
+                <td style="width:33.33%">
+                    <div class="text" onclick="Go3()">更多服务<span style="letter-spacing:-1px;margin-left:10px">╲╱</span></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div style="height:1360px;overflow:hidden" name="help_items" >
+<div style="height:3360px;">
+
+    <div class="major-w help-desc-box ma">
+
+
+        <div class="item">
+            <table>
+                <tbody>
+                <tr>
+                    <td style="background:transparent url(http://image.thinkinggame.cn/img/help/3.png) no-repeat center center">
+
+                    </td>
+
+                    <td>
+                        <div class="text1">游戏灯塔</div>
+                        <div class="text2 font-theme-3">游戏舆情的指明灯。通过游戏灯塔，用户可以直接看到游戏产品的优点和缺点，以及从玩家反馈中提炼出来的产品改进建议。</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="item">
+            <table>
+                <tbody>
+                    <tr>
+                        <td style="background:transparent url(http://image.thinkinggame.cn/img/help/1.png) no-repeat center center">
+
+                        </td>
+                        <td>
+                            <div class="text1">游戏论坛</div>
+                            <div class="text2 font-theme-3">覆盖了全网的主流游戏论坛，通过数据挖掘的技术自动分析出玩家讨论的热点以及玩家的情感走势。目前平台已经覆盖的玩家论坛有：百度贴吧，兴趣部落，腾讯官方论坛，多玩论坛，17173游戏论坛，9游手机游戏论坛，18183手游论坛，16163手游论坛，手游宝，360游戏大厅，口袋巴士，4399论坛，51wan，NGA。更多游戏论坛正在进一步覆盖中。</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="item">
+            <table>
+                <tbody>
+                <tr>
+                    <td style="background:transparent url(http://image.thinkinggame.cn/img/help/2.png) no-repeat center center">
+
+                    </td>
+                    <td>
+                        <div class="text1">渠道评论</div>
+                        <div class="text2 font-theme-3">集合了目前国内的主流游戏分发渠道，实时获取玩家反馈的评论数据，并对其进行多维度的挖掘分析。目前平台已经覆盖的渠道有：AppStore，应用宝，豌豆荚，360手机助手，小米应用商店，百度手机助手，oppo软件商店，华为应用市场，vivo应用商店，魅族应用商店，安卓市场。更多的渠道正在进一步覆盖中。</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+
+    <div class="major-w help-desc-box ma">
+
+        <div class="item">
+            <table>
+                <tbody>
+                <tr>
+                    <td style="background:transparent url(http://image.thinkinggame.cn/img/help/4.png) no-repeat center center">
+
+                    </td>
+
+                    <td>
+                        <div class="text1">注册账户</div>
+                        <div class="text2 font-theme-3">在注册页面，通过手机号注册新账户，一步即可完成。</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="item">
+            <table>
+                <tbody>
+                <tr>
+                    <td style="background:transparent url(http://image.thinkinggame.cn/img/help/5.png) no-repeat center center">
+
+                    </td>
+
+                    <td>
+                        <div class="text1">身份认证</div>
+                        <div class="text2 font-theme-3">用户登录后，可在个人中心申请身份认证。认证通过后的用户将会有平台服务的多项特权。</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="item">
+            <table>
+                <tbody>
+                <tr>
+                    <td style="background:transparent url(http://image.thinkinggame.cn/img/help/6.png) no-repeat center center">
+
+                    </td>
+
+                    <td>
+                        <div class="text1">我的服务</div>
+                        <div class="text2 font-theme-3">尚未上线，敬请期待。</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="major-w help-desc-box ma" style="margin-bottom:45px;">
+
+        <div class="item">
+            <table>
+                <tbody>
+                <tr>
+                    <td style="background:transparent url(http://image.thinkinggame.cn/img/help/7.png) no-repeat center center">
+
+                    </td>
+
+                    <td>
+                        <div class="text1">定制化挖掘服务</div>
+                        <div class="text2 font-theme-3">我们为企业提供深度的定制化挖掘服务，包括游戏外的文本数据挖掘服务和游戏内的玩家行为数据挖掘服务，如有需求，请致电：18121290606.或通过邮箱：service@thinkingdata.cn与我们联系。</div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>聊天分析结果</title>
+    <link rel="stylesheet" type="text/css" href="css/root.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/lq.datetimepick.css" />
+<style>
+
+body
+{
+    background-color:#f2f4f5;
+}
+
+.fast-chosen
+{
+    border:1px solid #e1e4e8;
+    padding:3px 10px;
+    border-radius:34px;
+    font-size:12px;
+}
+
+.f_positive
+{
+    background-color:#22cb22;
+    color:#ffffff;
+    border-radius:10px;
+    border:3px solid transparent;
+}
+
+.f_positive.disable
+{
+    background-color:#cccccc;
+}
+
+.f_neutral
+{
+    background-color:#009ee6;
+    color:#ffffff;
+    border-radius:10px;
+    border:3px solid transparent;
+}
+
+.f_negative
+{
+    background-color:#fe6f6b;
+    color:#ffffff;
+    border-radius:10px;
+    border:3px solid transparent;
+}
+
+.f_neutral.disable
+{
+    background-color:#cccccc;
+}
+
+.f_negative.disable
+{
+    background-color:#cccccc;
+}
+
+.b_negative:hover
+{
+    border:4px solid #fdc0b4;
+    cursor:pointer;
+}
+
+.session
+{
+    border-radius:3px;
+    border:1px solid transparent;
+}
+
+.session .icon
+{
+    width:55px;height:55px;
+    background:transparent url(http://image.thinkinggame.cn/img/chat/session.png) no-repeat center center;margin:auto;
+    background-size:contain;
+    text-align: center;
+    padding-top:48px;
+}
+
+.session.chosen .icon
+{
+    background:transparent url(http://image.thinkinggame.cn/img/chat/session_chosen.png) no-repeat center center;
+    background-size:contain;
+    color:#03a9f5;
+}
+
+.session.chosen
+{
+    border:1px solid #e1e4e8;
+    border-top:none;
+    background-color:#f9f9f9;
+}
+
+.session.chosen:first-child
+{
+    border-top:1px solid #e1e4e8;
+}
+
+    .chat_content
+    {
+        padding:5px 10px;
+        border:1px solid #e1e4e8;
+        border-radius:3px;
+        background-color:#ffffff;
+        line-height:2em;
+    }
+
+    .chat_icon
+    {
+        width:40px;
+        height:40px;
+        background:transparent url(http://image.thinkinggame.cn/img/chat/head.png) no-repeat center center;
+        background-size:contain;
+    }
+
+    .chat-left-arrow
+    {
+        width:10px;
+        height:20px;
+        background:transparent url(http://image.thinkinggame.cn/img/chat/arrow1.png) no-repeat center center;
+        background-size:contain;
+        position: absolute;
+        top:8px;left:-9px;
+    }
+
+.chat-left-arrow2
+{
+    width:10px;
+    height:20px;
+    background:transparent url(http://image.thinkinggame.cn/img/chat/arrow-bigger.png) no-repeat center center;
+    background-size:contain;
+    position: absolute;
+    top:40px;right:-22px;
+}
+
+    .chat-right-arrow
+    {
+        width:10px;
+        height:20px;
+        background:transparent url(http://image.thinkinggame.cn/img/chat/arrow2.png) no-repeat center center;
+        background-size:contain;
+        position: absolute;
+        top:8px;right:-9px;
+    }
+
+
+</style>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <script type="text/javascript" src="js/Highcharts-4.1.8/highstock.js" ></script>
+    <script type="text/javascript" src="js/Highcharts-4.1.8/modules/treemap.js" ></script>
+    <script type="text/javascript" src="js/layer/layer.js" ></script>
+    <script type="text/javascript" src="js/store.min.js" ></script>
+    <script type="text/javascript" src="js/func.js" ></script>
+    <script type="text/javascript" src="js/chart.js" ></script>
+    <script type="text/javascript" src="js/wc/wcloud.js" ></script>
+<script>
+
+var g_source_type="";
+
+function onLoad()
+{
+    G_MENU.AddMenuFooter();
+
+    FitMenuTextCenter('聊天分析');
+
+    InitDoneLoadingFailure();
+
+    $("[name=active_userN_posts]").append($("[name=active_user0_posts]").clone().attr("name",""));
+    $("[name=active_userN_posts]").find("[name=posts]").parent().height(500).parent().height(540);
+    $("[name=active_userN_posts]>div").css({
+        'height':'auto'
+    }).find("table").css({
+        'height':'auto'
+    });
+    $("[name=active_userN_posts]").find("[name=more]").unbind("click").click(function(){
+       G_LOCAL_STORAGE.PopChatQueryPostsServlet._query(FillActiveUserNChatPosts,FillActiveUserNChatPosts_loading, FillActiveUserNChatPosts_done, FillActiveUserNChatPosts_failure);
+    });
+
+    $("[name=active_user0_posts]").click(function(){
+        G_LOCAL_STORAGE.ChatQueryPostsServlet._query(FillActiveUser0ChatPosts,FillActiveUser0ChatPosts_loading, FillActiveUser0ChatPosts_done, FillActiveUser0ChatPosts_failure);
+    })
+
+    G_LOGIN.CheckLoginServlet(DrawCharts, PopLogin);
+
+    _done_e("ProjChatActiveUserServlet").show();
+
+
+}
+
+function _DrawCharts()
+{
+    GasChatInfoServlet(function(){
+
+        ProjChatSentiTopwordsServlet();
+
+        ProjChatAttitudeDistriServlet();
+
+        ChatKeywordsDistributeServlet();
+
+        ProjChatTopicSessionServlet();
+
+        ProjChatActiveUserServlet();
+
+    });
+}
+
+function PopChatQueryPostsServlet(qq_id, author, top_keywords)
+{
+    $("[name=active_userN_posts]").find("[name=top_keywords]").html(top_keywords);
+
+    G_LOCAL_STORAGE.PopChatQueryPostsServlet._reset();
+    G_LOCAL_STORAGE.PopChatQueryPostsServlet.info_id=GetUrlPara("info_id");
+    G_LOCAL_STORAGE.PopChatQueryPostsServlet.qq_id=qq_id;
+    G_LOCAL_STORAGE.PopChatQueryPostsServlet.author=author;
+    G_LOCAL_STORAGE.PopChatQueryPostsServlet.source_type=g_source_type;
+    $("[name=active_userN_posts]").find("[name=posts]").empty();
+    G_LOCAL_STORAGE.PopChatQueryPostsServlet._query(FillActiveUserNChatPosts,FillActiveUserNChatPosts_loading, FillActiveUserNChatPosts_done, FillActiveUserNChatPosts_failure);
+
+    G_PopWnd.dialog('聊天者“'+author+'（'+qq_id+'）”的聊天记录', $("[name=active_userN_posts]"), null, null, null, 4, true);
+}
+
+function Pop4KeywordChatQueryPostsServlet(keyword)
+{
+    G_LOCAL_STORAGE.PopChatQueryPostsServlet._reset();
+    G_LOCAL_STORAGE.PopChatQueryPostsServlet.info_id=GetUrlPara("info_id");
+    G_LOCAL_STORAGE.PopChatQueryPostsServlet.keywords=keyword;
+    G_LOCAL_STORAGE.PopChatQueryPostsServlet.source_type=g_source_type;
+    $("[name=pop_4_keywords]").find("[name=posts]").empty();
+    G_LOCAL_STORAGE.PopChatQueryPostsServlet._query(Fill4KeywordsPosts);
+
+    G_PopWnd.dialog('关键词“'+keyword+'”的聊天记录', $("[name=pop_4_keywords]"), null, null, null, 4, true);
+}
+
+function DrawCharts()
+{
+    _DrawCharts();
+}
+
+
+$(onLoad);
+
+
+function _loading_e(key)
+{
+    return $(".loading[name="+key+"]");
+}
+function _done_e(key)
+{
+    return $(".done[name="+key+"]");
+}
+function _failure_e(key)
+{
+    return $(".failure[name="+key+"]");
+}
+
+
+function ChartReqComm(key, draw)
+{
+    var info_id=GetUrlPara('info_id');
+
+    if(info_id=="")
+    {
+        G_PopWnd.error("empty info_id");
+        return;
+    }
+
+    if(_loading_e(key).is(":visible")) // 上次请求正在进行中
+        return;
+
+    var p={
+        info_id:info_id
+    };
+
+    MyPost(G_CGI_URL.chat[key],
+            p,
+            function()
+            {
+                _done_e(key).hide();
+                _failure_e(key).hide();
+                _loading_e(key).show();
+            },
+            function()
+            {
+                _loading_e(key).hide();
+            },
+            function(data)
+            {
+                _done_e(key).show();
+
+                draw(data);
+            },
+            function()
+            {
+                _done_e(key).hide();
+                _failure_e(key).show();
+            }
+    );
+}
+
+
+function GasChatInfoServlet(after_callback)
+{
+    var key='GasChatInfoServlet';
+    MyPost(G_CGI_URL.chat[key],
+            {
+                info_id_list:GetUrlPara('info_id'),
+                index:0,
+                limit:1
+            },
+            ShowLoading,
+            HideLoading,
+            function(data)
+            {
+                if(data.get.length==0)
+                {
+                    G_PopWnd.error("加载失败！");
+                    return;
+                }
+                else
+                {
+                    var file_name = decodeURI(data.get[0].file_name);
+                    var start_date = data.get[0].start_date.split('.')[0] ;
+                    var end_date = data.get[0].end_date.split('.')[0] ;
+
+                    $("[name=first_row] [name=file_name]").html(file_name);
+                    $("[name=first_row] [name=start_date]").html(start_date);
+                    $("[name=first_row] [name=end_date]").html(end_date);
+
+                    g_source_type=data.get[0].source_type;
+
+                    if(data.get[0].source_type==10)
+                    {
+                        $("[name=first_row] .qq").show();
+                    }
+                    else
+                    {
+                        $("[name=first_row] .we-chat").show();
+                    }
+
+                    after_callback && after_callback();
+                }
+            },
+            function()
+            {
+                G_PopWnd.error("加载失败！");
+            }
+    );
+}
+
+function FillActiveUser0ChatPosts(data)
+{
+    _FillActiveUserChatPosts($("[name=active_user0]"), G_LOCAL_STORAGE.ChatQueryPostsServlet, data);
+}
+
+function FillActiveUser0ChatPosts_loading(){
+    $("[name=active_user0] [name=more_loading]").show();
+    $("[name=active_user0] [name=more]").hide();
+}
+
+function FillActiveUser0ChatPosts_done(){
+    $("[name=active_user0] [name=more_loading]").hide();
+    $("[name=active_user0] [name=more]").show();
+}
+
+function FillActiveUser0ChatPosts_failure(){
+    // ???
+}
+
+
+function FillActiveUserNChatPosts_loading(){
+    $("[name=active_user0] [name=more_loading]").show();
+    $("[name=active_user0] [name=more]").hide();
+}
+
+function FillActiveUserNChatPosts_done(){
+    $("[name=active_userN_posts] [name=more_loading]").hide();
+    $("[name=active_userN_posts] [name=more]").show();
+}
+
+function FillActiveUserNChatPosts_failure(){
+    // ???
+}
+
+function FillActiveUserNChatPosts(data)
+{
+    _FillActiveUserChatPosts($("[name=active_userN_posts]"), G_LOCAL_STORAGE.PopChatQueryPostsServlet, data);
+}
+
+function Fill4KeywordsPosts(data, keywords)
+{
+    var list=data.data.list;
+
+    var ls=G_LOCAL_STORAGE.PopChatQueryPostsServlet;
+
+    var father=$("[name=pop_4_keywords]");
+
+
+
+    ls.index+=list.length;
+
+    if( list.length < ls.limit)
+    {
+        father.find("[name=more]").hide();
+    }
+
+    for(var i=0; i<list.length; ++i)
+    {
+        var source=list[i].source;
+        var publish_time=source.publish_time;
+        var content=EmphaSizeKeywords(keywords, source.content);
+        var author=source.author;
+        var qq_id=source.qq_id;
+
+        father.find("[name=posts]").append($("<div style='border-bottom:1px dashed #e1e4e8;font-size:14px;padding-top:8px;padding-bottom:8px;width:95%;margin:auto'></div>").append($("<div style='line-height:2em;font-size:13px;' class='font-theme-3'></div>").html(author+"（"+qq_id+"）&nbsp;&nbsp;&nbsp;&nbsp;"+publish_time)).append($("<div style='line-height:1.5em;padding-top:0.2em;padding-bottom:0.2em'></div>").html(content)));
+    }
+}
+
+function _FillActiveUserChatPosts(father,ls, data)
+{
+    var list=data.data.list;
+
+    ls.index+=list.length;
+
+    if( list.length < ls.limit)
+    {
+        father.find("[name=more]").hide();
+    }
+
+    for(var i=0; i<list.length; ++i)
+    {
+        var source=list[i].source;
+        var publish_time=source.publish_time;
+        var content=source.content;
+
+        father.find("[name=posts]").append($("<div style='border-bottom:1px dashed #e1e4e8;font-size:14px;padding-top:8px;padding-bottom:8px;width:95%;margin:auto'></div>").append($("<div style='line-height:2em;font-size:13px;' class='font-theme-3'></div>").html(publish_time)).append($("<div style='line-height:1.5em;padding-top:0.2em;padding-bottom:0.2em'></div>").html(content)));
+    }
+}
+
+function ProjChatActiveUserServlet()
+{
+    var key="ProjChatActiveUserServlet";
+
+
+    for(var i=2;i<10; ++i)
+    {
+        $("[name=active_user"+i+"]").empty();
+    }
+
+    $("[name=active_user0] [name=posts]").empty();
+
+    ChartReqComm(key, function(data){
+
+        var list=data.get;
+
+        if(list.length==0)
+        {
+            $("[name=active_user0]").empty();
+            $("[name=active_user1]").empty();
+            return;
+        }
+        else if(list.length==1)
+        {
+            $("[name=active_user1]").empty();
+
+            for(var k in list[0])
+            {
+                $("[name=active_user0]").find("[name="+k+"]").html(list[0][k]);
+            }
+
+            return;
+        }
+
+        G_LOCAL_STORAGE.ChatQueryPostsServlet._reset();
+        G_LOCAL_STORAGE.ChatQueryPostsServlet.info_id=GetUrlPara('info_id');
+        G_LOCAL_STORAGE.ChatQueryPostsServlet.qq_id=list[0].qq_id;
+        G_LOCAL_STORAGE.ChatQueryPostsServlet.author=list[0].author;
+        G_LOCAL_STORAGE.ChatQueryPostsServlet.source_type=g_source_type;
+        G_LOCAL_STORAGE.ChatQueryPostsServlet._query(FillActiveUser0ChatPosts,FillActiveUser0ChatPosts_loading, FillActiveUser0ChatPosts_done, FillActiveUser0ChatPosts_failure);
+
+        for(var i=0; i<list.length && i<10; ++i) {
+
+            var cur=null;
+
+            if(i==0)
+            {
+                cur=$("[name=active_user0]");
+            }
+            else if(i==1)
+            {
+                cur=$("[name=active_user1]>div");
+            }
+            else
+            {
+                cur=$("[name=active_user1]>div").clone();
+                $("[name=active_user"+i+"]").append(cur);
+                $("[name=active_user"+i+"]").find("[name=rank]").html(i+1);
+            }
+
+            for(var k in list[i])
+            {
+                if(k=='top_keywords')
+                {
+                    list[i][k]=list[i][k].replace(/\s/g,"<br/>")
+                }
+
+                cur.find("[name="+k+"]").html(list[i][k]);
+            }
+
+            if( i % 3 == 1 )
+            {
+                cur.css({
+                    'float':'left'
+                });
+            }
+            else if( i % 3 == 2 )
+            {
+                cur.css({
+                    'margin-left':'auto',
+                    'margin-right':'auto',
+                    'float':'none'
+                });
+            }
+            else if(i>0)
+            {
+                cur.css({
+                    'float':'right'
+                });
+            }
+
+            if(i>0)
+            {
+                cur.find("[name=see_chat]").unbind('click').click((function(qq_id, author, top_keywords){
+                    return function(){
+                        PopChatQueryPostsServlet(qq_id, author, top_keywords);
+                    }
+                })(list[i].qq_id, list[i].author, list[i].top_keywords));
+            }
+        }
+    });
+}
+
+function ProjChatSentiTopwordsServlet()
+{
+    var key="ProjChatSentiTopwordsServlet";
+
+    ChartReqComm(key, function(data){
+
+        var list=data.get;
+
+        var min_post_num=0;
+        var max_post_num=0;
+
+
+
+        for(var i=0; i<list.length; ++i)
+        {
+            switch(list[i].senti_type)
+            {
+                case "neg":
+                    g_wc.extra_class.push("hc negative cp");
+                    g_wc.sentiment.push(-1);
+                    break;
+                case "pos":
+                    g_wc.extra_class.push("hc positive cp");
+                    g_wc.sentiment.push(1);
+                    break;
+                default:
+                    g_wc.extra_class.push("hc neutral cp");
+                    g_wc.sentiment.push(0);
+                    break;
+            }
+
+            if(list[i].num>max_post_num)
+            {
+                max_post_num = list[i].num;
+            }
+
+            if(list[i].num<min_post_num || min_post_num==0)
+            {
+                min_post_num = list[i].num;
+            }
+
+            g_wc.words.push(list[i].keyword);
+
+        }
+
+        var max_font_size_ratio = 1.5;
+        var min_font_size_ratio = 0.8;
+
+        for(var i=0; i<list.length; ++i)
+        {
+            g_wc.font_size_ratio.push( (list[i].num - min_post_num) / (max_post_num - min_post_num) * (max_font_size_ratio-min_font_size_ratio) + min_font_size_ratio );
+        }
+
+        //g_wc.sentiment=sentiment;
+
+        g_wc.draw=function(){
+            g_wc._draw(_done_e(key).find("[name=chart_wc]"),function(e, word){
+                g_wc._wc.resume();
+                Pop4KeywordChatQueryPostsServlet(word);
+            });
+        };
+
+        g_wc.draw();
+    });
+}
+
+var g_chat_topic_session={
+    list:null,
+    cnt_per_page:10,
+    order:function() {
+        var post_num=[];
+
+        var m_post_num={};
+
+        for(var i=0; i<this.list.length; ++i)
+        {
+            post_num.push(this.list[i].post_num);
+
+            if(this.list[i].post_num in m_post_num)
+            {
+                m_post_num[this.list[i].post_num].push(this.list[i]);
+            }
+            else
+            {
+                m_post_num[this.list[i].post_num]=[this.list[i]];
+            }
+        }
+
+        post_num=post_num.sort(function(a,b){return parseInt(b)-parseInt(a);});
+
+        var list=[];
+
+        var cur_post_num=0;
+        for(var i=0; i<post_num.length; ++i)
+        {
+            if(post_num[i]==cur_post_num)
+                continue;
+            else
+                cur_post_num=post_num[i];
+            list = list.concat(m_post_num[post_num[i]]);
+        }
+
+        this.list=list;
+
+        return this.list;
+    },
+    page:function(){
+        if( ! this.list )
+            return 0;
+        return Math.ceil(this.list.length / this.cnt_per_page);
+    },
+    getPage:function(page)
+    {
+        var l=[];
+
+        for(var i=this.cnt_per_page*(page-1); i < this.list.length && i<this.cnt_per_page*page;  ++i)
+        {
+            this.list[i].id=i+1;
+            l.push(this.list[i]);
+        }
+
+        return l;
+    }
+};
+
+function PopSessionsDetail(topic_id, topic_keywords, session_num,info_id)
+{
+    var title="“"+topic_keywords+"”的相关的聊天会话（"+session_num+"个）";
+
+    G_PopWnd.dialog(title, $("[name=sessions_of_topic]"), null, null, null, 4, true);
+
+    var cnt_per_page=4;
+
+    var page_cnt=Math.ceil(session_num/cnt_per_page);
+
+    $("[name=sessions_of_topic]").find("[name=list]").empty();
+    $("[name=sessions_of_topic]").find("[name=posts]").empty();
+
+
+    var go=function(newpage){
+        var p={
+            info_id:info_id,
+            topic_id:topic_id,
+            index:(newpage-1)*cnt_per_page,
+            limit:cnt_per_page
+        };
+
+        var cont=$("[name=sessions_of_topic]").find('[name=list]');
+
+        var posts=$("[name=sessions_of_topic]").find('[name=posts]');
+
+        cont.empty();
+
+        MyPost(G_CGI_URL.chat["ProjChatTopicSessionServlet"],
+                p,ShowLoading,HideLoading,
+                function(data)
+                {
+                    var list=data.get;
+
+                    for(var i=0; i<list.length; ++i)
+                    {
+                        var d=$('<div session_id="'+list[i].session_id+'" class="cp session" style="position:relative;border-bottom:1px solid #e1e4e8;font-size:14px;margin-left:20px;margin-right:20px;"><div class="chat-left-arrow2" style="visibility: hidden"></div><table class="w100 bc"><tbody><tr><td style="width:96px;"><div class="icon">会话'+ (p.index+1+i)+'</div></td><td><div class="text-overflow-ellipsis" style="padding-top:1.5em;width:430px;" title="'+list[i].session_summary+'">'+list[i].session_summary+'</div><div class="font-theme-3" style="line-height:3em;font-size:0.9em;padding-bottom:1em">共'+list[i].user_num+'人参与，产生'+list[i].post_num+'条聊天记录</div></td></tr></tbody></table></div>');
+                        d.click(function(){
+                            $(".session.chosen").removeClass("chosen");
+                            $(".session .chat-left-arrow2").css({
+                                "visibility":"hidden"
+                            });
+                            $(this).addClass("chosen").find(".chat-left-arrow2").css({
+                                "visibility":"visible"
+                            });
+                            var session_id=$(this).attr('session_id');
+                            posts.find("[name=post]").hide();
+                            if(posts.find("[name=post][session_id='"+session_id+"']").length==0)
+                            {
+                                if(posts.find("[name=post]").length>40)
+                                {
+                                    posts.empty();
+                                }
+
+                                var d=$('<div style="border:1px solid #e1e4e8;background-color:#f9f9f9;margin-right:20px;padding:20px;height:460px;overflow-y:scroll" name="post" ><div name="chats"></div><div name="more_loading" class="tc font-theme-3" style="line-height:2em;font-size:13px;display:none">加载中...</div><div name="more" class="tc cp font-theme-3" style="line-height:2em;font-size:13px;">加载更多</div></div>').attr('session_id', session_id);
+
+                                d.find("[name=more]").click(function(){
+
+                                    var index=d.find("[name=chat]").length;
+
+                                    var cnt_each_query=10;
+
+                                    var chats=d.find("[name=chats]");
+
+
+                                    MyPost(G_CGI_URL.chat.ChatQueryPostsServlet,
+                                            {
+                                                topic_id:topic_id,
+                                                info_id:info_id,
+                                                session_id:session_id,
+                                                index:index,
+                                                limit:cnt_each_query,
+                                                source_type:g_source_type
+                                            },
+                                            function(){
+                                                d.find("[name=more_loading]").show();
+                                                d.find("[name=more]").hide();
+                                            },
+                                            function(){
+                                                d.find("[name=more_loading]").hide();
+                                                d.find("[name=more]").show();
+                                            },
+                                            function(data)
+                                            {
+                                                var list=data.data.list;
+                                                if(list.length<cnt_each_query)
+                                                {
+                                                    d.find("[name=more]").hide();
+                                                }
+                                                for(var i=0; i<list.length; ++i)
+                                                {
+                                                    var publish_date=list[i].source.publish_time.split(' ')[0];
+                                                    var publish_time=list[i].source.publish_time.split(' ')[1];
+
+                                                    var chat=$("<div name=chat style='font-size:14px;'></div>");
+
+
+                                                    var chat_content=null;
+
+
+                                                    var ml=0;
+
+                                                    if((index+i) % 2 ==0)
+                                                    {
+                                                        chat.append($("<div class='font-theme-3' style='font-size:0.9em;line-height:4em'>【"+list[i].source.qq_id+"】"+list[i].source.author+'&nbsp;&nbsp;&nbsp;'+publish_time+"</div>"));
+
+                                                        chat_content=$("<table style='margin-left:6px;margin-top;10px;margin-bottom:20px;'><tbody><tr><td style='vertical-align: top;'><div class='chat_icon' style='margin-right:20px'></div></td><td style='position: relative'><div class='chat-left-arrow'></div><div class='chat_content'>"+list[i].source.content+"</div></td></tr></tbody></table>");
+                                                    }
+                                                    else
+                                                    {
+                                                        chat.append($("<div class='font-theme-3' style='font-size:0.9em;line-height:4em;text-align:right'>"+"&nbsp;&nbsp;&nbsp;"+publish_time+"【"+list[i].source.qq_id+"】"+list[i].source.author+"</div>"));
+
+                                                        chat_content=$("<table style='margin-left:6px;margin-top;10px;margin-bottom:20px;' class='bc'><tbody><tr><td style='position: relative'><div class='chat-right-arrow'></div><div class='chat_content'>"+list[i].source.content+"</div></td><td style='vertical-align: top;'><div class='chat_icon' style='margin-left:20px'></div></td></tr></tbody></table>");
+
+                                                        ml=1;
+                                                    }
+
+
+                                                    chat.append(chat_content);
+
+
+
+                                                    var pd=publish_date.split('-').join('');
+
+                                                    if(chats.find("[name=publish_date][publish_date="+pd+"]").length==0)
+                                                    {
+                                                        chats.append($("<div name=publish_date publish_date="+pd+" class='tc font-theme-3' style='font-size:13px;'></div>").html(publish_date));
+                                                    }
+
+                                                    chats.append(chat);
+
+
+                                                    var chats_w=chats.width();
+
+                                                    if(ml)
+                                                    {
+                                                        ml=chats_w-chat_content.outerWidth();
+                                                    }
+
+                                                    chat_content.css({
+                                                        'margin-left':ml+'px'
+                                                    });
+                                                }
+                                            },
+                                            function(){
+                                                G_PopWnd.error("加载失败！");
+                                            });
+                                }).click();
+
+                                posts.append(d);
+                            }
+                            else
+                            {
+                                posts.find("[name=post][session_id='"+session_id+"']").show();
+                            }
+                        })
+                        cont.append(d);
+                    }
+
+                    cont.find(".session:first-child").click();
+
+                    GenPageFooter($("[name=sessions_of_topic]").find('.page_footer_holder'), page_cnt, newpage,go);
+                },
+                function()
+                {
+                    G_PopWnd.error("加载失败！");
+                }
+        )
+    };
+
+    go(1);
+
+}
+
+function ProjChatTopicSessionServlet()
+{
+    var key="ProjChatTopicSessionServlet";
+
+    ChartReqComm(key, function(data) {
+        var list=data.get;
+        g_chat_topic_session.list=list;
+        list=g_chat_topic_session.order();
+        var data=[];
+        for(var i=0; i<list.length && i<15; ++i)
+        {
+            data.push({
+                name:list[i].topic_keywords,
+                value:list[i].post_num,
+                topic_id:list[i].topic_id,
+                session_num:list[i].session_num,
+                user_num:list[i].user_num
+            })
+        }
+
+        drawTreeMap(_done_e(key).find("[name=chart]"),data, function(e){
+            return e.point.name+"<br/>"+ "聊天条数："+ e.point.value
+        }, function(e){
+            PopSessionsDetail(e.point.topic_id, e.point.name, e.point.session_num, GetUrlPara('info_id'));
+        });
+
+        var go=function(newpage){
+            var tb=_done_e(key).find("[name=list]");
+
+            tb.find("tr:gt(0)").remove();
+
+            var l=g_chat_topic_session.getPage(newpage);
+
+            for(var i=0; i< l.length; ++i)
+            {
+                tb.find("tbody").append($("<tr title='点击查看'></tr>").append(
+                        $("<td></td>").html(l[i].id)
+                ).append(
+                        $("<td></td>").html(l[i].topic_keywords)
+                ).append(
+                        $("<td></td>").html(l[i].session_num)
+                ).append(
+                        $("<td></td>").html(l[i].post_num)
+                ).append(
+                        $("<td></td>").html(l[i].user_num)
+                ).click(
+
+                        (function(topic_id, topic_keywords, session_num, info_id){
+                            return function(){
+                                PopSessionsDetail(topic_id, topic_keywords, session_num, info_id);
+                            };
+                        })(l[i].topic_id, l[i].topic_keywords, l[i].session_num, GetUrlPara('info_id')))
+
+                );
+            }
+        };
+
+        GenPageFooter(_done_e(key).find('.page_footer_holder'), g_chat_topic_session.page(), 1,go);
+
+        go(1);
+    });
+
+}
+
+function ChatKeywordsDistributeServlet()
+{
+    var key="ChatKeywordsDistributeServlet";
+
+    ChartReqComm(key, function(data){
+
+        var arr=data.get;
+
+        var arr_x=[];
+
+        var arr_y=[];
+
+        var map_num_keyword={};
+
+        var arr_num=[];
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            // 根据不同的出现词频来归类关键词
+            if(!map_num_keyword[arr[i].num])
+            {
+                map_num_keyword[arr[i].num]=[arr[i].keyword];
+                arr_num.push(arr[i].num);
+            }
+            else
+            {
+                map_num_keyword[arr[i].num].push(arr[i].keyword);
+            }
+        }
+
+        // 关键词的频率的倒序
+        arr_num=arr_num.sort(function(a,b){
+            return b-a});
+
+        for(var i=0; i<arr_num.length; ++i)
+        {
+            var arr_keywords=map_num_keyword[arr_num[i]];
+            arr_x=arr_x.concat(arr_keywords);
+            for(var j=0; j<arr_keywords.length; ++j)
+            {
+                arr_y.push(arr_num[i]);
+            }
+        }
+
+
+
+        for(var i=0; i<arr_x.length; ++i)
+        {
+            var keyword=arr_x[i];
+            arr_y[i]={y:arr_y[i],_data_label:keyword};
+            arr_x[i]="热词"+(i+1);
+        }
+
+
+        drawChart1SerieColumn(_done_e(key), "热词指数", "", "", arr_x, arr_y, "", function(e){
+            var keyword=e.point._data_label;
+
+            Pop4KeywordChatQueryPostsServlet(keyword);
+
+        }, true);
+
+
+
+    });
+}
+
+
+function ProjChatAttitudeDistriServlet()
+{
+    var key="ProjChatAttitudeDistriServlet";
+
+    ChartReqComm(key, function(data){
+
+        var list=data.get;
+
+        var positive_num=0;
+
+        var negative_num=0;
+
+        for(var i=0; i<list.length; ++i)
+        {
+            if(list[i].attitude_score < 0)
+            {
+                negative_num+=list[i].post_num;
+            }
+            else if(list[i].attitude_score > 0)
+            {
+                positive_num+=list[i].post_num;
+            }
+        }
+
+        var positive_ratio=0;
+        var negative_ratio=0;
+
+        if( positive_num + negative_num > 0 )
+        {
+            positive_ratio=positive_num/(positive_num+negative_num);
+            negative_ratio=negative_num/(positive_num+negative_num);
+
+            positive_ratio=Math.round(positive_ratio*100)+'%';
+            negative_ratio=Math.round(negative_ratio*100)+'%';
+        }
+
+        var colors=['#22cb22', '#fe6f6b'];
+
+        drawChartPie($('.done[name='+key+'] [name=chart_pie]'), [{
+            name:"正面",y:positive_num,real_name:"正面",_percentage:positive_ratio
+        },{
+            name:"负面",y:negative_num,real_name:"负面",_percentage:negative_ratio
+        }],function (e)
+        {
+            return e.point.real_name  + "聊天条数："+ e.y
+        },null,colors,false, true, true);
+
+    });
+}
+
+var g_wc={
+    enable_positive:true,
+    enable_negative:true,
+    enable_neutral:true,
+    sentiment:[],
+    words:[],
+    font_size_ratio:[],
+    extra_class:[],
+    enlarge_ratio:[],
+    _wc:null,
+    start_roll:function(){
+        if(this._wc)
+        {
+            this._wc.opt.force_stop=false;
+        }
+    },
+    draw:function(){},
+    _draw:function(container, call_back){
+
+        var max_ratio=0.95;
+
+        var min_ratio=0.4;
+
+        var ratio=0;
+
+        var words=[];
+        var extra_class=[];
+        var enlarge_ratio=[];
+        var font_size_ratio=[];
+
+        for(var i=0; i<this.sentiment.length; ++i)
+        {
+            if(this.sentiment[i]>0 && this.enable_positive)
+            {
+                words.push(this.words[i]);
+                extra_class.push(this.extra_class[i]);
+                enlarge_ratio.push(this.enlarge_ratio[i]);
+                font_size_ratio.push(this.font_size_ratio[i]);
+            }
+            else if(this.sentiment[i]<0 && this.enable_negative)
+            {
+                words.push(this.words[i]);
+                extra_class.push(this.extra_class[i]);
+                enlarge_ratio.push(this.enlarge_ratio[i]);
+                font_size_ratio.push(this.font_size_ratio[i]);
+            }
+            else if(this.sentiment[i]==0 && this.enable_neutral)
+            {
+                words.push(this.words[i]);
+                extra_class.push(this.extra_class[i]);
+                enlarge_ratio.push(this.enlarge_ratio[i]);
+                font_size_ratio.push(this.font_size_ratio[i]);
+            }
+        }
+
+        if(words.length>40)
+        {
+            ratio = max_ratio;
+        }
+        else
+        {
+            ratio = words.length / 40 * (max_ratio-min_ratio) + min_ratio;
+        }
+
+        this._wc=new WordCloud(container.empty(), words, call_back, extra_class, ratio, 0, enlarge_ratio, font_size_ratio);
+        this._wc.opt.force_stop=false;
+    },
+    EnableOrDisablePositive:function(e)
+    {
+        $(e).find("*").toggleClass("disable");
+        this.enable_positive = ($(e).find(".disable").length==0);
+        this.draw();
+        //DrawLightTower($("input[name=data_date_start]").val(),$("input[name=data_date_end]").val());
+    },
+    EnableOrDisableNegative:function(e)
+    {
+        $(e).find("*").toggleClass("disable");
+        this.enable_negative = ($(e).find(".disable").length==0);
+        this.draw();
+        //DrawLightTower($("input[name=data_date_start]").val(),$("input[name=data_date_end]").val());
+    },
+    EnableOrDisableNeutral:function(e)
+    {
+        $(e).find("*").toggleClass("disable");
+        this.enable_neutral = ($(e).find(".disable").length==0);
+        this.draw();
+        //DrawLightTower($("input[name=data_date_start]").val(),$("input[name=data_date_end]").val());
+    }
+
+};
+
+function ExpandAllTopics()
+{
+    $("[name=expand_all_topics]").hide();
+    $("[name=unexpand_all_topics]").show();
+    $("[name=all_topics]").slideDown();
+}
+
+function UnexpandAllTopics()
+{
+    $("[name=expand_all_topics]").show();
+    $("[name=unexpand_all_topics]").hide();
+    $("[name=all_topics]").slideUp();
+}
+
+function f1()
+{
+    ProjChatAttitudeDistriServlet();ProjChatSentiTopwordsServlet();
+}
+
+</script>
+</head>
+<body>
+
+
+    <div class="major-w block ma project" name="first_row">
+        <span class="chat-icon qq" style="height:58px;line-height:58px;display:none">&nbsp;&nbsp;</span><span class="chat-icon we-chat" style="height:58px;line-height:58px;display:none">&nbsp;&nbsp;</span><span style="font-size:14px;line-height:58px;text-indent:15px;display:inline-block;">聊天记录“<span name="file_name" class="font-theme"></span>”分析结果如下：</span>
+        <span class="fr" style="font-size:14px;line-height:58px;margin-right:20px;">时间范围：<span name="start_date"></span>~<span name="end_date"></span></span>
+    </div>
+
+    <div id="chart" class="major-w ma" style="position:relative">
+
+        <div class="major-w block ma chart">
+            <div class="hdr">
+                <div class="title">聊天者情感分析</div>
+                <div style="float:right" name="ForumForumPostNumDistributeServlet">
+                    <div class="refresh" onclick="f1()">刷新</div>
+                </div>
+            </div>
+
+            <table class="w100" style="height:400px">
+                <tbody>
+                    <tr>
+                        <td style="width:50%;vertical-align: top">
+                            <div name="ProjChatAttitudeDistriServlet" class="w100 done ma">
+                                <div class="tc" style="padding-top:2em;padding-bottom:1em;font-size:15px;">聊天者情感占比</div>
+                                <div name="chart_pie" style="height:350px"></div>
+                            </div>
+                            <div name="ProjChatAttitudeDistriServlet" class="w100 chart-cont-font loading ma" style="height:400px;"></div>
+                            <div name="ProjChatAttitudeDistriServlet" class="w100 chart-cont-font failure ma" style="height:400px;"></div>
+                        </td>
+                        <td style="width:50%;vertical-align: top">
+                            <div name="ProjChatSentiTopwordsServlet" class="w100 done ma" style="height:400px;">
+                                <div class="tc" style="padding-top:2em;padding-bottom:1em;font-size:15px;">聊天者情感关键词</div>
+                                <div name="chart_wc" style="height:285px">
+
+                                </div>
+                                <div class="tc" style="margin-top:20px"><span class="cp fast-chosen" onclick="g_wc.EnableOrDisablePositive(this)"><span class="f_positive" style="border-radius:3px;margin-right:5px;border:none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>正面</span></span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cp fast-chosen" onclick="g_wc.EnableOrDisableNegative(this)"><span class="f_negative" style="border-radius:3px;margin-right:5px;border:none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>负面</span></span>
+                                </div>
+                            </div>
+                            <div name="ProjChatSentiTopwordsServlet" class="w100 chart-cont-font loading ma" style="height:400px;"></div>
+                            <div name="ProjChatSentiTopwordsServlet" class="w100 chart-cont-font failure ma" style="height:400px;"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+
+        <div class="major-w block ma chart">
+            <div class="hdr">
+                <div class="title">聊天热词统计</div>
+                <div style="float:right" name="ChatKeywordsDistributeServlet">
+                    <div class="refresh" onclick="ChatKeywordsDistributeServlet()">刷新</div>
+                </div>
+            </div>
+            <div name="ChatKeywordsDistributeServlet" class="chart-cont done ma"></div>
+            <div name="ChatKeywordsDistributeServlet" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ChatKeywordsDistributeServlet" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+        <div class="major-w block ma chart" style="height:auto;">
+            <div class="hdr">
+                <div class="title">聊天话题</div>
+                <div style="float:right" name="ProjChatTopicSessionServlet">
+                    <div class="refresh" onclick="ProjChatTopicSessionServlet()">刷新</div>
+                </div>
+            </div>
+            <div name="ProjChatTopicSessionServlet" class="chart-cont2 done ma" style="margin-top:10px;height:auto">
+                <div name="chart" style="height:380px"></div>
+                <div class="tc cp font-theme" name="expand_all_topics" style="font-size:14px;line-height:30px" onclick="ExpandAllTopics()">查看所有话题&nbsp;<span style="background:transparent url(http://image.thinkinggame.cn/img/usercenter/down-arrow-blue.png) no-repeat center center; background-size:contain;">&nbsp;&nbsp;&nbsp;</span></div>
+                <div class="tc cp font-theme" name="unexpand_all_topics" style="font-size:14px;line-height:30px;display:none" onclick="UnexpandAllTopics()">收起所有话题&nbsp;<span style="letter-spacing: -1px">╱╲</span></div>
+                <div name="all_topics" style="display:none">
+                    <table name="list" class="common-table ma " style="width:97.7%;margin-top:10px;">
+                        <tbody>
+                        <tr>
+                            <th style="width:80px">编号</th>
+                            <th>话题摘要</th>
+                            <th style="width:10em;cursor:pointer">聊天片段数量</th>
+                            <th style="width:10em">聊天记录数</th>
+                            <th style="width:10em;cursor:pointer">参与人数</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="page_footer_holder" style="margin-bottom:10px"></div>
+                </div>
+                <div style="height:10px"></div>
+            </div>
+            <div name="ProjChatTopicSessionServlet" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ProjChatTopicSessionServlet" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+        <div name="pop_4_keywords" style="display:none;width:600px;height:500px;overflow-y:scroll">
+            <div name="posts"></div>
+            <div name="more" class="tc cp" onclick="G_LOCAL_STORAGE.PopChatQueryPostsServlet._query(Fill4KeywordsPosts)" style="font-size:14px;line-height:2.5em">加载更多</div>
+        </div>
+
+        <div name="active_userN_posts" style="display:none;width:888px;">
+
+        </div>
+
+        <div name="sessions_of_topic" class="major-w" style="display:none;padding-top:20px;padding-bottom:20px;height:520px;">
+            <table class="w100">
+                <tbody>
+                <tr>
+                    <td style="vertical-align: top">
+                        <div name="list"></div>
+                        <div class="page_footer_holder"></div>
+                    </td>
+                    <td name="posts" style="vertical-align: top">
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="major-w block ma chart" style="height:auto">
+            <div class="hdr">
+                <div class="title">活跃成员</div>
+                <div style="float:right" name="ProjChatActiveUserServlet">
+                    <div class="refresh" onclick="ProjChatActiveUserServlet()">刷新</div>
+                </div>
+            </div>
+            <div name="ProjChatActiveUserServlet" class="chart-cont2 done ma" style="margin-top:20px;height:auto">
+
+                <table class="w100" name="active_user0" style="margin-top:30px;margin-bottom:30px;">
+                    <tbody>
+                        <tr>
+                            <td style="width:200px;">
+                                <div style="width:200px;height:340px;background-color:#fdc54a;color:#000">
+                                    <div style="height:40px;"></div>
+                                    <div style="width:110px;height:110px;line-height:110px;margin:auto;border:3px dashed #ffffff;color:#ffffff;text-align:center;border-radius:110px;font-size:30px;font-weight:bold;">
+                                        TOP1
+                                    </div>
+                                    <ul style="margin-left:40px;margin-top:20px;font-size:14px;line-height:2.5em">
+                                        <li>
+                                            昵称：<span name="author"></span>
+                                        </li>
+                                        <li>
+                                            QQ号：<span name="qq_id"></span>
+                                        </li>
+                                        <li>
+                                            聊天条数：共<span name="post_num">0</span>条
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>
+                                <div style="height:9px;background:transparent url(http://image.thinkinggame.cn/img/chat/top.png) no-repeat left center;background-size:contain"></div>
+                                <div style="height:320px;border:1px solid #e1e4e8;border-left:none;position: relative" name="active_user0_posts">
+
+                                    <table class="w100 bc" style="height:320px">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="overflow-y: scroll;height:300px;width:95%;margin-left:2%;">
+                                                        <div name="posts"></div>
+                                                        <div class="tc cp font-theme-2" name="more" style="line-height:2em;font-size:14px;">加载更多</div>
+                                                        <div class="tc cp font-theme-2" name="more_loading" style="line-height:2em;font-size:14px;display: none">加载中...</div>
+                                                    </div>
+                                                </td>
+                                                <td style="width:171px;border-left:1px solid #e1e4e8;background-color:#f9f9f9;line-height:2em;" class="tc">
+                                                    <div>发言关键词：</div>
+                                                    <div name="top_keywords"></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="left-arrow" style="right: 171px;position: absolute;top: 150px;background-color:#f9f9f9"></div>
+                                </div>
+                                <div style="height:9px;background:transparent url(http://image.thinkinggame.cn/img/chat/bottom.png) no-repeat left center;background-size:contain"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="w100" style="margin-top:40px;">
+                    <tbody>
+                    <tr>
+                        <td name="active_user1">
+                            <div style="margin-bottom:30px;width:95%;">
+                                <div style="height:100px;background-color:#fef4d0">
+                                    <table class="w100" style="height:100px">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width:45%">
+                                                    <div style="width:62px;height:62px;line-height:62px;border-radius:62px;border:2px dashed #ffba00;text-align:center;margin:auto">
+                                                        TOP<span name="rank">2</span>
+                                                    </div>
+                                                </td>
+                                                <td style="font-size:14px;line-height:2em">
+                                                    <div>昵称：<span name="author"></span></div>
+                                                    <div>QQ号：<span name="qq_id"></span></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <table class="w100">
+                                    <tbody>
+                                    <tr>
+                                        <td style="width:8px;background:transparent url(http://image.thinkinggame.cn/img/chat/left.png) no-repeat top center;background-size:contain">
+
+                                        </td>
+                                        <td>
+                                            <div style="border:1px solid #e1e4e8;border-top:0px;height:53px;text-align:center;font-size:14px;line-height:53px" class="cp" name="see_chat">
+                                                <span style="background:transparent url(http://image.thinkinggame.cn/img/common_table/result.png) no-repeat left center;background-size:contain;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>查看聊天内容（共<span class="empha" name="post_num">0</span>条）
+                                            </div>
+                                        </td>
+                                        <td style="width:8px;background:transparent url(http://image.thinkinggame.cn/img/chat/right.png) no-repeat top center;background-size:contain">
+
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td name="active_user2"></td>
+                        <td name="active_user3"></td>
+                    </tr>
+                    <tr>
+                        <td name="active_user4"></td>
+                        <td name="active_user5"></td>
+                        <td name="active_user6"></td>
+                    </tr>
+                    <tr>
+                        <td name="active_user7"></td>
+                        <td name="active_user8"></td>
+                        <td name="active_user9"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div name="ProjChatActiveUserServlet" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ProjChatActiveUserServlet" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+    </div>
+
+
+    <div class="block-margin-h">
+    </div>
+
+</body>
+</html>

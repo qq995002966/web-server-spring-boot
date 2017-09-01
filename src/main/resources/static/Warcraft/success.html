@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <!--script(src='../app/mobile.js')-->
+    <!-- 强制国产浏览器使用 webkit 内核渲染-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-statue-bar-sytle" content="balck-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="keywords" content="ThinkingData,ThinkingGame,数数信息,游戏舆情,游戏口碑,数据服务,大数据">
+    <meta name="description" content="ThinkingData Home">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <!-- IE 浏览器运行最新的渲染模式下-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- build:css assets/css/style.css-->
+    <link href="assets/css/index.css" rel="stylesheet">
+    <!-- endbuild-->
+    <title>Warcraft</title>
+  </head>
+  <body>
+    <div class="header"> <a class="logo"><img src="assets/images/logo.png"></a><a class="url"> www.thinkinggame.cn</a></div>
+    <div class="home-section register">
+      <div class="rate-pop curtain"><span class="title-des"> 登记成功</span><img src="assets/images/title-bg.png" class="title">
+        <div class="curtain-content"></div>
+      </div>
+    </div>
+    <div class="footer-no-btn">
+      <p class="spanyellow">恭喜你，已经成功完成联军登记，面对这场残酷的战争，你可以选择：</p>
+      <ul class="select-list">
+        <li><span class="spanwhite"> A.加入比赛，去邀请更多的联军成员，赢万神殿奖品及 thinkinggame功能现金券</span><span class="icon-list start spanyellow"><a href="index.html" class="spanyellow"> 招募联军</a></span></li>
+        <li style="display: none"><span class="spanwhite">B.加入比赛并愿意和征募者组成战队继续比赛，赢万神殿奖品及 thinkinggame功能现金券</span><span class="icon-list hero spanyellow"> <button id="bs_join_team" class="spanyellow"> 组队战斗 </button></span></li>
+        <li><span class="spanwhite"><span id="bs_character">C</span>.远离战争成为联军后援，享更多后援福利登录thinkinggame.cn领取数据分析装备</span><span class="icon-list clause spanyellow"> <a href="http://www.thinkinggame.cn/" class="spanyellow">远离战争  </a></span></li>
+      </ul>
+    </div>
+    <div id="bs_pop"></div>
+    <!-- lib-->
+    <!-- build:js app/lib.js-->
+    <script src="app/plugins/jquery-1.9.1.min.js"></script>
+    <!-- plugin-->
+    <script src="app/plugins/fontsize.js"></script>
+    <script src="app/plugins/zepto.min.js"></script>
+    <script src="app/plugins/touch.js"></script>
+    <!-- endbuild-->
+    <!-- app-->
+    <!-- build:js app/app.js-->
+    <script src="app/home.js"></script>
+    <script src="app/fight.js"></script>
+    <!-- endbuild-->
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.operation.Mapper_pay_user_area_distri">
+
+    <select id="getPayUserAreaDistriListByGameId" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_pay_user_area_distri">
+        select game_id,user_type,global_classify,area_classify,sum(user_num) user_num from inner_game.pay_user_area_distri where game_id = #{game_id} and data_date between #{start_date} and #{end_date} group by user_type,global_classify,area_classify  order by user_num DESC
+    </select>
+
+    <select id="getPayUserAreaPaidDistriListByGameId" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_pay_user_area_distri">
+        select game_id,global_classify,area_classify,sum(user_num) user_num,sum(arpu) arpu,sum(arppu) arppu,sum(pay_amount) pay_amount from inner_game.pay_user_area_distri where game_id = #{game_id} and user_type='paid' and data_date between #{start_date} and #{end_date} group by global_classify,area_classify  order by user_num DESC
+    </select>
+</mapper>

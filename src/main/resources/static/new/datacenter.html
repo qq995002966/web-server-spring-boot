@@ -1,0 +1,367 @@
+<html>
+<head>
+    <title>数据中心</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Drag-based JavaScript component, embracing endless UI solutions.">
+
+    <script src="elements/js/jquery-1.9.1.min.js"></script>
+    <script src="elements/js/datacenter.js"></script>
+    <script type="text/javascript" src="plugins/layer/layer.js"></script>
+    <script type="text/javascript" src="elements/js/divscroll.js"></script>
+    <script type="text/javascript" src="elements/js/init.js"></script>
+    <link rel="stylesheet" type="text/css" href="elements/css/light.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/common.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/datacenter.css">
+</head>
+<body>
+  <!-- 筛选头部 -->
+  <div class="data-content">
+    <span class="dataicon close-icon"></span>
+    <div class="search">
+       <img src="elements/img/logo_g.png" alt="">
+       <span class="text">数据中心</span>
+       <span><input type="text" class="text-input" placeholder="请输入关键词"></span>
+       <span class="dataicon"></span>
+   </div>
+   <p class="pick-up">
+       <i class="dataicon"></i>
+       <b>收起</b>
+    </p>
+    <ul class="data-content-header">
+      <li class="data-search-type">
+        <ul>
+          <span class="data-type-selected">论坛搜索</span>
+          <span>渠道评论</span>
+          <span>媒体报道</span>
+        </ul>
+          
+      </li>
+<!--  <li class="data-tags multiselect li-hide">
+        <b>相关标签:</b>
+        <span>英雄</span>
+        <span>觉醒</span>
+        <span class="data-span-selected">炼金</span>
+        <span class="data-span-selected">技能</span>
+      </li> -->
+      <li class="data-from li-hide">
+          <b>筛选:</b>
+          <span>
+            <input id="checkFrom" type="checkbox" value=""/>
+            官方论坛_交流区
+            <label for="checkFrom"></label>
+          </span>
+          <span>
+            <input id="checkFrom-a" type="checkbox" value=""/>
+              百度贴吧
+            <label for="checkFrom-a"></label>
+          </span>
+          <span>
+            <input id="checkFrom-b" type="checkbox" value=""/>
+              18183论坛
+            <label for="checkFrom-b"></label>
+          </span>
+          <span>
+            <input id="checkFrom-c" type="checkbox" value=""/>
+              九游论坛
+            <label for="checkFrom-c"></label>
+          </span>
+          <span>
+            <input id="checkFrom-d" type="checkbox" value=""/>
+              360游戏论坛
+            <label for="checkFrom-d"></label>
+          </span>
+      </li>
+      <li class="data-time data-same singleselect li-hide">
+          <b>日期:</b>
+          <span class="data-span-selected">最近7天</span>
+          <span>最近2周</span>
+          <span>最近2月</span>
+          <span>最近3月</span>
+          <input class="start-time" value="2016-03-17">至
+          <input class="end-time" value="2016-03-21">
+          <span><button class="time-confirm-btn" type="confirm">确定</button></span>
+      </li>
+      <li class="data-sort data-same singleselect">
+          <b>排序:</b>
+          <span class="data-span-selected">最新发布</span>
+          <span>最多回复</span>
+      </li>
+    </ul>
+   
+   <!-- 数据列表主体 -->
+    <div class="data-list-content"> 
+    <!-- 左半部分帖子列表 -->
+      <ul class="data-content-left">
+          <ul class="list-content">
+              <ul class="article-list">
+                  <li>
+                      <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                      <span class="article-date">16/4/17</span>
+                  </li>
+                  <li class="detail-infor">
+                      <span class="article-author">作者名</span>
+                      <span class="article-from">百度贴吧</span>
+                      <span class="article-reply-num">118</span>回帖数
+                  </li>
+                  <p>百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上</p>
+
+              </ul>
+              <ul class="article-list">
+                  <li>
+                      <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                      <span class="article-date">16/4/17</span>
+                  </li>
+                  <li class="detail-infor">
+                      <span class="article-author">作者名</span>
+                      <span class="article-from">百度贴吧</span>
+                      <span class="article-reply-num">118</span>回帖数
+                  </li>
+                  <p>百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上</p>
+
+              </ul>
+              <ul class="article-list">
+                  <li>
+                      <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                      <span class="article-date">16/4/17</span>
+                  </li>
+                  <li class="detail-infor">
+                      <span class="article-author">作者名</span>
+                      <span class="article-from">百度贴吧</span>
+                      <span class="article-reply-num">118</span>回帖数
+                  </li>
+                  <p>百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上</p>
+
+              </ul>
+              <ul class="article-list">
+                  <li>
+                      <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                      <span class="article-date">16/4/17</span>
+                  </li>
+                  <li class="detail-infor">
+                      <span class="article-author">作者名</span>
+                      <span class="article-from">百度贴吧</span>
+                      <span class="article-reply-num">118</span>回帖数
+                  </li>
+                  <p>百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上</p>
+
+              </ul>
+              <ul class="article-list">
+                  <li>
+                      <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                      <span class="article-date">16/4/17</span>
+                  </li>
+                  <li class="detail-infor">
+                      <span class="article-author">作者名</span>
+                      <span class="article-from">百度贴吧</span>
+                      <span class="article-reply-num">118</span>回帖数
+                  </li>
+                  <p>百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上</p>
+
+              </ul>
+              <ul class="article-list">
+                  <li>
+                      <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                      <span class="article-date">16/4/17</span>
+                  </li>
+                  <li class="detail-infor">
+                      <span class="article-author">作者名</span>
+                      <span class="article-from">百度贴吧</span>
+                      <span class="article-reply-num">118</span>回帖数
+                  </li>
+                  <p>百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上</p>
+
+              </ul>
+              <ul class="article-list">
+                  <li>
+                      <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                      <span class="article-date">16/4/17</span>
+                  </li>
+                  <li class="detail-infor">
+                      <span class="article-author">作者名</span>
+                      <span class="article-from">百度贴吧</span>
+                      <span class="article-reply-num">118</span>回帖数
+                  </li>
+                  <p>百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上</p>
+
+              </ul>
+              <ul class="article-list">
+                  <li>
+                      <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                      <span class="article-date">16/4/17</span>
+                  </li>
+                  <li class="detail-infor">
+                      <span class="article-author">作者名</span>
+                      <span class="article-from">百度贴吧</span>
+                      <span class="article-reply-num">118</span>回帖数
+                  </li>
+                  <p>百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上</p>
+
+              </ul>
+              <ul class="article-list">
+                  <li>
+                      <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                      <span class="article-date">16/4/17</span>
+                  </li>
+                  <li class="detail-infor">
+                      <span class="article-author">作者名</span>
+                      <span class="article-from">百度贴吧</span>
+                      <span class="article-reply-num">118</span>回帖数
+                  </li>
+                  <p>百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上</p>
+
+              </ul>
+              <ul class="article-list">
+                  <li>
+                      <span class="article-title">脑洞漫画 吓得小红帽吓得小红帽吓得小红帽</span>
+                      <span class="article-date">16/4/17</span>
+                  </li>
+                  <li class="detail-infor">
+                      <span class="article-author">作者名</span>
+                      <span class="article-from">百度贴吧</span>
+                      <span class="article-reply-num">118</span>回帖数
+                  </li>
+                  <p>百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上百度登录登录不上</p>
+
+              </ul>
+
+          </ul>
+
+          <ul class="page-list">
+             <li class="page-num-total">共 <b>100</b> 页</li>
+             <li>
+                <span class="prev page-op"></span>
+                <span class="page-num">第<input type="text" value="2">页</span>
+                <span class="next page-op"></span>
+
+             </li>
+             <li>
+               <span class="confirm"><button type="">确定</button></span>
+             </li>
+          </ul>
+      </ul>
+
+
+      <!-- 右半部分帖子详情 -->
+      <ul class="data-content-right">
+          <li class="title-bar">
+            <span class="title">百度登录登录不上</span>
+            <ul class="infor">
+              <li class="infor-addr"><i></i>采集地址:<span><a href="http://tieba.baidu.com/p/4475242116">http://tieba.baidu.com/p/4475242116</a></span></li>
+              <li class="infor-reply"><i></i>回复数:<span class="reply-num">2</span></li>
+              <li class="infor-time"><i></i>发帖时间:<span class="publish-time">2016-04-09 23:56:00</span></li>
+            </ul>
+          </li>
+          <li class="floor top-one">
+              <img src="elements/img/lz.png" alt="">
+              <i class="author-icon"></i>
+            <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+            <span class="reply-time">2016-04-09 23:56:00</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li>
+          <li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">2楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li>
+          <li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">3楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li><li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">3楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li><li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">3楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li><li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">3楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li><li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">3楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li><li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">3楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li><li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">3楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li><li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">3楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li><li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">3楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li><li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">3楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li><li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">3楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li><li class="floor">
+              <i class="author-icon"></i>
+              <span class="author">小二黑</span>
+              <i class="time-icon"></i>
+              <span class="reply-time">2016-04-09 23:56:00</span>
+              <span class="floor-num">3楼</span>
+              <p class="reply-content">不知道咋办啊不知道咋办啊v不知道</p>
+          </li>
+          <li class="loading-state">
+            <span>已经显示全部</span>
+          </li>
+      </ul>
+    </div>
+  </div>
+  <!-- 快速选择查看数据中心 -->
+    <!--<div class="data-center-quicker data-go-back" id="goBack">-->
+        <!--<span>查看数据中心</span>-->
+        <!--<span class="arrow arrow-op"></span>-->
+    <!--</div>-->
+</body>
+</html>

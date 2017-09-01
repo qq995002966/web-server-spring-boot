@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>突发问题预警邮件设置-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="plugins/icheck/skins/flat/blue.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/suddenly.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/TGWebstyle.css">
+</head>
+<body class="c_bgWhite">
+<div id="suddenly_s">
+    <div class="c_padding30">
+        <dl>
+            <dt>* 预警类型：</dt>
+            <dd id="bs_choose_type"></dd>
+        </dl>
+        <dl>
+            <dt>* 任务名称：</dt>
+            <dd><input type="text" name="email_title" placeholder="如：游戏bug监控" maxlength="100"></dd>
+        </dl>
+        <dl>
+            <dt>* 接收邮箱：</dt>
+            <dd><input type="text" name="email_addr" placeholder="多个邮箱用空格隔开" maxlength="500"></dd>
+        </dl>
+        <dl>
+            <dt>* 发送规则：</dt>
+            <dd id="bs_choose_level"></dd>
+        </dl>
+        <dl>
+            <dt>* 任务状态：</dt>
+            <dd>
+                <input type="radio" name="status" value="1"> 开启　<input type="radio" name="status" value="0"> 关闭
+            </dd>
+        </dl>
+        <dl>
+            <dt>&nbsp;</dt><dd><button type="button" class="btn btn-info tg-main-btn">确认提交</button> <button type="button" class="btn btn-default bs_quit tg-assist-btn">取消设置</button></dd>
+        </dl>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/icheck/icheck.min.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/center.js"></script>
+<script type="text/javascript" src="elements/js/suddenly.js"></script>

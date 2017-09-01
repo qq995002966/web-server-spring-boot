@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.sigma.Mapper_sigma_lt_warn_config">
+
+
+    <select id="getSigmaItWarnConfig" resultType="cn.thinkingdata.web.domain.sigma.Do_sigma_lt_warn_config">
+        select * from sigma_lt_warn_config where project_id = #{project_id} and user_id = #{user_id}
+    </select>
+
+    <insert id="insertSigmaItWarnConfig" parameterType="cn.thinkingdata.web.domain.sigma.Do_sigma_lt_warn_config"  useGeneratedKeys="true" keyProperty="user_id">
+        insert into sigma_lt_warn_config set user_id=#{user_id},task_name=#{task_name}, project_id=#{project_id}, email_addr=#{email_addr}, status=#{status}, lt_warn_class=#{lt_warn_class}, warn_level=#{warn_level},last_send_time=#{last_send_time}
+    </insert>
+
+    <update id="updateSigmaItWarnConfig">
+        update sigma_lt_warn_config set user_id=#{user_id},task_name=#{task_name}, project_id=#{project_id}, email_addr=#{email_addr}, status=#{status}, lt_warn_class=#{lt_warn_class}, warn_level=#{warn_level},last_send_time=#{last_send_time},delete_flag=#{delete_flag}  where id=#{id} and delete_flag=0
+    </update>
+
+    <select id="findCountByUser" resultType="int">
+        select count(*) from sigma_lt_warn_config where user_id = #{user_id}  and delete_flag = 0
+    </select>
+
+    <select id="getSigmaItWarnConfigByUser" resultType="cn.thinkingdata.web.domain.sigma.Do_sigma_lt_warn_config">
+        select * from sigma_lt_warn_config where user_id = #{user_id} and delete_flag = 0 limit #{index},#{limit}
+    </select>
+</mapper>

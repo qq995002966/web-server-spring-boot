@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.order.Mapper_item_unit">
+
+	<select id="getItemUnitById" parameterType="int" resultType="cn.thinkingdata.web.domain.order.Do_item_unit">
+		select * from item_unit where item_id=#{item_id}
+	</select>
+
+	<select id="getItemUnitByItemUnitId" parameterType="int" resultType="cn.thinkingdata.web.domain.order.Do_item_unit">
+		select a.*,b.item_name,b.item_desc,b.service_list,b.game_scope,b.is_on_sale from item_unit a,item b where a.item_unit_id=#{item_unit_id} and a.item_id=b.item_id
+	</select>
+		
+</mapper>

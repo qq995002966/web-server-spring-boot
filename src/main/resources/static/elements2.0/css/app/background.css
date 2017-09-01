@@ -1,0 +1,2356 @@
+@import "base.css";
+@import "../lib/dateRange.css";
+@import "../lib/bootstrap-switch.min.css";
+@import "../lib/wcloud.css";
+@import "backstage.css";
+table {
+    max-width: none !important;
+}
+
+.switch-btn {
+    position: relative;
+    z-index: 1000
+}
+
+#talk .bs_reupload {
+    background-color: #ffffff;
+    border: 0;
+    cursor: pointer;
+    position: relative
+}
+
+#talk .bs_reupload * {
+    cursor: pointer
+}
+
+#talk .tk_how {
+    text-align: center;
+    font-size: 14px;
+}
+
+#talk .up_progress {
+    width: 412px;
+    height: 274px;
+    color: #838e99;
+    background-color: #ffffff;
+    font-size: 14px;
+}
+
+#talk .up_progress-bar {
+    width: 272px;
+    height: 8px;
+    background-color: #838e99;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#talk .up_progress-bar .qq {
+    width: 10px;
+    height: 8px;
+    background-color: #03a9f5;
+    border-radius: 3px;
+}
+
+#talk .up_percent {
+    padding-top: 90px;
+    padding-bottom: 10px;
+    text-align: center
+}
+
+#talk .up_notice {
+    padding-top: 30px;
+    text-align: center
+}
+
+#talk .tk_setup {
+    width: 530px;
+    padding: 16px 30px 16px 40px;
+}
+
+#talk .tk_setup .date-range {
+    height: 35px;
+    border: 1px solid #CCCCCC;
+    width: 420px;
+    display: block;
+    line-height: 35px;
+    z-index: 2;
+    position: absolute;
+    cursor: pointer;
+    margin-top: -18px;
+    padding-left: 15px;
+}
+
+#talk .tk_setup .tk_setup_title {
+    padding-top: 10px;
+    font-size: 14px
+}
+
+#talk .tk_setup .tk_date_area {
+    height: 30px
+}
+
+#talk .tk_setup .tk_date_area i {
+    position: absolute;
+    right: 50px;
+    top: -5px;
+}
+
+#talk .tk_setup .tk_fast_choose span {
+    cursor: pointer
+}
+
+#talk_result .tk_rt_topic {
+    height: 355px;
+    width: 920px
+}
+
+#talk_result .tk_rt_topic_more {
+    height: 35px;
+    line-height: 35px;
+    text-align: center
+}
+
+#talk_result .tk_rt_topic_man_top {
+    height: 340px
+}
+
+#talk_result .tk_rt_topic_man_top_info {
+    width: 210px;
+    height: 340px;
+    background-position: 0 0;
+    top: -8px;
+}
+
+#talk_result .tk_rt_topic_man_top_info .tk_rt_number {
+    position: absolute;
+    top: 77px;
+    left: 62px;
+    color: #ffffff;
+    font-size: 30px
+}
+
+#talk_result .tk_rt_topic_man_top_info .tk_rt_user {
+    position: absolute;
+    top: 190px;
+    left: 10px;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+#talk_result .tk_rt_topic_man_top_list {
+    /* width: 705px; */
+    height: 322px;
+    background-position: 0 0;
+    border: 1px solid #E1E4E8;
+    margin-top: 9px;
+    border-left: 0;
+    margin-left: 210px;
+    float: none;
+    margin-right: 170px;
+}
+
+#talk_result .tk_rt_topic_man_top_list .tk_rt_topic_man_detail_width {
+    width: 98%;
+    height: 320px;
+    /* margin-right: 170px; */
+}
+
+#talk_result .tk_rt_topic_man_list ul {
+    list-style: none;
+}
+
+#talk_result .tk_rt_topic_man_list ul li {
+    background: url("../../img/chat/talk.jpg") no-repeat;
+    position: relative;
+    width: 290px;
+    height: 154px;
+    background-position: -213px -262px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 30px
+}
+
+#talk_result .tk_rt_topic_man_list ul .liNoMargin {
+    margin-right: 0
+}
+
+#talk_result .tk_rt_topic_man_list ul li .tk_rt_number {
+    position: absolute;
+    top: 38px;
+    left: 35px;
+    font-size: 16px;
+}
+
+#talk_result .tk_rt_topic_man_list ul li .tk_rt_user {
+    position: absolute;
+    left: 100px;
+    top: 27px;
+    line-height: 20px
+}
+
+#talk_result .tk_rt_topic_man_list ul li .tk_rt_detail {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    width: 290px;
+    text-align: center;
+    line-height: 53px
+}
+
+.tk_top_img {
+    background: url("../../img/chat/talk.jpg") no-repeat
+}
+
+.tk_rt_topic_man_detail {
+    padding: 10px;
+    overflow: auto;
+    word-break: break-all
+}
+
+.tk_rt_topic_man_detail dl {
+    border-bottom: 1px dashed #E1E4E8
+}
+
+.tk_rt_topic_man_detail dl dt {
+    height: 30px;
+    line-height: 30px;
+    color: #a7abae;
+    font-weight: normal
+}
+
+.tk_rt_topic_man_detail dl dd {
+    line-height: 25px;
+    padding-bottom: 10px
+}
+
+.tk_rt_topic_man_more {
+    text-align: center;
+    height: 40px;
+    line-height: 40px
+}
+
+.tk_rt_topic_man_keyword {
+    width: 170px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #E1E4E8;
+    height: 320px;
+    position: absolute;
+    right: 30px;
+}
+
+.tk_rt_topic_man_arrow {
+    width: 10px;
+    height: 20px;
+    background-position: -211px -156px;
+    position: absolute;
+    left: -10px;
+    top: 150px
+}
+
+.tk_rt_topic_man_keyword_list {
+    line-height: 30px;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 60px
+}
+
+.lt_fmPlWPos {
+    color: #2ed383;
+}
+
+.lt_fmPlWNeg {
+    color: #f7606f;
+}
+
+.tk_rt_topic_man_more span {
+    cursor: pointer;
+}
+
+.tk_rt_topic_man_more span:hover {
+    text-decoration: underline;
+}
+
+#talk_result .tk_rt_half_word a:hover {
+    background-color: #237bd0;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.layui-layer-title {
+    height: 60px;
+    line-height: 60px;
+}
+
+.layui-layer-setwin {
+    top: 20px;
+}
+
+.text-center button {
+    display: inline-block;
+}
+
+.py_mplist {
+    width: 185px;
+    margin-top: 40px;
+}
+
+.py_mplist .py_mplist20 {
+    width: 20%
+}
+
+.py_mplist .py_mplist40 {
+    width: 40%;
+    overflow: hidden
+}
+
+.py_mplist dl dt,
+.py_mplist dl dd {
+    height: 45px;
+    line-height: 45px;
+    float: left
+}
+
+#areaPart {
+    float: right;
+    margin-top: 20px;
+}
+
+.py_layer {
+    width: 580px;
+}
+
+.py_layer .py_lyarea {
+    padding: 20px
+}
+
+.py_layer .py_lytitle {
+    height: 35px;
+    border-bottom: 2px solid #DEE2E7;
+    position: relative
+}
+
+.py_layer .py_lytitle h4 {
+    height: 35px;
+    position: absolute;
+    display: block;
+    left: 0;
+    font-size: 16px
+}
+
+.py_layer .py_lytitle b {
+    position: absolute;
+    right: 0;
+    display: block;
+    cursor: pointer
+}
+
+.py_layer .py_lyfew button {
+    display: block;
+    float: left;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 5px 10px;
+    background-color: #ffffff;
+    border: 1px solid #C6CBD1;
+    margin: 15px 5px 0 5px;
+    color: #3A3838;
+}
+
+.py_layer .py_lyfew .btnhover {
+    background-color: #237bd0;
+    color: #ffffff;
+}
+
+.py_layer .py_lycheck {
+    border-top: 2px solid #DEE2E7;
+    margin-top: 15px;
+    text-align: center;
+    padding: 15px
+}
+
+.py_layer .py_lycheck button {
+    padding: 5px 25px;
+    border: 1px solid #237bd0;
+}
+
+.py_layer .py_lycheck .py_lylinkbtn {
+    color: #237bd0;
+    background-color: #fff;
+}
+
+.py_layer .py_lycheck .py_lycheckbtn {
+    background-color: #237bd0;
+    color: #ffffff;
+}
+
+.py_layer .py_auto {
+    overflow: auto
+}
+
+.py_layer .py_lymore dl {
+    border-bottom: 1px solid #F5F6F7;
+    position: relative;
+    padding: 5px 0px 5px 100px;
+    display: block;
+    font-size: 12px;
+    min-height: 30px
+}
+
+.py_layer .py_lymore dt {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 13px
+}
+
+.py_layer .py_lymore dd {
+    float: left;
+    width: 110px;
+    height: 28px;
+    line-height: 30px;
+}
+
+.py_layer .py_select {
+    color: #ffffff;
+    background-color: #C5CBD1;
+    width: 155px;
+    position: relative
+}
+
+.py_layer .py_select .py_selarea {
+    height: 30px;
+    width: 150px
+}
+
+.py_layer .py_select span {
+    display: block;
+    height: 35px;
+    line-height: 30px;
+    padding-left: 20px
+}
+
+.py_layer .py_select i {
+    position: absolute;
+    right: 10px;
+    top: 13px;
+    width: 10px;
+    height: 6px;
+    background: url("../../img/face/arrow.png") no-repeat -12px -1px;
+    cursor: pointer
+}
+
+.py_layer .py_select ul {
+    position: absolute;
+    top: 32px;
+    background-color: #C5CBD1;
+    width: 155px;
+    height: 100px;
+    overflow: auto;
+    border-radius: 0 5px 5px 0;
+    display: none;
+    z-index: 1
+}
+
+.py_layer .py_select ul li {
+    height: 25px;
+    line-height: 25px;
+    padding-left: 20px;
+    cursor: pointer
+}
+
+.py_clear {
+    clear: both
+}
+
+.b_chart_area {
+    height: 440px;
+    width: 100%
+}
+
+.layui-layer {
+    box-shadow: none;
+}
+
+.layui-layer-iframe .layui-layer-content {
+    min-height: 200px;
+}
+
+.complaint-h {
+    background: url(../../img/h.png) no-repeat;
+    background-size: 100%;
+    height: 51px;
+    position: absolute;
+    width: 80%;
+    bottom: 10px;
+    left: 80px;
+}
+
+.complaint-s {
+    background: url(../../img/s.png) no-repeat;
+    background-size: 100%;
+    width: 7%;
+    position: absolute;
+    height: 486px;
+}
+
+ul.pop-list > li.push {
+    margin-top: -20px;
+}
+
+.laydate_box,
+.laydate_box * {
+    box-sizing: content-box;
+}
+
+div.tg-table-layout div.tg-table-content div.tg-table-wrap div.table-out-wrap {
+    margin-top: 30px;
+}
+
+div.cs_chart_log {
+    padding: 20px 15px;
+}
+
+.b_chart_wrap {
+    height: 94%;
+    width: 100%;
+    padding: 0 0 0 50px;
+}
+
+.cs_chart_table {
+    padding-bottom: 0 !important;
+    /*padding-bottom: 20px;*/
+}
+
+.tg-only-chart {
+    padding-bottom: 1px !important;
+}
+
+.talk-graph .words-union a:hover {
+    color: #fff;
+    background: #237bd0;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.table-contrast {
+    position: relative;
+    top: 20px;
+}
+
+span#leftNotice2 {
+    position: absolute;
+    left: 23px;
+    top: 58px;
+}
+
+span#rightNotice2 {
+    position: relative;
+    top: 37px;
+    left: 25%;
+}
+
+.boxshadow.game-overview.add-new a {
+    margin-top: 40px;
+    display: block;
+    cursor: pointer;
+}
+
+.boxshadow.game-overview.add-new a+h5 {
+    margin-top: 35px;
+    border-top: 1px solid #fff;
+    padding-top: 35px;
+}
+
+.ta_btn {
+    background-color: #efeff0;
+    color: #545454;
+    border: 1px solid #cdcdcd;
+}
+
+.ta_btn:hover {
+    background-color: #CFD0D2;
+    text-decoration: none;
+    color: #333333;
+}
+
+.ta_btn_primary {
+    background-color: #237bd0 !important;
+    border: 1px solid #237bd0 !important;
+    color: #237bd0;
+    color: #fff;
+}
+
+.ta_btn_primary:hover {
+    background-color: #3064ac !important;
+    color: #fff;
+    text-decoration: none;
+}
+
+div.property-pop {
+    /*width: 1050px;*/
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+}
+
+div.property-content {
+    /*    height: 416px;
+    width: 1040px;*/
+    overflow-y: auto;
+}
+
+div.property-pop div.pro-content h1 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #787878;
+    margin-bottom: 15px;
+}
+
+div.property-pop div.pro-content ul li {
+    background-color: #e9ecf3;
+    border: 1px solid #e5e5e5;
+    padding: 20px 15px;
+    list-style: none;
+    color: #787878;
+    font-size: 13px;
+}
+
+div.property-pop div.pro-content ul li span {
+    line-height: 30px;
+    margin-right: 35px;
+    display: inline-block;
+}
+
+div.property-pop div.pro-content ul li span b {
+    margin: 0 3px;
+}
+
+div.player-graph {
+    /*padding-top: 50px;*/
+    height: 501px;
+    margin: 0;
+    /* background: #ddc9c9 !important; */
+    padding: 50px 0 20px 0;
+    width: 100% !important;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+div.tg-table-layout div.tg-table-content .tg-tab-btn {
+    position: relative;
+    top: 15px;
+}
+
+.cs_chart_table {
+    position: relative;
+}
+
+.cs_chart_table .tg-selected-drop {
+    width: 130px;
+    /*float: right;*/
+    right: 30px;
+    top: 18px;
+    z-index: 2;
+    position: absolute;
+    /*margin-bottom: 20px;*/
+}
+
+.tg-selected-drop > ul {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.cs_chart_table .tg-selected-drop p {
+    height: 25px;
+    line-height: 25px;
+}
+
+.tg-page-list > ul > li > .turn:hover {
+    background-color: #CFD0D2;
+}
+
+li.boxshadow.first-floor a {
+    color: #333;
+}
+
+li.boxshadow.first-floor a:hover {
+    color: #237bd0;
+}
+
+.article-list ul.detail-right > div.scroll-wrap li > div p img {
+    max-width: 700px;
+}
+
+.webuploader-pick {
+    margin-right: 0 !important;
+}
+
+thead.boxshadow {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.32);
+}
+
+.tk_fast_choose span:hover {
+    color: #237bd0;
+    text-decoration: underline;
+}
+
+.report-b {
+    position: relative;
+}
+
+.report-b .des {
+    position: absolute;
+    top: 20%;
+    color: #fff;
+    text-align: center;
+    width: 476px;
+    left: 50%;
+    margin-left: -238px;
+}
+
+.report-b .des h2 {
+    margin-bottom: 30px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.report-b .des p {
+    color: #fff;
+    font-size: 14px;
+}
+
+.bootstrap-switch {
+    border-radius: 14px;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary {
+    background: #237bd0;
+}
+
+.layui-layer-btn {
+    width: 156px;
+    position: relative;
+    left: 50%;
+    margin-left: -78px;
+}
+
+div.player-graph + .tg-table-wrap {
+    height: 501px;
+}
+
+.post-part > div > a.boxshadow {
+    display: block;
+    cursor: pointer;
+}
+
+.post-part > div > a.boxshadow:hover {
+    text-decoration: none;
+}
+
+.property-pop .btn {
+    position: relative;
+    left: 50%;
+    margin-left: -63px;
+    top: 10px;
+}
+
+.post-part > div > a.boxshadow {
+    text-decoration: none;
+}
+
+.hover-show:hover .mask-hover {
+    text-decoration: none;
+}
+
+li.tip-hover {
+    width: auto;
+}
+
+.homepage .three-height .smart {
+    height: 380px;
+}
+
+p.tg-drop-text-part span.hot-area {
+    position: relative;
+    z-index: 3;
+    padding-right: 30px;
+}
+
+p.report-summary {
+    position: relative;
+}
+
+
+/*p.report-summary:after {
+    content: '...';
+    color: #636363;
+    top: 68px;
+    position: absolute;
+    right: 0;
+}*/
+
+div#tab_user_chart ul.tg-tab-change-block {
+    margin: -20px -15px 20px -15px;
+    /*height: 47px;*/
+}
+
+div#tab_user_chart ul li {
+    margin-right: -4px;
+}
+
+div.dataoverview ul.data-list li > div span.cursor-default {
+    cursor: default !Important;
+}
+
+h3.tip-hover.more-width .tip-box-content {
+    width: 390px;
+}
+
+.tg-talk-resolve+span {
+    position: relative;
+    left: -4px;
+    cursor: default;
+    text-decoration: none;
+}
+
+.failed,
+.no-resolve {
+    cursor: default;
+    text-decoration: none;
+}
+
+.failed:hover,
+.no-resolve:hover,
+.tg-talk-resolve+span:hover {
+    text-decoration: none;
+}
+
+.tg-talk-resolve {
+    margin-left: 12px;
+}
+
+#talk div#lt_item_list {
+    max-height: 672px;
+}
+
+#talk .tg-table .bs_reupload {
+    background: #237bd0;
+    border: 1px solid #237bd0;
+    position: relative;
+    top: 1px;
+    color: #fff;
+}
+
+#talk .tg-table .bs_reupload .webuploader-pick {
+    color: #fff;
+    opacity: 1;
+}
+
+input.webuploader-element-invisible {
+    opacity: 0;
+    font-size: 0;
+    width: 100px;
+    cursor: pointer !important;
+}
+
+.talk table td.resolving:hover {
+    text-decoration: none;
+}
+
+.talk table td.failed:hover {
+    text-decoration: none;
+}
+
+.talk table td.doc i.tg-icon {
+    cursor: default;
+}
+
+.talk table td.failed {
+    color: #e44d3c;
+    font-size: 12px !important;
+}
+
+td.doc.failed .tg-talk-resolve+span {
+    position: relative;
+    left: -20px;
+    color: #e44d3c;
+}
+
+td.doc.failed i {
+    position: relative;
+    left: -17px;
+}
+
+.talk table td.doc.no-resolve {
+    color: #565656;
+    font-size: 12px !important;
+}
+
+.talk table td.doc.no-resolve:hover {
+    text-decoration: none;
+}
+
+.talk table td.resolving+td>button {
+    position: relative;
+    left: -46px;
+}
+
+.talk table td.no-resolve>span {
+    position: relative;
+    left: -7px;
+}
+
+.tr-selected {
+    background-color: #EBF5FC !important;
+}
+
+.report-top img,
+.tg-report-icon {
+    top: 5px;
+}
+
+div.tg-filter-show ul.hot-filter-list {
+    width: 402px !important;
+}
+
+div.dataoverview ul.data-list li>div span {
+    z-index: 5;
+}
+
+.area-page-list {
+    height: 380px;
+}
+
+div.area-page-list+ul.tg-page-list {
+    padding: 0 20px;
+    position: absolute;
+    /* margin-top: 15px; */
+    z-index: 2;
+    width: 100%;
+}
+
+div.player-graph {
+    position: relative;
+}
+
+div#headerTop .fl .tg-tab-btn li {
+    height: 35px;
+    width: 110px;
+    line-height: 26px;
+    text-align: center;
+}
+
+div#headerTop .fl .tg-tab-btn {
+    position: relative;
+    top: 28px;
+    left: 10px;
+}
+
+.area-tab-change {
+    position: absolute;
+    width: 98%;
+}
+
+.post-part > div > .post3 .des h1 {
+    font-weight: bold;
+    color: #e2bf79;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.post-part > div > .post3 .des p {
+    color: #e2bf79;
+    font-size: 17px;
+}
+
+.post-part > div > .post3 .des h1+p+p {
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
+}
+
+.post-part > div > .post3 .des h2 {
+    font-size: 17px;
+    font-weight: bold;
+    color: #e2bf79;
+    position: absolute;
+    bottom: -55px;
+    width: 100%;
+    text-align: center;
+}
+
+.post-part > div > .post3 .des {
+    margin-top: -120px;
+}
+
+.post-part > div > .post3 .des h1+p {
+    font-size: 20px;
+}
+
+.avg-part {
+    height: 46px;
+    background: #ebebed;
+    padding: 0 27px;
+    line-height: 46px;
+    font-size: 14px;
+}
+
+.avg-part span {
+    color: #080808;
+}
+
+.avg-part span b {
+    margin: 0 5px;
+    color: #249dd2;
+    font-weight: normal;
+}
+
+ul.area-tab-change+.cs_chart_table .table-out-wrap .table {
+    margin-top: 20px;
+}
+
+.cs_chart_table .tg-selected-drop p {
+    height: 30px;
+    line-height: 30px;
+}
+
+.tableArea-color-change .tg-selected-drop {
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-left: 15px;
+    top: 0px;
+    right: 0;
+}
+
+div.tg-table-layout div.tg-table-content .tableArea-color-change .tg-tab-btn {
+    top: 5px;
+}
+
+.tableArea-color-change ul.tg-tab-btn li {
+    height: 30px;
+    line-height: 23px;
+    top: -5px;
+}
+
+div.tg-table-layout div.tg-table-content div.tg-table-wrap>span {
+    float: left;
+    position: relative;
+    top: 5px;
+}
+
+div.tg-table-layout div.tg-table-content div.tg-table-wrap div.table-out-wrap {
+    /*height: 415px !important;      */
+}
+
+.area-tab-change+.cs_chart_table .tg-page-list {
+    margin-top: 8px;
+    width: 100%;
+    bottom: 20px;
+}
+
+div.tg-table-layout div.tg-table-content div.tg-table-wrap div.no-margin-top {
+    margin-top: 0;
+}
+
+td.td-blue {
+    background: rgba(51, 152, 220, 1);
+}
+
+div.tg-table-layout div.tg-table-content div.tableArea-color-change table {
+    border: 1px solid #d2d2d2;
+}
+
+div.tg-table-layout div.tg-table-content div.tableArea-color-change table thead {
+    box-shadow: none;
+}
+
+div.tg-table-layout div.tg-table-content div.tableArea-color-change table thead th {
+    border: 1px solid #d2d2d2 !important;
+    font-weight: normal;
+}
+
+div.tg-table-layout div.tg-table-content div.tableArea-color-change table.tg-table tbody tr td {
+    height: 46px !important;
+    line-height: 46px !important;
+    border: 1px solid #d2d2d2;
+}
+
+div.tg-table-layout div.tg-table-content div.tableArea-color-change div.table-out-wrap {
+    max-height: 596px !important;
+    height: 596px !important;
+}
+
+div.tg-table-layout div.tg-table-content div.tableArea-color-change div.table-out-wrap table.tg-table tbody tr:nth-child(even) {
+    background-color: transparent;
+}
+
+div#tab_user_chart .avg-part {
+    margin: -20px -15px 10px -15px;
+}
+
+div.tg-table-layout div.tg-table-content div.tg-table-row-20 div.table-out-wrap {
+    height: 770px !important;
+    max-height: 770px !important;
+}
+
+i.alert-point {
+    background: #e6646d;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    left: 10px;
+    top: 50%;
+    margin-top: -5px;
+}
+
+.tg-tab-change-block li {
+    position: relative;
+}
+
+div.tg-table-layout > h3 {
+    position: relative;
+}
+
+div.tg-table-layout > h3 i.alert-point {
+    left: -15px;
+}
+
+.tg-only-chart .tg-selected-drop {
+    /*    position: absolute;
+    left: 30px;*/
+    top: 10px;
+    z-index: 1;
+}
+
+.chart-wrap-drop {
+    width: 400px;
+    position: absolute;
+    left: 30px;
+}
+
+.chart-wrap-drop .tg-selected-drop {
+    float: left;
+    position: relative;
+    right: 0;
+}
+
+.chart-wrap-drop>span {
+    display: inline-block;
+    position: relative;
+    top: 18px;
+    margin-right: 10px;
+    /* width: 300px; */
+    /* overflow: hidden; */
+    float: left;
+}
+
+div#headerTop div.tg-date-selected-drop .tg-date-drop i {
+    top: 8px;
+}
+
+div#headerTop .fl {
+    margin-right: 10px;
+}
+
+div#headerTop .bs_device p,
+div#headerTop .bs_list p,
+div#headerTop .bs_type p {
+    width: 135px !important;
+}
+
+.game-name-show {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-right: -20px;
+    margin-left: -20px;
+    padding-left: 30px;
+    padding-top: 15px;
+}
+
+.game-name-show div img {
+    width: 30px;
+    height: 30px;
+}
+
+.gs-heigh {
+    height: 487px;
+}
+
+.gs-height-a {
+    height: 435px;
+}
+
+.gs-height-b {
+    height: 490px;
+}
+
+div.tg-table-layout #playerTalkRank .tg-table-wrap .table-out-wrap {
+    height: 585px !important;
+    max-height: 585px;
+}
+
+div.tg-table-layout #playerTalkRank .tg-date-fl {
+    margin-bottom: 0px;
+}
+
+div.tg-table-layout #playerTalkRank div.tg-height-hight table.tg-table tbody tr td {
+    height: 50px !important;
+    line-height: 50px !important;
+}
+
+div.tg-table-layout div#playerTalkRank div.tg-table-wrap div.table-out-wrap {
+    margin-top: 0px;
+}
+
+div.tg-table-layout #playerTalkRank div.tg-height-hight div.table-out-wrap table.tg-table tbody tr td .tg-tab-btn li:hover {
+    color: #237bd0;
+    background-color: #fff;
+    cursor: default;
+}
+
+.tab-click-change {
+    position: relative
+}
+
+div#allComment .detail-right .tg-page-list {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-top: 0;
+}
+
+.player-response .fl .problem-list>p {
+    text-align: right;
+    position: relative;
+    top: -10px;
+    white-space: nowrap;
+}
+
+.yuqing-center .game-list li:hover {
+    background: #e7f3fb;
+}
+
+.blockpart .yu-hot-game .game-list li .fr li span {
+    cursor: default;
+}
+
+.yu-search-title b {
+    color: #237bd0;
+    font-size: 14px;
+}
+
+.yu-my-game .game-list > li div.fl ul.tg-tab-btn li:hover {
+    background: #237bd0;
+}
+
+.recommend-game ul li {
+    cursor: pointer;
+}
+
+ul.channel-card-list li span {
+    white-space: nowrap;
+    display: inherit;
+}
+
+.channel-emotion-analysis .graph-part * {
+    cursor: default;
+}
+
+.blockpart .no-pointer .game-list .fl p {
+    cursor: default !important;
+}
+
+.blockpart .no-pointer .game-list .fl p:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+div#playerTalkRank .tg-tab-btn li {
+    cursor: default;
+}
+
+div#playerTalkRank .tg-tab-btn li:hover {
+    background: #fff;
+    color: #237bd0;
+}
+
+div#bs_radar * {
+    cursor: default;
+}
+
+.hotword-rank .wrap .graph-wrap div ul.tab-click-change li {
+    border-right: 1px solid #499acf;
+}
+
+span.bootstrap-switch-label {
+    position: relative;
+    left: -1px;
+}
+
+.tip-box-show .tip-box-content br {
+    display: inline;
+    line-height: 30px;
+    clear: both;
+}
+
+@media screen and (max-width: 1350px) {
+    .face-fullScreen {
+        width: 100%;
+    }
+}
+
+div.footer div.footer-bottom span.fr a {
+    color: #7d818a;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+
+/*后台广告*/
+
+.adver-content {
+    margin-top: 100px;
+}
+
+.adver-bg {
+    max-width: 60%;
+    max-height: 1014px;
+    width: 100%;
+    float: right;
+    margin-top: 100px;
+}
+
+.adver-des {
+    margin-top: 10%;
+    margin-left: 50px;
+}
+
+.adver-des h3 {
+    font-size: 30px;
+    margin-bottom: 35px;
+    color: #333;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+.adver-des p {
+    font-size: 16px;
+    margin-bottom: 78px;
+    line-height: 35px;
+}
+
+.adver-des button {
+    display: inline-block;
+}
+
+@media screen and (max-width: 1635px) {
+    .adver-des h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #333;
+        font-weight: bold;
+        line-height: 30px;
+    }
+    .adver-des p {
+        font-size: 14px;
+        margin-bottom: 58px;
+        line-height: 20px;
+    }
+    .adver-bg {
+        width: 55%;
+    }
+}
+
+
+/*个人中心*/
+
+.personalcenter-content .blockpart .boxshadow {
+    height: 790px;
+}
+
+.personalcenter-content .top-wrap {
+    border-bottom: 1px solid #ccc;
+    padding: 0 16px;
+    margin: 0 -16px;
+    padding-bottom: 20px;
+    height: 142px;
+}
+
+.personalcenter-content .top-wrap img {
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    border-radius: 10px;
+    /*border: 1px solid #237bd0;*/
+}
+
+.personalcenter-content .top-wrap .des {
+    margin-left: 170px;
+}
+
+.personalcenter-content .no-infor {
+    border: none;
+    width: 400px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin: 0;
+    margin-top: -71px;
+    margin-left: -200px;
+    padding: 0;
+}
+
+.personalcenter-content .p-base-infor .infor-content .des li span {
+    width: auto;
+    display: block;
+    position: relative;
+    /* top: -20px; */
+    /* margin-bottom: -30px; */
+    /*padding-left: 98px;*/
+    margin-right: 0;
+    /*max-height: 100px;*/
+    overflow: hidden;
+}
+
+.personalcenter-content .no-infor button {
+    margin-left: 0;
+}
+
+.personalcenter-content .no-infor p {
+    font-size: 17px;
+}
+
+.personalcenter-content .des li b {
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 4px;
+    width: 98px;
+    float: left;
+}
+
+.personalcenter-content .des li span {
+    font-size: 14px;
+    margin-right: 16px;
+    display: inline-block;
+}
+
+.personalcenter-content .des li input {
+    width: 160px;
+    height: 30px;
+    border: 1px solid #ccc;
+    margin-right: 16px;
+    padding-left: 10px;
+}
+
+.personalcenter-content .des li button {
+    display: inline-block;
+}
+
+button#bs_check_confirm {
+    margin-right: 10px;
+}
+
+.personalcenter-content .des li span.edit {
+    cursor: pointer;
+}
+
+.personalcenter-content .des li {
+    margin-bottom: 20px;
+}
+
+.personalcenter-content .des li i {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #37d077;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 15px;
+    text-align: center;
+}
+
+.personalcenter-content .infor-content .des {
+    padding: 40px 0px;
+}
+
+.personalcenter-content .infor-content .des li {
+    margin-top: 50px;
+}
+
+.personalcenter-content .infor-content .des li:first-child {
+    margin-top: 0;
+}
+
+.personalcenter-content .infor-content .des li input {
+    width: 100%;
+    display: block;
+    /*margin-left: 98px;*/
+    margin-right: 0;
+    position: relative;
+    top: -20px;
+    margin-bottom: -20px;
+}
+
+.personalcenter-content .infor-content .des #selectWrap #dropDown p {
+    width: auto;
+    margin-left: 98px;
+}
+
+.personalcenter-content .des li i.had-approve {
+    border: 2px solid #37d077;
+}
+
+.personalcenter-content .des li i.had-fail {
+    border: 2px solid #bc0026;
+}
+
+.personalcenter-content .des li i.had-approving {
+    border: 2px solid #adadad;
+}
+
+.personalcenter-content .text-green {
+    color: #37d077;
+}
+
+.personalcenter-content .text-blue {
+    color: #237bd0;
+}
+
+.personalcenter-content .text-red {
+    color: #bc0026;
+}
+
+.personalcenter-content .text-gray {
+    color: #adadad;
+}
+
+
+/*后台优化*/
+
+.yuqing-search-result .game-list > li div.fl p {
+    width: 550px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.yuqing-search-result .game-list > li div.fl p:hover {
+    color: #333 !important;
+    text-decoration: none !important;
+    cursor: default !important;
+}
+
+@media screen and (max-width: 1280px) and (max-width: 1440px) {
+    .yuqing-search-result .game-list > li div.fl p {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (max-width: 1440px) {
+    .yuqing-search-result .game-list > li div.fl p {
+        width: 250px;
+    }
+}
+
+#bs_search_other .yuqing-search-result .game-list > li div.fl img {
+    cursor: default;
+}
+
+
+/*下拉框*/
+
+.tg-search-drop+#menuNav {
+    margin-top: 25px;
+}
+
+#selectWrap .dropDown {
+    position: relative;
+}
+
+#selectWrap .dropDown p {
+    width: auto;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    color: #333;
+    margin-left: 98px;
+    padding-left: 10px;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+#selectWrap .dropDown p span {
+    text-align: left;
+    margin-left: 0;
+    top: 0;
+    padding-left: 0;
+}
+
+#selectWrap .dropDown i.drop-icon {
+    background: url(../../img/lr/lr-icon.png) no-repeat;
+    width: 14px;
+    height: 10px;
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background-position: -66px -23px;
+    border: none;
+    border-radius: 0;
+}
+
+#selectWrap .dropDown ul {
+    position: absolute;
+    left: 98px;
+    z-index: 2;
+    width: auto;
+    background: #F4F4F4;
+    border: 1px solid #F4F4F4;
+    height: 125px;
+    overflow: auto;
+    display: none;
+    right: 0;
+}
+
+#selectWrap .dropDown ul li {
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 10px;
+}
+
+#selectWrap .dropDown ul li:hover {
+    background: #237bd0;
+}
+
+#selectWrap .dropDown ul li:hover a {
+    color: #fff;
+}
+
+#selectWrap .dropDown ul li a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+div.mainFullcontent {
+    min-height: 750px !important;
+}
+
+.yuqing-search-result .game-list .fl {
+    width: 670px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 1405px) {
+    .yuqing-search-result .game-list > li div.fl {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 1275px) {
+    .yuqing-search-result .game-list > li div.fl {
+        width: 310px;
+    }
+}
+
+.report-part .report-list li .des-wrap:after {
+    content: '...';
+}
+
+.report-no-service .report-list li .des-wrap:after {
+    content: '';
+}
+
+.halfscreen-post .blockpart .post1 {
+    height: auto;
+    min-height: 180px;
+    height: auto;
+    padding: 0;
+    cursor: pointer;
+}
+
+.halfscreen-post .post1 img {
+    width: 100%;
+}
+
+div#headerTop span.hotword+.tg-selected-drop {
+    top: 50%;
+    margin-top: -14px;
+}
+
+div#headerTop span.hotword {
+    position: relative;
+    top: 50% !important;
+    margin-top: -7px;
+    /* color: #fff; */
+    color: #8c8c8c;
+}
+
+div#headerTop .analysis-data-des {
+    position: relative;
+    top: 22px;
+}
+
+div#headerTop .analysis-data-des span b {
+    color: #237bd0;
+}
+
+div#headerTop .analysis-data-des span b:first-child {
+    margin: 0px 6px;
+}
+
+div#headerTop .analysis-data-des a {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.all-player-tags+.blockpart {
+    margin-top: -40px;
+}
+
+.auto-search-pop .wrap .select-factor li div span {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    color: #888;
+}
+
+.auto-search-pop .wrap .select-factor li div span.zhi {
+    display: inline-block;
+    margin: 0;
+    color: #333;
+}
+
+.auto-search-pop .wrap .select-factor li > div {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.auto-search-pop .wrap {
+    background: #eaebec;
+    border-bottom: 1px solid #ccc;
+    height: 100px;
+    overflow: hidden;
+}
+
+.article-detail-content table tr div {
+    width: 715px;
+    margin: 0 auto;
+}
+
+.gray-top-search .search-wrap i.tg-search-btn {
+    cursor: pointer;
+}
+
+.tg-header-slider .slider-content .slider-wrap ul li i {
+    font-style: normal;
+    margin-left: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.key-player .blockpart .boxshadow ul li a {
+    cursor: pointer;
+}
+
+.report-part .report-b .btn-union {
+    margin-left: -50px !important;
+}
+
+.no-cursor {
+    cursor: default !important;
+}
+
+.all-player-tags .no-title .boxshadow .graph-part canvas {
+    cursor: default;
+}
+
+.auto-search-pop .wrap .side-tab-change > span b {
+    color: #777;
+    font-weight: normal;
+    position: absolute;
+    right: 31px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.player-multi-tags .tg-list .column-list li .rate-wrap+.tip-box-show .tip-box-content {
+    width: 170px;
+    padding: 15px;
+}
+
+#topNav ul.only-demo {
+    margin-left: -120px;
+}
+
+#bs_scroll_main {
+    position: relative;
+    width: 300000px;
+    height: 37px;
+}
+
+div#headerTop .tg-selected-drop+.tg-assist-btn {
+    display: inline-block;
+    position: relative;
+    top: 22px;
+    cursor: pointer;
+}
+
+a.tg-main-btn.demo-game-btn {
+    float: right;
+    width: 70px;
+    height: 27px;
+    line-height: 25px;
+    position: relative;
+    top: 2px;
+    right: 5px;
+    z-index: 1;
+}
+
+.wrap .content-wrap div.selected-red .circle-white>div {
+    background: #e52a20;
+}
+
+.wrap .content-wrap div.selected-red .circle-white>div * {
+    color: #fff !important;
+}
+
+.wrap .content-wrap div.selected-purple .circle-white>div {
+    background: #431F5E;
+}
+
+.wrap .content-wrap div.selected-purple .circle-white>div * {
+    color: #fff !important;
+}
+
+.wrap .content-center .center-circle img {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    left: 50%;
+    margin-left: -22.5px;
+    top: 20px;
+}
+
+.wrap .content-center .center-circle p {
+    padding-top: 25px !important;
+}
+
+
+/*.gameDropSearch i {
+    top: 0 !important;
+}*/
+
+div#chrome-tabs-demo+.tg-top-search .tg-drop-content i.tg-icon {
+    top: -7px;
+}
+
+.top-scale-menu .title:hover,
+.top-scale-menu .title-selected {
+    background: url(../../img/arrow-tab-blue.png) no-repeat;
+}
+
+.top-scale-menu .title-selected {
+    cursor: default;
+}
+
+.top-scale-menu .title i.tg-icon,
+.top-scale-menu .title:hover .tg-side-icon-18,
+.top-scale-menu .title-selected .tg-side-icon-18 {
+    background-position: -40px -388px;
+}
+
+.top-scale-menu .title:hover span,
+.top-scale-menu .title-selected span {
+    color: #fff;
+}
+
+.top-scale-menu .title i {
+    top: 5px !important;
+}
+
+.chrome-tabs li b {
+    font-size: 15px;
+}
+
+#mainContent .center-headertop2 {
+    position: relative !important;
+    padding: 0;
+    margin-left: -30px;
+    padding-left: 30px;
+    margin-right: 30px;
+    padding-right: 30px;
+    /*display: block;*/
+    height: 56px;
+    left: 30px;
+    z-index: 100 !important;
+    top: 0px !important;
+    background: transparent !important;
+}
+
+div#headerTop .fl .tg-tab-btn {
+    top: 18px !important;
+}
+
+.page-pop .close-pop {
+    top: -15px !important;
+    font-size: 28px;
+}
+
+div#chrome-tabs-demo+.tg-top-search .tg-drop-text-part {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.left-sidebar .tg-search-drop {
+    margin-top: 15px;
+}
+
+div#headerTop div.tg-selected-drop div + p + ul,
+div#headerTop div.tg-date-selected-drop div + p + ul {
+    width: 135px;
+}
+
+#topNav .control-block i.control-icon {
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    background: url(../../img/control-pics.png) no-repeat;
+    background-position: -19px 0;
+}
+
+#topNav .control-block i.pack-up {
+    background-position: 0 0;
+}
+
+#topNav .control-block i.pack-up:hover {
+    background-position: -19px 0 !important;
+}
+
+#topNav .control-block i.control-icon:hover {
+    background-position: 0 0;
+}
+
+span.left-nav-item {
+    cursor: default;
+}
+
+.default-flytest-ht {
+    display: block !important;
+}
+
+.left-sidebar .tg-search-drop .tg-drop-content {
+    margin-top: 0px;
+}
+
+div#topGame {
+    position: fixed;
+    z-index: 4001;
+    height: 70px;
+    top: 0px;
+    left: 237px;
+    right: 0;
+    margin-bottom: 54px;
+    background: #11171f;
+    padding: 0;
+}
+
+#topNav .control-block {
+    border: none;
+    background: transparent;
+}
+
+.pop-list .tg-search-drop .tg-drop-content.gameDropPop {
+    margin-top: 0px;
+}
+
+.blockpart > h3+.tg-date-fl {
+    position: absolute;
+    right: 20px;
+    top: 13px;
+}
+
+.change-btn .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary {
+    background: #e24654;
+}
+
+.luntan-hotword-2 .right .top-slider .wrap ul li:hover {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    position: relative;
+}
+
+div.tg-filter-show ul.hot-filter-list p.tg-drop-text-part {
+    background: #fff;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+div.tg-filter-show ul.hot-filter-list p.tg-drop-text-part .tg-triangle-gray-bottom {
+    top: 10px;
+    right: 10px;
+}
+
+div.tg-filter-show ul.hot-filter-list p.tg-drop-text-part span.hot-area {
+    white-space: nowrap;
+    width: 170px;
+    display: block;
+}
+
+div.tg-filter-show > ul {
+    height: 445px !important;
+}
+
+.alert-task-part .table-out-wrap .tg-table td img + p {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+.alert-task-part div.tg-table-layout div.tg-table-content div.tg-table-no-padding table td img {
+    position: relative;
+    top: 0;
+    margin-top: 0;
+    left: 0;
+}
+
+.alert-task-part div.tg-table-layout div.tg-table-content div.tg-table-no-padding table td.game-name {
+    text-align: left;
+}
+
+.default-flytest-ht > span {
+    position: relative;
+    top: -5px;
+}
+
+.default-flytest-ht >button {
+    top: -6px;
+}
+
+.alert-task-part #headerTop span a {
+    cursor: pointer;
+}
+
+.alert-task-part #headerTop .webuploader-pick {
+    color: #fff;
+    width: 98px;
+    height: 28px;
+}
+
+.cursor-default canvas {
+    cursor: default;
+}
+
+.top-scale-menu .yz-title {
+    position: absolute;
+    width: 140px;
+    cursor: default;
+    z-index: 20;
+    background: url(../../img/arrow-tab.png) no-repeat;
+}
+
+.top-scale-menu .yz-title i {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    position: relative;
+    top: 5px;
+    background-position: -40px -388px;
+}
+
+.top-scale-menu .yz-title span {
+    font-size: 14px;
+    margin-left: 14px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.top-scale-menu .yz-title b {
+    width: 42px;
+    position: absolute;
+    border-bottom: 1px solid #666;
+    margin-left: 17px;
+}
+
+.top-scale-menu .yz-title b.line-a {
+    transform: rotate(58deg);
+    top: 18px;
+}
+
+.top-scale-menu .yz-title b.line-b {
+    transform: rotate(-58deg);
+    top: 51px;
+}
+
+.yz-homepage .no-content {
+    text-align: center;
+}
+
+.yz-homepage  .no-content img {
+    margin-top: 50px;
+}
+
+.game-level-2 .des {
+    position: relative;
+    bottom: 65px;
+    text-align: center;
+}
+
+.game-level-2 .des span {
+    font-size: 14px;
+}
+
+.game-level-2 .des b {
+    font-size: 16px;
+}
+
+.game-level-2 .des .gray {
+    color: #5c3a77;
+}
+
+.game-level-2 .des .blue {
+    color: #f7586a;
+}
+.game-level-2 .des .yellow {
+    color:#f49551 ;
+}
+.game-level-2 .des .red {
+    color: #f6d75a;
+}
+.game-level-2 .des .purple {
+    color:#33d184 ;
+}
+
+.blockpart.no-title {
+    margin-bottom: 20px;
+}
+
+body#layBody {
+    overflow-x: hidden;
+    min-width: 1050px;
+    margin: 0 auto;
+}
+
+
+.tg-search-drop div.tg-drop-content .b_none {
+    height: 35px;
+    line-height: 35px;
+    padding-left: 15px;
+}
+
+.alert-task-part div.tg-table-layout div.tg-table-content div.tg-table-wrap div.table-out-wrap {
+    max-height: none;
+}
+
+div#headerTop .analysis-data-des a {
+    color: #fff;
+}
+
+div#headerTop .analysis-data-des span {
+    color: #8c8c8c;
+}
+
+div#headerTop .analysis-data-des {
+    top: 35px !important;
+}
+
+.data-ss-part .data-unusual-watch .boxshadow ul li span {
+    font-size: 12px !important;
+}
+
+/*.page-pop .tg-user-limit-pop .graph-wrap .graph-part {
+    position: relative;
+}
+
+.page-pop .tg-user-limit-pop .graph-wrap .graph-part .b_loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -20px;
+}
+
+.page-pop .tg-user-limit-pop .graph-wrap .graph-part:nth-child(2) .b_loading {
+    margin-top: 0px;
+}*/
+
+
+
+/*******************************************************************************************************************************贴吧用户画像*/
+.ht-table-signs .tg-selected-drop >div {
+    float: left;
+}
+
+.ht-table-signs .tg-selected-drop .tg-drop-text-part {
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    line-height: 29px;
+    position: relative;
+    top: -7px;
+    margin: 0 8px;
+    padding-left: 5px;
+}
+
+.ht-table-signs  .tg-selected-drop > ul {
+    width: 80px;
+    left: 71px;
+    top: 53px;
+    height: 200px;
+    overflow: auto;
+}
+
+
+div#bs_map_area .ht-table-signs {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.ht-area-distribute .ht-city-list .ht-lr-rate-list {
+    margin-left: 15px;
+}
+
+.ht-area-distribute .ht-city-list .ht-lr-rate-list .ht-full-width {
+    margin-top: -10px;
+}
+
+.ht-area-distribute .ht-city-list .ht-rate-list-wrap .ht-rate-wrap {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.ht-area-distribute .ht-city-list .ht-rate-list-wrap {
+    margin-left: 15px;
+}
+
+.ht-area-distribute .ht-city-list .ht-lr-rate-list ul li span {
+    width: 52px;
+}
+
+.ht-event .content-wrap .bottom-des {
+    position: absolute;
+    bottom: 20px;
+}
+
+.ht-event .content-wrap {
+    height: 195px !important;
+}
+
+.ht-user-list .tg-page-list {
+    position: relative;
+}
+
+.ht-top10-list .list > ul li .rate-wrap img {
+    border-radius: 50px;
+}
+
+.blockpart .ht-has-page  {
+    height: 820px !important
+}
+
+.ht-has-page  .list-wrap {
+    height: 750px;
+}
+
+.ht-user-list .list-wrap table tbody tr td:nth-child(2) {
+    text-align: left;
+    padding-left: 12%;
+}
+
+.ht-user-list .list-wrap table tbody tr.title td:nth-child(2) {
+    text-align: center;
+    padding-left: 0;
+}
+
+.ht-user-list .list-wrap table tbody tr td img {
+    border-radius: 100%;
+    margin-right: 10px;
+    width: 20px;
+}
+
+.ht-has-page .list-wrap table:first-child {
+    border-right: none;
+}
+
+.tg-hascheckout-drop > ul li .tg-checkbox-btn {
+    top: 0px !important;
+}
+
+.tg-hascheckout-drop > ul {
+    left: 5px;
+}
+
+.ht-lr-rate-list ul {
+    height: 370px;
+    /*overflow: auto;*/
+}
+
+.ht-area-distribute .ht-city-list .ht-lr-rate-list .ht-full-width {
+    /*height: auto;*/
+}
+
+.ht-lr-rate-list ul li {
+    margin-bottom: 28px !important;
+}
+
+.ht-user-list .list-wrap>div {
+    height: 748px;
+    /* overflow: auto; */
+    float: left;
+    width: 50%;
+    position: relative;
+}
+
+.ht-user-list .list-wrap>div table {
+    width: 100%;
+}
+
+.ht-lr-rate-list >div {
+    position: relative;
+    display: inline-block !important;
+    width: 49%;
+    height: 370px;
+}
+
+.ht-lr-rate-list >div ul {
+    width: 95%;
+    display: block !important;
+}
+
+.ht-lr-rate-list ul.green {
+    /*float:  none !important;*/
+    padding-right: 5%;
+}
+
+.ht-border-bottom + .ht-lr-rate-list .ht-full-width {
+     margin-top: 0 !important; 
+}
+
+.ht-area-distribute .ht-city-list .ht-lr-rate-list .ht-full-width {
+    margin-top:  0 !important;
+}
+
+.ht-has-page .list-wrap .b_empty {
+    width: 100%;
+}

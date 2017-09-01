@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<script>
+    window.location.href='aboutus.html';
+</script>
+<title>ThinkingGame 关于我们</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="ThinkingGame,ThinkingData,数数信息,游戏舆情,玩家论坛,游戏渠道,游戏口碑,玩家反馈,数据服务,大数据">
+<meta name="description" content="ThinkingGame游戏舆情分析服务平台；提供全面的游戏玩家舆论统计分析服务。">
+<link rel="stylesheet" type="text/css" href="css/root.min.css" />
+<style>
+
+    .job-desc-title
+    {
+        font-size:14px;color:#ffffff;background-color:#7e92a7;text-align:center;line-height:38px;border-radius:3px;
+        padding-left:40px;padding-right:40px;
+        display:inline-block;
+    }
+
+    .job-desc-box
+    {
+        padding:32px 40px;border:1px solid #ebeced;background-color:#ffffff;width:80%;
+        margin-top:38px;
+    }
+
+    .job-desc
+    {
+        font-size:14px;
+        margin-top:30px;
+        line-height:28px;
+    }
+
+    .about-info
+    {
+        margin-top:50px;
+    }
+
+    .about-info td:first-child
+    {
+        vertical-align: top;
+        width:120px;
+    }
+
+    .about-info img
+    {
+        width:64px;
+        display:block;
+    }
+
+
+    .about-info .title
+    {
+        margin-bottom:10px
+        color:#596776;
+    }
+
+    .about-info .desc
+    {
+        margin-bottom:40px;
+        font-size:14px;
+        line-height:2em;
+    }
+
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <script type="text/javascript" src="js/layer/layer.js" ></script>
+    <script type="text/javascript" src="js/store.min.js" ></script>
+    <script type="text/javascript" src="js/func.js" ></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=0hLG1Ax2BapLPwnqYhCqzNnr&v=1.0&services=false"></script>
+<script>
+function onLoad()
+{
+    G_MENU.AddMenuFooter();
+
+    G_LOGIN.CheckLoginServlet(null,null,true);
+
+    $(".menu .submenu").unbind("click").css({
+        'cursor':'auto'
+    });
+
+    var hash=window.location.hash;
+
+    if(hash=="#contact")
+    {
+        $("body,html").animate({
+            'scrollTop':2000
+        },500);
+    }
+    else if(hash=="#join")
+    {
+        $("body,html").animate({
+            'scrollTop':1200
+        },500);
+    }
+
+}
+
+
+
+$(onLoad);
+</script>
+</head>
+<body class="index-about">
+
+<div style="background-color:#d6e0ea">
+    <div class="major-w ma">
+        <img src="http://image.thinkinggame.cn/img/about/1.png" class="w90 ma" style="width:90%;display:block;"/>
+    </div>
+</div>
+
+
+<div class="pb" style="height:auto">
+
+    <table class="major-w ma">
+        <caption class="tc">
+            <div class="misc_title tc">关于我们</div>
+            <div class="sub_title_line">
+                <span class="sub_title_dot"></span>
+            </div>
+            <div class="misc_title2 tc">ABOUT US</div>
+        </caption>
+        <tbody>
+        <tr>
+            <td class="">
+                <table class="about-info" style="width:90%;margin-left:5%;marin-top:50px;margin-bottom:50px">
+                    <tbody>
+                    <tr>
+                        <td><img src="http://image.thinkinggame.cn/img/about/2.png"/></td>
+                        <td>
+                            <div class="title">ABOUT THINKING GAME</div>
+                            <div class="desc">ThinkingGame.cn致力于打造一个游戏行业的舆情分析服务平台，利用自然语言处理和文本挖掘技术，自动检测出玩家在讨论的热点话题，以及在讨论时，玩家的心理状态。除此以外，通过整合玩家反馈的真实数据，可以分析出游戏的产品口碑，产品不足，以及相关的改进建议，为用户全方位掌握玩家反馈，分析产品舆情提供一个专业的，便利的数据服务平台。除此之外，我们还提供定制化挖掘服务，包括游戏外的文本挖掘和游戏内的玩家行为数据挖掘服务。如有需求，请致电：18121290606.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="http://image.thinkinggame.cn/img/about/3.png"/></td>
+                        <td>
+                            <div class="title">ABOUT TEAM</div>
+                            <div class="desc">核心团队主要来自腾讯游戏、盛大游戏、INTEL亚太研发中心。团队有着多年的大数据和游戏行业从业经验，在初期我们将集中精力服务于游戏行业。我们希望打造一家以技术为核心驱动力的数据服务公司。</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="http://image.thinkinggame.cn/img/about/4.png"/></td>
+                        <td>
+                            <div class="title">OUR CULTURE</div>
+                            <div class="desc">秉承的理念：踏实、专注、科学、严谨。</div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="pb bg1" style="height:auto;padding-bottom:100px">
+
+    <table class="major-w ma">
+        <caption class="tc">
+            <div class="misc_title tc">加入我们</div>
+            <div class="sub_title_line">
+                <span class="sub_title_dot"></span>
+            </div>
+            <div class="misc_title2 tc">JOIN US</div>
+        </caption>
+        <tbody>
+        <tr>
+            <td style="width:50%">
+                <div class="job-desc-box">
+
+                    <div class="job-desc-title">商务拓展</div>
+
+                    <div class="job-desc">
+                    <p>任职要求：</p>
+                    <p>1、拓展和维护已有的客户关系，及时反馈客户需求，定期与客户联系；</p>
+                    <p>2、及时了解和掌握行业活动和会议信息，代表公司参加相关活动；</p>
+                    <p>3、向客户宣讲公司所提供的服务，拓展新的企业客户；</p>
+                    <p>4、制订市场拓展及营销计划，带领团队开拓更大的市场。</p>
+                    <p>&nbsp;</p>
+                    <p>职位要求：</p>
+                    <p>1、本科及以上学历，有至少1年以上相关工作经验；</p>
+                    <p>2、有责任心、思维严谨、较强抗压能力、出色的沟通能力及全局观；</p>
+                    <p>4、有志于在数据服务行业内长期发展，有明确的职业规划和正确的职业价值观；</p>
+                    <p>5、有游戏行业经验者优先。</p>
+                    </div>
+
+                </div>
+            </td>
+            <td style="width:50%">
+
+                <div class="job-desc-box fr">
+
+                    <div class="job-desc-title">自然语言处理工程师</div>
+
+                    <div class="job-desc">
+                        <p>任职要求：</p>
+                        <p>1、文本挖掘与NLP算法的研发；</p>
+                        <p>2、基础算法研究与应用系统研发。</p>
+                        <p>&nbsp;</p>
+                        <p>任职要求：</p>
+                        <p>1、熟悉机器学习、模式识别、文本挖掘的相关算法；</p>
+                        <p>2、具有深厚的数学功底和良好的英语阅读水平，能够快速理解本领域最新文献；</p>
+                        <p>3、 能够独立进行算法研究，并评估研究风险；</p>
+                        <p>4、熟悉java语言，有较强的程序开发能力；</p>
+                        <p>5、相关领域期刊或会议发表过学术论文，相关领域国际竞赛获奖者优先；</p>
+                        <p>6、具有较强的沟通协调能力和团队合作精神。</p>
+                    </div>
+
+                </div>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+<div class="pb">
+
+    <table class="major-w ma">
+        <caption class="tc">
+            <div class="misc_title tc">联系我们</div>
+            <div class="sub_title_line">
+                <span class="sub_title_dot"></span>
+            </div>
+            <div class="misc_title2 tc">CONTACT US</div>
+        </caption>
+        <tbody>
+        <tr>
+            <td class="tc">
+                <img src="http://image.thinkinggame.cn/img/about/phone.png" style="margin-top:80px;width:80px"/>
+                <div style="margin-top:15px;color:#666">热线电话</div>
+                <div class="p1_sub">18121290606</div>
+            </td>
+            <td class="tc">
+                <img src="http://image.thinkinggame.cn/img/about/email.png" style="margin-top:80px;width:80px"/>
+                <div style="margin-top:15px;color:#666">客服邮件</div>
+                <div class="p1_sub">service@thinkingdata.cn</div>
+            </td>
+            <td class="tc">
+                <img src="http://image.thinkinggame.cn/img/about/location.png" style="margin-top:80px;width:80px"/>
+                <div style="margin-top:15px;color:#666">公司地址</div>
+                <div class="p1_sub">上海市长宁区凯旋路1058号</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="pb bg1" id="map">
+
+</div>
+
+
+
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("map");            // 创建Map实例
+    var point = new BMap.Point(121.424091,31.213078); // 创建点坐标
+    map.centerAndZoom(point,20);                 // 初始化地图,设置中心点坐标和地图级别。
+    var marker = new BMap.Marker(point);        // 创建标注
+    map.addOverlay(marker);                     //
+    map.addControl(new BMap.NavigationControl());
+    //map.addControl(new BMap.ZoomControl());      //添加地图缩放控件
+    map.addControl(new BMap.ScaleControl());
+    map.addControl(new BMap.OverviewMapControl());
+</script>
+
+
+
+</body>
+</html>

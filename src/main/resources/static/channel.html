@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html><head>
+<script>
+    window.location.href='light.html';
+</script>
+    <title>ThinkingGame 渠道评论</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="ThinkingGame,ThinkingData,数数信息,游戏舆情,玩家论坛,游戏渠道,游戏口碑,玩家反馈,数据服务,大数据">
+    <meta name="description" content="ThinkingGame游戏舆情分析服务平台；提供全面的游戏玩家舆论统计分析服务。">
+    <link rel="stylesheet" type="text/css" href="css/dateRange.css" />
+    <link rel="stylesheet" type="text/css" href="css/root.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/lq.datetimepick.css" />
+<style>
+
+body
+{
+    background-color:#f7f7f7;
+}
+
+.mid-box
+{
+    width:233px;
+    height:318px;
+    border:1px solid #e1e4e8;
+    border-radius:3px;
+    display:inline-block;
+    margin-right:30px;
+    cursor:pointer;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.mid-box:hover
+{
+    box-shadow: 0 0 20px #ccc;
+}
+
+.mid-box .title
+{
+    background-color:#f6f6f6;
+    height:65px;
+    border-bottom:1px solid #e1e4e8;
+}
+
+.mid-box .info
+{
+    margin-top:30px;
+    height:14px;
+    line-height:14px;
+    font-size:14px;
+}
+
+.mid-box .info .left
+{
+    text-align:right;
+    width:40%;
+    border-right:1px solid #e1e4e8;
+    padding-right:14px;
+    display:inline-block;
+}
+
+.mid-box .info .right
+{
+    padding-left:14px;
+    display:inline-block;
+}
+
+.done .left-arrow2
+{
+    cursor:pointer;position:absolute;width:20px;height:45px;left:25px;top:248px;
+    background:transparent url(http://image.thinkinggame.cn/img/channel/arrows-left.png) no-repeat center center;
+}
+
+.done .right-arrow
+{
+    cursor:pointer;position:absolute;width:20px;height:45px;right:25px;top:248px;
+    background:transparent url(http://image.thinkinggame.cn/img/channel/arrows-right.png) no-repeat center center;
+}
+
+.done .right-arrow-disable
+{
+    position:absolute;width:20px;height:45px;right:25px;top:248px;
+    background:transparent url(http://image.thinkinggame.cn/img/channel/arrows-right.png) no-repeat center center;
+    filter:alpha(opacity=30);
+    opacity:0.3
+}
+
+.done .left-arrow-disable
+{
+    position:absolute;width:20px;height:45px;left:25px;top:248px;
+    background:transparent url(http://image.thinkinggame.cn/img/channel/arrows-left.png) no-repeat center center;
+    filter:alpha(opacity=30);
+    opacity:0.3
+}
+
+.chart-source-selector
+{
+    width:206px;height:57px;line-height:57px;
+    border-bottom:2px solid #e1e4e8;
+}
+
+.chart-source-selector.chosen
+{
+    background-color:#f6f6f6;
+    border-bottom:2px solid #03a9f5;
+    color:#03a9f5;
+}
+
+.chart-source-selector:hover
+{
+    cursor: pointer;
+    color:#03a9f5;
+}
+
+
+
+</style>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <script type="text/javascript" src="js/selectUi.js" ></script>
+    <script type="text/javascript" src="js/lq.datetimepick.js" ></script>
+    <script type="text/javascript" src="js/Highcharts-4.1.8/highstock.js" ></script>
+    <script type="text/javascript" src="js/layer/layer.js" ></script>
+    <script type="text/javascript" src="js/store.min.js" ></script>
+    <script type="text/javascript" src="js/func.js" ></script>
+    <script type="text/javascript" src="js/chart.js" ></script>
+    <script type="text/javascript" src="js/wc/wcloud.js" ></script>
+    <script type="text/javascript" src="js/date/dateRange.js" ></script>
+<script>
+function onLoad()
+{
+    G_MENU.AddMenuFooter(2);
+
+    InitProjectTabClick(function(){
+        $('#chart').show();
+        $('#search').hide();
+    },function(){
+        $('#chart').hide();
+        $('#search').show();
+    });
+
+
+    InitDateRange(-30,-1,function(e){
+        $(e).parent().find('.refresh').click();
+    });
+
+    InitDoneLoadingFailure();
+
+    var _loading=$(".loading[name=ChannelQueryCommentsServlet]").clone().attr("name","PopChannelQueryCommentsServlet");
+    var _failure=$(".failure[name=ChannelQueryCommentsServlet]").clone().attr("name","PopChannelQueryCommentsServlet");
+    var _done=$(".done[name=ChannelQueryCommentsServlet]").clone().attr("name","PopChannelQueryCommentsServlet");
+    $("[name=PopChannelQueryCommentsServlet]").append(_loading).append(_failure).append(_done);
+
+    ClosePopOnEsc();
+
+    G_LOGIN.CheckLoginServlet(DrawCharts, PopLogin);
+
+    floatSide();
+}
+
+
+
+function InitFilter()
+{
+
+    var project_id=GetProjectId();
+
+    var _arr=(project_id in G_LOCAL_STORAGE.user.gas_apps) ? G_LOCAL_STORAGE.user.gas_apps[project_id] : [];
+
+    if(_arr)
+    {
+        $("[name=source_type_list] .checkbox").remove();
+
+        for(var i=0; i<_arr.length; ++i)
+        {
+            if(_arr[i].status>=0)
+            {
+                var source = G_LOCAL_STORAGE.getSource(_arr[i].type);
+
+                if(source != null)
+                {
+                    $("[name=source_type_list]").append($("<span class='checkbox' _checked='true' style='margin-right:1em;margin-bottom:10px' _attr_name=source_type _attr_val="+_arr[i].type+">"+source.source_desc+"</span>"));
+                }
+            }
+        }
+    }
+
+    InitCheckbox();
+}
+
+function DrawCharts()
+{
+
+    FixPopProjects(_DrawCharts);
+
+    GetCommProjectId();
+
+    _DrawCharts();
+
+    ShowFilter();
+
+    if(IsFromEmail())
+    {
+        var keyword=decodeURI(GetUrlPara("keyword"));
+        var data_date_start=decodeURI(GetUrlPara("data_date_start")).split(' ')[0];
+        var data_date_end=decodeURI(GetUrlPara("data_date_end")).split(' ')[0];
+
+        $(".search-bar .search-input").val(keyword);
+
+        $(".tab.tab2").click();
+
+        if(data_date_start && data_date_end)
+        {
+            $(".search-bar .date-span").html(data_date_start+" 至 "+data_date_end);
+
+            $(".search-bar input[name=data_date_start]").val(data_date_start);
+
+            $(".search-bar input[name=data_date_end]").val(data_date_end);
+
+            $(".search-bar .search-btn").click();
+        }
+    }
+
+}
+
+function InitChannelQueryCommentsServlet()
+{
+    G_LOCAL_STORAGE.ChannelQueryCommentsServlet.page=1;
+    G_LOCAL_STORAGE.ChannelQueryCommentsServlet.page_num=1;
+
+    $(".done[name=ChannelQueryCommentsServlet]").hide();
+    $(".hot-keywords .hot-keyword-splitter").remove();
+    $(".hot-keywords .hot-keyword").remove();
+}
+
+function _DrawCharts()
+{
+    var project_id=GetProjectId();
+
+    G_LOGIN.GetGasCrawlerInfoAndGasAppsServlet(project_id, function() {
+
+        InitChannelQueryCommentsServlet();
+
+        InitFilter();
+
+        ChannelProjChannelInfoMidServlet();
+
+        ChannelProjChannelSentiTopwordsServlet();
+
+        setTimeout(function(){
+            ChannelProjChannelSentiTopwordsServlet(true,
+                    $(".search-bar").find('[name=data_date_start]').val(),
+                    $(".search-bar").find('[name=data_date_end]').val());
+        }, 1100);
+
+        ChannelProjChannelRatingDistriServletNew();
+
+        setInterval(TryConfirmFilter, 500);
+    });
+
+
+}
+
+function ChannelProjChannelRatingDistriServletNew()
+{
+    var key="ChannelProjChannelRatingDistriServletNew";
+
+
+
+    ChartReqComm(key, function(data, data_date_start, data_date_end){
+
+        var arr=data.get;
+
+        var _header=$("[name="+key+"].done [name=header]");
+        var _body=$("[name="+key+"].done [name=body]");
+        _header.empty();
+        _body.empty();
+
+        _header.attr('cur',1);
+
+        _header.animate({
+            'scrollLeft': 0
+        },500);
+
+        if(arr.length==0)
+        {
+            _body.html("<div style='text-align:center;margin-top:150px;font-size:14px'>该游戏没有渠道信息</div>");
+
+            return;
+        }
+
+        // 根据渠道类型来归类
+        var arr_source_type=[];
+        var map_source_type={};
+        var map_source_name={};
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            var _source=G_LOCAL_STORAGE.getSource(source_type);
+
+            if(_source!=null)
+            {
+                arr[i].source_name = _source.source_desc;
+                arr[i].rank=_source.rank;
+            }
+            else
+            {
+                arr[i].rank=0;
+            }
+        }
+
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            var rating_name=arr[i].rating_name; // 一星、二星、..
+            var num=arr[i].num;
+            var source_type=arr[i].source_type;
+            var source_name=arr[i].source_name;
+
+            var es_field_name=arr[i].es_field_name;
+            var es_field_val=arr[i].es_field_val;
+            var rating_names=arr[i].rating_names;
+
+            map_source_name[source_type]=source_name;
+
+            if(!(source_type in map_source_type))
+            {
+                arr_source_type.push(source_type);
+
+                map_source_type[source_type]={};
+
+                rating_names=rating_names.split(',');
+
+                for(var j=0;j<rating_names.length; ++j)
+                {
+                    map_source_type[source_type][rating_names[j]]={
+                        num:0,
+                        es_field_name:es_field_name,
+                        es_field_val:es_field_val,
+                        rating_names:rating_names
+                    };
+                }
+
+            }
+
+            if(rating_name in map_source_type[source_type])
+            {
+                map_source_type[source_type][rating_name].num+=num;
+                map_source_type[source_type][rating_name].es_field_name=es_field_name;
+                map_source_type[source_type][rating_name].es_field_val=es_field_val;
+            }
+
+        }
+
+
+        arr_source_type=arr_source_type.sort(function(a,b){
+            return G_LOCAL_STORAGE.getSource(a).rank-G_LOCAL_STORAGE.getSource(b).rank
+        });
+
+
+        var w=Math.ceil(arr_source_type.length /5)*100;
+
+        if(w>100)
+        {
+            _header.attr('cur',1);
+
+            _header.append($("<div class='left-arrow-disable' style='left:-35px;top:7px'></div>").show());
+            _header.append($("<div class='right-arrow-disable' style='right:-35px;top:7px'></div>").hide());
+
+            _header.append($("<div class='left-arrow2' max="+w/100+" style='left:-35px;top:7px'></div>").hide().click(function(){
+                var cur=parseInt(_header.attr('cur'));
+                var max=parseInt($(this).attr('max'));
+                if(cur<=1)
+                    return;
+                var e=_header;
+                e.animate({
+                    'scrollLeft': e.width()*(cur-2)
+                },500);
+                _header.attr('cur',--cur);
+                $(this).siblings(".right-arrow").show();
+                $(this).siblings(".right-arrow-disable").hide();
+                if(cur<=1)
+                {
+                    $(this).hide();
+                    $(this).siblings(".left-arrow-disable").show();
+                }
+            }));
+            _header.append($("<div class='right-arrow' max="+w/100+" style='right:-35px;top:7px'></div>").click(function(){
+                var cur=parseInt(_header.attr('cur'));
+                var max=parseInt($(this).attr('max'));
+                if(cur>=max)
+                    return;
+                var e=_header;
+                e.animate({
+                    'scrollLeft': e.width()*cur
+                },500);
+                _header.attr('cur',++cur);
+                $(this).siblings(".left-arrow2").show();
+                $(this).siblings(".left-arrow-disable").hide();
+                if(cur>=max)
+                {
+                    $(this).hide();
+                    $(this).siblings(".right-arrow-disable").show();
+                }
+            }));
+        }
+
+        _header.append($('<div name="rows" style="border-bottom:2px solid #e1e4e8;height:57px;width:'+w+'%"></div>'));
+
+        for (var i=0; i<arr_source_type.length; ++i)
+        {
+            var selector=$('<div class="fl chart-source-selector"><span name="source_icon" style="margin-left:30px;float:left;font-size:22px;background:transparent url(http://image.thinkinggame.cn/img/source/0.png) no-repeat center center;background-size:contain;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span name="source_name" style="margin-left:20px"></span></div>');
+
+            selector.attr("source_type", arr_source_type[i]);
+
+            selector.find("[name=source_name]").html(map_source_name[arr_source_type[i]]);
+
+            selector.find("[name=source_icon]").css({
+                "background-image":"url(http://image.thinkinggame.cn/img/source/"+arr_source_type[i]+".png)"
+            });
+
+            selector.click(function(){
+                if($(this).hasClass("chosen"))
+                    return;
+
+                $(".arrow-pop[name=PopChannelQueryCommentsServlet]").hide();
+
+                $(this).siblings(".chosen").removeClass("chosen");
+                $(this).addClass("chosen");
+
+                var source_name=$(this).find("[name=source_name]").html();
+                var source_type=parseInt($(this).attr("source_type"));
+
+                var arr_x=[];
+                var arr_y=[];
+
+                for(var k in map_source_type[source_type])
+                {
+                    arr_x=map_source_type[source_type][k].rating_names;
+                    break;
+                }
+
+                for(var j=0; j<arr_x.length; ++j)
+                {
+                    arr_y.push({
+                        source_type:source_type,
+                        es_field_name:map_source_type[source_type][arr_x[j]].es_field_name,
+                        es_field_val:map_source_type[source_type][arr_x[j]].es_field_val,
+                        y:map_source_type[source_type][arr_x[j]].num
+                    });
+                }
+
+                var colors=[
+                    '#2ec7c9',
+                    '#b6a2de',
+                    '#34abff',
+                    '#ffb980',
+                    '#d87a80',
+                    '#8d98b3',
+                    '#fcce10',
+                    '#b5c334',
+                    '#95706d',
+                    '#dc69aa',
+                ];
+
+                // 360，好评，中评，差评
+                if(source_type==12)
+                {
+                    colors=['#83cc4f','#7bc8ff', '#ff8e8e'];
+                }
+                // 豌豆荚：未评价，喜欢，不喜欢
+                else if(source_type==6)
+                {
+                    colors=['#7bc8ff', '#83cc4f','#ff8e8e'];
+                }
+
+                drawChart1SerieColumn(_body, "", "", source_name+"评分统计", arr_x, arr_y, "评论数", function(e){
+
+                    G_LOCAL_STORAGE.PopChannelQueryCommentsServlet._reset();
+
+                    G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.source_type_list=e.point.source_type;
+                    G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.es_field_name=e.point.es_field_name;
+                    G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.es_field_val=e.point.es_field_val;
+                    G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.data_date_start=data_date_start;
+                    G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.data_date_end=data_date_end;
+
+                    PopChannelQueryCommentsServlet(true,e.pageX, e.pageY);
+
+                }, false, colors);
+
+
+
+            })
+
+            if(i==0)
+            {
+                selector.click();
+            }
+
+            _header.find("[name=rows]").append(selector);
+        }
+
+
+    });
+}
+
+
+$(onLoad);
+
+
+
+
+function _loading_e(key)
+{
+    return $(".loading[name="+key+"]");
+}
+function _done_e(key)
+{
+    return $(".done[name="+key+"]");
+}
+function _failure_e(key)
+{
+    return $(".failure[name="+key+"]");
+}
+
+function ChartReqComm(key, draw, _data_date_start, _data_date_end, no_chart)
+{
+    var data_date_start=$("[name="+key+"]").find("[name=data_date_start]").val();
+    var data_date_end=$("[name="+key+"]").find("[name=data_date_end]").val();
+    var project_id=GetProjectId();
+
+
+    if(_data_date_start)
+    {
+        data_date_start=_data_date_start;
+    }
+
+    if(_data_date_end)
+    {
+        data_date_end=_data_date_end;
+    }
+
+
+    if(data_date_start=="")
+    {
+        G_PopWnd.error("请选择起止时间");
+        return;
+    }
+
+    if(data_date_end=="")
+    {
+        G_PopWnd.error("请选择起止时间");
+        return;
+    }
+
+    if( data_date_start > data_date_end )
+    {
+        G_PopWnd.error("起始时间不能大于结束时间");
+        return;
+    }
+
+    if(_loading_e(key).is(":visible") && !no_chart) // 上次请求正在进行中
+        return;
+
+    MyPost(G_CGI_URL.channel[key],
+            {
+                project_id:project_id,
+                data_date_start:data_date_start,
+                data_date_end:data_date_end
+            },
+            function()
+            {
+                _done_e(key).hide();
+                _failure_e(key).hide();
+                _loading_e(key).show();
+            },
+            function()
+            {
+                _loading_e(key).hide();
+            },
+            function(data)
+            {
+                _done_e(key).show();
+
+                draw(data,data_date_start, data_date_end);
+            },
+            function()
+            {
+                _done_e(key).hide();
+                _failure_e(key).show();
+            }
+    );
+}
+
+function ChannelProjChannelInfoMidServlet()
+{
+    var key="ChannelProjChannelInfoMidServlet";
+
+    ChartReqComm(key, function(data){
+
+        var arr=data.get;
+
+        _done_e(key).empty();
+
+        _done_e(key).attr('cur',1).animate({
+            'scrollLeft':0
+        },500);
+
+        if(arr.length==0)
+        {
+            G_PopWnd.remind("该游戏没有渠道信息，请查看<br/>“游戏灯塔”或“游戏论坛”");
+
+            _done_e(key).html("<div style='text-align:center;margin-top:170px;font-size:14px'>该游戏没有渠道信息</div>");
+
+            return;
+        }
+
+        var extra=[];
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            // 具有当前版本和所有版本，需要分裂开来
+            if(arr[i].cv_rating_value && arr[i].cv_rating_count)
+            {
+                var tmp={};
+
+                for(var k in arr[i])
+                {
+                    tmp[k]=arr[i][k];
+                }
+
+                tmp["source_type"]=tmp.source_type+"cur";
+                tmp["rating_value"]=tmp.cv_rating_value;
+                tmp["rating_count"]=tmp.cv_rating_count;
+                //extra.push(tmp); 去掉当前版本
+                arr[i].source_type=arr[i].source_type+"all";
+                arr[i].version="所有版本";
+            }
+        }
+
+        arr=arr.concat(extra);
+
+        // 为每个渠道的rank赋值
+        for (var i=0; i<arr.length; ++i)
+        {
+            var _src=G_LOCAL_STORAGE.getSource(arr[i].source_type);
+
+            if(_src!=null)
+            {
+                arr[i].rank = _src.rank;
+            }
+        }
+
+        arr=SortArrayByKey(arr,'rank');
+
+        var w=Math.ceil(arr.length /4)*100;
+
+        _done_e(key).append($('<div name="rows" style="margin-top:13px;width:'+w+'%"></div>').append('<table>\
+        <tbody>\
+        <tr name="rows_tr">\
+        </tr>\
+        </tbody>\
+        </table>'));
+
+        if(w>100)
+        {
+            _done_e(key).attr('cur',1);
+
+            _done_e(key).append($("<div class='left-arrow-disable'></div>").show());
+            _done_e(key).append($("<div class='right-arrow-disable'></div>").hide());
+
+            _done_e(key).append($("<div class='left-arrow2' max="+w/100+"></div>").hide().click(function(){
+                var cur=parseInt(_done_e(key).attr('cur'));
+                var max=parseInt($(this).attr('max'));
+                if(cur<=1)
+                    return;
+                var e=_done_e(key);
+                e.animate({
+                    'scrollLeft': e.width()*(cur-2)
+                },500);
+                _done_e(key).attr('cur',--cur);
+                $(this).siblings(".right-arrow").show();
+                $(this).siblings(".right-arrow-disable").hide();
+                if(cur<=1)
+                {
+                    $(this).hide();
+                    $(this).siblings(".left-arrow-disable").show();
+                }
+            }));
+            _done_e(key).append($("<div class='right-arrow' max="+w/100+"></div>").click(function(){
+                var cur=parseInt(_done_e(key).attr('cur'));
+                var max=parseInt($(this).attr('max'));
+                if(cur>=max)
+                    return;
+                var e=_done_e(key);
+                e.animate({
+                    'scrollLeft': e.width()*cur
+                },500);
+                $("[name="+key+"].done").attr('cur',++cur);
+                $(this).siblings(".left-arrow2").show();
+                $(this).siblings(".left-arrow-disable").hide();
+                if(cur>=max)
+                {
+                    $(this).hide();
+                    $(this).siblings(".right-arrow-disable").show();
+                }
+            }));
+        }
+
+        $(".done[name="+key+"] [name=rows_tr]").empty();
+
+        for(var i=0; i<arr.length; ++i)
+        {
+            var row=$("[name="+key+"].mid-box").eq(0).clone().attr('source_type', arr[i].source_type);
+
+            row.click(function(e){
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet._reset();
+
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.source_type_list=$(this).attr('source_type');
+                //G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.data_date_start=data_date_start;
+                //G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.data_date_end=data_date_end;
+
+                PopChannelQueryCommentsServlet(true, e.pageX, e.pageY);
+            });
+
+            $(".done[name="+key+"] [name=rows_tr]").append($("<td></td>").append(row.show()));
+
+
+            for(var k in arr[i])
+            {
+                var mid_info={
+                    'like_num':'',
+                    'rating_value':'',
+                    'rating_count':'',
+                    'download_num':'',
+                    'hot_level':'',
+                    'firmware':'',
+                    'version':'',
+                    'update_date':''
+                };
+
+                // 没有的就删除了
+                if(k in mid_info)
+                {
+                    if(!arr[i][k])
+                    {
+                        row.find('[name='+k+']').parent().hide();
+                    }
+                }
+
+
+                if(k=='source_type')
+                {
+                    var title=row.find(".title");
+
+                    title.css({
+                        'background-image':"url(http://image.thinkinggame.cn/img/source/"+arr[i][k]+"_s.png)",
+                        'background-position':'center center',
+                        'background-repeat':'no-repeat'
+                    });
+
+                }
+                else if(k=='download_num' || k=='rating_count')
+                {
+                    row.find('[name='+k+']').html(addCommas(arr[i][k]));
+
+                }
+                else if(k=='rating_value')
+                {
+                    var pt=parseFloat('0'+arr[i][k]);
+                    var full_pt=parseFloat('0'+arr[i]["full_rating_value"]);
+
+                    var container=row.find('[name='+k+']');
+
+                    if(full_pt==5) {
+                        GenStar(pt, container, full_pt, arr[i][k]);
+                        row.find(".left").css({
+                            width:'30%'
+                        });
+                    }
+                    else
+                        GenStar(pt, container, full_pt);
+
+                    container.addClass('rating_value');
+                }
+                else
+                {
+                    row.find('[name='+k+']').html(arr[i][k]);
+                }
+            }
+
+            if ( (i+1) % 4 == 0 )
+            {
+                row.css({
+                    'margin-right':0
+                });
+            }
+
+            /*$("[name="+key+"].done [name=rows]").append(row.show().css({
+                'float':'left'
+            }));*/
+        }
+
+    });
+}
+
+
+function ChannelProjChannelSentiTopwordsServlet(no_chart, data_date_start, data_date_end)
+{
+    var key="ChannelProjChannelSentiTopwordsServlet";
+
+    ChartReqComm(key, function(data, data_date_start, data_date_end){
+
+        var _neg=data.neg;
+        var _pos=data.pos;
+
+        $('.search_fast_keywords').children().remove();
+
+        var _all=[].concat(_neg.slice(0,3)).concat(_pos.slice(0,3));
+
+        if(no_chart)
+        {
+
+            $('.hot-keyword').remove();
+
+            $('.hot-keyword-splitter').remove();
+
+            for(var i=0; i<_all.length; ++i)
+            {
+                var key_word=$("<span>"+_all[i].keyword+"</span>").addClass("hot-keyword").click(function(){
+                    $(".search-bar input[name=keywords]").val($(this).html());
+                    ConfirmFilter();
+                });
+
+                $('.hot-keywords').append(key_word);
+
+                if(i<_all.length-1)
+                    $('.hot-keywords').append($('<span class="hot-keyword-splitter">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>'));
+            }
+        }
+
+        var __neg=[];
+        var __pos=[];
+
+        var __neg_font_size_ratio=[];
+        var __pos_font_size_ratio=[];
+
+        for(var i=0; i<_neg.length; ++i)
+        {
+            __neg.push(_neg[i].keyword);
+        }
+
+        for(var i=0; i<_pos.length; ++i)
+        {
+            __pos.push(_pos[i].keyword);
+        }
+
+        for(var i=0; i<_neg.length; ++i)
+        {
+            __neg_font_size_ratio.push(_neg[i].total_num / _neg[0].total_num * 1.5);
+        }
+
+        for(var i=0; i<_pos.length; ++i)
+        {
+            __pos_font_size_ratio.push(_pos[i].total_num / _pos[0].total_num * 1.5);
+        }
+
+        if(!no_chart)
+        {
+            window.g_wc_negative=new WordCloud($('.done[name='+key+'] .word-cloud-box.negative'), __neg, function(e){
+
+
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet._reset();
+
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.keywords=$(e).html();
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.data_date_start=data_date_start;
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.data_date_end=data_date_end;
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.sentiment_keywords=$(e).html()+"/-1";
+
+                PopChannelQueryCommentsServlet(true,$(e).offset().left+20, $(e).offset().top+30, function(){
+                    window.g_wc_negative.resume();
+                });
+
+
+            }, null, null, null, null, __neg_font_size_ratio);
+            window.g_wc_positive=new WordCloud($('.done[name='+key+'] .word-cloud-box.positive'), __pos, function(e){
+
+
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet._reset();
+
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.keywords=$(e).html();
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.data_date_start=data_date_start;
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.data_date_end=data_date_end;
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.sentiment_keywords=$(e).html()+"/1";
+
+                PopChannelQueryCommentsServlet(true,$(e).offset().left+20, $(e).offset().top+30, function(){
+                    window.g_wc_positive.resume();
+                });
+
+
+            }, null, null, null, null, __pos_font_size_ratio);
+        }
+
+
+        /*
+
+        renderWordCloud('.done[name='+key+'] [name=neg]', _neg, function(e){
+            PopComments('关键词：'+e.attr('text'),e.attr('text'));
+        });
+        renderWordCloud('.done[name='+key+'] [name=pos]', _pos, function(e){
+            PopComments('关键词：'+e.attr('text'),e.attr('text'));
+        });
+
+        */
+    }, data_date_start, data_date_end,no_chart);
+}
+
+
+function OrderSearch(order_by_field)
+{
+    var is_pop=$("[name=PopChannelQueryCommentsServlet] .done").is(":visible");
+
+    if(is_pop)
+    {
+        for (var k in G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.order_by) {
+            if (k == order_by_field) {
+                var last = G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.order_by[k];
+                if (last == "desc")
+                    last = "asc";
+                else
+                    last = "desc";
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.order_by[k] = last;
+            }
+            else {
+                G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.order_by[k] = "";
+            }
+        }
+
+        PopChannelQueryCommentsServlet(true);
+    }
+    else
+    {
+        for (var k in G_LOCAL_STORAGE.ChannelQueryCommentsServlet.order_by) {
+            if (k == order_by_field) {
+                var last = G_LOCAL_STORAGE.ChannelQueryCommentsServlet.order_by[k];
+                if (last == "desc")
+                    last = "asc";
+                else
+                    last = "desc";
+                G_LOCAL_STORAGE.ChannelQueryCommentsServlet.order_by[k] = last;
+            }
+            else {
+                G_LOCAL_STORAGE.ChannelQueryCommentsServlet.order_by[k] = "";
+            }
+        }
+
+        ChannelQueryCommentsServlet(true);
+    }
+}
+
+
+
+function ChannelQueryCommentsServlet(start_over)
+{
+    if(start_over)
+    {
+        G_LOCAL_STORAGE.ChannelQueryCommentsServlet.page=1;
+        G_LOCAL_STORAGE.ChannelQueryCommentsServlet.page_num=1;
+    }
+
+    var _post=G_LOCAL_STORAGE.ChannelQueryCommentsServlet._make_post(GetProjectId());
+
+
+    var _loading=$(".loading[name=ChannelQueryCommentsServlet]");
+    var _failure=$(".failure[name=ChannelQueryCommentsServlet]");
+    var _done=$(".done[name=ChannelQueryCommentsServlet]");
+
+
+
+    G_LOCAL_STORAGE.__ChannelQueryCommentsServlet(_post, _loading, _failure, _done, null, function(){
+
+        $(".hint2").hide();
+
+        G_LOCAL_STORAGE.ChannelQueryCommentsServlet._last_filter = {rating_stage_list:_post.rating_stage_list,source_type_list:_post.source_type_list};
+    });
+
+}
+
+function PopChannelQueryCommentsServlet(start_over, x, y, onclose)
+{
+    if(start_over)
+    {
+        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.page=1;
+        G_LOCAL_STORAGE.PopChannelQueryCommentsServlet.page_num=1;
+    }
+
+    var _post=G_LOCAL_STORAGE.PopChannelQueryCommentsServlet._make_post(GetProjectId());
+
+    var _loading=$(".loading[name=PopChannelQueryCommentsServlet]");
+    var _failure=$(".failure[name=PopChannelQueryCommentsServlet]");
+    var _done=$(".done[name=PopChannelQueryCommentsServlet]");
+
+    if(x || x===0)
+    {
+        var w = $("#chart").width();
+
+        if ((x - $("#chart").offset().left) / w < 0.5) {
+            $(".arrow-pop[name=PopChannelQueryCommentsServlet]").css({
+                left: "0px",
+                right: "auto"
+            });
+        }
+        else {
+            $(".arrow-pop[name=PopChannelQueryCommentsServlet]").css({
+                left: "auto",
+                right: "0px"
+            });
+        }
+
+
+        $(".arrow-pop[name=PopChannelQueryCommentsServlet]").show().css({
+            top: y - $('#chart').offset().top + 8 + 'px'
+        });
+
+        var delta = $(".arrow-pop[name=PopChannelQueryCommentsServlet]").offset().left - $("#chart").offset().left;
+
+        $(".arrow-pop[name=PopChannelQueryCommentsServlet] .top-arrow").css({
+            left: (x - $("#chart").offset().left - 8) - delta + 'px',
+            top: '0px'
+        })
+    }
+
+    $(".arrow-pop[name=PopChannelQueryCommentsServlet]").find(".arrow-pop-close").unbind('click').click(function(){
+        $(this).parent().hide();
+        onclose && onclose();
+    });
+
+    G_LOCAL_STORAGE.__ChannelQueryCommentsServlet(_post, _loading, _failure, _done, function(){
+        $(".done[name=PopChannelQueryCommentsServlet] .hint").hide();
+        $(".done[name=PopChannelQueryCommentsServlet] .hint2").show();
+    });
+}
+
+function SetCurFilter()
+{
+    var arr=$("[name=source_type_list]").find("input:checked");
+    var ret=[];
+    for(var i=0; i<arr.length; ++i)
+    {
+        ret.push($(arr[i]).attr("source_type"));
+    }
+
+    G_LOCAL_STORAGE.ChannelQueryCommentsServlet.filter.source_type_list=ret.length ? ret.join(",") : "";
+
+    var arr=$("[name=rating_stage_list]").find("input:checked");
+    ret=[];
+    for(var i=0; i<arr.length; ++i)
+    {
+        ret.push($(arr[i]).attr("rating_stage"));
+    }
+
+    G_LOCAL_STORAGE.ChannelQueryCommentsServlet.filter.rating_stage_list = ret.length ? ret.join(",") : "";
+
+    G_LOCAL_STORAGE.ChannelQueryCommentsServlet._cur_filter = G_LOCAL_STORAGE.ChannelQueryCommentsServlet.filter;
+}
+
+function TryConfirmFilter()
+{
+    SetCurFilter();
+
+    if(G_LOCAL_STORAGE.ChannelQueryCommentsServlet._cur_filter==null || G_LOCAL_STORAGE.ChannelQueryCommentsServlet._last_filter==null) // 尚未初始化
+        return;
+
+    if(G_LOCAL_STORAGE.ChannelQueryCommentsServlet._equal_filter(G_LOCAL_STORAGE.ChannelQueryCommentsServlet._last_filter , G_LOCAL_STORAGE.ChannelQueryCommentsServlet._cur_filter )) // filter没有发生过变化
+        return;
+
+    ConfirmFilter();
+}
+
+
+function ConfirmFilter()
+{
+    SetCurFilter();
+
+    ChannelQueryCommentsServlet(true);
+}
+
+
+function ShowFilter()
+{
+    $("[name=filter_content]").slideDown();
+    $("[name=show_filter]").hide();
+    $("[name=hide_filter]").show();
+}
+
+
+function HideFilter()
+{
+    $("[name=filter_content]").slideUp();
+    $("[name=show_filter]").show();
+    $("[name=hide_filter]").hide();
+}
+
+</script>
+</head>
+<body>
+
+
+    <div class="major-w block ma project">
+        <div class="tab-chosen-bg"></div>
+        <div class="tab chosen"><div class="tab-logo channel-chart"></div>渠道报表</div><div class="tab tab2"><div class="tab-logo channel-search"></div>评论搜索</div>
+        <div class="fr projects" style="position:relative;">
+            <div class="main-bar"><div class="fl project-icon"></div><span name="project_name">请选择游戏</span></div>
+            <div class="projects-selector arrow-pop close_when_mouse_down" style="top:70px;right:0;display:none;width:800px">
+                <div class="top-arrow" style="position:absolute;right:100px"></div>
+                <div name="holder">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="chart" class="major-w ma" style="position:relative">
+
+
+        <div class="major-w block ma chart">
+            <div class="hdr">
+                <div class="title">游戏渠道概况<span class="question-mark cp" onclick="ShowForumChannelTip(this, '抓取游戏在主流渠道的发布信息，点击单个渠道可浏览用户在该渠道上的评论。查看渠道概况，可全面了解该游戏产品在发布渠道上的表现及用户评论，极大提高工作效率。')">?</span></div>
+                <div style="float:right" name="ChannelProjChannelInfoMidServlet">
+                    <div class="refresh" onclick="ChannelProjChannelInfoMidServlet()">刷新</div>
+                </div>
+            </div>
+            <div name="ChannelProjChannelInfoMidServlet" class="mid-box" style="display:none">
+                <div class="title"></div>
+                <div class="info"><div class="left">评分</div><div class="right" name="rating_value"></div></div>
+                <div class="info"><div class="left">喜欢</div><div class="right" name="like_num"></div></div>
+                <div class="info"><div class="left">评价量</div><div class="right" name="rating_count"></div></div>
+                <div class="info"><div class="left">下载量</div><div class="right" name="download_num"></div></div>
+                <div class="info"><div class="left">热度</div><div class="right" name="hot_level"></div></div>
+                <!--<div class="info"><div class="left">支持系统</div><div class="right" name="firmware"></div></div>-->
+                <div class="info"><div class="left">版本号</div><div class="right" name="version"></div></div>
+                <div class="info"><div class="left">更新时间</div><div class="right" name="update_date"></div></div>
+            </div>
+            <div name="ChannelProjChannelInfoMidServlet" class="chart-cont done ma" style="overflow:hidden;">
+
+
+
+
+            </div>
+            <div name="ChannelProjChannelInfoMidServlet" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ChannelProjChannelInfoMidServlet" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+        <div class="major-w block ma chart">
+            <div class="hdr">
+                <div class="title">渠道评分概览<span class="question-mark cp" onclick="ShowForumChannelTip(this, '展示该游戏产品在各渠道上的评分等级分布。查看渠道评分概况，可直观了解游戏口碑，针对影响玩家满意度的问题做出应对策略。')">?</span></div>
+                <div style="float:right" name="ChannelProjChannelRatingDistriServletNew">
+                    <span class="date-range"></span>
+                    <div class="refresh" onclick="ChannelProjChannelRatingDistriServletNew()">刷新</div>
+                </div>
+            </div>
+            <div name="ChannelProjChannelRatingDistriServletNew" class="chart-cont done ma" style="margin-top:20px;position:relative">
+                <div name="header" style="height:59px;overflow:hidden"></div>
+                <div name="body" style="height:320px;margin-top:20px"></div>
+            </div>
+            <div name="ChannelProjChannelRatingDistriServletNew" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ChannelProjChannelRatingDistriServletNew" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+        <div class="major-w block ma chart">
+            <div class="hdr">
+                <div class="title">渠道评论热词<span class="question-mark cp" onclick="ShowForumChannelTip(this, '对各渠道用户评论热词进行情感分析，按正、负两个方面进行展示。查看渠道评论热词可直观、定量了解渠道热门问题分布和口碑状况。')">?</span></div>
+                <div style="float:right" name="ChannelProjChannelSentiTopwordsServlet">
+                    <span class="date-range"></span>
+                    <div class="refresh" onclick="ChannelProjChannelSentiTopwordsServlet()">刷新</div>
+                </div>
+            </div>
+
+            <div name="ChannelProjChannelSentiTopwordsServlet" class="chart-cont done ma">
+                <table class="w100 bc">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="word-cloud-box positive">
+
+                            </div>
+                        </td>
+                        <td>
+
+                            <div class="word-cloud-box negative">
+
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+
+                            <div class="word-cloud-desp positive" style="margin-top:40px">正面评论</div>
+
+                        </td>
+                        <td>
+
+                            <div class="word-cloud-desp negative" style="margin-top:40px">负面评论</div>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div name="ChannelProjChannelSentiTopwordsServlet" class="chart-cont chart-cont-font loading ma"></div>
+            <div name="ChannelProjChannelSentiTopwordsServlet" class="chart-cont chart-cont-font failure ma"></div>
+        </div>
+
+
+        <div name="PopChannelQueryCommentsServlet" class="arrow-pop" style="display: none;padding:20px;position:absolute;z-index:500">
+            <div class="top-arrow" style="position:absolute"></div>
+            <span class="fr cp arrow-pop-close" style="font-size:20px;" onclick="$(this).parent().hide();">╳</span>
+        </div>
+
+    </div>
+
+    <div id="search" style="display:none">
+
+        <div class="major-w block ma search">
+
+            <div class="search-bar ma">
+                <input class="search-input" name="keywords" placeholder="请输入关键字搜索"/>
+                <div class="search-btn" onclick="ConfirmFilter()">搜索</div>
+                <div class="search-dt"><span class="date-range larger" start_diff="-30" end_diff="0"></span></div>
+            </div>
+
+            <div class="hot-keywords ma">
+                <span class="filter-box down cp" name="show_filter" onclick="ShowFilter()">显示筛选</span><span class="filter-box up cp" name="hide_filter" onclick="HideFilter()" style="display:none">收起筛选</span>
+            </div>
+
+            <div name="filter_content" style="font-size:13px;width:724px;margin:auto;padding-top:10px;padding-bottom:10px;border:1px solid #e1e4e8;display:none">
+                <table class="bc" style="width:700px;margin:auto">
+                    <tbody>
+                    <tr>
+                        <td style="width:70px;vertical-align: top;border-bottom:1px dotted #e1e4e8">
+                            渠道筛选：
+                        </td>
+                        <td style="width:500px;border-bottom:1px dotted #e1e4e8" name="source_type_list">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:70px;height:30px;border-bottom:1px dotted #e1e4e8">
+                            评分筛选：
+                        </td>
+                        <td style="width:500px;border-bottom:1px dotted #e1e4e8" name="rating_stage_list">
+                            <span class="checkbox" style="margin-right:20px" _attr_name="rating_stage" _attr_val="好评" _checked=true>好评</span><span class="checkbox" _attr_name="rating_stage" _attr_val="中评" style="margin-right:20px" _checked=true>中评</span><span _attr_name="rating_stage" _attr_val="差评" class="checkbox" _checked=true>差评</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="empha" style="height:30px;">*差评对应1~2星或喜欢，中评对应3星或未评价，好评对应4~5星或喜欢</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <!--<div class="filter_wnd arrow-pop close_when_mouse_down" style="padding:0px 15px 15px 15px;position:absolute;left:550px;display:none;width:auto">
+                <div class="top-arrow" style="margin-left:320px"></div>
+                <table style="margin-top:15px">
+                    <tbody>
+                    <tr>
+                        <td style="width:70px;vertical-align: top">
+                            渠道筛选：
+                        </td>
+                        <td style="width:500px" name="source_type_list">
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:70px;vertical-align: top">
+                            评分筛选：
+                        </td>
+                        <td style="width:500px" name="rating_star_list">
+
+                            <span class="checkbox" style="margin-right:1em;margin-bottom:10px" _attr_name=rating_star _attr_val=5>五星</span>
+                            <span class="checkbox" style="margin-right:1em;margin-bottom:10px" _attr_name=rating_star _attr_val=4>四星</span>
+                            <span class="checkbox" style="margin-right:1em;margin-bottom:10px" _attr_name=rating_star _attr_val=3>三星</span>
+                            <span class="checkbox" style="margin-right:1em;margin-bottom:10px" _attr_name=rating_star _attr_val=2>二星</span>
+                            <span class="checkbox" style="margin-right:1em;margin-bottom:10px" _attr_name=rating_star _attr_val=1>一星</span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                        </td>
+                        <td>
+                            <button class="small" style="margin-top:5px" onclick="ConfirmFilter()">确定</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>-->
+
+            <div name="ChannelQueryCommentsServlet" class="chart-cont chart-cont-font loading ma channel-search-result"></div>
+            <div name="ChannelQueryCommentsServlet" class="chart-cont chart-cont-font failure ma channel-search-result"></div>
+
+
+            <div name="ChannelQueryCommentsServlet" class="channel-search-result done ma">
+
+                <table name="list_sample" style="display:none;margin-top:10px;margin-bottom:10px">
+                    <tr>
+                        <td style="width:55px;vertical-align:top">
+                            <span class="source_img">&nbsp;</span>
+                        </td>
+                        <td>
+                            <div><span name="rating_star" style="margin-right:1em;"></span>&nbsp;&nbsp;<span name="title" style="font-weight:bold;"></span></div>
+                            <div name="content" style="line-height:1.5em;"></div>
+                            <div style="color:#ccc"><span class="reply_name icon">&nbsp;&nbsp;&nbsp;&nbsp;</span><span name="author"></span>&nbsp;&nbsp;<span class="reply_time icon">&nbsp;&nbsp;&nbsp;&nbsp;</span><span name="publish_time"></span></div>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <div class="hint tc">为您找到约<span class="empha">1,234</span>个相关评论</div>
+                <div class="hint2 tc" style="display: none">为您找到以下相关评论</div>
+                <table name="list">
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="page_footer_holder"></div>
+            </div>
+
+            <div class="hint tc">*使用渠道评论搜索功能，您可根据时间段、所选论坛，输入的关键词等条件查询到相关的帖子及评论</div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="block-margin-h">
+    </div>
+
+
+
+
+
+</body>
+</html>

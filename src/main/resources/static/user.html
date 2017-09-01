@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>个人信息-ThinkingGame智能化游戏运营服务平台</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/common.css">
+    <link rel="stylesheet" type="text/css" href="elements/css/personal.css">
+    <link rel="stylesheet" type="text/css" href="elements2.0/css/app/front.css">
+</head>
+<body>
+<div id="headerPart" class="min-width"></div>
+<div class="hover-nav" id="headerPartProductPop"></div>
+<div class="personal-content">
+    <div class="left">
+        <h4>个人中心</h4>
+        <ul class="personal-tabs">
+            <li class="personal-tab-selected">个人信息</li>
+            <li>身份认证</li>
+            <li>修改密码</li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="right-content">
+            <ul class="head-title">
+                <h3>个人信息</h3>
+            </ul>
+            <div class="content" id="personalInfor">
+                <i class="has-identified"></i>
+                <img src="elements/img/personal/personal-pic.png" alt="">
+                <ul>
+                    <li>
+                        <span>昵称:</span>
+                        <input type="text" name="nick" placeholder="未设置" value="" class="search-input" maxlength="20">
+                    </li>
+                    <li>
+                        <span>性别:</span>
+                        <input  name="gender" type="radio" value="0" id="Male" />男
+                        <label for="Male"></label>
+                        <input  name="gender" type="radio" value="1" id="feMale" />女
+                        <label for="feMale"></label>
+                    </li>
+                    <li><span>手机号:</span><b id="bs_mobile"></b></li>
+                    <li>
+                        <span>工作年限:</span>
+                        <div id="selectWrap">
+                            <div id="dropDown">
+                                <p>请选择年限</p>
+                                <i class="drop-icon"></i>
+                                <ul>
+                                    <li><a href="#" data-i="0">请选择年限</a></li>
+                                    <li><a href="#" data-i="1">不到1年</a></li>
+                                    <li><a href="#" data-i="3">1~3年</a></li>
+                                    <li><a href="#" data-i="5">3~5年</a></li>
+                                    <li><a href="#" data-i="10">5~10年</a></li>
+                                    <li><a href="#" data-i="11">10年以上</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="height:auto;">
+                        <span style="width: 180px;">我的游戏标签(最多10个):</span>
+                        <ul class="tags"></ul>
+                    </li>
+                </ul>
+                <div class="save-btn">
+                    <button type="button" >保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div id="footerPart"></div>
+</body>
+</html>
+<script type="text/javascript" src="elements/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/layer/layer.js"></script>
+<script type="text/javascript" src="elements/js/store.min.js"></script>
+<script type="text/javascript" src="elements/js/divscroll.js"></script>
+<script type="text/javascript" src="elements/js/common.js"></script>
+<script type="text/javascript" src="elements/js/init.js"></script>
+<script type="text/javascript" src="elements/js/personal.js"></script>
+<script type="text/javascript" src="elements/js/user.js"></script>

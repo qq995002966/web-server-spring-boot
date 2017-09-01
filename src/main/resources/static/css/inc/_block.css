@@ -1,0 +1,395 @@
+
+.block
+{
+    background: #ffffff;
+    border:1px solid #ebeced;
+    border-radius:3px;
+    margin-top:30px;
+}
+
+.block.project
+{
+    height:58px;
+    position:relative;
+}
+
+.block.project .tab
+{
+    width:170px;
+    font-size:16px;
+    line-height:58px;
+    height:58px;
+    position:absolute;
+    left:0;
+    display:inline-block;
+    color:#7e92a7;
+    background: #f6f6f6;
+    text-indent:64px;
+    text-indent:70px;
+    transition:background 0.3s;
+    -moz-transition:background 0.3s; /* Firefox 4 */
+    -webkit-transition:background 0.3s; /* Safari and Chrome */
+}
+
+.block.project .tab:hover
+{
+    cursor:pointer;
+    background:#ededed;
+}
+
+.block.project .tab.before-chosen
+{
+    background:transparent;
+}
+
+.block.project .tab.chosen
+{
+    background:transparent;
+    color:#ffffff;
+}
+
+.block.project .tab2
+{
+    left:170px;
+}
+
+.block-margin-h
+{
+    height:30px;
+}
+
+.block .tab-logo
+{
+    background-position:center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:24px;
+    height:24px;
+    position: absolute;
+    left:29px;
+    top:16px;
+}
+
+.block.project .tab-chosen-bg
+{
+    background-position:center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image:url(http://image.thinkinggame.cn/img/forum/5.png);
+    width:170px;
+    height:68px;
+    position: absolute;
+}
+
+.block .tab-logo.forum-chart
+{
+    background-image:url(http://image.thinkinggame.cn/img/forum/2.png);
+}
+
+.block.project .tab.chosen .tab-logo.forum-chart
+{
+    background-image:url(http://image.thinkinggame.cn/img/forum/1.png);
+}
+
+.block .tab-logo.forum-search
+{
+    background-image:url(http://image.thinkinggame.cn/img/forum/4.png);
+}
+
+.block.project .tab.chosen .tab-logo.forum-search
+{
+    background-image:url(http://image.thinkinggame.cn/img/forum/3.png);
+}
+
+.block .tab-logo.channel-chart
+{
+    background-image:url(http://image.thinkinggame.cn/img/channel/2.png);
+}
+
+.block.project .tab.chosen .tab-logo.channel-chart
+{
+    background-image:url(http://image.thinkinggame.cn/img/channel/1.png);
+}
+
+.block .tab-logo.channel-search
+{
+    background-image:url(http://image.thinkinggame.cn/img/channel/4.png);
+}
+
+.block.project .tab.chosen .tab-logo.channel-search
+{
+    background-image:url(http://image.thinkinggame.cn/img/channel/3.png);
+}
+
+.block .refresh
+{
+    width:48px;
+    height:24px;
+    color:#fff;
+    background: #03a9f5;
+    line-height:24px;
+    border-radius:3px;
+    text-align: center;
+    display: inline-block;
+    font-size:12px;
+    margin-left:8px;
+}
+
+.block .refresh:hover
+{
+    cursor:pointer;
+    background: #009ee6;
+}
+
+.block.chart
+{
+    height:502px;
+}
+
+.block.chart .hdr
+{
+    padding:23px 0 23px 0;
+    margin:0 20px 0 20px;
+    border-bottom:1px solid #e1e4e8;
+    font-size:16px;
+    color:#596776;
+}
+
+.block.chart .hdr .title
+{
+    text-indent:15px;
+    margin-left:3px;
+    border-left:3px solid #03a9f5;
+    display: inline-block;
+}
+
+.dt-picker
+{
+    width:98px;
+    height:23px;
+    border:1px solid #e1e4e8;
+    border-radius:3px;
+    text-indent:8px;
+    background:transparent url(http://image.thinkinggame.cn/img/lq.datetimepick/date-icon.png) no-repeat right center;
+    background-size:contain;
+    cursor:pointer;
+    font-size:12px;
+    color:#838e99;
+}
+
+.block.search
+{
+    min-height:700px;
+    padding-top:30px;
+    padding-bottom:30px;
+    position:relative;
+}
+
+.block.search .hint
+{
+    margin-top:30px;
+    font-size:12px;
+    color:#838e99;
+}
+
+.search-bar
+{
+    border:2px solid #03a9f5;
+    height:46px;
+    width:770px;
+    border-radius: 10px;
+}
+
+.search-input
+{
+    border:none;
+    height:46px;
+    margin-left:23px;
+    outline:none;
+    font-size:15px;
+    width:430px;
+}
+
+.search-btn
+{
+    background: #03a9f5;
+    cursor: pointer;
+    line-height:46px;
+    color:#ffffff;
+    font-size:16px;
+    float:right;
+    width:97px;
+    text-align:center;
+    border-radius: 0 5px 5px 0;
+}
+
+.search-dt
+{
+    line-height:46px;
+    height:46px;
+    font-size:16px;
+    float:right;
+    width:212px;
+    text-align:center;
+    cursor:pointer;
+}
+
+
+.loading-pic,.failure-pic
+{
+    background:transparent url(http://image.thinkinggame.cn/img/chart/loading.gif) no-repeat top center;
+    background-size: 60px 60px;
+    width:100%;
+    text-align: center;
+}
+.failure-pic
+{
+    background:transparent url(http://image.thinkinggame.cn/img/chart/failure.png) no-repeat top center;
+    background-size: 60px 60px;
+    width:100%;
+    text-align: center;
+}
+.loading-pic .pos,.failure-pic .pos
+{
+    height:80px;
+}
+
+.chart-cont2
+{
+    width:1100px;margin-top:20px;margin-left:auto;margin-right:auto;height:410px
+}
+
+.chart-cont
+{
+    width:1030px;
+    height:380px;
+    margin-top:40px;
+}
+
+.chart-cont-h
+{
+    height:380px;
+}
+
+.chart-cont-font
+{
+    color:#596776;
+    font-size:12px;
+}
+
+input.readonly
+{
+    border:none;
+    background: transparent;
+    outline:none;
+    width:98px;
+    height:25px;
+    text-indent:16px;
+}
+
+.hot-keywords
+{
+    font-size:14px;
+    line-height:35px;
+    height:35px;
+    width:724px;
+    color:#838e99;
+}
+
+.hot-keyword
+{
+    cursor:pointer;
+}
+
+.hot-keyword:hover
+{
+    color:#333333;
+}
+
+.hot-keyword-splitter
+{
+    color:#e0e0e0;
+}
+
+.topic-item
+{
+    display:inline-block;
+    width:40%;
+    margin-bottom:25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size:14px;
+    font-weight:bold;
+    margin-right:4%;
+    color:#596776;
+}
+
+.filter-box
+{
+    float:right;
+    border:1px solid #e1e4e8;
+    background-color:#f5f5f5;
+    line-height:22px;
+    padding-left:6px;
+    padding-right:4px;
+    margin-top:5px;
+    font-size:12px;
+    width:66px;
+}
+
+.filter-box.down
+{
+    background: #f5f5f5 url(http://image.thinkinggame.cn/img/usercenter/down-arrow-gray.png) no-repeat 90% center;
+    background-size:15%;
+}
+
+.filter-box.up
+{
+    background: #f5f5f5 url(http://image.thinkinggame.cn/img/usercenter/up-arrow-gray.png) no-repeat 90% center;
+    background-size:15%;
+}
+
+.trash
+{
+    margin-right:10px;
+}
+
+.trash.water
+{
+    background: #f5f5f5 url(http://image.thinkinggame.cn/img/trash/water.png) no-repeat center center;
+    background-size:contain;
+}
+
+.trash.garbige
+{
+    background: #f5f5f5 url(http://image.thinkinggame.cn/img/trash/garbige.png) no-repeat center center;
+    background-size:contain;
+}
+
+.trash.adv
+{
+    background: #f5f5f5 url(http://image.thinkinggame.cn/img/trash/adv.png) no-repeat center center;
+    background-size:contain;
+}
+
+.trash.del
+{
+    background: #f5f5f5 url(http://image.thinkinggame.cn/img/trash/del.png) no-repeat center center;
+    background-size:contain;
+}
+
+.question-mark {
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+    text-align: center;
+    color: #a0a8af;
+    border: 1px solid #a0a8af;
+    border-radius: 14px;
+    line-height: 14px;
+}
+
+span.question-mark{
+    display: inline-block;text-indent: 0px;margin-left:20px;
+}

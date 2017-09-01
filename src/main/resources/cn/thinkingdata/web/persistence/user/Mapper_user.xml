@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.Mapper_user">
+	
+	<select id="getUserInfoById" resultType="cn.thinkingdata.web.domain.user.Do_user">
+		select * from user where user_level>=0 and user.user_id=#{user_id}
+	</select>
+
+
+	<resultMap id="userResult" type="cn.thinkingdata.web.domain.user.Do_user">
+		<association property="user_role" column="role_id" javaType="cn.thinkingdata.web.domain.user.Do_user_role" select="getUserRoleById"/>
+	</resultMap>
+
+	<select id="getUserInfoByMobile" parameterType="String" resultMap="userResult">
+		select * from user where user_level>=0 and mobile=#{login_name}
+	</select>
+	<select id="getUserRoleById" resultType="cn.thinkingdata.web.domain.user.Do_user_role">
+		select * from user_role where status=1 and user_role.role_id=#{role_id}
+	</select>
+	<select id="getUserInfoByEmail" parameterType="String" resultType="cn.thinkingdata.web.domain.user.Do_user">
+		select * from user where user_level>=0 and email=#{email}
+	</select>
+	
+	<select id="checkUserInfoByNickname" resultType="cn.thinkingdata.web.domain.user.Do_user">
+		select * from user where nick_name=#{nick_name} and user_id!=#{user_id}
+	</select>
+		
+
+	<insert id="insertUser" parameterType="cn.thinkingdata.web.domain.user.Do_user"  useGeneratedKeys="true" keyProperty="user_id">
+		insert into user set mobile=#{mobile}, email=#{email}, password=#{password},tg_open_id=#{tg_open_id}, nick_name=#{nick_name}, last_login_ip=#{last_login_ip}, last_login_time=#{last_login_time},user_level=#{user_level}
+	</insert>
+	
+	<select id="getMaxUserId"  resultType="int">
+		select user_id from user order by user_id desc limit 1
+	</select>
+
+	<update id="updateUser" parameterType="cn.thinkingdata.web.domain.user.Do_user">
+		update user
+		set mobile=#{mobile},
+		  email=#{email},
+		  qq_open_id=#{qq_open_id},
+		  wx_union_id=#{wx_union_id},
+		  nick_name=#{nick_name},
+		  user_level=#{user_level},
+		  password=#{password},
+		  last_login_time=#{last_login_time},
+		  last_login_ip=#{last_login_ip},
+		  last_login_time=#{last_login_time}
+		where user_id=#{user_id}
+	</update>
+	
+	<update id="updateLastLogin">
+		update user set last_login_time=#{last_login_time}, last_login_ip=#{last_login_ip} where user_level>=0 and user_id=#{user_id} and nick_name!='demo'
+	</update>
+	
+	
+	<update id="updatePassword">
+		update user set password=#{password} where user_level>=0 and user_id=#{user_id} and nick_name!='demo'
+	</update>
+	
+	<update id="updateNickName">
+		update user set nick_name=#{nick_name} where user_level>=0 and user_id=#{user_id} and nick_name!='demo'
+	</update>
+	
+	<update id="updateProjectsId">
+		update user set projects_id=#{projects_id} where user_level>=0 and user_id=#{user_id} and nick_name!='demo'
+	</update>
+	
+	<update id="updateEmail">
+		update user set email=#{email} where user_level>=0 and user_id=#{user_id} and nick_name!='demo'
+	</update>
+	
+	<select id="getUserDetailById" resultType="cn.thinkingdata.web.domain.user.Do_user_detail">
+		select * from user_detail where user_id=#{user_id}
+	</select>
+	
+	<insert id="insertUpdateUserDetail" parameterType="cn.thinkingdata.web.domain.user.Do_user_detail">
+		insert into user_detail (user_id,status,status_info,gender,gaming_years,company_name,real_name,company_type,job_type,project_names,tags_id,email,mobile,qq)
+		values (#{user_id},#{status},#{status_info},#{gender},#{gaming_years},#{company_name},#{real_name},#{company_type},#{job_type},#{project_names},#{tags_id},#{email},#{mobile},#{qq})
+		ON DUPLICATE KEY update status=#{status},status_info=#{status_info},gender=#{gender},gaming_years=#{gaming_years},company_name=#{company_name},real_name=#{real_name},company_type=#{company_type},job_type=#{job_type},project_names=#{project_names},tags_id=#{tags_id},email=#{email},mobile=#{mobile},qq=#{qq}
+	</insert>
+	
+	<select id="getUserInfoByQQ" parameterType="String" resultMap="userResult">
+		select * from user where user_level>=0 and qq_open_id=#{qq_open_id}
+	</select>
+
+	<select id="getUserInfoByWX" parameterType="String" resultMap="userResult">
+		select * from user where user_level>=0 and wx_union_id=#{wx_union_id}
+	</select>
+	
+	<insert id="insertQQUser" parameterType="cn.thinkingdata.web.domain.user.Do_user"  useGeneratedKeys="true" keyProperty="user_id">
+		insert into user (qq_open_id,tg_open_id,last_login_time,last_login_ip,nick_name,user_level) values
+		(#{qq_open_id},#{tg_open_id},#{last_login_time},#{last_login_ip},#{nick_name},#{user_level})
+	</insert>
+
+	<insert id="insertWXUser" parameterType="cn.thinkingdata.web.domain.user.Do_user"  useGeneratedKeys="true" keyProperty="user_id">
+		insert into user (wx_union_id,tg_open_id,last_login_time,last_login_ip,nick_name,user_level) values
+		(#{wx_union_id},#{tg_open_id},#{last_login_time},#{last_login_ip},#{nick_name},#{user_level})
+	</insert>
+	
+	<select id="getNickNameListByPreNick" parameterType="String" resultType="String">
+		select nick_name from user where user_level>=0 and nick_name like #{nick_name}"%"
+	</select>
+		
+	
+		
+</mapper>

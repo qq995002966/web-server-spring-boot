@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ThinkingGame 个人中心</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="ThinkingGame,ThinkingData,数数信息,游戏舆情,玩家论坛,游戏渠道,游戏口碑,玩家反馈,数据服务,大数据">
+    <meta name="description" content="ThinkingGame游戏舆情分析服务平台；提供全面的游戏玩家舆论统计分析服务。">
+    <script>
+        window.location.href='user.html';
+    </script>
+<link rel="stylesheet" type="text/css" href="css/root.min.css" />
+<style>
+
+
+
+    .left-tab
+    {
+        line-height:60px;
+        border-left:1px solid #d6d6d6;
+        border-right:1px solid #d6d6d6;
+        border-bottom:1px solid #d6d6d6;
+        font-size:13px;
+        background-color:#ffffff;
+    }
+
+    .left-tab.chosen
+    {
+        color:#03a9f5;
+        border-left: 2px solid #03a9f5;
+    }
+
+    .right-tab
+    {
+        border:1px solid #d6d6d6;
+        border-radius: 3px;
+        padding:40px 50px;
+        font-size:14px;
+        min-height:718px;
+    }
+
+    .right-tab td
+    {
+        padding-top:15px;
+        padding-bottom:15px;
+    }
+
+    .readonly
+    {
+        text-indent: 10px;
+    }
+
+    .left-tab.title
+    {
+        font-weight: bold;
+        background-color:#f8f8f8;
+    }
+
+    .avata
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/oc/left/avata_default.png) no-repeat center center;
+        background-size:contain;
+        height:110px;
+    }
+
+    .avata_bg
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/oc/left/avata_bg.jpg) no-repeat center center;
+        background-size:cover;
+        font-size:13px;
+    }
+
+    .modify button
+    {
+        margin-left:10px;
+        font-size:12px;
+        padding:3px 5px;
+    }
+
+    .verify-btn
+    {
+        font-size: 13px;
+        line-height: 2.5em;
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 120px;
+        text-align: left;
+        text-indent: 40px;
+    }
+
+    .verify-btn.lt_0
+    {
+        background:#3b9fcf url(http://image.thinkinggame.cn/img/menu/status_lt_0.png) no-repeat 10px center;
+        background-size: 25px;
+    }
+
+    .verify-btn.eq_0
+    {
+        background:#3b9fcf url(http://image.thinkinggame.cn/img/menu/status_eq_0.png) no-repeat 10px center;
+        background-size: 25px;
+    }
+
+    .verify-btn.eq_1
+    {
+        background:#3b9fcf url(http://image.thinkinggame.cn/img/menu/status_eq_1.png) no-repeat 10px center;
+        background-size: 25px;
+    }
+
+    .down-arrow
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/oc/left/subnav_arrow.png) no-repeat center center;
+        background-size: contain;
+    }
+
+
+    .subnav1
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/oc/left/subnav1.png) no-repeat center center;
+        background-size: contain;
+    }
+
+    .cus_select {
+        appearance: none;
+        -webkit-appearance: none;
+        height: 26px;
+        border: 1px solid #b2beca;
+        border-radius: 3px;
+        width: 252px;
+        text-indent: 5px;
+        background: transparent url(http://image.thinkinggame.cn/img/project/down.png) no-repeat 96% center;
+    }
+
+    .oc-input
+    {
+        width:252px;
+    }
+
+
+
+
+
+    .set-up-button
+    {
+        background-color:#08bc06;
+        transition:all 0.3s;
+    }
+
+    .set-up-button:hover
+    {
+        background-color:#22cb22;
+    }
+
+
+
+
+    .left-bar
+    {
+        width:154px;border-right:1px solid #dee3eb;padding-right:30px;
+    }
+
+    .left-bar button
+    {
+        width:115px;
+        height:30px;
+        line-height:30px;
+        font-size:14px;
+        border-radius:3px;
+        background-color:#f0f1f2;
+        color:#838e99;
+        margin-left:33px;
+        margin-right:20px;
+        margin-bottom:10px;
+        display:block;
+    }
+
+    .mid-icon-1
+    {
+        width: 54px;
+        margin-top: 22px;
+        margin-bottom:10px;
+    }
+
+    .mid-icon-2
+    {
+        width: 148px;
+        margin-bottom:10px;
+        margin-top:-10px;
+    }
+
+    .mid-sub-info
+    {
+        color:#a7acb0;
+        margin-top:8px;
+        margin-bottom:22px;
+    }
+
+
+    .left-bar button.chosen
+    {
+        background-color:#03a9f5;
+        color:#ffffff;
+    }
+
+    .left-bar .hdr
+    {
+        font-size:16px;
+        font-weight:bold;
+        color:#596776;
+        margin-top:35px;
+        margin-bottom:20px;
+        border-left:3px solid #03a9f5;
+        text-indent: 30px;
+    }
+
+    .right-bar .hdr
+    {
+        font-size:16px;
+        color:#596776;
+        margin-top:20px;
+        margin-bottom:20px;
+        border-left:3px solid #596776;
+        text-indent: 30px;;
+        line-height:14px;
+    }
+
+
+    .right-bar textarea
+    {
+        height:96px;
+    }
+
+    [name=ChangePasswordServlet] td
+    {
+        padding-bottom:10px;
+    }
+
+    .cont-title-bar
+    {
+        line-height:50px;
+        height:50px;
+        color:#03a9f5;
+        font-weight:bold;
+    }
+
+    .question-mark
+    {
+        width:14px;height:14px;font-size:12px;text-align:center;color:#a0a8af;border:2px solid #a0a8af;border-radius:14px;
+        line-height:14px;
+    }
+
+    .pop_wnd_tips
+    {
+        font-size:12px;
+        background-color:#fff5de;
+        line-height:4em;
+        text-indent:30px;
+    }
+
+    .pop_add td
+    {
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+
+    .pop_add td:first-child
+    {
+        vertical-align: top;
+        width:6em;
+        text-align:right;
+        padding-right:10px;
+    }
+
+    table.mid>tbody>tr>td
+    {
+        border:1px solid #dee3eb;
+    }
+
+    table.mid-desc>tbody>tr>td
+    {
+        vertical-align:top;
+    }
+
+    table.mid-desc>tbody>tr>td:first-child
+    {
+        padding-right:20px;
+    }
+
+    table.mid-desc .desc
+    {
+        line-height:2em;
+        font-size:12px;
+    }
+
+    table.mid-desc button
+    {
+        color:#03a9f5;
+        border:1px solid #dee3eb;
+        background:transparent;
+        font-size:14px;
+        line-height:2.5em;
+    }
+
+    table.mid-desc button:hover
+    {
+        color:#009ee6;
+        font-weight:bold;
+    }
+
+    table.mid-desc .title
+    {
+        font-weight:bold;
+        font-size:16px;
+        padding-bottom:8px;
+    }
+
+    .follow-icon-task
+    {
+        margin-right:10px;background:transparent url(http://image.thinkinggame.cn/img/oc/follow/task.png) no-repeat center center;background-size:contain;
+    }
+
+    .follow-icon-msg
+    {
+        margin-right:10px;background:transparent url(http://image.thinkinggame.cn/img/oc/follow/msg.png) no-repeat center center;background-size:contain;
+    }
+
+    .follow-icon-status
+    {
+        margin-right:10px;background:transparent url(http://image.thinkinggame.cn/img/oc/follow/status.png) no-repeat center center;background-size:contain;
+    }
+
+    .follow-icon-time
+    {
+        margin-right:10px;background:transparent url(http://image.thinkinggame.cn/img/oc/follow/time.png) no-repeat center center;background-size:contain;
+    }
+
+    span.dashed
+    {
+        border:1px dotted #dee3eb;
+        font-size:12px;
+        line-height:2em;
+        width: 100px;
+        display:inline-block;
+        text-align:center;
+        border-radius:10px;
+        margin-left:20px;
+    }
+
+    table.follow-status
+    {
+        border:1px solid #e9edf0;border-radius:3px;margin-bottom:20px;
+        font-size:13px;
+    }
+
+    table.follow-status>tbody>tr>td:first-child
+    {
+        padding-left: 5px;
+        width: 180px;
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    table.follow-status>tbody>tr>td:last-child
+    {
+        padding: 5px;
+        width: 180px;
+    }
+
+    .loading,.failure
+    {
+        height:400px;
+    }
+
+    .with-space
+    {
+        margin-left:4px;
+        margin-right:4px;
+    }
+
+
+    .words-classifys-icon
+    {
+        display:inline-block;
+        text-indent:25px;
+        margin-left:10px;
+    }
+    .words-classifys-icon:hover,.words-classifys-icon.chosen
+    {
+        color:#03a9f5;
+    }
+
+    .with-delete
+    {
+        border:1px solid #bbbbbb;
+    }
+
+    .delete
+    {
+        cursor:pointer;
+        margin-left:5px;
+    }
+
+    .service-div
+    {
+        width:100%;
+        height:286px;
+        border:1px solid #ccc;
+        position: relative;
+        box-shadow: 0 0 10px #ccc;
+        margin-bottom:45px;
+    }
+
+    .free-trial
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/service/trial.png) no-repeat left top;
+        background-size: contain;
+        width:72px;
+        height:72px;
+        position: absolute;
+        left:-5px;
+        top:-6px;
+    }
+
+    .service-div button.try
+    {
+        width:174px;
+        height:38px;
+        line-height: 38px;
+        border-radius: 3px;
+    }
+
+    .service-icon
+    {
+        width:351px;
+        height:218px;
+        display: table;
+        position: relative;
+    }
+
+    .service-icon.product1
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/service/product1.jpg) no-repeat center center;
+        background-size: cover;
+    }
+
+    .service-icon.product2
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/service/product2.jpg) no-repeat center center;
+        background-size: cover;
+    }
+
+    .service-icon.product3
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/service/product3.jpg) no-repeat center center;
+        background-size: cover;
+    }
+
+    .service-icon.product4
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/service/product4.jpg) no-repeat center center;
+        background-size: cover;
+    }
+
+    .service-icon .see-demo
+    {
+        width:351px;
+        height:218px;
+        left:0;
+        top:0;
+        background: #424242;
+        opacity: 0.7;
+    }
+
+    .service-icon .text-holder
+    {
+        color:#ffffff;
+        font-size: 18px;
+        position: absolute;
+        left : 0 ;
+        top : 0;
+        text-align: center;
+        width:100%;
+    }
+
+    .service-icon .text-holder .text
+    {
+        font-size:28px;
+        margin-top:55px;
+        letter-spacing: 4px;
+    }
+
+
+    .service-icon .text-holder .text-button
+    {
+        font-size:15px;
+        line-height: 3em;
+        width:130px;
+        margin-left:auto;
+        margin-right:auto;
+        border:1px solid #ffffff;
+        border-radius: 3px;
+        margin-top:20px;
+        cursor: pointer;
+    }
+
+    .service-div .content
+    {
+        margin-top:17px;
+        margin-left:50px;
+    }
+
+    .service-div .content td:first-child
+    {
+        width:351px;
+    }
+
+    .service-div .content td:last-child
+    {
+        padding-left:50px;
+    }
+
+    .service-div .inner-tip
+    {
+        width:320px;
+        height:50px;
+        background: transparent url(http://image.thinkinggame.cn/img/service/bg.png) no-repeat center center;
+        background-size: contain;
+        text-align: center;
+        line-height: 50px;
+        font-size:16px;
+    }
+
+    .service-div .less-desc
+    {
+        font-size: 12px;
+        line-height: 1.5em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .service-div .larger-desc
+    {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+
+    .service-div .remaining_days
+    {
+        color:#838e99;
+        float:right;
+        font-size:13px;
+        margin-top:3px;
+    }
+
+    .remaining_days .icon
+    {
+        background: transparent url(http://image.thinkinggame.cn/img/service/timer.png) no-repeat center center;
+        background-size: contain;
+        margin-right:2px;
+    }
+
+    .demo_page_index
+    {
+        letter-spacing: 3px;
+        line-height: 3em;
+        font-size: 1.5em;
+    }
+
+    .demo_box_0
+    {
+        width:900px;
+        position: relative;
+    }
+
+    .demo_box
+    {
+        overflow:hidden;
+    }
+
+    .demo_pages_container
+    {
+
+    }
+
+    .demo_pages_container .each_page
+    {
+    }
+
+    .right-arrow
+    {
+        cursor:pointer;
+        position:absolute;
+        width:20px;
+        height:45px;
+        right:25px;
+        top:180px;
+        background:transparent url(http://image.thinkinggame.cn/img/channel/arrows-right.png) no-repeat center center;
+        transform: rotate(0deg);
+    }
+
+    .left-arrow
+    {
+        cursor: pointer;
+        position: absolute;
+        width: 20px;
+        height: 45px;
+        left: 25px;
+        top: 180px;
+        background: transparent url(http://image.thinkinggame.cn/img/channel/arrows-left.png) no-repeat center center;
+        transform: rotate(0deg);
+    }
+
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js" ></script>
+    <script type="text/javascript" src="js/layer/layer.js" ></script>
+    <script type="text/javascript" src="js/store.min.js" ></script>
+    <script type="text/javascript" src="js/func.js" ></script>
+<script>
+
+function onLoad()
+{
+    G_MENU.AddMenuFooter();
+
+    $(".t_about .chosen>div").html('个人中心');
+
+    $(".menu .submenu").unbind("click");
+
+    G_LOGIN.CheckLoginServlet(LoginDone,PopLogin,true);
+
+    InitTabClick();
+
+    InitRadiobox();
+
+    $(".service-icon").hover(function(){
+        $(this).find(".see-demo").fadeIn("fast");
+        $(this).find(".text-holder").fadeIn("fast");
+    }, function(){
+        $(this).find(".see-demo").fadeOut("fast");
+        $(this).find(".text-holder").fadeOut("fast");
+    });
+
+    InitDemoBox();
+}
+
+function Jump2DemoChat()
+{
+    JumpUrl("chatresult.html?info_id=162", true);
+}
+
+function LoginDone()
+{
+    var user=G_LOCAL_STORAGE.user.user;
+
+    if(user.nick_name=="demo")
+    {
+        $("[name=oc_contents]").css({"visibility":"hidden"});
+        PopLogin();
+        return;
+    }
+
+    var nick_name=G_LOGIN.GetShownNickname();
+
+    $("[name=avata_bg] [name=nick_name]").html(nick_name).attr("title", nick_name);
+
+    $(".left-tab[name^=go2_]").eq(0).click();
+
+    FixUserInfo(user);
+
+    GetServiceServlet();
+}
+
+function FindTagNameById(project_tag_dim, tag_id)
+{
+    for(var i=0; i<project_tag_dim.length; ++i)
+    {
+        if(project_tag_dim[i].tag_id==tag_id)
+        {
+            return project_tag_dim[i].tag_name;
+        }
+    }
+
+    return "";
+}
+
+function verify()
+{
+    $(".left-tab[name=go2_verify]").click();
+}
+
+
+
+function SubmitVerify()
+{
+
+    function get(name)
+    {
+        return $("[name=verify] [name=status_eq_0] [name="+name+"]");
+    }
+
+
+    var company_type=get("company_type").val();
+
+    var company_name=get("company_name").val();
+
+    var real_name=get("real_name").val();
+
+
+    var job_type=get("job_type").val();
+
+    var project_names=get("project_names").val();
+
+    if(company_type=="")
+    {
+        G_PopWnd.error("请选择公司类型");
+        return;
+    }
+
+    if(company_name=="")
+    {
+        G_PopWnd.error("请输入公司名称");
+        return;
+    }
+
+    if(real_name=="")
+    {
+        G_PopWnd.error("请填写真实姓名");
+        return;
+    }
+
+
+    if(job_type=="")
+    {
+        G_PopWnd.error("请选择工作职能");
+        return;
+    }
+
+    project_names=project_names.split("\n").join(" ");
+
+
+    MyPost(G_CGI_URL.auth.Reg3Servlet,
+            {
+                company_type : company_type,
+                company_name : company_name,
+                real_name : real_name,
+                job_type:job_type,
+                project_names:project_names
+            },
+            ShowLoading,HideLoading,
+            function(data)
+            {
+                G_LOGIN.ShowOrHideByStatus(1);
+
+            },
+            function(data, msg, code){
+                if(!msg)
+                {
+                    msg="操作失败！";
+                }
+
+                G_PopWnd.error(msg);
+            });
+}
+
+function FixUserInfo(user)
+{
+    var parent=$(".right-tab[name=user_info]");
+    parent.find("[name=nick_name]").val(user.nick_name.indexOf("*")>=0 ? "" : user.nick_name);
+
+    $("[name=gender][_attr_val="+user.gender+"]").click();
+
+
+    parent.find("[name=gaming_years]").val(user.gaming_years);
+
+    var mobile=user.mobile;
+
+    var email=user.email;
+
+    if(mobile=="")
+    {
+        mobile="未绑定";
+    }
+    else
+    {
+        mobile=JustMobileStr(mobile);
+    }
+
+    if(email=="")
+    {
+        email="未绑定";
+    }
+    else
+    {
+        email=JustEmailStr(email);
+    }
+
+    parent.find("[name=mobile]").val(mobile);
+
+    parent.find("[name=email]").val(email);
+
+
+    parent=$(".right-tab[name=verify]");
+
+
+    // 认证用户
+    if(user.status>1)
+    {
+        parent = parent.find("[name=status_gt_1]").show();
+
+        parent.find(".readonly[name=company_type]").html($("select[name=company_type] option[value="+user.company_type+"]").html());
+        parent.find(".readonly[name=company_name]").html(user.company_name);
+        parent.find(".readonly[name=real_name]").html(user.real_name);
+        parent.find(".readonly[name=email]").html(user.email);
+        parent.find(".readonly[name=job_type]").html($("select[name=job_type] option[value="+user.job_type+"]").html());
+        parent.find(".readonly[name=project_names]").html(user.project_names);
+    }
+
+    var project_tag_dim=G_LOCAL_STORAGE.user.project_tag_dim;
+
+    $(".project_tag_dim").remove();
+
+    for(var i=0; i<project_tag_dim.length; ++i)
+    {
+        $("[name=project_tag_dim]").append($("<span class='project_tag_dim'></span>").html(project_tag_dim[i].tag_name).attr('tag_id', project_tag_dim[i].tag_id).click(function(){
+
+            if($(".project_tag_dim.chosen").length>=10 && !$(this).hasClass("chosen"))
+            {
+                G_PopWnd.error("最多只能选10个标签");
+                return;
+            }
+
+            $(this).toggleClass("chosen");
+        }));
+    }
+
+
+    $.map(user.tags_id.split(","), function(e){
+
+        $(".project_tag_dim[tag_id="+e+"]").click();
+
+    }).join(" , ");
+
+
+    $(".right-tab[name=user_info]").find("input,span,select").bind("keyup click", function(){
+        MakeUserInfoReq();
+    });
+}
+
+function _reg2()
+{
+    var p=MakeUserInfoReq();
+
+    if(!/^[_\-\da-zA-Z\u4e00-\u9fa5]{1,20}$/.test(p.nick_name))
+    {
+        G_PopWnd.error('昵称必须是1-20位字符，支持汉字、字母、数字及"-"、"_"组合');
+        return;
+    }
+
+    if(p.nick_name=="")
+    {
+        G_PopWnd.error("请您填写用户昵称");
+        return;
+    }
+
+    if(!$(".project_tag_dim.chosen").length>10)
+    {
+        G_PopWnd.error("关注游戏元素不能超过10个");
+        return;
+    }
+
+    MyPost(G_CGI_URL.auth.Reg2Servlet,
+            p,
+            ShowLoading,HideLoading,
+            function(data)
+            {
+                G_PopWnd.good("保存成功");
+                for(var k in p)
+                {
+                    G_LOCAL_STORAGE.user.user[k]=p[k];
+                }
+
+                $("[name=avata_bg] [name=nick_name]").html(p["nick_name"]);
+
+                $("[name=login_yes] [name=nick_name]").html(p["nick_name"]);
+
+                MakeUserInfoReq();
+            },
+            function(data, msg, code){
+                if(!msg)
+                {
+                    msg="操作失败！";
+                }
+
+                G_PopWnd.error(msg);
+            });
+}
+
+
+
+function InitTabClick()
+{
+    $(".left-tab[name^=go2_]").click(function(){
+        $(".left-tab").removeClass("chosen");
+        $(this).addClass("chosen");
+        var name=$(this).attr("name").replace("go2_","");
+        $(".right-tab").hide();
+        $(".right-tab[name="+name+"]").show();
+    });
+}
+
+function ChangePasswordServlet()
+{
+    var old_password=$("[name=_old_password]").val();
+    var password=$("[name=_password]").val();
+    var password_confirm=$("[name=_password_confirm]").val();
+
+    if(old_password=="")
+    {
+        alert("请填写旧密码！");
+        return;
+    }
+
+    if(password=="")
+    {
+        alert("请填写新密码！");
+        return;
+    }
+
+
+    if(password.length<6)
+    {
+        alert("密码长度不得少于6位！");
+        return;
+    }
+
+
+    if(password_confirm=="")
+    {
+        alert("请填写新密码二次确认！");
+        return;
+    }
+
+    if(password!=password_confirm)
+    {
+        alert("两次密码填写不一致！");
+        return;
+    }
+
+    MyPost(G_CGI_URL.auth.ChangePasswordServlet,
+            {
+                old_password:old_password,
+                password:password
+            },ShowLoading,HideLoading,
+            function()
+            {
+                $("[name=_old_password]").val("");
+                $("[name=_password]").val("");
+                $("[name=_password_confirm]").val("");
+
+                G_PopWnd.good("密码修改成功！");
+            },
+            function(data,msg,code)
+            {
+                G_PopWnd.error("密码修改失败！"+msg);
+            });
+};
+
+
+function MakeUserInfoReq()
+{
+    var parent=$(".right-tab[name=user_info]");
+
+    var p={
+        gender:parent.find("[name=gender]:checked").attr('gender'),
+        nick_name:parent.find("[name=nick_name]").val(),
+        gaming_years:parent.find("[name=gaming_years]").val(),
+        tags_id : $.map($(".project_tag_dim.chosen"),function(e){return ($(e).attr("tag_id"))}).join(",")
+    };
+
+    var user = G_LOCAL_STORAGE.user.user;
+
+    if(p.gender == user.gender && p.nick_name==user.nick_name && p.gaming_years==user.gaming_years && p.tags_id==user.tags_id)
+    {
+        parent.find("button").eq(0).hide();
+        parent.find("button").eq(1).show();
+    }
+    else
+    {
+        parent.find("button").eq(1).hide();
+        parent.find("button").eq(0).show();
+    }
+
+    return p;
+}
+
+function ShiftServiceStatus(service_type, status, remaining_days)
+{
+    if(remaining_days<0)
+    {
+        remaining_days=0;
+    }
+
+    var service_container=$(".service-div[service_type="+service_type+"]");
+
+    if(status=="free-trial")
+    {
+        service_container.find(".free-trial").show();
+        service_container.find(".free-trial-button").hide();
+        service_container.find(".set-up-button").show();
+        service_container.find("[name=remaining_days]").html(remaining_days).parent().show();
+    }
+    else
+    {
+        service_container.find(".free-trial").hide();
+        service_container.find(".free-trial-button").show();
+        service_container.find(".set-up-button").hide();
+        service_container.find("[name=remaining_days]").parent().hide();
+    }
+}
+
+function GetServiceServlet()
+{
+    MyPost(G_CGI_URL.custom_service.GetServiceServlet,
+            {
+                service_type:1
+            },
+            ShowLoading,HideLoading,
+            function(data)
+            {
+                for(var i=0; i<data.get.length; ++i)
+                {
+                    var service_type = data.get[i].service_type;
+                    var try_tag = data.get[i].try_tag;
+                    var remaining_days=data.get[i].remaining_days;
+                    var service_status=data.get[i].service_status;
+
+                    var service_container=$(".service-div[service_type="+service_type+"]");
+
+                    // 试用中
+                    if(service_status==1 && remaining_days>0)
+                    {
+                        ShiftServiceStatus(service_type, "free-trial", remaining_days);
+                    }
+                    else
+                    {
+                        ShiftServiceStatus(service_type, "");
+                    }
+                }
+            },
+            function(data,msg,code)
+            {
+                G_PopWnd.bad("操作失败！");
+            });
+}
+
+function FreeTrialServlet(service_type)
+{
+    MyPost(G_CGI_URL.custom_service.FreeTrialServlet,
+            {
+                service_type:service_type
+            },ShowLoading,HideLoading,
+            function()
+            {
+                ShiftServiceStatus(service_type, "free-trial", 30);
+            },
+            function(data,msg,code)
+            {
+                G_PopWnd.bad("操作失败！");
+            });
+}
+
+function InitDemoBox()
+{
+    function showPageIndex(demo_box_0, page_index)
+    {
+        demo_box_0.find(".demo_page_index").hide();
+        demo_box_0.find(".demo_page_index[page_index="+page_index+"]").show();
+    }
+
+    $(".demo_box").each(function(){
+        $(this).closest(".demo_box_0").find(".left-arrow").click(function(){
+            var demo_box=$(this).closest(".demo_box_0").find(".demo_box");
+            var page_index=parseInt(demo_box.attr("page_index"));
+            var max_page_index=parseInt(demo_box.attr("max_page_index"));
+
+            if(page_index>0)
+            {
+                page_index--;
+            }
+
+            demo_box.attr("page_index", page_index);
+
+            demo_box.animate({
+                'scrollLeft': page_index*demo_box.width()
+            },500);
+
+            showPageIndex(demo_box.closest(".demo_box_0"), page_index);
+        });
+
+        $(this).closest(".demo_box_0").find(".right-arrow").click(function(){
+            var demo_box=$(this).closest(".demo_box_0").find(".demo_box");
+            var page_index=parseInt(demo_box.attr("page_index"));
+            var max_page_index=parseInt(demo_box.attr("max_page_index"));
+
+            if(page_index<max_page_index)
+            {
+                page_index++;
+            }
+
+            demo_box.attr("page_index", page_index);
+
+            demo_box.animate({
+                'scrollLeft': page_index*demo_box.width()
+            },500);
+
+            showPageIndex(demo_box.closest(".demo_box_0"), page_index);
+        });
+    })
+}
+
+function SeeDemo(which_service)
+{
+    $("[name$=_demo]").each(function(){
+        $(this).find(".demo_box").attr("page_index", 0);
+        $(this).find(".demo_page_index").hide().eq(0).show();
+    });
+
+
+    switch (which_service)
+    {
+        case 1: // 画像追踪
+            G_PopWnd.dialog("舆情助手&nbsp;DEMO", $("[name=portrayal_service_demo]"), "", "", "", 9);
+            break;
+        case 2: // 舆情助手
+            G_PopWnd.dialog("舆情助手&nbsp;DEMO", $("[name=yuqin_service_demo]"), "", "", "", 9);
+            break;
+        case 3: // 聊天分析
+            G_PopWnd.dialog("聊天分析&nbsp;DEMO", $("[name=chat_service_demo]"), "", "", "", 9);
+            break;
+        case 4: // 热词分析
+            G_PopWnd.dialog("热词定制&nbsp;DEMO", $("[name=reci_service_demo]"), "", "", "", 9);
+            break;
+    }
+
+
+}
+
+$(onLoad);
+</script>
+</head>
+<body>
+
+
+
+
+<table class="major-w ma" name="oc_contents" style="margin-top:30px;margin-bottom:60px">
+    <tbody>
+    <tr>
+        <td style="width:215px;border:none;vertical-align: top">
+            <div>
+                <div name="avata_bg" class="avata_bg">
+                    <div style="height:40px"></div>
+                    <div class="avata"></div>
+                    <div class="tc" style="line-height: 40px;height:40px;color:#ffffff;max-width: 95%; margin:auto;text-overflow: ellipsis; overflow: hidden; white-space: nowrap;" name="nick_name"></div>
+                    <div class="tc" name="status_lt_0" style="display: none">
+                        <button class="verify-btn lt_0" onclick="verify()">认证失败</button>
+                    </div>
+                    <div class="tc" name="status_eq_0" style="display: none;">
+                        <button class="verify-btn eq_0" onclick="verify()">立即认证</button>
+                    </div>
+                    <div class="tc" name="status_eq_1" style="display: none;">
+                        <button class="verify-btn eq_1" onclick="verify()">身份审核中</button>
+                    </div>
+                    <div class="tc" name="status_gt_1" style="display: none;color:#ffffff">
+                        <table class="ma">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div style="background:transparent url(http://image.thinkinggame.cn/img/menu/status_gt_1.png) no-repeat center center;background-size:contain;width:36px;height:26px;"></div></td>
+                                    <td style="padding-left:5px;">已认证</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="height:30px;"></div>
+                </div>
+                <div class="left-tab cp tc chosen" name="go2_my_service">我的服务</div>
+                <div class="left-tab cp tc" name="go2_user_info">个人信息</div>
+                <div class="left-tab cp tc" name="go2_verify">身份认证</div>
+                <div class="left-tab cp tc" name="go2_change_password">修改密码</div>
+
+                <div class="left-tab title" style="height:300px"></div>
+
+            </div>
+        </td>
+
+        <td style="width:30px;">
+
+        </td>
+
+        <td style="border:none;vertical-align: top">
+
+            <div class="right-tab" name="my_service" style="padding:0;display: none">
+
+                <div style="height:90px;background: transparent url(http://image.thinkinggame.cn/img/service/banner.jpg) no-repeat center center; background-size: cover;"></div>
+
+
+                <div style="padding:40px 50px">
+
+                    <div class="service-div" service_type="1">
+                        <table class="content">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div class="service-icon product1">
+                                        <div class="see-demo" style="display: none"></div>
+                                        <div class="text-holder" style="display: none">
+                                            <div class="text">画像追踪</div>
+                                            <div class="text-button" onclick="JumpUrl('portrayal.html?g=demo', true)">查看&nbsp;DEMO</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+
+                                    <div class="larger-desc font-theme">画像追踪<span class="remaining_days" style="display: none"><span class="icon">&nbsp;&nbsp;&nbsp;</span>服务期剩余<span name="remaining_days" class="empha"></span>天</span></div>
+
+                                    <div class="inner-tip">多重维度分析.还原用户特征</div>
+
+                                    <div class="less-desc">全用户群体、关键用户多重维度分析，大数据重构画像。<br/>不同标签人群对比，特征人气持续追踪。</div>
+
+                                    <div class="tc">
+                                        <button class="try free-trial-button" onclick="FreeTrialServlet(1)">免费试用</button>
+                                        <button class="try set-up-button" style="display: none" onclick="JumpUrl('portrayal.html', true)">进入使用页</button>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="free-trial" style="display: none"></div>
+                    </div>
+
+                    <div class="service-div" service_type="2">
+                        <table class="content">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div class="service-icon product2">
+                                        <div class="see-demo" style="display: none"></div>
+                                        <div class="text-holder" style="display: none">
+                                            <div class="text">舆情助手</div>
+                                            <div class="text-button" onclick="SeeDemo(2)">查看&nbsp;DEMO</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="larger-desc font-theme">舆情助手<span class="remaining_days" style="display: none"><span class="icon">&nbsp;&nbsp;&nbsp;</span>服务期剩余<span name="remaining_days" class="empha"></span>天</span></div>
+
+                                    <div class="inner-tip">精准舆情管理.人气自由监控</div>
+
+                                    <div class="less-desc">跟踪监控主流论坛的用户反馈，依时间频次推送报表，理性<br/>观测人气走向。</div>
+
+                                    <div class="tc">
+                                        <button class="try free-trial-button" onclick="FreeTrialServlet(2)">免费试用</button>
+                                        <button class="try set-up-button" style="display: none" onclick="JumpUrl('yuqin.html', true)">进入配置页</button>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="free-trial" style="display: none"></div>
+                    </div>
+
+                    <div class="service-div" service_type="3">
+                        <table class="content">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div class="service-icon product3">
+                                        <div class="see-demo" style="display: none"></div>
+                                        <div class="text-holder" style="display: none">
+                                            <div class="text">聊天分析</div>
+                                            <div class="text-button" onclick="SeeDemo(3)">查看&nbsp;DEMO</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="larger-desc font-theme">聊天分析<span class="remaining_days" style="display: none"><span class="icon">&nbsp;&nbsp;&nbsp;</span>服务期剩余<span name="remaining_days" class="empha"></span>天</span></div>
+
+                                    <div class="inner-tip">聊天记录分析.热门人事洞察</div>
+
+                                    <div class="less-desc">上传Q群微信聊天记录，多角度分析用户和话题，高效检测<br/>舆情并提供可视化指标。</div>
+
+                                    <div class="tc">
+                                        <button class="try free-trial-button" onclick="FreeTrialServlet(3)">免费试用</button>
+                                        <button class="try set-up-button" style="display: none" onclick="JumpUrl('chat.html', true)">进入配置页</button>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="free-trial" style="display: none"></div>
+                    </div>
+
+                    <div class="service-div" service_type="4">
+                        <table class="content">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div class="service-icon product4">
+                                        <div class="see-demo" style="display: none"></div>
+                                        <div class="text-holder" style="display: none">
+                                            <div class="text">热词定制</div>
+                                            <div class="text-button" onclick="SeeDemo(4)">查看&nbsp;DEMO</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="larger-desc font-theme">热词定制<span class="remaining_days" style="display: none"><span class="icon">&nbsp;&nbsp;&nbsp;</span>服务期剩余<span name="remaining_days" class="empha"></span>天</span></div>
+
+                                    <div class="inner-tip">热词随意切换.爆点实时掌握</div>
+
+                                    <div class="less-desc">随意切换关注热词，动态观测爆点趋势，快速判断可能出现的危<br/>险与机遇。</div>
+
+                                    <div class="tc">
+                                        <button class="try free-trial-button" onclick="FreeTrialServlet(4)">免费试用</button>
+                                        <button class="try set-up-button" style="display: none" onclick="JumpUrl('reci.html', true)">进入配置页</button>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="free-trial" style="display: none" ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="right-tab" name="user_info" style="display: none">
+
+                <table>
+                    <tbody>
+                    <tr>
+                        <td style="width:80px">性别：</td>
+                        <td><span style="margin-right:50px" class="radiobox" _attr_name=gender _attr_val=0 name="gender" _checked="true">男</span><span style="margin-right:50px" class="radiobox" _attr_name=gender _attr_val=1 name="gender" _checked="false">女</span></td>
+                    </tr>
+                    <tr>
+                        <td>手机号：</td>
+                        <td><input name="mobile" readonly="true" class="readonly" style="text-indent: 0px" /></td>
+                    </tr>
+                    <tr>
+                        <td>邮箱：</td>
+                        <td><input name="email" readonly="true" class="readonly" style="text-indent: 0px;width:200px;" /></td>
+                    </tr>
+                    <tr>
+                        <td>昵称：</td>
+                        <td>
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td style="padding:0">
+                                        <div class="login-input-div" style="width:250px;">
+                                            <input name="nick_name" placeholder="未设置" style="float:left;margin-left:11px;width:215px"/>
+                                        </div>
+                                    </td>
+                                    <td style="padding:0">
+                                        <span class="font-theme-3" style="font-size:13px;">&nbsp;&nbsp;&nbsp;&nbsp;1-20位字符，支持汉字、字母、数字及"-"、"_"组合</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>游戏年限：</td>
+                        <td>
+                            <select class="cus_select" name="gaming_years" style="height:33px;">
+                                <option value="0">请选择年限</option>
+                                <option value="1">不到1年</option>
+                                <option value="3">1~3年</option>
+                                <option value="5">3~5年</option>
+                                <option value="10">5~10年</option>
+                                <option value="11">10年以上</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">您关注的游戏标签（至多10个）：
+                        <div style="margin-top:20px;" name="project_tag_dim">
+                        </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div><button class="login-submit cp ma" style="margin-top:15px;margin-bottom:15px;width:100px;display: none" onclick="_reg2()">保存</button><button class="login-submit cp ma" style="margin-top:15px;margin-bottom:15px;width:100px;background-color:#d6d6d6">保存</button></div>
+
+            </div>
+
+            <div class="right-tab" name="verify" style="display: none">
+
+                <div name="status_lt_0" style="display: none">
+                    您的认证信息失败
+                </div>
+
+
+
+                <table name="status_eq_0" style="display: none">
+                    <tbody>
+                    <tr><td class="tr">公司类型：</td><td><select class="cus_select" name="company_type" style="margin-top:5px;">
+                        <option value="">请选择您的公司类型</option>
+                        <option value="0">游戏研发</option>
+                        <option value="1">渠道</option>
+                        <option value="2">发行/运营</option>
+                        <option value="3">外包</option>
+                        <option value="4">投资</option>
+                        <option value="5">第三方服务</option>
+                        <option value="6">广告商</option>
+                        <option value="7">IP授权方</option>
+                        <option value="8">游戏媒体</option>
+                        <option value="9">其他</option>
+                    </select></td></tr>
+                    <tr><td class="tr">公司名称：</td><td><input class="oc-input" name="company_name" placeholder="请输入" /></td></tr>
+                    <tr><td class="tr">真实姓名：</td><td><input class="oc-input" name="real_name" placeholder="请输入" /></td></tr>
+                    <tr><td class="tr">工作职能：</td><td><select class="cus_select" name="job_type" style="margin-top:5px;">
+                        <option value="">请选择您的工作职责</option>
+                        <option value="0">公司高管</option>
+                        <option value="1">游戏制作人</option>
+                        <option value="2">游戏运营</option>
+                        <option value="3">市场人员</option>
+                        <option value="4">商务人员</option>
+                        <option value="5">游戏策划</option>
+                        <option value="6">开发工程师</option>
+                        <option value="7">游戏测试</option>
+                        <option value="8">美术/UI/动画</option>
+                        <option value="9">音乐/音效</option>
+                        <option value="10">行政/人力</option>
+                        <option value="11">投资</option>
+                        <option value="12">销售</option>
+                        <option value="13">客服</option>
+                        <option value="14">其他</option>
+                    </select></td></tr>
+                    <tr><td class="tr" style="vertical-align: top">公司产品：</td><td><textarea class="oc-input" style="height:5em;" name="project_names" placeholder="请输入贵公司开发或者运营的游戏" rows="3"></textarea></td></tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="login-submit" style="width:70px" onclick="SubmitVerify()">提交</button></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+                <div name="status_eq_1" style="line-height:3em;display: none">
+                    我们正在处理您的身份认证，请耐心等待。<br/>如有任何疑问，请联系我们。<br/><span class="font-theme">service@thinkingdata.cn</span>
+                </div>
+
+                <table name="status_gt_1" style="display: none">
+                    <tbody>
+                    <tr><td class="tr">公司类型：</td><td class="readonly" name="company_type"></td></tr>
+                    <tr><td class="tr">公司名称：</td><td class="readonly" name="company_name"></td></tr>
+                    <tr><td class="tr">真实姓名：</td><td class="readonly" name="real_name"></td></tr>
+                    <tr><td class="tr">工作职能：</td><td class="readonly" name="job_type"></td></tr>
+                    <tr><td class="tr">公司产品：</td><td class="readonly" name="project_names"></td></tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="right-tab" name="change_password" style="display: none">
+                <table>
+                    <tbody>
+                    <tr><td class="tr">旧密码：</td><td><input name="_old_password" class="oc-input" type="password" /></td></tr>
+                    <tr><td class="tr">新密码：</td><td><input name="_password" class="oc-input" type="password" /></td></tr>
+                    <tr><td class="tr">确认新密码：</td><td><input name="_password_confirm" class="oc-input" type="password" /></td></tr>
+                    <tr><td ></td><td><button onclick="ChangePasswordServlet()" class="confirm" style="margin-top:5px">提交</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+<div style="display:none">
+
+<div class="projects" name="example" style="position:relative;display:none;width:200px;padding-left:0;border:none">
+    <div class="main-bar oc-input" ><span name="project_name">请选择游戏</span></div>
+    <div class="projects-selector arrow-pop close_when_mouse_down" style="top:40px;right:0;display:none">
+        <div class="top-arrow" style="position:absolute;left:90px"></div>
+        <div class="items">
+            <div class="item chosen"><div class="icon fl"></div>NBA2000</div><div class="item"><div class="icon fl"></div>NBA2000</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="major-w ma">
+
+    <table style="margin-top:32px;width:100%;margin-bottom:32px;min-height:750px">
+        <tbody>
+            <tr>
+                <td class="left-bar" style="vertical-align:top">
+                    <div class="hdr" style="margin-top:10px">首页</div>
+                    <button name="Mid" class="chosen">首页概览</button>
+                    <div class="hdr" >我的配置</div>
+                    <button name="UserFollowProjectServlet">我的游戏</button>
+                    <button name="GasWordsClassifysServlet">游戏词汇</button>
+                    <button name="UserCenterQueryServlet">舆情监控</button>
+                    <button name="ProjectDataSourceServlet">添加论坛</button>
+                    <div class="hdr" >账户信息</div>
+                    <button name="UserServlet">基本资料</button>
+                    <button name="ChangePasswordServlet">修改密码</button>
+                </td>
+                <td style="vertical-align:top;min-height:400px;" class="right-bar">
+                    <div style="margin-left:30px;font-size:14px" name="cont">
+
+                        <div name="Mid">
+                            <table class="w100" style="border:1px solid #dee3eb;">
+                                <tbody>
+                                <tr>
+                                    <td class="tc vt">
+                                        <img class="mid-icon-1" src="http://image.thinkinggame.cn/img/oc/mid/1_03.png"/>
+                                        <div>已关注<span class="empha with-space" name="followed_project_cnt">0</span>款游戏</div>
+                                        <div class="mid-sub-info">有<span class="empha with-space" name="to_be_followed_project_cnt">0</span>个关注的游戏正在审核中</div>
+                                    </td>
+                                    <td class="tc vt">
+                                        <img class="mid-icon-1" src="http://image.thinkinggame.cn/img/oc/mid/1_05.png"/>
+                                        <div>已为<span class="empha with-space" name="followed_word_classify_project_number">0</span>款游戏添加<span class="empha with-space" name="followed_word_classify_number">0</span>个分类</div>
+                                        <div class="mid-sub-info">共计<span class="empha with-space" name="followed_word_number">0</span>个词汇</div>
+                                    </td>
+                                    <td class="tc vt">
+                                        <img class="mid-icon-1" src="http://image.thinkinggame.cn/img/oc/mid/1_07.png"/>
+                                        <div>已配置<span class="empha with-space" name="user_center_cnt">0</span>个监控任务</div>
+                                        <div class="mid-sub-info">共监控<span class="empha with-spacea" name="keywords_cnt">0</span>个关键词</div>
+                                    </td>
+                                    <td class="tc vt">
+                                        <img class="mid-icon-1" src="http://image.thinkinggame.cn/img/oc/mid/1_09.png"/>
+                                        <div>已为<span class="empha with-space" name="data_source_project_cnt">0</span>款游戏添加<span class="empha with-space" name="data_source_cnt_status_1">0</span>个数据源</div>
+                                        <div class="mid-sub-info">其中<span class="empha with-space" name="data_source_cnt_status_0">0</span>个数据源正在审核中</div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="hdr">管理中心功能概述</div>
+                            <table class="w100 mid">
+                                <tbody>
+                                <tr>
+                                    <td style="padding:20px">
+
+                                        <table class="mid-desc">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img class="mid-icon-2" src="http://image.thinkinggame.cn/img/oc/mid/1.png" />
+                                                    <div class="tc" style="margin-bottom:6px;"><button class="w100" onclick="$('.left-bar').find('[name=UserFollowProjectServlet]').click()">我要关注游戏</button></div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">我的游戏</div>
+                                                    <div class="desc">您可以申请添加关注的游戏，审核通过后，您可以享受以下服务：</div>
+                                                    <div class="desc">1、查看游戏论坛报表、渠道报表；</div>
+                                                    <div class="desc">2、查看论坛及渠道的评论；</div>
+                                                    <div class="desc">3、添加关键词进行舆情监控；</div>
+                                                    <div class="desc">4、添加多个数据源；</div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                    <td style="padding:20px">
+
+                                        <table class="mid-desc">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img class="mid-icon-2" src="http://image.thinkinggame.cn/img/oc/mid/2.png" />
+                                                    <div class="tc" style="margin-bottom:6px;"><button class="w100" onclick="$('.left-bar').find('[name=GasWordsClassifysServlet]').click()">我要添加词汇</button></div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">游戏词汇</div>
+                                                    <div class="desc">您可以为您关注的游戏添加词汇及分类词汇，以便我们为您提供更精准的分析结果，更贴合您的需求：</div>
+                                                    <div class="desc">您可以进行如下操作：</div>
+                                                    <div class="desc">1、增、删、改、查分类和词汇；</div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:20px">
+
+                                        <table class="mid-desc">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img class="mid-icon-2" src="http://image.thinkinggame.cn/img/oc/mid/3.png" />
+                                                    <div class="tc" style="margin-bottom:6px;"><button class="w100" onclick="$('.left-bar').find('[name=UserCenterQueryServlet]').click()">我要添加监控任务</button></div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">舆情监控</div>
+                                                    <div class="desc">您可以配置多个舆情监控任务，进行关键词监控，我们将根据您所设置的推送频率为您推送监控结果：</div>
+                                                    <div class="desc">您可以设置如下内容：</div>
+                                                    <div class="desc">1、监控任务相关信息；</div>
+                                                    <div class="desc">2、设置推动任务的开启状态；</div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                    <td style="padding:20px">
+
+                                        <table class="mid-desc">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img class="mid-icon-2" src="http://image.thinkinggame.cn/img/oc/mid/4.png" />
+                                                    <div class="tc" style="margin-bottom:6px;"><button class="w100" onclick="$('.left-bar').find('[name=ProjectDataSourceServlet]').click()">我要添加论坛</button></div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">添加论坛</div>
+                                                    <div class="desc">您可以为您关注的游戏添加游戏论坛，有助于我们为您提供更精确，更专业的分析结果，您可以进行如下操作：</div>
+                                                    <div class="desc">您可以进行如下操作：</div>
+                                                    <div class="desc">1、查看游戏对应的论坛；</div>
+                                                    <div class="desc">2、编辑论坛相关信息；</div>
+                                                    <div class="desc">3、删除或新增论坛；</div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div name="UserFollowProjectServlet" style="display:none">
+
+                            <div name="UserFollowProjectServlet_PopAfterAdd" style="display:none;width:400px;font-size:14px;line-height:2em">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;尊敬的<span name="nick_name"></span>，您对游戏“<span name="project_name"></span>”的关注申请已经提交，我们将尽快与您核实，请确保您的手机号<span name="mobile"></span>保持通畅。
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;感谢您的支持！</div>
+                                <div class="tc" style="margin-top:10px"><button class="confirm" onclick="layer.closeAll()">关闭</button></div>
+                            </div>
+
+                            <div name="UserFollowProjectAddServlet" style="display:none;width:650px;font-size:14px;line-height:3em">
+                                <table class="pop_add w100">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            游戏名称：
+                                        </td>
+                                        <td>
+                                            <input type="text" placeholder="请输入" class="oc-input" name="project_name" style="width:90%"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            游戏类型：
+                                        </td>
+                                        <td>
+                                            <span style="margin-right:50px" class="radiobox" _attr_name=project_type _attr_val=0 name="project_type" _checked="true">手游</span>
+                                            <span style="margin-right:50px" class="radiobox" _attr_name=project_type _attr_val=1 name="project_type">页游</span>
+                                            <span style="margin-right:50px" class="radiobox" _attr_name=project_type _attr_val=2 name="project_type">端游</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <button class="confirm" onclick="UserFollowProjectServlet.UserFollowProjectAddServlet()">确认提交</button><button style="margin-left:40px" class="cancel" onclick="layer.closeAll()">取消添加</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+
+
+                            <div class="cont-title-bar" style="border:none;">
+                                <span class="font-theme-2">您已经关注了</span><span class="empha" name="followed_project_cnt">0</span><span class="font-theme-2">款游戏</span>&nbsp;&nbsp;<span class="font-theme cp" onclick="UserFollowProjectServlet.query(true)">[刷新]</span>
+                                <span class="fr cp" onclick="UserFollowProjectServlet.add()">+&nbsp;关注游戏</span>
+                            </div>
+                            <div class="loading"></div>
+
+                            <div class="failure"></div>
+
+                            <div name="list" class="done">
+
+                                <table name="status0" class="w100 follow-status" style="display:none">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <img name="project_img" src="http://image.thinkinggame.cn/img/project/0.png" style="display:block;width:96px;margin:auto"/>
+                                            <span name="project_name" style="line-height:3em">刀塔传奇</span>
+                                        </td>
+                                        <td>
+                                            <div style="line-height:3em"><span class="follow-icon-time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>关注时间：<span name="follow_time">2015-10-13</span>
+                                                <span  class="follow-icon-status" style="margin-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>状态：<span class="empha">审核中</span>
+                                                （预计审核完成时间<span name="estimate_status_time">2015-10-12</span>）
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="style5" style="cursor:auto">暂无服务</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                                <table name="status_1" class="w100 follow-status" style="display:none">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <img name="project_img" src="http://image.thinkinggame.cn/img/project/0.png" style="display:block;width:96px;margin:auto"/>
+                                            <span name="project_name" style="line-height:3em">刀塔传奇</span>
+                                        </td>
+                                        <td>
+                                            <div style="line-height:3em"><span class="follow-icon-time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>关注时间：2015-10-13
+                                                <span  class="follow-icon-status" style="margin-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>状态：<span class="empha">审核未通过</span>
+                                                （<span name="status_msg">游戏与公司不匹配</span>）
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="style5" style="cursor:auto">暂无服务</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                                <table name="status1" class="w100 follow-status" style="display:none">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <img name="project_img" src="http://image.thinkinggame.cn/img/project/0.png" style="display:block;width:96px;margin:auto"/>
+                                            <span name="project_name" style="line-height:3em">刀塔传奇</span>
+                                        </td>
+                                        <td>
+                                            <div style="line-height:3em"><span class="follow-icon-task">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>监控任务
+                                                <span class="dashed" style="margin-left:50px">开启<span name="cnt_type_1" class="font-theme" style="font-weight:bold">0</span>个</span><span class="dashed">关闭<span name="cnt_type_0" class="empha-bold">0</span>个</span>
+                                            </div>
+                                            <div style="line-height:3em"><span class="follow-icon-msg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>推送消息
+                                                <span class="dashed" style="margin-left:50px">昨日<span name="task_cnt_yesterday" class="empha-bold">0</span>个</span><span class="dashed">今日<span name="task_cnt_today" class="empha-bold">0</span>个</span>
+                                            </div>
+                                            <div style="line-height:3em"><span class="follow-icon-time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>关注时间：<span name="follow_time">2015-10-13</span>
+                                                <span  class="follow-icon-status" style="margin-left:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>状态：正常使用
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button class="style4" style="margin-bottom:10px" name="forum">查看论坛报表</button><br/>
+                                            <button class="style4" style="margin-top:10px" name="channel">查看渠道评论</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <div name="UserServlet" style="display:none;margin-top:30px">
+                            <table style="line-height:40px;">
+                                <tbody>
+                                <tr><td class="tr">公司名称：</td><td name="company_name"></td></tr>
+                                <tr><td class="tr">真实姓名：</td><td name="nick_name"></td></tr>
+                                <tr><td class="tr">手机号码：</td><td name="mobile"></td></tr>
+                                <tr><td class="tr">企业邮箱：</td><td name="email"></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div name="ChangePasswordServlet" style="display:none;margin-top:30px">
+                            <table style="line-height:40px;">
+                                <tbody>
+                                <tr><td class="tr">旧密码：</td><td><input name="_old_password" class="oc-input" type="password" /></td></tr>
+                                <tr><td class="tr">新密码：</td><td><input name="_password" class="oc-input" type="password" /></td></tr>
+                                <tr><td class="tr">确认新密码：</td><td><input name="_password_confirm" class="oc-input" type="password" /></td></tr>
+                                <tr><td ></td><td><button onclick="ChangePasswordServlet()" class="confirm" style="margin-top:5px">提交</button></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div name="GasWordsClassifysServlet" style="display:none;">
+                            <div name="GasWordsClassifysAddServlet" style="display:none;line-height:4em;font-size:14px;margin-bottom:4px;">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td style="width:120px">所属游戏：</td>
+                                        <td><span name="choose_project"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>所属分类：</td>
+                                        <td><input name="classify_name" class="oc-input" style="width:200px" placeholder="例如：角色人物"/><span name="s_classify_name" style="width:200px"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: top;">添加词汇：</td>
+                                        <td><textarea name="keywords" class="oc-input"  style="width:500px;height:150px;margin-top:20px;" placeholder="请输入词汇，以空格分割"></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="line-height:5em"><button class="confirm">保存添加</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="cancel" onclick="layer.closeAll()">取消添加</button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div  name="list" style="min-height:120px">
+
+                                <div class="cont-title-bar">
+                                    <span name="choose_project"  class="fl for_query" style="padding-top:12px;"></span>
+                                    <span class="fr cp" onclick="GasWordsClassifysServlet.add()">+&nbsp;添加词汇分类</span>
+                                </div>
+
+                                <div class="done" style="margin-top:10px">
+                                    <div class="common-table"></div>
+                                    <div class="page_footer_holder"></div>
+                                </div>
+                                <div class="loading"></div>
+                                <div class="failure"></div>
+
+                            </div>
+                            <div class="hint tc">*通过添加游戏的专有词汇，可以帮助系统更准确，更全面地理解玩家反馈的信息，从而使得我们为您提供更优质的数据分析服务。</div>
+                        </div>
+
+                        <div name="ProjectDataSourceServlet" style="display:none;">
+                            <div name="ProjectDataSourceAddServlet" style="display:none;line-height:4em;font-size:14px;margin-bottom:4px;">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td style="width:120px">所属游戏：</td>
+                                        <td><span name="choose_project"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>论坛名称：</td>
+                                        <td><input name="forum_name" class="oc-input" style="width:200px" placeholder="例如：百度贴吧"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>论坛地址：</td>
+                                        <td><input name="forum_url" class="oc-input"  style="width:500px" placeholder="例如：http://tieba.baidu.com/xxx?xxx"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="line-height:5em"><button class="confirm">保存添加</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="cancel" onclick="layer.closeAll()">取消添加</button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div name="ProjectDataSourceUpdateServlet" style="display:none;line-height:4em;font-size:14px;margin-bottom:4px">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td style="width:120px">选择业务：</td>
+                                        <td><span name="choose_project"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>数据源名称：</td>
+                                        <td><input name="forum_name" class="oc-input" style="width:200px"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>数据源地址：</td>
+                                        <td><input name="forum_url" class="oc-input"  style="width:500px"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="line-height:5em"><button class="confirm">保存修改</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="cancel" onclick="layer.closeAll()">取消修改</button></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div  name="list">
+
+                                <div class="cont-title-bar">
+                                    <span name="choose_project"  class="fl for_query" style="padding-top:12px;"></span>
+                                    <span class="fr cp" onclick="ProjectDataSourceServlet.add()">+&nbsp;添加论坛</span>
+                                </div>
+
+                                <div class="done">
+                                    <table class="w100 common-table">
+                                        <tr>
+                                            <th style="text-align:left;text-indent: 10px;width:50px">编号</th>
+                                            <th style="width:120px">论坛名称</th>
+                                            <th>论坛链接</th>
+                                            <th style="width:180px">最后修改时间</th>
+                                            <th style="width:60px">任务状态</th>
+                                            <th style="width:80px">操作</th>
+                                        </tr>
+                                    </table>
+                                    <div class="page_footer_holder"></div>
+                                </div>
+                                <div class="loading">
+
+                                </div>
+                                <div class="failure">
+
+                                </div>
+
+                            </div>
+
+                            <div class="hint tc">*ThinkingGame平台抓取了游戏行业的主流论坛，如果您所关注的论坛不在其中，请您添加论坛信息，以便于我们能够提供更全面的数据服务。</div>
+                        </div>
+
+                        <div name="UserCenterQueryServlet" style="display:none;">
+                            <div  name="list">
+                                <div class="cont-title-bar">
+                                    <span class="fl font-theme-2">舆情监控任务</span><span class="font-theme fl cp" onclick="UserCenterQueryServlet.query(true)">&nbsp;&nbsp;[刷新]</span><div class="question-mark fl cp" onclick="UserCenterQueryServlet.explain()" style="margin-top:16px;margin-left:10px;">?</div>
+                                    <div class="fl" name="explain" style="width:0;overflow:hidden;margin-left:10px;"><div style="width:640px;color:#a0a8af;font-weight:normal">您可以定制推送消息发送到邮箱，图表化数据可以让您快速了解所关注的关键词助您发现问题。</div></div>
+                                    <span class="fr cp" onclick="UserCenterQueryServlet.add()">+&nbsp;添加新任务</span>
+                                </div>
+
+                                <div class="done">
+                                    <table class="w100 common-table">
+                                        <tr>
+                                            <th style="text-align:left;text-indent: 10px;width:50px">编号</th>
+                                            <th>所属游戏</th>
+                                            <th>任务监控名称</th>
+                                            <th>关注词汇</th>
+                                            <th>最后推送时间</th>
+                                            <th style="width:60px">任务状态</th>
+                                            <th style="width:140px">操作</th>
+                                        </tr>
+                                    </table>
+                                    <div class="page_footer_holder"></div>
+                                </div>
+                                <div class="loading">
+
+                                </div>
+                                <div class="failure">
+
+                                </div>
+
+                            </div>
+                            <div name="UserCenterAddServlet" style="display:none">
+                                <div class="cont-title-bar">
+                                    <span class="fl">添加监控任务</span>
+                                </div>
+                                <table class="pop_add bc w100" style="margin-top:20px">
+                                    <tbody>
+                                    <tr><td><span class="empha">*</span>选择产品：</td><td name="choose_project"></td></tr>
+                                    <tr><td><span class="empha">*</span>任务名称：</td><td><input name="email_title" class="oc-input" type=text placeholder="如：游戏bug监控" style="width:400px"/></td></tr>
+                                    <tr><td><span class="empha">*</span>接收邮箱：</td><td><textarea placeholder="多个邮箱用空格隔开" class="oc-input" name="email_addr" style="width:400px"></textarea></td></tr>
+                                    <tr><td><span class="empha">*</span>关注词汇：</td><td><textarea placeholder="如：bug 不好玩 难 (多个关键词用空格隔开)" class="oc-input" name="keywords" style="width:400px"></textarea></td></tr>
+                                    <tr><td><span class="empha">*</span>发送日期：</td>
+                                        <td name="send_day_of_week">
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=2 _checked="true">星期一</span>
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=3 _checked="true">星期二</span>
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=4 _checked="true">星期三</span>
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=5 _checked="true">星期四</span>
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=6 _checked="true">星期五</span>
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week _attr_val=7>星期六</span>
+                                            <span class="checkbox" _attr_name=send_day_of_week name=send_day_of_week  _attr_val=1>星期日</span>
+                                        </td></tr>
+                                    <tr><td><span class="empha">*</span>推送时间：</td>
+                                        <td>
+                                            <div style="margin-bottom:0.5em">
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=0>00:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=1>01:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=2>02:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=3>03:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=4>04:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=5>05:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=6>06:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=7>07:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=8>08:00</span>
+                                            </div>
+
+                                            <div style="margin-bottom:0.5em">
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=9>09:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=10>10:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=11>11:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=12>12:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=13>13:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=14>14:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=15>15:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=16>16:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=17>17:00</span>
+                                            </div>
+
+
+                                            <div style="margin-bottom:0.5em">
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=18>18:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=19>19:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=20>20:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=21>21:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=22>22:00</span>
+                                                <span class="checkbox" _attr_name=send_hour_of_day name=send_hour_of_day _attr_val=23>23:00</span>
+                                                <span class="checkbox" onclick="UserCenterQueryServlet.AllSend_hour_of_dayClick(this)" name=all_send_hour_of_day>全选/不选</span>
+                                            </div>
+
+
+
+
+                                        </td>
+                                    </tr>
+                                    </tr><tr><td><span class="empha">*</span>按需推送：</td>
+                                        <td>
+                                            <div style="margin-bottom:10px;color:#a9a9a9">若您选择了按需推送，为了避免无效邮件对您造成消息困扰，我们将只在您关注的词汇出现的情况下进行邮件推送。</div>
+                                            <span class="radiobox" _attr_name=ignore_empty _attr_val=1 name="ignore_empty" _checked="true">是</span>
+                                            <span class="radiobox" _attr_name=ignore_empty _attr_val=0 name="ignore_empty">否</span>
+                                        </td>
+                                    </tr>
+                                    <tr><td><span class="empha">*</span>开启状态：</td>
+                                        <td>
+                                            <span class="radiobox" _attr_name=status _attr_val=1 name="status" _checked="true">开启</span>
+                                            <span class="radiobox" _attr_name=status _attr_val=0 name="status">关闭</span>
+                                        </td>
+                                    <tr><td></td>
+                                        <td style="padding-top:50px">
+                                            <button class="confirm">确认提交</button><button onclick="UserCenterQueryServlet.cancelAdd()" class="cancel" style="margin-left:30px;">取消添加</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div name="UserCenterUpdateServlet" style="display:none"></div>
+
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+    </div>
+
+<div name="chat_service_demo" class="demo_box_0" style="display: none">
+    <div class="demo_box" page_index="0" max_page_index="3">
+        <table class="demo_pages_container" style="width:400%">
+            <tbody>
+                <tr>
+                    <td class="each_page tc" style="width:25%"><img style="width:80%;" src="http://image.thinkinggame.cn/img/service_demo/demo_chat_1.png"/></td>
+                    <td class="each_page tc" style="width:25%"><img style="width:80%;" src="http://image.thinkinggame.cn/img/service_demo/demo_chat_2.png"/></td>
+                    <td class="each_page tc" style="width:25%"><img style="width:80%;" src="http://image.thinkinggame.cn/img/service_demo/demo_chat_3.png"/></td>
+                    <td class="each_page tc" style="width:25%"><img style="width:20%;cursor: pointer;" src="http://image.thinkinggame.cn/img/service_demo/demo_chat_4.png" onclick="Jump2DemoChat();"/></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <div class="left-arrow"></div>
+    <div class="right-arrow"></div>
+
+    <div class="tc demo_page_index" page_index="0"><span class="font-theme">1</span>/4</div>
+    <div class="tc demo_page_index" page_index="1" style="display: none"><span class="font-theme">2</span>/4</div>
+    <div class="tc demo_page_index" page_index="2" style="display: none"><span class="font-theme">3</span>/4</div>
+    <div class="tc demo_page_index" page_index="3" style="display: none"><span class="font-theme">4</span>/4</div>
+
+</div>
+
+<div name="yuqin_service_demo" class="demo_box_0" style="display: none">
+    <div class="demo_box" page_index="0" max_page_index="1">
+        <table class="demo_pages_container" style="width:200%">
+            <tbody>
+            <tr>
+                <td class="each_page tc" style="width:50%"><img style="width:80%;" src="http://image.thinkinggame.cn/img/service_demo/demo_yuqing_1.png"/></td>
+                <td class="each_page tc" style="width:50%"><img style="width:80%;" src="http://image.thinkinggame.cn/img/service_demo/demo_yuqing_2.png"/></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <div class="left-arrow" style="top:300px;"></div>
+    <div class="right-arrow" style="top:300px;"></div>
+
+    <div class="tc demo_page_index" page_index="0"><span class="font-theme">1</span>/2</div>
+    <div class="tc demo_page_index" page_index="1" style="display: none"><span class="font-theme">2</span>/2</div>
+
+</div>
+
+<div name="reci_service_demo" class="demo_box_0" style="display: none">
+    <div class="demo_box" page_index="0" max_page_index="2">
+        <table class="demo_pages_container" style="width:300%">
+            <tbody>
+            <tr>
+                <td class="each_page tc" style="width:33.3333%"><img style="width:80%;" src="http://image.thinkinggame.cn/img/service_demo/demo_ci_1.png"/></td>
+                <td class="each_page tc" style="width:33.3333%"><img style="width:80%;" src="http://image.thinkinggame.cn/img/service_demo/demo_ci_2.png"/></td>
+                <td class="each_page tc" style="width:33.3333%"><img style="width:80%;" src="http://image.thinkinggame.cn/img/service_demo/demo_ci_3.png"/></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <div class="left-arrow"></div>
+    <div class="right-arrow"></div>
+
+    <div class="tc demo_page_index" page_index="0"><span class="font-theme">1</span>/3</div>
+    <div class="tc demo_page_index" page_index="1" style="display: none"><span class="font-theme">2</span>/3</div>
+    <div class="tc demo_page_index" page_index="2" style="display: none"><span class="font-theme">3</span>/3</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.thinkingdata.web.persistence.user.custom.inner.operation.Mapper_game_common_stat_day">
+
+    <select id="getGameCommonStatDayListByGameId" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_game_common_stat_day">
+        select * from inner_game.game_common_stat_day where game_id = #{game_id} and data_date > #{data_date} order by data_date desc
+    </select>
+
+    <select id="getGameCommonStatDayAvgByGameId" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_game_common_stat_day">
+        select a.* from
+        (
+            select '1' avg_order,avg_online_minutes,avg_login_times,pay_rate,arpu,newlogin_num,login_num,pay_num from inner_game.game_common_stat_day where game_id = #{game_id} and data_date = DATE_SUB(#{data_date},INTERVAL 1 DAY)
+            union all
+            select '2' avg_order, avg(avg_online_minutes) avg_online_minutes,avg(avg_login_times) avg_login_times,avg(pay_rate) pay_rate,avg(arpu) arpu,avg(newlogin_num) newlogin_num,avg(login_num) login_num,avg(pay_num) pay_num from inner_game.game_common_stat_day where game_id = #{game_id} and data_date between DATE_SUB(#{data_date},INTERVAL 7 DAY) and #{data_date}
+            union all
+            select '3' avg_order, avg(avg_online_minutes) avg_online_minutes,avg(avg_login_times) avg_login_times,avg(pay_rate) pay_rate,avg(arpu) arpu,avg(newlogin_num) newlogin_num,avg(login_num) login_num,avg(pay_num) pay_num from inner_game.game_common_stat_day where game_id = #{game_id} and data_date between DATE_SUB(#{data_date},INTERVAL 30 DAY) and #{data_date}
+        ) a  order by avg_order
+    </select>
+
+    <select id="getGameCommonStatDayListByGameIdAndDate" resultType="cn.thinkingdata.web.domain.user.custom.inner.game.Do_game_common_stat_day">
+        select * from inner_game.game_common_stat_day where game_id = #{game_id} and data_date between #{start_date} and #{end_date} order by data_date desc
+    </select>
+
+</mapper>

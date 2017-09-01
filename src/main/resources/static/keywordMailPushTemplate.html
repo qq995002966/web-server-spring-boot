@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<head>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<style type="text/css">
+
+body,button {
+    font-family: verdana,arial,sans-serif;
+	color:#707070;
+	margin:0;
+	padding:0;
+}
+
+
+
+.tc
+{
+text-align:center;
+}
+
+.fc1
+{
+	color:#03a9f5;
+}
+
+.fc2
+{
+	color:#dbdbdb;
+}
+
+
+table.t1
+{
+	width:800px;
+	border-collapse:collapse;
+	font-size:14px;
+	table-layout:fixed;
+	line-height:30px;
+}
+
+table.t1 td
+{
+	border:1px solid #dee3eb;
+	text-align:center;
+}
+
+table.t1 .subtitle
+{
+}
+
+
+.bg1
+{
+	background-color:#fcfcfc;
+}
+
+.bg2
+{
+	background-color:#efefef;
+	border:1px solid #efefef;
+	text-align:center;
+}
+
+
+</style></head>
+
+<body style="background-color:#f5f5f5;">
+
+<div class="w fc1" style="background-color:#d6e0ea;width:802px;margin:auto;">
+<img src="http://image.thinkinggame.cn/img/about/5.png" style="width:100%;display:block;" />
+</div>
+
+<div style="text-align:center;color:#03a9f5;width:802px;margin:auto;background-color:#ffffff;border-radius:3px;font-size:14px;line-height:30px;">【ThinkingGame】#<projectName> #<emailTitle></div>
+
+<br/>
+<br/>
+
+<div style="width:802px;margin:auto;">
+
+<table class="t1">
+
+<tr><td class="bg1" style="width:50%">监控时间段</td><td class="bg1" style="width:50%">下一次推送时间</td></tr>
+<tr><td>#<monitorTimeSpan></td><td>#<nextPushTime></td></tr>
+<tr><td class="bg1">论坛新增帖子数</td><td class="bg1">渠道新增评论数</td></tr>
+<tr><td>#<forumPostNum></td><td>#<channelPostNum></td></tr>
+<tr><td class="bg1">论坛数据来源</td><td class="bg1">渠道数据来源</td></tr>
+<tr><td>#<forumSources></td><td>#<channelSources></td></tr>
+</table>
+
+<br/>
+<br/>
+
+<table class="t1">
+<tr> 
+<th colspan="3" class="bg2">论坛帖子监控</th>
+</tr>
+
+<tr><td class="subtitle">关键词</td><td class="subtitle">出现次数</td><td class="subtitle">查看详情</td></tr>
+
+<forum_keyword_loop><tr style="display:#<if_no_forum_data_hidden_else_block>"><td>#<forum_keyword></td><td>#<forum_keyword_num></td><td><a class="fc1" target=blank href="http://www.thinkingdata.cn/forum.html?project_id=#<project_id>&keyword=#<forum_keyword>&data_date_start=#<data_date_start>&data_date_end=#<data_date_end>">查看</a></td></tr></forum_keyword_loop>
+<tr style="display:#<if_no_forum_data_block_else_hidden>"><td colspan="3" class="fc2">无论坛数据</td></tr>
+</table>
+
+<br/>
+<br/>
+
+<table class="t1">
+<tr> 
+<th colspan="3" class="bg2">渠道评论监控</th>
+</tr>
+
+<tr><td class="subtitle">关键词</td><td class="subtitle">出现次数</td><td class="subtitle">查看详情</td></tr>
+
+<channel_keyword_loop><tr style="display:#<if_no_channel_data_hidden_else_block>"><td>#<channel_keyword></td><td>#<channel_keyword_num></td><td><a class="fc1" target=blank href="http://www.thinkingdata.cn/channel.html?project_id=#<project_id>&keyword=#<channel_keyword>&data_date_start=#<data_date_start>&data_date_end=#<data_date_end>">查看</a></td></tr></channel_keyword_loop>
+<tr style="display:#<if_no_channel_data_block_else_hidden>"><td colspan="3" class="fc2">无渠道数据</td></tr>
+</table>
+
+</div>
+
+<br/>
+<br/>
+
+
+
+<div style="width:802px;margin:auto;border-radius:3px;font-size:14px;line-height:30px;color:#ffffff;background-color:#7e92a7;padding-top:1em;padding-bottom:1em;text-align:center">
+<div>您有任何疑问，请联系我们，联系电话18121290606，或发送邮件到service@thinkingdata.cn</div>
+<div>@THINKINGGAME All Rights reserved. 数数信息科技（上海）有限公司 沪ICP备15030552</div>
+</div>
+
+
+</body>
+
+</html>
